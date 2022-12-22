@@ -1,0 +1,10 @@
+[ {
+  "Name": "Deploy and manage host pools and hosts by using PowerShell",
+  "Language": "English",
+  "Files": [
+    {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LAB_03L01_Configure_Conditional_Access_policies_for_AVD_ADDS.md",
+        "Order": 1
+     }  
+  ]
+} ]
