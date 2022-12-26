@@ -1,0 +1,14 @@
+[ {
+  "Name": "Manage User Environments and Apps",
+  "Language": "English",
+  "Files": [
+    {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LAB_04L01_Implement_and_manage_AVD_profiles_ADDS.md",
+        "Order": 1
+     },
+    {
+      "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LAB_04L02_Package_AVD_applications_ADDS.md",
+      "Order": 2
+    }
+  ]
+} ]
