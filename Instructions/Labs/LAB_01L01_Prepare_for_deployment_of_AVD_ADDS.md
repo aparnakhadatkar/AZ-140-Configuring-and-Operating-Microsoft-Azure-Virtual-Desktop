@@ -1,9 +1,3 @@
----
-lab:
-    title: 'Lab: Prepare for deployment of Azure Virtual Desktop (AD DS)'
-    module: 'Module 1: Plan a AVD Architecture'
----
-
 # Lab - Prepare for deployment of Azure Virtual Desktop (AD DS)
 # Student lab manual
 
@@ -34,62 +28,6 @@ After completing this lab, you will be able to:
 -  \\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploycl11.parameters.json
 
 ## Instructions
-
-### Exercise 0: Increase the number of vCPU quotas
-
-The main tasks for this exercise are as follows:
-
-1. Identify current vCPU usage
-1. Request vCPU quota increase
-
-#### Task 1: Identify current vCPU usage
-
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-1. In the Azure portal, open **Cloud Shell** pane by selecting the toolbar icon directly to the right of the search textbox.
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
-
-   >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
-
-1. In the Azure portal, in the PowerShell session of the **Cloud Shell**, run the following to register the **Microsoft.Compute** resource provider, in case it's not registered:
-
-   ```powershell
-   Register-AzResourceProvider -ProviderNamespace 'Microsoft.Compute'
-   ```
-
-1. In the Azure portal, in the PowerShell session of the **Cloud Shell**, run the following to verify the registration status of the **Microsoft.Compute** resource provider:
-
-   ```powershell
-   Get-AzResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Compute'}
-   ```
-
-   >**Note**: Verify that the status is listed as **Registered**. If not, wait a few minutes and repeat this step.
-
-1. In the Azure portal, in the PowerShell session of the **Cloud Shell**, run the following to identify the current usage of vCPUs and the corresponding limits for the **StandardDSv3Family** and **StandardBSFamily** Azure VMs (replace the `<Azure_region>` placeholder with the name of the Azure region that you intend to use for this lab, such as, for example, `eastus`):
-
-   ```powershell
-   $location = '<Azure_region>'
-   Get-AzVMUsage -Location $location | Where-Object {$_.Name.Value -eq 'StandardDSv3Family'}
-   Get-AzVMUsage -Location $location | Where-Object {$_.Name.Value -eq 'StandardBSFamily'}
-   ```
-
-   > **Note**: To identify the names of Azure regions, in the **Cloud Shell**, at the PowerShell prompt, run `(Get-AzLocation).Location`.
-   
-1. Review the output of the command executed in the previous step and ensure that you have at least **30** available vCPUs in both the **Standard DSv3 Family vCPUs** and **Standard BS Family vCPUs** of Azure VMs in the target Azure region. If that's already the case, proceed directly to the next exercise. Otherwise, proceed to the next task of this exercise. 
-
-#### Task 2: Request vCPU quota increase
-
-1. In the Azure portal, search for and select **Subscriptions** and, from the **Subscriptions** blade, select the entry representing the Azure subscription you intend to use for this lab.
-1. In the Azure portal, on the subscription blade, in the vertical menu on the left side, in the **Settings** section, select **Usage + quotas**. 
-
-   **Note:** You might not need to raise a support ticket to increase quotas.
-   
-1. On the **Azure Pass – Sponsorship | Usage + quotas** blade, select **Region**, in the drop down list, select the checkbox next to the name of the Azure region you intend to use for this lab, ensure that the **Compute** entry appears in the drop down list to the left of the **Region** entry, and, in the search box, type **Standard BS**. 
-1. In the list of results, select the checkbox next to the **Standard BS Family vCPUs** item, select the **Request quota increase** entry in the toolbar, and, in the drop down list, select **Enter a new limit**.
-1. In the **Request quota increase** pane, in the **New limit** column text box, type **30**, and then select **Submit**.
-1. Allow the quota request to complete.  After a few moments, the **Quota Details** blade will specify the request has been approved and Quota increased. Close the **Quota Details** blade.
-1. Repeat the steps 3-6 to set the quota limit for the **Standard DSv3** VM size to **30**.
-
-   >**Note**: Depending on the choice of the Azure region and the current demand, it might be necessary to raise a support request. For instructions regarding the process of creating support request, refer to [Create an Azure support request])https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ### Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
 
