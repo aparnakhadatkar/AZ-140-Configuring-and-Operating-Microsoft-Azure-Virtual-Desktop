@@ -62,8 +62,8 @@ The main tasks for this exercise are as follows:
    |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|the name of a new resource group **az140-22-RG**|
-   |Storage account name|any globally unique name between 3 and 15 in length consisting of lower case letters and digits, starting with a letter|
+   |Resource group|create a new resource group with the name **az140-22-RG**|
+   |Storage account name|`storage<DeploymentID>`. Replace `<DeploymentID>` placeholder with the DeploymentID value available in the lab guide's **Environment Details** tab
    |Region|the name of an Azure region hosting the Azure Virtual Desktop lab environment|
    |Performance|**Standard**|
    |Redundancy|**Geo-redundant storage (GRS)**|
