@@ -154,7 +154,7 @@ The main tasks for this exercise are as follows:
    |Virtual machine location|the name of the Azure region into which you deployed resources in the first exercise of this lab|
    |Availability options|**No infrastructure redundancy required**|
    |Image type|**Gallery**|
-   |Image|**Windows 10 Enterprise multi-session, Version 20H2 + Microsoft 365 Apps**|
+   |Image|**Windows 11 Enterprise multi-session + Microsoft 365 Apps, version 22H2**|
    |Virtual machine size|**Standard D2s v3**|
    |Number of VMs|**2**|
    |OS disk type|**Standard SSD**|
@@ -198,7 +198,7 @@ The main tasks for this exercise are as follows:
    |Virtual machine location|the name of the Azure region into which you deployed the first two session host VMs|
    |Availability options|**No infrastructure redundancy required**|
    |Image type|**Gallery**|
-   |Image|**Windows 10 Enterprise multi-session, Version 2004 + Microsoft 365 Apps**|
+   |Image|**Windows 11 Enterprise multi-session + Microsoft 365 Apps, version 22H2**|
    |Number of VMs|**1**|
    |Virtual network|**az140-adds-vnet11**|
    |Subnet|**hp1-Subnet (10.0.1.0/24)**|
