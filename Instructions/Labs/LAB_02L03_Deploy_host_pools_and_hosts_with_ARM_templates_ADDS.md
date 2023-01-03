@@ -34,6 +34,7 @@ After completing this lab, you will be able to:
 -  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuremodifyhp23.parameters.json
 
 ## Instructions
+
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
@@ -46,8 +47,10 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-1. Once logged in, a logon task will start executing. Wait for it to complete and present you with **Microsoft Azure Active Directory Connect** wizard.
-   > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 5 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
+1. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
+   > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
+
+
 1. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 1. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 1. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
@@ -82,6 +85,7 @@ After completing this lab, you will be able to:
 1. On the **Users \| All users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
+
 
 
 ### Exercise 1: Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
