@@ -34,7 +34,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect
+### Exercise 0: Prerequisite - Setup Azure AD Connect and storage for AVD
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -85,7 +85,7 @@ After completing this lab, you will be able to:
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
 
-
+1. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`
 
 ### Exercise 1: Implement FSLogix based profiles for Azure Virtual Desktop
 
