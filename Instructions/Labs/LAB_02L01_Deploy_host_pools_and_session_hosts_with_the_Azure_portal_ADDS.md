@@ -157,11 +157,12 @@ The main tasks for this exercise are as follows:
    |Name prefix|**az140-21-p1**|
    |Virtual machine location|the name of the Azure region into which you deployed resources in the first exercise of this lab|
    |Availability options|**No infrastructure redundancy required**|
-   |Image type|**Gallery**|
+   |Security type|**Standard**|
    |Image|**Windows 11 Enterprise multi-session + Microsoft 365 Apps, version 22H2**|
    |Virtual machine size|**Standard D2s v3**|
    |Number of VMs|**2**|
    |OS disk type|**Standard SSD**|
+   |Boot Diagnostics|**Enable with managed storage account (recommended)**|
    |Virtual network|**az140-adds-vnet11**|
    |Subnet|**hp1-Subnet (10.0.1.0/24)**|
    |Network security group|**Basic**|
