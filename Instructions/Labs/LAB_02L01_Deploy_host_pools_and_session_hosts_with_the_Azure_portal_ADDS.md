@@ -224,7 +224,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Review + create** tab of the **Add virtual machines to a host pool** blade, select **Create**
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. The deployment might take about 5 minutes. 
+   > **Note**: Wait for the deployment to complete before you proceed to the next task. The deployment might take about 10 minutes. 
 
 #### Task 4: Configure Azure Virtual Desktop application groups
 
