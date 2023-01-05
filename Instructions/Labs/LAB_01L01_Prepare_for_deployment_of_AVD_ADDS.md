@@ -148,7 +148,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Review + create** tab of the **Create a Bastion** blade, select **Create**:
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 5 minutes.
+   > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 12 minutes.
 
 ### Exercise 2: Integrate an AD DS forest with an Azure AD tenant
   
