@@ -409,6 +409,9 @@ The main tasks for this exercise are as follows:
 
 1. At the Command Prompt, type **logoff** and press the **Enter** key to log off from the current Remote App session.
 1. Within the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** client window, in the list of applications, double-click **SessionDesktop** and verify that it launches a Remote Desktop session. 
+
+   > **Note**: If you get a display message **The Group Policy Client service failed the sign-in - Access is denied**, search and select **Virtual Machines** in the Azure portal. In the **Virtual Machines** page, select the checkbox next to the VMs **az140-21-p1-0**, **az140-21-p1-1** and **az140-21-p1-2**, and select **Restart** in the above toolbar. Monitor the notification for VM restart. When restarted, in the **az140-cl-vm11**, in the **Remote Desktop** client window, double-click **SessionDesktop** again and verify that it launches a Remote Desktop session.
+
 1. Within the **Default Desktop** session, right-click **Start**, select **Run**, in the **Open** text box of the **Run** dialog box, type **cmd** and select **OK**. 
 1. Within the **Default Desktop** session, at the Command Prompt, type **hostname** and press the **Enter** key to display the name of the computer on which the Remote Desktop session is running.
 1. Verify that the displayed name is either **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**.
