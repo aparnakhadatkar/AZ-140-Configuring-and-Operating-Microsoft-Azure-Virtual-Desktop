@@ -9,19 +9,13 @@
       "value": "Pa55w.rd1234"
     },
     "domainName": {
-      "value": null
+      "value": "adatum.com"
     },
     "vmSize": {
       "value": "Standard_D2s_v3"
     },
     "_artifactsLocation": {
-      "value": "[deployment().properties.templateLink.uri]"
-    },
-    "_artifactsLocationSasToken": {
-      "value": null
-    },
-    "location": {
-      "value": "[resourceGroup().location]"
+      "value": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/"
     },
     "virtualMachineName": {
       "value": "az140-dc-vm11"
@@ -46,6 +40,15 @@
     },
     "availabilitySetName": {
       "value": "az140-dc-advset11"
+    },
+    "AzureUserName": {
+      "value": "GET-AZUSER-UPN"
+    },
+    "AzurePassword": {
+      "value": "GET-AZUSER-PASSWORD"
+    },
+    "DeploymentID": {
+      "value": "GET-DEPLOYMENT-ID"
     }
   }
 }
