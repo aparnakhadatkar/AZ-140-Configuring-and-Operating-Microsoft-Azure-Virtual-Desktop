@@ -75,7 +75,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Create an Azure VM with a new AD Forest** blade, select **Review + create** and select **Create**.
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 15 minutes. 
+   > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take close to 20 minutes. 
 
 #### Task 3: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
