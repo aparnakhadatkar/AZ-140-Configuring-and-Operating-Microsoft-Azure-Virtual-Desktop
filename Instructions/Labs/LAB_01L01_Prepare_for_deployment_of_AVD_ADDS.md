@@ -90,8 +90,12 @@ The main tasks for this exercise are as follows:
      -VirtualNetwork $vnet
    $vnet | Set-AzVirtualNetwork
    ```
+ 
 
-1. In the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, and upload the files **\\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploycl11.json** and **\\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploycl11.parameters.json** into the Cloud Shell home directory.
+1. In the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\01** and select the template file **az140-11_azuredeploycl11.json** and select **Open**. This will upload the file into the Cloud Shell home directory.
+
+1. Once again, select the **Upload/Download files** icon in the Cloud Shell pane, in the drop-down menu select **Upload**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\01** and select the template file **az140-11_azuredeploycl11.parameters.json** and select **Open**.
+
 1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that will serve as a client into the newly created subnet:
 
    ```powershell
