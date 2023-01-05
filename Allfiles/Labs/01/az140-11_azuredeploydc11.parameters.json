@@ -40,15 +40,6 @@
     },
     "availabilitySetName": {
       "value": "az140-dc-advset11"
-    },
-    "AzureUserName": {
-      "value": "GET-AZUSER-UPN"
-    },
-    "AzurePassword": {
-      "value": "GET-AZUSER-PASSWORD"
-    },
-    "DeploymentID": {
-      "value": "GET-DEPLOYMENT-ID"
     }
   }
 }
