@@ -375,6 +375,9 @@ The main tasks for this exercise are as follows:
 1. From the [Download Microsoft Azure Active Directory Connect page](https://www.microsoft.com/en-us/download/details.aspx?id=47594), scroll down and download the **Microsoft Azure Active Directory Connect** by selecting red **Download** button.
 1. If prompted whether to run or save the **AzureADConnect.msi** installer, select **Run**. Otherwise, open the file after it downloads to start the **Microsoft Azure Active Directory Connect** wizard.
 1. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+
+![Azure AD Connect Wizard](./images/welcome-aad-connect-v2.jpg)
+
 1. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 1. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 1. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
