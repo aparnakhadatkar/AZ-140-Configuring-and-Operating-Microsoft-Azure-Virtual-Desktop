@@ -1,8 +1,3 @@
----
-lab:
-    title: 'Lab: Implement and manage storage for AVD (AD DS)'
-    module: 'Module 2: Implement a AVD Infrastructure'
----
 
 # Lab - Implement and manage storage for AVD (AD DS)
 # Student lab manual
