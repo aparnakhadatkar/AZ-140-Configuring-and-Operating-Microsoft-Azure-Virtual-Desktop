@@ -172,6 +172,7 @@ The main tasks for this exercise are as follows:
    |Password|**Pa55w.rd1234**|
 
   > **Note**: If you see the Networks window **Do you want your PC to be discoverable by other Pcs and devices on this network?**, close it by selecting **No**.
+  
   > **Note**: Close the **Server Manager** window/program. 
   
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
