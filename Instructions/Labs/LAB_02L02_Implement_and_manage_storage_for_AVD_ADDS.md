@@ -155,6 +155,11 @@ The main tasks for this exercise are as follows:
    ```
 
 1. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+   > **Note**: If you get a **Microsoft Azure : Help us protect your account** popup, select **Skip for now (14 days until this is required)**.
+
+   > **Note**: If you get a **Windows Security Warning** popup asking "When you send information to the Internet, it might be possible for others to see that information. Do you want to continue?", select the checkbox **Don't show this message again** and select **Yes**.
+
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to set the variables necessary to run the subsequent script:
 
    ```powershell
