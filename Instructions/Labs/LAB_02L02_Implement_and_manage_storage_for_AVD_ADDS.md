@@ -173,6 +173,8 @@ The main tasks for this exercise are as follows:
    >**Note**: If you receive an error when running this script block, ensure that you are in the same directory as the CopyToPSPath.ps1 script. Depending on how the files were extracted earlier in this lab, they might be in a sub-folder named AzFilesHybrid. In the PowerShell context, change directories to the folder using **cd AzFilesHybrid**.
 
    ```powershell
+   cd C:\Allfiles\Labs\02
+   
    Set-Location -Path 'C:\Allfiles\Labs\02'
    .\CopyToPSPath.ps1 
    Import-Module -Name AzFilesHybrid
