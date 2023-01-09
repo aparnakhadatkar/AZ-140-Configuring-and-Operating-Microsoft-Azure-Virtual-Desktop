@@ -99,17 +99,6 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-1. When prompted, provde the following credentials and select **Connect**:
-
-   |Setting|Value|
-   |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool session hosts:
 
    ```powershell
