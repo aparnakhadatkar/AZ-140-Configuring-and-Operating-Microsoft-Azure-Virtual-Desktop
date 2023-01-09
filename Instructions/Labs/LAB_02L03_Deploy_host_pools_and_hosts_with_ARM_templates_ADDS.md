@@ -264,6 +264,10 @@ The main tasks for this exercise are as follows:
    |User Name|**Student@adatum.com**|
    |Password|**Pa55w.rd1234**|
 
+  > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**.
+  > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+  > **Note**: If the VM stays in the loading state in the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentails.
+
 1. Within the Remote Desktop session to **az140-cl-vm11**, click **Start** and, in the **Start** menu, select the **Remote Desktop** client app.
 2. In the Remote Desktop window, click the ellipsis icon in the upper right corner, in the dropdown menu, click **Unsubscribe**, and, when prompted for confirmation, click **Continue**.
 3. Within the Remote Desktop session to **az140-cl-vm11**, in the Remote Desktop window, on the **Let's get started page**, click **Subscribe**.
