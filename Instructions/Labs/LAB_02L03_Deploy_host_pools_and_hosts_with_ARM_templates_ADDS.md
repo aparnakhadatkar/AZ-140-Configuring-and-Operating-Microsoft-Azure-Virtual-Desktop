@@ -270,8 +270,10 @@ The main tasks for this exercise are as follows:
   
   > **Note**: If the VM stays in the loading state in the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentails.
 
-9. Within the Remote Desktop session to **az140-cl-vm11**, click **Start** and, in the **Start** menu, select the **Remote Desktop** client app.
-10. In the Remote Desktop window, click the ellipsis icon in the upper right corner, in the dropdown menu, click **Unsubscribe**, and, when prompted for confirmation, click **Continue**.
+9. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) and, when prompted, select **Run** to start its installation. On the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. When prompted by User Account Control for administrative credentials, authenticate by using the **ADATUM\\Student** username with **Pa55w.rd1234** as its password.
+
+10. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
+
 11. Within the Remote Desktop session to **az140-cl-vm11**, in the Remote Desktop window, on the **Let's get started page**, click **Subscribe**.
 12. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser7** credentials, by providing its userPrincipalName and **Pa55w.rd1234** as its password.
 
