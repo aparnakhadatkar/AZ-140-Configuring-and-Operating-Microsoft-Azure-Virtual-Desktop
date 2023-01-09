@@ -80,7 +80,11 @@ After completing this lab, you will be able to:
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
 
+1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
+   ```powershell
+   New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
+   ```
 
 ### Exercise 1: Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
   
