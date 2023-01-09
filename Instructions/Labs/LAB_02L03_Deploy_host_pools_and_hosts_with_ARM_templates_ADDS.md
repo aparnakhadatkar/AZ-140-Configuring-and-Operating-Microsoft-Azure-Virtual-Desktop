@@ -303,7 +303,7 @@ The main tasks for this exercise are as follows:
 1. When prompted to sign in, provide the user principal name of the **aduser8** user account with the password you set when creating this account.  
 
    > **Note**: If you're asked to select an account **Pick an account** pane in the Microsoft Sign in window, click **Use another account** and, when prompted, sign in by using the credentials of the **aduser8** user account.
-1. In the **Stay signed in to all your apps** window, clear the checkbox **Allow my organization to manage my device** checkbox and select **No, sign in to this app only**. 
+1. If you get the **Stay signed in to all your apps** window, clear the checkbox **Allow my organization to manage my device** checkbox and select **No, sign in to this app only**. 
 1. On the **Remote Desktop** page, double-click the **SessionDesktop** icon, verify that you receive an error message stating **We couldn't connect because there are currently no available resources. Try again later or contact tech support for help if this keeps happening**, and click **OK**.
 
    > **Note**: This is expected since the host pool is configured for direct assignment and **aduser8** has not been assigned a host.
