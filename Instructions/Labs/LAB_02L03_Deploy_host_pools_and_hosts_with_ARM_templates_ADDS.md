@@ -310,7 +310,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: This is expected since the host pool is configured for direct assignment and **aduser8** has not been assigned a host.
 
-27. Switch to your lab computer, to the web browser displaying the Azure portal and, on the **az140-23-hp2 \| Session hosts** blade, select the **(Assign)** link in the **Assigned User** column next to one of the two remaining unassigned hosts.
+27. Switch to your lab computer, to the web browser displaying the Azure portal and, on the **az140-23-hp2** blade, select **Session hosts** in the veritcal menu in the left side, and select the **(Assign)** link in the **Assigned User** column next to one of the two remaining unassigned hosts.
 28. On the **Assign a user**, select **aduser8**, click **Select** and, when prompted for confirmation, click **OK**.
 29. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, double-click the **SessionDesktop** icon, when prompted for the password, type the password you set when creating this user account, click **OK**, and verify that you can successfully sign in to the assigned host.
 
