@@ -154,7 +154,6 @@ The main tasks for this exercise are as follows:
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Create and provision new Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/CreateAndProvisionHostPool). 
 1. On the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 1. On the **Custom deployment** blade, select **Edit parameters**.
-1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, select **\\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuredeployhp23.parameters.json**, select **Open**, and then select **Save**. 
 1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and select the file **az140-23_azuredeployhp23.parameters.json**, select **Open**, and then select **Save**. 
 1. Back on the **Custom deployment** blade, specify the following settings (leave others with their existing values):
 
@@ -208,10 +207,12 @@ The main tasks for this exercise are as follows:
 
 #### Task 5: Add hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
-1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Add sessionhosts to an existing Azure Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/AddVirtualMachinesToHostPool). 
-1. On the **ARM Template to Add sessionhosts to an existing Azure Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
+1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/AddVirtualMachinesToHostPool). 
+1. On the **ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 1. On the **Custom deployment** blade, select **Edit parameters**.
-1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, select **\\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuremodifyhp23.parameters.json**, select **Open**, and then select **Save**. 
+
+1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and select the file **az140-23_azuremodifyhp23.parameters.json**, select **Open**, and then select **Save**. 
+
 1. Back on the **Custom deployment** blade, specify the following settings (leave others with their existing values):
 
    |Setting|Value|
