@@ -284,7 +284,8 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Now let's switch the personal desktop assignment from the direct mode to automatic. 
 
-1. Switch to your lab computer, to the web browser displaying the Azure portal, on the **az140-23-hp2-DAG \| Assignments** blade, in the informational bar directly above the list of assignments, click the **Assign VM** link. This will redirect you to the **az140-23-hp2 \| Session hosts** blade. 
+1. Switch to your lab computer, to the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Application groups**, and on the **az140-23-hp2-DAG** vertical menu in the left side, select the **Assignments**. In the informational bar directly above the list of assignments, click the **Assign VM** link. This will redirect you to the **az140-23-hp2 \| Session hosts** blade. 
+
 1. On the **az140-23-hp2 \| Session hosts** blade, verify that one of the hosts has **aduser7** listed in the **Assigned User** column.
 
    > **Note**: This is expected since the host pool is configured for automatic assignment.
