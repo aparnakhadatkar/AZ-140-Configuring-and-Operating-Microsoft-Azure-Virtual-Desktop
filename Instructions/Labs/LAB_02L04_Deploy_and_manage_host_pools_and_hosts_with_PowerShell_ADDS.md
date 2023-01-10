@@ -193,7 +193,7 @@ The main tasks for this exercise are as follows:
 
 1. Select **Upload** and navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
 
-1. Within the Bastion session to **az140-dc-vm11**, open File Explorer and navigate to the previously configured Z:, or the drive letter assigned to the connection to the File Share. Copy the uploaded deployment files to **C:\AllFiles\Labs\02**.
+1. Within the Bastion session to **az140-dc-vm11**, open File Explorer and navigate to the previously configured **Z** drive:, or the drive letter assigned to the connection to the File Share. Copy the uploaded deployment files to **C:\AllFiles\Labs\02**.
 
 1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to deploy an Azure VM running Windows 10 Enterprise (multi-session) that will serve as a Azure Virtual Desktop session host in the host pool you created in the previous task:
 
