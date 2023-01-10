@@ -281,6 +281,8 @@ The main tasks for this exercise are as follows:
    $resourceGroupName = 'az140-24-RG'
    $hostPoolName = 'az140-24-hp3'
    $registrationInfo = New-AzWvdRegistrationInfo -ResourceGroupName $resourceGroupName -HostPoolName $hostPoolName -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
+   $registrationInfo
+   $registrationInfo.Token
    ```
    > **Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
 
