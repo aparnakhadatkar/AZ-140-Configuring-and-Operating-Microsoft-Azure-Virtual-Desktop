@@ -188,6 +188,13 @@ The main tasks for this exercise are as follows:
    Set-ItemProperty -Path $AdminRegEntry -Name 'IsInstalled' -Value 0
    Stop-Process -Name Explorer
    ```
+  >**Note**: If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the following labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
+
+![Bastion open clipboard](./images/bastion-arrow-out.png)
+
+
+
+![Bastion close clipboard](./images/bastion-copy-paste.png)
 
 6. From the **Administrator: Windows PowerShell ISE** console, run the following to create an AD DS organizational unit that will contain objects included in the scope of synchronization to the Azure AD tenant used in this lab:
 
