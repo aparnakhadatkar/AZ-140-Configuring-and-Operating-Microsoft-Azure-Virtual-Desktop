@@ -201,8 +201,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the value of the token. Copy the output of these commands and paste it into text editor of your choice:
 
    ```powershell
-   $print=$registrationInfo.Token
-   $print
+   $registrationInfo.Token
    ```
 
    > **Note**: Record the value copied into Clipboard (for example, by launching Notepad and pressing the Ctrl+V key combination to paste the content of the Clipboard into Notepad) since you will need it in the next task. Make sure to that the value you are using includes a single line of text, without any line breaks. 
