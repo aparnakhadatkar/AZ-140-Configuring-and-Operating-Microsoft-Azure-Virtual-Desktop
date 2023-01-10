@@ -256,6 +256,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
 
    ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
@@ -263,14 +264,13 @@ The main tasks for this exercise are as follows:
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to install the latest version of the Az.DesktopVirtualization PowerShell module:
 
    ```powershell
-   Install-Module -Name Az.DesktopVirtualization -AllowClobber -Force
    Install-Module -Name Az -AllowClobber -Force
+   Install-Module -Name Az.DesktopVirtualization -AllowClobber -Force
    ```
 
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to modify the PowerShell execution policy and sign in to your Azure subscription:
 
    ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
    Connect-AzAccount
    ```
 
