@@ -305,6 +305,9 @@ The main tasks for this exercise are as follows:
 1. On the **az140-24-hp3** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
 1. On the **az140-24-hp3 \| Session hosts** blade, verify that the deployment includes a single host.
 
+  > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
+
+
 #### Task 6: Manage app groups using PowerShell
 
 1. From the lab computer, switch to the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a Remote App group:
