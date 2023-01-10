@@ -189,7 +189,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Perform a template-based deployment of an Azure VM running Windows 10 Enterprise by using PowerShell
 
-1. From your lab computer, navigate to the deployed storage account. On the File Share blade, select the **az140-22-profiles** file share.
+1. From your lab computer, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Storage accounts**, and select the storage account **storage<inject key="DeploymentID" enableCopy="false" />**. On the storage account blade, in the **Data storage** section, select **File shares** and then select the **az140-22-profiles** file share.
 
 1. Select **Upload** and upload both the lab files **\\\\AZ-140\\AllFiles\\Labs\\02\\az140-24_azuredeployhp3.json** and **\\\\AZ-140\\AllFiles\\Labs\\02\\az140-24_azuredeployhp3.parameters.json** to file share.
 
