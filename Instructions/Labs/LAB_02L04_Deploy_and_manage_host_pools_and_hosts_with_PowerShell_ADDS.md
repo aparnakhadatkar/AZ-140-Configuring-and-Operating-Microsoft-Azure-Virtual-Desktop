@@ -226,7 +226,7 @@ The main tasks for this exercise are as follows:
 
    |Setting|Value|
    |---|---|
-   |User Name|**ADATUM\\Student**|
+   |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
 1. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
