@@ -191,6 +191,8 @@ The main tasks for this exercise are as follows:
   
   > **Note**: Close the **Server Manager** window/program. 
 
+  > **Note**: If you get **Microsoft Teams: Get Started** page, close it. 
+
   > **Note**: You will start by installing FSLogix binaries.
 
 4. Within the Remote Desktop session to **az140-25-vm0**, start **Windows PowerShell ISE** as administrator.
