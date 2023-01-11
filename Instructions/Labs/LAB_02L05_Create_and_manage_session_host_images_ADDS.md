@@ -230,7 +230,7 @@ The main tasks for this exercise are as follows:
    ```
 
 12. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to the documentation page titled [
-Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm), click the **64-bit version** link, and, when prompted, save the **Teams_windows_x64.msi** file into the **C:\\Allfiles\\Labs\\02** folder.
+Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm), click the **64-bit version** link. Once the file is downloaded, copy the **Teams_windows_x64.msi** file into the **C:\\Allfiles\\Labs\\02** folder.
 
 13. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform per-machine installation of Microsoft Teams:
 
