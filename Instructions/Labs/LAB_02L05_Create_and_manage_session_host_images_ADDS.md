@@ -221,7 +221,8 @@ The main tasks for this exercise are as follows:
    reg add "HKLM\Software\Microsoft\Teams" /v IsWVDEnvironment /t REG_DWORD /d 1 /f
    ```
 
-10. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to [the download page of Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe), save **VC_redist.x64** into the **C:\\Allfiles\\Labs\\02** folder.
+10. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to [the download page of Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe), once the file is downloaded, copy **VC_redist.x64** into the **C:\\Allfiles\\Labs\\02** folder.
+
 11. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform installation of Microsoft Visual C++ Redistributable:
 
    ```cmd
