@@ -202,7 +202,7 @@ The main tasks for this exercise are as follows:
    New-Item -Type Directory -Path 'C:\Allfiles\Labs\02' -Force
    ```
 
-6. Within the Remote Desktop session to **az140-25-vm0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries into the **C:\\Allfiles\\Labs\\02** folder and, from File Explorer, extract the **x64** subfolder into the same folder.
+6. Within the Remote Desktop session to **az140-25-vm0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download) , download FSLogix compressed installation binaries into the **C:\\Allfiles\\Labs\\02** folder and, from File Explorer, extract the **x64** subfolder into the same folder.
 7. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** console, run the following to perform per-machine installation of OneDrive:
 
    ```powershell
