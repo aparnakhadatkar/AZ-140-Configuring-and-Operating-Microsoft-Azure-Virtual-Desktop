@@ -284,7 +284,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    rmdir C:\Allfiles /s /q
    ```
 
-20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed:
+20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed. In the **Disk Cleanup** popup window, select **Delete Files**.
 
    ```cmd
    cleanmgr /d C: /verylowdisk
