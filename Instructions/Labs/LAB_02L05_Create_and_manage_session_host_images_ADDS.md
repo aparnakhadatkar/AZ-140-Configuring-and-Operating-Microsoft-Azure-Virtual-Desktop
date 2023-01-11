@@ -342,7 +342,8 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 #### Task 5: Provision a Azure Virtual Desktop host pool by using a custom image
 
 1. From the lab computer, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
-1. On the **az140-adds-vnet11** blade, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
+
+1. On the **az140-adds-vnet11** blade, select **Subnets** from the vertical menu in the left side, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
 
    |Setting|Value|
    |---|---|
@@ -350,6 +351,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Subnet address range|**10.0.4.0/24**|
 
 1. From the lab computer, in the Azure portal, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**. 
+
 1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Virtual Machines >**:
 
    |Setting|Value|
