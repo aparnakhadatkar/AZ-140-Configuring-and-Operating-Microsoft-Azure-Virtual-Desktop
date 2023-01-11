@@ -112,7 +112,7 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
-1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
+1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell** and then select **Create storage**.
 1. On the lab computer, in the web browser displaying the Azure portal, from the PowerShell session in the Cloud Shell pane, run the following to create a resource group that will contain the Azure Virtual Desktop host image:
 
    ```powershell
