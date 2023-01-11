@@ -179,8 +179,8 @@ The main tasks for this exercise are as follows:
 #### Task 3: Configure a Azure Virtual Desktop host image
 
 1. In the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select **az140-25-vm0**.
-1. On the **az140-25-vm0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-25-vm0 \| Connect** blade, select **Use Bastion**.
-1. When prompted, provde the following credentials and select **Connect**:
+2. On the **az140-25-vm0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-25-vm0 \| Connect** blade, select **Use Bastion**.
+3. When prompted, provde the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -193,15 +193,15 @@ The main tasks for this exercise are as follows:
 
   > **Note**: You will start by installing FSLogix binaries.
 
-1. Within the Remote Desktop session to **az140-25-vm0**, start **Windows PowerShell ISE** as administrator.
-1. Within the Remote Desktop session to **az140-25-vm0**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a folder you will use as a temporary location for configuration of the image:
+4. Within the Remote Desktop session to **az140-25-vm0**, start **Windows PowerShell ISE** as administrator.
+5. Within the Remote Desktop session to **az140-25-vm0**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a folder you will use as a temporary location for configuration of the image:
 
    ```powershell
    New-Item -Type Directory -Path 'C:\Allfiles\Labs\02' -Force
    ```
 
-1. Within the Remote Desktop session to **az140-25-vm0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries into the **C:\\Allfiles\\Labs\\02** folder and, from File Explorer, extract the **x64** subfolder into the same folder.
-1. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** console, run the following to perform per-machine installation of OneDrive:
+6. Within the Remote Desktop session to **az140-25-vm0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries into the **C:\\Allfiles\\Labs\\02** folder and, from File Explorer, extract the **x64** subfolder into the same folder.
+7. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** console, run the following to perform per-machine installation of OneDrive:
 
    ```powershell
    Start-Process -FilePath 'C:\Allfiles\Labs\02\x64\Release\FSLogixAppsSetup.exe' -ArgumentList '/quiet' -Wait
@@ -211,23 +211,24 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Next, you will step through installation and configuration of Microsoft Teams (for learning purposes, since Teams are already present on the image used for this lab).
 
-1. Within the Remote Desktop session to **az140-25-vm0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** textbox, type **cmd** and press the **Enter** key to start **Command Prompt**.
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to prepare for per-machine installation of Microsoft Teams:
+8. Within the Remote Desktop session to **az140-25-vm0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** textbox, type **cmd** and press the **Enter** key to start **Command Prompt**.
+9. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to prepare for per-machine installation of Microsoft Teams:
 
    ```cmd
    reg add "HKLM\Software\Microsoft\Teams" /v IsWVDEnvironment /t REG_DWORD /d 1 /f
    ```
 
-1. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to [the download page of Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe), save **VC_redist.x64** into the **C:\\Allfiles\\Labs\\02** folder.
-1. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform installation of Microsoft Visual C++ Redistributable:
+10. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to [the download page of Microsoft Visual C++ Redistributable](https://aka.ms/vs/16/release/vc_redist.x64.exe), save **VC_redist.x64** into the **C:\\Allfiles\\Labs\\02** folder.
+11. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform installation of Microsoft Visual C++ Redistributable:
 
    ```cmd
    C:\Allfiles\Labs\02\vc_redist.x64.exe /install /passive /norestart /log C:\Allfiles\Labs\02\vc_redist.log
    ```
 
-1. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to the documentation page titled [
+12. Within the Remote Desktop session to **az140-25-vm0**, in Microsoft Edge, browse to the documentation page titled [
 Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm), click the **64-bit version** link, and, when prompted, save the **Teams_windows_x64.msi** file into the **C:\\Allfiles\\Labs\\02** folder.
-1. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform per-machine installation of Microsoft Teams:
+
+13. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to perform per-machine installation of Microsoft Teams:
 
    ```cmd
    msiexec /i C:\Allfiles\Labs\02\Teams_windows_x64.msi /l*v C:\Allfiles\Labs\02\Teams.log ALLUSER=1
@@ -236,7 +237,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    > **Note**: The installer supports the ALLUSER=1 and ALLUSERS=1 parameters. The ALLUSER=1 parameter is intended for per-machine installation in VDI environments. The ALLUSERS=1 parameter can be used in non-VDI and VDI environments. 
    > **Note** if you encounter an error stating **Another version of the product is already installed**, then complete the following steps: Go to **Control Panel > Programs > Programs and Features** Right-click on the **Teams Machine-Wide Installer** program and select **Uninstall**. Proceed with removal of the program, and rerun step 13 above. 
 
-1. Within the Remote Desktop session to **az140-25-vm0**, start the **Windows PowerShell ISE** as Administrator and, from the **Administrator: Windows PowerShell ISE** console, run the following to install Microsoft Edge Chromium (for learning purposes, since Edge is already present on the image used for this lab).:
+14. Within the Remote Desktop session to **az140-25-vm0**, start the **Windows PowerShell ISE** as Administrator and, from the **Administrator: Windows PowerShell ISE** console, run the following to install Microsoft Edge Chromium (for learning purposes, since Edge is already present on the image used for this lab).:
 
    ```powershell
    Start-BitsTransfer -Source "https://aka.ms/edge-msi" -Destination 'C:\Allfiles\Labs\02\MicrosoftEdgeEnterpriseX64.msi'
@@ -249,37 +250,37 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 
    > **Note**: Next, you will disable Windows Automatic Updates, disable Storage Sense, configure time zone redirection, and configure collection of telemetry. In general, you should first apply all current updates first. In this lab, you skip this step in order to minimize the duration of the lab.
 
-1. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to disable Automatic Updates:
+15. Within the Remote Desktop session to **az140-25-vm0**, switch to the **Administrator: C:\windows\system32\cmd.exe** window and, from the command prompt, run the following to disable Automatic Updates:
 
    ```cmd
    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
    ```
 
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to disable Storage Sense:
+16. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to disable Storage Sense:
 
    ```cmd
    reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy" /v 01 /t REG_DWORD /d 0 /f
    ```
 
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to configure time zone redirection:
+17. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to configure time zone redirection:
 
    ```cmd
    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableTimeZoneRedirection /t REG_DWORD /d 1 /f
    ```
 
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to disable feedback hub collection of telemetry data:
+18. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to disable feedback hub collection of telemetry data:
 
    ```cmd
    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
    ```
 
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to delete the temporary folder you created earlier in this task:
+19. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to delete the temporary folder you created earlier in this task:
 
    ```cmd
    rmdir C:\Allfiles /s /q
    ```
 
-1. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed:
+20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed:
 
    ```cmd
    cleanmgr /d C: /verylowdisk
