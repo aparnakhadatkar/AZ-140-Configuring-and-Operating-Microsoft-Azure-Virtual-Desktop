@@ -191,7 +191,7 @@ The main tasks for this exercise are as follows:
   
   > **Note**: Close the **Server Manager** window/program. 
 
-  > **Note**: If you get **Microsoft Teams: Get Started** page, close it. 
+  > **Note**: If you get **Microsoft Teams: Get Started** window, close it. 
 
   > **Note**: You will start by installing FSLogix binaries.
 
