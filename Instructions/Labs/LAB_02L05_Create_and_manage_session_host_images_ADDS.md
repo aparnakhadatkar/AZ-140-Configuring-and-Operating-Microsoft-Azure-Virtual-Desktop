@@ -362,8 +362,8 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Location|the name of the Azure region into which you deployed resources in the first exercise of this lab|
    |Validation environment|**No**|
    |Host pool type|**Pooled**|
-   |Max session limit|**50**|
    |Load balancing algorithm|**Breadth-first**|
+   |Max session limit|**50**|
 
 1. On the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings:
 
