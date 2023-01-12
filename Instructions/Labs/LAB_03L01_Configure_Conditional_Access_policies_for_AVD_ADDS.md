@@ -132,7 +132,7 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, search for and select **Azure Active Directory** to navigate to the Azure AD tenant associated with the Azure subscription you are using for this lab.
 1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Users**. 
 1. On the **Users | All users (Preview)** blade, select **aduser5**.
-1. On the **aduser5 | Profile** blade, in the toolbar, click **Edit**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
+1. On the **aduser5 | Profile** blade, in the toolbar, click **Edit properties**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
 1. On the **aduser5 | Profile** blade, in the **Identity** section, identify the user principal name of the **aduser5** account.
 
     >**Note**: Record this value. You will need it later in this lab.
