@@ -113,6 +113,7 @@ The main tasks for this exercise are as follows:
    ```powershell
    Connect-AzAccount
    ```
+   > **Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to identify the user principal name of the **aduser1** account:
@@ -140,6 +141,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Deploy an Azure Virtual Desktop host pool
 
+1. Within the Remote Destop session to Azure portal search and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-21-RG** and Click on **Create**. 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**. 
 1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Virtual Machines >** (leave other settings with their default values):
 
@@ -387,7 +389,7 @@ The main tasks for this exercise are as follows:
 
 1. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
 1. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
-1. When prompted, provde the following credentials and select **Connect**:
+1. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -397,7 +399,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) and, when prompted, select **Run** to start its installation. On the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. When prompted by User Account Control for administrative credentials, authenticate by using the **ADATUM\\Student** username with **Pa55w.rd1234** as its password.
 1. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
 
-#### Task 2: Subscribe to a Azure Virtual Desktop workspace
+#### Task 2: Subscribe to an Azure Virtual Desktop workspace
 
 1. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser1** credentials, by providing its userPrincipalName available in the **LabValues** text file present on the **az140-dc-vm11** desktop and the password **Pa55w.rd1234**.
 
