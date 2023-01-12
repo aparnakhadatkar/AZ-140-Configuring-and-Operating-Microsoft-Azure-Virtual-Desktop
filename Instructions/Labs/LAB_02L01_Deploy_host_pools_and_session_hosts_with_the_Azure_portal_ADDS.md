@@ -113,6 +113,7 @@ The main tasks for this exercise are as follows:
    ```powershell
    Connect-AzAccount
    ```
+   > **Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to identify the user principal name of the **aduser1** account:
