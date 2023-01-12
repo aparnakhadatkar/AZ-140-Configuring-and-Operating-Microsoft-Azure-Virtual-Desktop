@@ -190,11 +190,11 @@ The main tasks for this exercise are as follows:
    ```
   >**Note**: If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the following labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
 
-![Bastion open clipboard](./images/bastion-arrow-out.png)
+   ![Bastion open clipboard](./images/bastion-arrow-out.png)
 
 
 
-![Bastion close clipboard](./images/bastion-copy-paste.png)
+   ![Bastion close clipboard](./images/bastion-copy-paste.png)
 
 6. From the **Administrator: Windows PowerShell ISE** console, run the following to create an AD DS organizational unit that will contain objects included in the scope of synchronization to the Azure AD tenant used in this lab:
 
@@ -275,6 +275,7 @@ The main tasks for this exercise are as follows:
    ```powershell
    Connect-AzAccount
    ```
+   > **Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the Id property of the Azure AD tenant associated with your Azure subscription:
@@ -358,7 +359,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 4: Install Azure AD Connect
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to eanble TLS 1.2:
+1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to enable TLS 1.2:
 
    ```powershell
    New-Item 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319' -Force | Out-Null
