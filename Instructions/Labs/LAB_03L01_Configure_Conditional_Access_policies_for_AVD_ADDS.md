@@ -281,15 +281,6 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Test the Azure AD-based Conditional Access policy for all Azure Virtual Desktop connections
 
-1. On the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to start the Azure Virtual Desktop session host Azure VMs you will be using in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM
-   ```
-
-   >**Note**: Wait until the command completes and all the Azure VMs in the **az140-21-RG** resource group are running. 
-
 1. On your lab computer, open an **InPrivate** web browser session, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing the **aduser5** user principal name you identified earlier in this exercise and the password you set when creating this user account.
 
    > **Note**: Verify that you are not prompted to authenticate via MFA.
@@ -337,27 +328,4 @@ The main tasks for this exercise are as follows:
 1. Back on the **All Resources** page, in the upper right corner, click **aduser5**, in the dropdown menu, click **Sign Out**.
 1. Within the Remote Desktop session to **az140-cl-vm11**, click **Start**, in the vertical bar directly above the **Start** button, click the icon representing the signed in user account, and, in the pop-up menu, click **Sign out**.
 
-### Exercise 3: Stop and deallocate Azure VMs provisioned and used in the lab
 
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned and used in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned and used in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned and used in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
