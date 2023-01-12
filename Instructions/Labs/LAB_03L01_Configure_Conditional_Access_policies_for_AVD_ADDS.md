@@ -119,6 +119,7 @@ After completing this lab, you will be able to:
 
 
 
+
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
