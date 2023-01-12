@@ -99,9 +99,7 @@ After completing this lab, you will be able to:
 26. Now click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
 
 
-27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0. 
-
-28. Open Run command and run with pscript and copy the content of p3script.ps1 available on desktop.
+27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under operation secction select Run command and  in the **Run Command Script** and paste the content of p3script.ps1 available on desktop.
 
 29. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**.
 30. When prompted, sign in with the following credentials:
