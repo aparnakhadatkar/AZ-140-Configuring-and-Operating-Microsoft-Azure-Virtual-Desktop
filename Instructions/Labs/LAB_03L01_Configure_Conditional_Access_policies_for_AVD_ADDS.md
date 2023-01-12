@@ -117,7 +117,8 @@ After completing this lab, you will be able to:
 
 33. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
 
-
+34. If you get the popup NutGet provider is requied to continue select yes.
+35. Give the credential to login the Azure account from enviroment page.
 
 
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
