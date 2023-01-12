@@ -119,8 +119,7 @@ After completing this lab, you will be able to:
 
 34. If you get the popup NutGet provider is requied to continue select yes.
 35. Give the credential to login the Azure account from enviroment page.
-
-
+36. wait till script run successfuly.
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
