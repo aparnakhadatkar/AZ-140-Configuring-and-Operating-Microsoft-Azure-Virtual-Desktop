@@ -241,6 +241,8 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes.
 
+   > **Note**: If the deployment fails with the error **Conflict**, then delete the deployment and the associated resources deployed. Then restart again from **Task 5: Step 1**.
+
 #### Task 6: Verify changes to the Azure Virtual Desktop host pool
 
 1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, note that the list includes an additional virtual machine named **az140-23-p2-2**.
