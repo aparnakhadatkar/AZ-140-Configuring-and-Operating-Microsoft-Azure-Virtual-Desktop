@@ -1,8 +1,3 @@
----
-lab:
-    title: 'Lab: Implement autoscaling in host pools (AD DS)'
-    module: 'Module 5: Monitor and Maintain a WVD Infrastructure'
----
 
 # Lab - Implement autoscaling in host pools (AD DS)
 # Student lab manual
@@ -43,19 +38,8 @@ The main tasks for this exercise are as follows:
 1. Create and configure an Azure Automation account
 1. Create an Azure Logic app
 
-#### Task 1: Prepare for autoscaling of Azure Virtual Desktop session hosts
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-1. On the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to start the Azure Virtual Desktop session host Azure VMs you will be using in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM -NoWait
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually started. 
-
-#### Task 2: Create and configure an Azure Automation account
+#### Task 1: Create and configure an Azure Automation account
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -182,7 +166,7 @@ The main tasks for this exercise are as follows:
    $AADTenantId = (Get-AzContext).Tenant.Id
    $AzSubscription = (Get-AzContext).Subscription.Id
    $ResourceGroup = Get-AzResourceGroup -Name 'az140-51-RG'
-   $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" -Name 'az140-21-hp1'
+   $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" -Name 'az140-24-hp3'
    $LogAnalyticsWorkspace = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup.ResourceGroupName)[0]
    $LogAnalyticsWorkspaceId = $LogAnalyticsWorkspace.CustomerId
    $LogAnalyticsWorkspaceKeys = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroup.ResourceGroupName -Name $LogAnalyticsWorkspace.Name)
@@ -251,8 +235,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Verify autoscaling of Azure Virtual Desktop session hosts
 
-1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-21-RG** resource group.
-1. Verify that two of the three Azure VMs are either in the process of being deallocated or are already **Stopped (deallocated)**.
+1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-11-RG** resource group.
 
    >**Note**: As soon as you verify that autoscaling is working, you should disable the Azure Logic app to minimize the corresponding charges.
 
@@ -275,7 +258,7 @@ The main tasks for this exercise are as follows:
 
    ```kql
    WVDTenantScale_CL
-   | where hostpoolName_s == "az140-21-hp1"
+   | where hostpoolName_s == "az140-24-hp3"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
@@ -289,7 +272,7 @@ The main tasks for this exercise are as follows:
    | where logmessage_s contains "Number of running session hosts:"
      or logmessage_s contains "Number of user sessions:"
      or logmessage_s contains "Number of user sessions per Core:"
-   | where hostpoolName_s == "az140-21-hp1"
+   | where hostpoolName_s == "az140-24-hp3"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
@@ -298,7 +281,7 @@ The main tasks for this exercise are as follows:
    ```kql
    WVDTenantScale_CL
    | where logmessage_s contains "Session host:"
-   | where hostpoolName_s == "az140-21-hp1"
+   | where hostpoolName_s == "az140-24-hp3"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
@@ -312,27 +295,3 @@ The main tasks for this exercise are as follows:
 
 >**Note**: Ignore the error message regarding `TenantId`
 
-### Exercise 3: Stop and deallocate Azure VMs provisioned in the lab
-
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
