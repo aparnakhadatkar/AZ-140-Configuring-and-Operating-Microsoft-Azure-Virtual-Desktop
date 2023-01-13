@@ -313,7 +313,7 @@ The main tasks for this exercise are as follows:
     ```
 
 21. On your lab computer, in the web browser window displaying the Azure portal, navigate to the **az140-23-hp2** host pool blade, review the **Essentials** section and verify that the **Host pool type** is set to **Personal** with the **Assignment type** set to **Direct**.
-22. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, click the ellipsis icon in the upper right corner, in the dropdown menu, click **Unsubscribe**, and, when prompted for confirmation, click **Continue**.
+22. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, click the second ellipsis icon in the upper right corner, in the dropdown menu, click **Unsubscribe**, and, when prompted for confirmation, click **Continue**.
 23. Within the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, on the **Let's get started** page, click **Subscribe**.
 24. When prompted to sign in, provide the user principal name of the **aduser8** user account with the password you set when creating this account.  
 
