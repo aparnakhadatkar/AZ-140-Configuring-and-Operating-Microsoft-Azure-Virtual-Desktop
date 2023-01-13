@@ -259,7 +259,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 7: Manage personal desktop assignments in the Azure Virtual Desktop host pool
 
-1. On your lab computer, in the web browser displaying the Azure portal, on the **az140-23-hp2 \| Session hosts** blade, in the vertical menu on the left side, in the **Manage** section, select **Application groups**. 
+1. On your lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**. On the **az140-23-hp2** blade, in the vertical menu on the left side, in the **Manage** section, select **Host Pools**. Then, select the host pool entry **az140-23-hp2**, and select **Application groups** in the vertical menu on the left side, under the **Manage** section. 
 1. On the **az140-23-hp2 \| Application groups** blade, select the application group **az140-23-hp2-DAG**.
 1. On the **az140-23-hp2-DAG** blade, in the vertical menu on the left, select **Assignments**. 
 1. On the **az140-23-hp2-DAG \| Assignments** blade, select **+ Add**.
