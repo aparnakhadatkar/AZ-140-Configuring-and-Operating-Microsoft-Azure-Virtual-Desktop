@@ -109,17 +109,17 @@ After completing this lab, you will be able to:
 
 31. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
 
-33. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
+32. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
 
-34. If you get the popup NutGet provider is requied to continue select yes.
+33. If you get the popup NutGet provider is requied to continue select yes.
 
-36. Give the credential to login the Azure account from enviroment page.
+34. Give the credential to login the Azure account from enviroment page.
 
-38. wait till script run successfuly.
+35. wait till script run successfuly.
 
-39. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on 'manage' Under Assigments.
+36. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on 'manage' Under Assigments.
 
-40.Click on + Add and search for aduser5 and then click on Select.
+37.Click on + Add and search for aduser5 and then click on Select.
 
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
