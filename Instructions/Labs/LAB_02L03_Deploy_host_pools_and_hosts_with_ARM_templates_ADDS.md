@@ -159,6 +159,10 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-23-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Create and provision new Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/CreateAndProvisionHostPool). 
+
+
+  > **Note**:
+
 1. On the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 1. On the **Custom deployment** blade, select **Edit parameters**.
 1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and select the file **az140-23_azuredeployhp23.parameters.json**, select **Open**, and then select **Save**. 
