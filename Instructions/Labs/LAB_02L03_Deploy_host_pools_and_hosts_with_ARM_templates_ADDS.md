@@ -161,7 +161,7 @@ The main tasks for this exercise are as follows:
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Create and provision new Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/CreateAndProvisionHostPool). 
 
 
-  > **Note**:
+  > **Note**: If you get **Microsoft Azure: More information required** page, then select **Skip for now(14 days until this is required)**.
 
 1. On the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 1. On the **Custom deployment** blade, select **Edit parameters**.
