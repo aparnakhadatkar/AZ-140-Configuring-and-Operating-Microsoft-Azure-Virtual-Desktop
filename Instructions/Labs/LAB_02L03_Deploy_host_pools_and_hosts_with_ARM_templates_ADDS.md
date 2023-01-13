@@ -305,7 +305,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: This is expected since the host pool is configured for automatic assignment.
 
-19. On your lab computer, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
+19. On your lab computer, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane. Then, select **Create storage** and wait for a few seconds for the Cloud Shell to provision.
 20. From the PowerShell session in the Cloud Shell pane, run the following to switch to the direct assignment mode:
 
     ```powershell
