@@ -107,6 +107,9 @@ The main tasks for this exercise are as follows:
 #### Task 1: Create an Azure Storage account
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
+
+1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-22-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
 1. When prompted, provde the following credentials and select **Connect**:
@@ -123,7 +126,7 @@ The main tasks for this exercise are as follows:
    |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|create a new resource group with the name **az140-22-RG**|
+   |Resource group|**az140-22-RG**|
    |Storage account name|`storage<DeploymentID>`. Replace `<DeploymentID>` placeholder with the DeploymentID value available in the lab guide's **Environment Details** tab
    |Region|the name of an Azure region hosting the Azure Virtual Desktop lab environment|
    |Performance|**Standard**|
