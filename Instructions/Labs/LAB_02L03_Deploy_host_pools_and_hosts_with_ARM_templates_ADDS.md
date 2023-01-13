@@ -155,6 +155,9 @@ The main tasks for this exercise are as follows:
 #### Task 2: Deploy an Azure Virtual Desktop host pool and hosts by using an Azure Resource Manager template
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
+
+1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-23-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Create and provision new Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/CreateAndProvisionHostPool). 
 1. On the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 1. On the **Custom deployment** blade, select **Edit parameters**.
@@ -164,7 +167,7 @@ The main tasks for this exercise are as follows:
    |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource Group|the name of a new resource group **az140-23-RG**|
+   |Resource Group|**az140-23-RG**|
    |Region|the name of the Azure region into which you deployed Azure VMs hosting AD DS domain controllers in the lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**|
    |Location|the name of the same Azure region as the one set as the value of the **Region** parameters|
    |Workspace location|the name of the same Azure region as the one set as the value of the **Region** parameters|
