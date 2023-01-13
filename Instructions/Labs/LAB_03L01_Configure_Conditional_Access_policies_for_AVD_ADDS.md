@@ -119,7 +119,7 @@ After completing this lab, you will be able to:
 
 36. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on 'manage' Under Assigments.
 
-37.Click on + Add and search for aduser5 and then click on Select.
+37. Click on + Add and search for aduser5 and then click on Select.
 
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
