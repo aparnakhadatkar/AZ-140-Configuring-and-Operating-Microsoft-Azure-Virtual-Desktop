@@ -302,7 +302,7 @@ The main tasks for this exercise are as follows:
 
 >**Note**: It might take a few minutes for the policy to take effect.
 
-#### Task 4: Test the modified Azure AD-based Conditional Access policy
+#### Task 4: Test the modified Azure AD-based Conditional Access policy (Read only)
 
 1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
 1. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
