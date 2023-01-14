@@ -229,7 +229,7 @@ The main tasks for this exercise are as follows:
 1. On the Automation Account blade, in the vertical menu on the left side, in the **Account Settings** section, select **Run as accounts** and, in the list of accounts on the right side, next to the **+ Azure Run As Account**, click **Create**.
 1. On the **Add Azure Run As Account** blade, click **Create** and verify that the new account was successfully created.
 
-#### Task 3: Create an Azure Logic app
+#### Task 2: Create an Azure Logic app
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to run the following to download the PowerShell script you will use to create the Azure Logic app that is part of the autoscaling solution:
 
