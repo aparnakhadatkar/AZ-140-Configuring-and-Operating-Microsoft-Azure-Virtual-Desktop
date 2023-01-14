@@ -117,7 +117,7 @@ After completing this lab, you will be able to:
 
 35. Wait until the script runs successfully.
 
-36. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on 'manage' Under Assigments.
+36. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
 
 37. Click on + Add and search for aduser5 and then click on Select.
 
