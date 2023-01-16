@@ -63,7 +63,7 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, close the **Cloud Shell** pane.
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate a customized version of QuickStart template named [Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/blob/stage/Allfiles/Labs/01/README.md). 
 
-  >**Note**: If you get **Microsoft Azure: Help us protect your account** page, then select **Skip for now(14 days until this is required)** and select **Next**.
+  >**Note**: If you get **Microsoft Azure: Help us protect your account** page, then select **Skip for now(14 days until this is required)**.
 
 1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Create an Azure VM with a new AD Forest** blade in the Azure portal.
 1. On the **Create an Azure VM with a new AD Forest** blade, select **Edit parameters**.
