@@ -398,7 +398,7 @@ The main tasks for this exercise are as follows:
 
 ![Azure AD Connect Wizard](./images/welcome-aad-connect-v2.jpg)
 
-   > **Note**: If you are unable to view the checkbox/buttons, expand the Azure AD Connect wizard to full screen by dragging the window to the top.
+    > **Note**: If you are unable to view the checkbox/buttons, expand the Azure AD Connect wizard to full screen by dragging the window to the top.
 
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
