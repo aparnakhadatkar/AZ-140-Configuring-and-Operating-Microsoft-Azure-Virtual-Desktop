@@ -1,9 +1,3 @@
----
-lab:
-    title: 'Lab: Package Azure Virtual Desktop applications (AD DS)'
-    module: 'Module 4: Manage User Environments and Apps'
----
-
 # Lab - Package Azure Virtual Desktop applications (AD DS)
 # Student lab manual
 
@@ -50,21 +44,8 @@ The main tasks for this exercise are as follows:
 1. Install the MSIX Packaging Tool
 1. Create an MSIX package
 
-#### Task 1: Prepare for configuration of Azure Virtual Desktop session hosts
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-1. On the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to start the Azure Virtual Desktop session host Azure VMs you will be using in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM -NoWait
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually started. 
-
-   >**Note**: Proceed directly to the next task without waiting for the Azure VMs to start.
-
-#### Task 2: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
+#### Task 1: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
 1. From your lab computer, in the web browser window displaying the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, and upload the files **\\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.json** and **\\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.parameters.json** into the Cloud Shell home directory.
 1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that you will use for creating MSIX packages to and to join it to the Azure AD DS domain:
@@ -507,14 +488,14 @@ The main tasks for this exercise are as follows:
 1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created and used in this lab:
 
    ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG'
+   Get-AzVM -ResourceGroup 'az140-11-RG'
    Get-AzVM -ResourceGroup 'az140-42-RG'
    ```
 
 1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created and used in this lab:
 
    ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Stop-AzVM -NoWait -Force
+   Get-AzVM -ResourceGroup 'az140-11-RG' | Stop-AzVM -NoWait -Force
    Get-AzVM -ResourceGroup 'az140-42-RG' | Stop-AzVM -NoWait -Force
    ```
 
