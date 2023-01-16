@@ -390,7 +390,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: If you get a popup **Setup Internet Explorer 11**, select **Don't use recommended settings** and select **Ok**.
 
-3. From the [Microsoft Edge for Business download page](https://www.microsoft.com/en-us/edge/business/download) download the latest stable version of Microsoft Edge, install it, launch it, and configure it with the default settings.
+3. From the [Download Microsoft Edge](https://www.microsoft.com/en-us/edge/server/download) page, scroll down and select **Accept and download**. If prompted whether to run or save the **MicrosoftEdgeSetup.exe** installer, select **Run**. Once installed, configure it with the default settings.
 
 4. Within the Remote Desktop session to **az140-dc-vm11**, use Microsoft Edge to navigate to the [Download Microsoft Azure Active Directory Connect page](https://www.microsoft.com/en-us/download/details.aspx?id=47594), scroll down and download the **Microsoft Azure Active Directory Connect** by selecting red **Download** button.
 5. If prompted whether to run or save the **AzureADConnect.msi** installer, select **Run**. Otherwise, open the file after it downloads to start the **Microsoft Azure Active Directory Connect** wizard.
