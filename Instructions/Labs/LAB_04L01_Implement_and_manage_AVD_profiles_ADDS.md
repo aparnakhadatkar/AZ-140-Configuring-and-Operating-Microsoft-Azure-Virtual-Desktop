@@ -218,6 +218,10 @@ The main tasks for this exercise are as follows:
 
    > **Note**: To provide consistent user experience, you need to install and configure FSLogix components on all Azure Virtual Desktop session hosts. You will perform this task in the unattended manner on the other session hosts in our lab environment. 
 
+Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az140-21-p1-2**, open command prompt and type WinRM quickconfig.
+
+
+
 1. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install FSLogix components on the **az140-21-p1-1** and **az140-21-p1-2** session hosts:
 
    ```powershell
