@@ -304,6 +304,9 @@ The main tasks for this exercise are as follows:
    ```
 
 1. When prompted, sign in with the same credentials you used earlier in this task. 
+
+   >**Note**: If you get **Microsoft Azure: Help us protect your account** page, then select **Skip for now(14 days until this is required)**. 
+
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the primary DNS domain name of the Azure AD tenant associated with your Azure subscription:
 
    ```powershell
