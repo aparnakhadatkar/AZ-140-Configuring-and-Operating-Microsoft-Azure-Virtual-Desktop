@@ -1,9 +1,3 @@
----
-lab:
-    title: 'Lab: Implement and manage Azure Virtual Desktop profiles (AD DS)'
-    module: 'Module 4: Manage User Environments and Apps'
----
-
 # Lab - Implement and manage Azure Virtual Desktop profiles (AD DS)
 # Student lab manual
 
@@ -118,21 +112,13 @@ The main tasks for this exercise are as follows:
    |User Name|**student@adatum.com**|
    |Password|**Pa55w.rd1234**|
 
-1. Within the Remote Desktop session to **az140-21-p1-0**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-21-p1-0**, in the Microsoft Edge window displaying the Azure portal, open a PowerShell session within the Cloud Shell pane. 
-1. From the PowerShell session in the Cloud Shell pane, run the following to start the Azure Virtual Desktop session host Azure VMs you will be using in this lab:
 
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM
-   ```
-
-   >**Note**: Wait until the Azure VMs are running before you proceed to the next step.
 
 1. Within the Remote Desktop session to **az140-21-p1-0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries, extract them into the **C:\\Allfiles\\Labs\\04** folder (create the folder if needed), navigate to the **x64\\Release** subfolder, double-click the **FSLogixAppsSetup.exe** file to launch the **Microsoft FSLogix Apps Setup** wizard, and step through the installation of Microsoft FSLogix Apps with the default settings.
 
    > **Note**: Installation of FXLogic is not necessary if the image already includes it.
 
-3. Within the Remote Desktop session to **az140-21-p1-0**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
+1. Within the Remote Desktop session to **az140-21-p1-0**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
 
    ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -161,7 +147,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab:
 
    ```powershell
-   $resourceGroupName = 'az140-22-RG'
+   $resourceGroupName = 'az140-11-RG'
    $storageAccountName = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName)[0].StorageAccountName   
    ```
 
@@ -269,27 +255,3 @@ The main tasks for this exercise are as follows:
 19. On the **az140-22-profiles** blade, verify that its content includes a folder which name consists of a combination of the Security Identifier (SID) of the **ADATUM\\aduser1** account followed by the **_aduser1** suffix.
 20. Select the folder you identified in the previous step and note that it contains a single file named **Profile_aduser1.vhd**.
 
-### Exercise 2: Stop and deallocate Azure VMs provisioned and used in the lab
-
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned and used in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned and used in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned and used in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
