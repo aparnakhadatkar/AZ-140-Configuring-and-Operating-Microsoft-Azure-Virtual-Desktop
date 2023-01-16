@@ -124,6 +124,13 @@ The main tasks for this exercise are as follows:
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
+1. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
+
+   ```powershell
+   Connect-AzAccount
+   ```
+
+1. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to install the latest version of the Az PowerShell module (select **Yes to All** when prompted for confirmation):
 
@@ -137,13 +144,7 @@ The main tasks for this exercise are as follows:
    Set-ExecutionPolicy RemoteSigned -Force
    ```
 
-1. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
 
-   ```powershell
-   Connect-AzAccount
-   ```
-
-1. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 1. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab:
 
    ```powershell
