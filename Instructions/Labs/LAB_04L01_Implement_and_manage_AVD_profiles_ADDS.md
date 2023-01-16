@@ -118,9 +118,9 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
    
- 31. On the **az140-21-p1-2** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-2 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
+ 33. On the **az140-21-p1-2** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-2 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
  
-32. When prompted, sign in with the following credentials:
+34. When prompted, sign in with the following credentials:
 
    |Setting|Value|
    |---|---|
@@ -218,7 +218,10 @@ The main tasks for this exercise are as follows:
 
    > **Note**: To provide consistent user experience, you need to install and configure FSLogix components on all Azure Virtual Desktop session hosts. You will perform this task in the unattended manner on the other session hosts in our lab environment. 
 
-Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az140-21-p1-2**, open command prompt and type WinRM quickconfig.
+1. Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az140-21-p1-2**, open command prompt and type **WinRM quickconfig**.
+
+1.  If they ask for make these changes [y/n]? give y
+
 
 
 
@@ -240,9 +243,12 @@ Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az1
 
 1. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
 
+>**Note**   Update the DeploymentID from enviroment detail page.
+
    ```powershell
    $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
    $profilesChildKey = 'Profiles'
+   $storageAccountName = 'storageDeploymentID'
    $fileShareName = 'az140-22-profiles'
    foreach ($server in $servers) {
       Invoke-Command -ComputerName $server -ScriptBlock {
