@@ -107,24 +107,31 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
    
- 31. On the **az140-21-p1-1** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-1 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
+ 31. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
+   
+ 32. On the **az140-21-p1-1** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-1 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
  
-32. When prompted, sign in with the following credentials:
+33. When prompted, sign in with the following credentials:
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
    
- 33. On the **az140-21-p1-2** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-2 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
+ 34. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
  
-34. When prompted, sign in with the following credentials:
+> **Note**: The script execution will take about 5 minutes. Once completed
+   
+ 35. On the **az140-21-p1-2** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-21-p1-2 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
+ 
+36. When prompted, sign in with the following credentials:
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
+37. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
 
 ### Exercise 1: Implement FSLogix based profiles for Azure Virtual Desktop
 
