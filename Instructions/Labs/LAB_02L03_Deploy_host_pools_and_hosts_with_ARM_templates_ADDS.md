@@ -40,7 +40,7 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-  > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+  > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
@@ -52,7 +52,7 @@ After completing this lab, you will be able to:
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
