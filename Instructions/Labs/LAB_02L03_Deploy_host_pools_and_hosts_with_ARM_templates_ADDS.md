@@ -241,7 +241,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes.
 
-   > **Note**: If the deployment fails with the error **Conflict**, then, in the deployment blade, delete the deployment by selecting **Delete** and when prompted select **Delete deployment**, and also, delete the associated resources deployed(If any). Then restart again from **Task 5: Step 1**.
+   > **Note**: If the deployment fails with the error **Conflict** or the deployment continues without any failure for more than 15 minutes, then, in the deployment blade, delete the deployment by selecting **Delete** and when prompted select **Delete deployment**, and also, delete the associated resources deployed(If any). Then restart again from **Task 5: Step 1**.
 
 #### Task 6: Verify changes to the Azure Virtual Desktop host pool
 
