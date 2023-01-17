@@ -81,7 +81,7 @@ After completing this lab, you will be able to:
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **No** entry appearing in the **On-premises sync enabled** column.
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -257,6 +257,8 @@ The main tasks for this exercise are as follows:
 1. On the **az140-23-hp2** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
 1. On the **az140-23-hp2 \| Session hosts** blade, verify that the deployment consists of three hosts. 
 
+   > **Note:** The third session host might take upto 15-60 minutes to get reflected so no need to wait for that. Please continue on to the next task and you can verify it later.
+
 #### Task 7: Manage personal desktop assignments in the Azure Virtual Desktop host pool
 
 1. On your lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**. On the **az140-23-hp2** blade, in the vertical menu on the left side, in the **Manage** section, select **Host Pools**. Then, select the host pool entry **az140-23-hp2**, and select **Application groups** in the vertical menu on the left side, under the **Manage** section. 
@@ -277,7 +279,7 @@ The main tasks for this exercise are as follows:
    |Password|**Pa55w.rd1234**|
 
 
-  > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+  > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
   
@@ -288,13 +290,17 @@ The main tasks for this exercise are as follows:
 10. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
 
 11. Within the Remote Desktop session to **az140-cl-vm11**, in the Remote Desktop window, on the **Let's get started page**, click **Subscribe**.
+
 12. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser7** credentials, by providing its userPrincipalName and **Pa55w.rd1234** as its password.
 
    > **Note**: Alternatively, in the **Remote Desktop** client window, select **Subscribe with URL**, in the **Subscribe to a Workspace** pane, in the **Email or Workspace URL**, type **https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery**, select **Next**, and, once prompted, sign in with the **aduser7** credentials (using its userPrincipalName attribute as the user name and the password you set when creating this account). 
 
 13. On the **Remote Desktop** page, double-click the **SessionDesktop** icon, when prompted for credentials, type the same password again, select the **Remember me** checkbox, and click **OK**.
+
 14. If you get the **Stay signed in to all your apps** window, clear the checkbox **Allow my organization to manage my device** and select **No, sign in to this app only**. 
+
 15. Verify that **aduser7** successfully signed in via Remote Desktop to a host.
+
 16. Within the Remote Desktop session to one of the hosts as **aduser7**, right-click **Start**, in the right-click menu, select **Shut down or sign out** and, in the cascading menu, click **Sign out**.
 
    > **Note**: Now let's switch the personal desktop assignment from the direct mode to automatic. 
@@ -306,6 +312,7 @@ The main tasks for this exercise are as follows:
    > **Note**: This is expected since the host pool is configured for automatic assignment.
 
 19. On your lab computer, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane. Then, select **Create storage** and wait for a few seconds for the Cloud Shell to provision.
+
 20. From the PowerShell session in the Cloud Shell pane, run the following to switch to the direct assignment mode:
 
     ```powershell
@@ -313,18 +320,25 @@ The main tasks for this exercise are as follows:
     ```
 
 21. On your lab computer, in the web browser window displaying the Azure portal, navigate to the **az140-23-hp2** host pool blade, review the **Essentials** section and verify that the **Host pool type** is set to **Personal** with the **Assignment type** set to **Direct**.
+
 22. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, click the second ellipsis icon in the upper right corner, in the dropdown menu, click **Unsubscribe**, and, when prompted for confirmation, click **Continue**.
+
 23. Within the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, on the **Let's get started** page, click **Subscribe**.
+
 24. When prompted to sign in, provide the user principal name of the **aduser8** user account with the password you set when creating this account.  
 
    > **Note**: If you're asked to select an account **Pick an account** pane in the Microsoft Sign in window, click **Use another account** and, when prompted, sign in by using the credentials of the **aduser8** user account.
+
 25. If you get the **Stay signed in to all your apps** window, clear the checkbox **Allow my organization to manage my device** checkbox and select **No, sign in to this app only**. 
+
 26. On the **Remote Desktop** page, double-click the **SessionDesktop** icon, verify that you receive an error message stating **We couldn't connect because there are currently no available resources. Try again later or contact tech support for help if this keeps happening**, and click **OK**.
 
    > **Note**: This is expected since the host pool is configured for direct assignment and **aduser8** has not been assigned a host.
 
 27. Switch to your lab computer, to the web browser displaying the Azure portal and, on the **az140-23-hp2** blade, select **Session hosts** in the veritcal menu in the left side, and select the **(Assign)** link in the **Assigned User** column next to one of the two remaining unassigned hosts.
+
 28. On the **Assign a user**, select **aduser8**, click **Select** and, when prompted for confirmation, click **OK**.
+
 29. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, double-click the **SessionDesktop** icon, when prompted for the password, type the password you set when creating this user account, click **OK**, and verify that you can successfully sign in to the assigned host.
 
 ### Exercise 2: Stop and deallocate Azure VMs provisioned in the lab
