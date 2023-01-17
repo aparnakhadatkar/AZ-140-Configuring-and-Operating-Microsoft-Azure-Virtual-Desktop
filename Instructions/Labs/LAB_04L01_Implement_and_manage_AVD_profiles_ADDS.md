@@ -186,6 +186,7 @@ The main tasks for this exercise are as follows:
    Set-ExecutionPolicy RemoteSigned -Force
    ```
 
+ > **Note**: If you get the error Windows PowerShell updated your execution policy successfully, but the setting is overridden by a policy defined at a more specific scope. please ignore it.
 
 1. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab:
 
