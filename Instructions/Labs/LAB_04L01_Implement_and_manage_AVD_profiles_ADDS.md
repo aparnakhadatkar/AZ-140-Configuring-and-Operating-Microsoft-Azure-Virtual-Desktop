@@ -285,7 +285,7 @@ The main tasks for this exercise are as follows:
    |User Name|**Student@adatum.com**|
    |Password|**Pa55w.rd1234**|
 
-1. Within the Remote Desktop session to **az140-cl-vm11**, click on  https://go.microsoft.com/fwlink/?linkid=2068602
+1. Within the Remote Desktop session to **az140-cl-vm11**, open edge and go to link  https://go.microsoft.com/fwlink/?linkid=2068602
 
 1.  Select **Subscribe** and, when prompted, sign in with the **aduser1** credentials.
 
