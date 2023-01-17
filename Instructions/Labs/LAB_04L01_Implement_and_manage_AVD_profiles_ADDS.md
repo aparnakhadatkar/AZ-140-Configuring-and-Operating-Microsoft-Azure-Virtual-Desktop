@@ -28,8 +28,6 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect and storage for AVD
-
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -86,19 +84,19 @@ After completing this lab, you will be able to:
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
-25. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
+24. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
    
    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
   
   
-26. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
+25. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
 > **Note**: The script execution will take about 5 minutes. Once completed
 
-27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+26. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
-28. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
-29. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+28. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
 
 29. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p1-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.0)** entry, and then select **Download RDP File**.
