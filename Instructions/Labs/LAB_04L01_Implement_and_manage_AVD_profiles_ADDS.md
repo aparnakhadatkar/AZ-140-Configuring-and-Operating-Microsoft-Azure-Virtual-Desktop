@@ -117,13 +117,39 @@ After completing this lab, you will be able to:
 34. On the application groups blade, select + Create.
 35. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
-|Setting|Value|
+  |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**az140-11-RG**|
+   |Resource group|**az140-21-RG**|
    |Host pool|**az140-21-hp1**|
    |Application group type|**RemoteApp**|
-   |Application group name|**az140-21-hp1-Office365-RAG**|
+   |Application group name|**az140-21-hp1-Utilities-RAG**|
+On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+36. On the **Add application** blade, specify the following settings and select **Save**:
+
+   |Setting|Value|
+   |---|---|
+   |Application source|**File path**|
+   |Application path|**C:\Windows\system32\cmd.exe**|
+   |Application name|**Command Prompt**|
+   |Display name|**Command Prompt**|
+   |Icon path|**C:\Windows\system32\cmd.exe**|
+   |Icon index|**0**|
+   |Description|**Windows Command Prompt**|
+   |Require command line|**No**|
+
+37. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+38. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+39. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+40. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+41. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+
+   |Setting|Value|
+   |---|---|
+   |Register application group|**yes**|
+
+42. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+
    
 ### Exercise 1: Implement FSLogix based profiles for Azure Virtual Desktop
 
