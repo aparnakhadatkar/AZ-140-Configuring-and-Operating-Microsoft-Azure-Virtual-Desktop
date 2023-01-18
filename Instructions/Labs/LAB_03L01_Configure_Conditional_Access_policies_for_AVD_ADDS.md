@@ -120,7 +120,7 @@ After completing this lab, you will be able to:
 34. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
 
 35. Click on + Add and search for aduser5 and then click on Select.
-36. 33. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+36. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
 37. On the application groups blade, select + Create.
 38. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
@@ -133,6 +133,7 @@ After completing this lab, you will be able to:
    |Application group name|**az140-21-hp1-Utilities-RAG**|
    
 39. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+
 40. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
@@ -147,9 +148,13 @@ After completing this lab, you will be able to:
    |Require command line|**No**|
 
 41. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+
 42. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+ 
 43. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+ 
 44. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+ 
 45. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
