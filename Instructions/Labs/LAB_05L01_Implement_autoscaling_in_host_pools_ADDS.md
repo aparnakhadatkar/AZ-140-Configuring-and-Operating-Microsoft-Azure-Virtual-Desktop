@@ -136,7 +136,7 @@ The main tasks for this exercise are as follows:
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-1. When prompted, provde the following credentials and select **Connect**:
+1. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -144,75 +144,23 @@ The main tasks for this exercise are as follows:
    |Password|**Pa55w.rd1234**|
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
-1. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
 
-   ```powershell
-   Connect-AzAccount
-   ```
-
-1. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to download the PowerShell script you will use to create the Azure Automation account that is part of the autoscaling solution:
+1. Run the following to download the PowerShell script you will use to create the Azure Automation account that is part of the autoscaling solution:
 
    ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    $labFilesfolder = 'C:\Allfiles\Labs\05'
    New-Item -ItemType Directory -Path $labFilesfolder -Force
    Set-Location -Path $labFilesfolder
-   $uri = 'https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/CreateOrUpdateAzAutoAccount.ps1'
+   $uri = 'https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/CreateOrUpdateAzAutoAccount.ps1'
    Invoke-WebRequest -Uri $Uri -OutFile '.\CreateOrUpdateAzAutoAccount.ps1'
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to set the values of variables that you will assign to script parameters:
+1. Within the Remote Desktop session to **az140-dc-vm11**, on the **Administrator: Windows PowerShell ISE** script pane, paste the following script, and run it to create the Azure Automation account that is part of the autoscaling solution:
 
    ```powershell
-   $aadTenantId = (Get-AzContext).Tenant.Id
-   $subscriptionId = (Get-AzContext).Subscription.Id
-   $resourceGroupName = 'az140-51-RG'
-   $location = (Get-AzVirtualNetwork -ResourceGroupName 'az140-11-RG' -Name 'az140-adds-vnet11').Location
-   $suffix = Get-Random
-   $automationAccountName = "az140-automation-51$suffix"
-   $workspaceName = "az140-workspace-51$suffix"
-   ```
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create the resource group you will use in this lab:
-
-   ```powershell
-   New-AzResourceGroup -ResourceGroupName $resourceGroupName -Location $location
-   ```
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an Azure Log Analytics workspace you will use in this lab:
-
-   ```powershell
-   New-AzOperationalInsightsWorkspace -Location $location -Name $workspaceName -ResourceGroupName $resourceGroupName
-   ```
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE**, Select File from the top menu and open the **C:\\Allfiles\\Labs\\05\\CreateOrUpdateAzAutoAccount.ps1** script and enclose the code between lines **82** an **86** into the multiline comment and save it, such that they look as follows:
-
-   ```powershell
-   <#
-   # Get the Role Assignment of the authenticated user
-   $RoleAssignments = Get-AzRoleAssignment -SignInName $AzContext.Account -ExpandPrincipalGroups
-   if (!($RoleAssignments | Where-Object { $_.RoleDefinitionName -in @('Owner', 'Contributor') })) {
-	throw 'Authenticated user should have the Owner/Contributor permissions to the subscription'
-   }
-   #>
-   ```
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, open a new tab in the **Administrator: Windows PowerShell ISE** script pane, paste the following script, and run it to create the Azure Automation account that is part of the autoscaling solution:
-
-   ```powershell
-   $Params = @{
-     "AADTenantId" = $aadTenantId
-     "SubscriptionId" = $subscriptionId 
-     "UseARMAPI" = $true
-     "ResourceGroupName" = $resourceGroupName
-     "AutomationAccountName" = $automationAccountName
-     "Location" = $location
-     "WorkspaceName" = $workspaceName
-   }
-
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   .\CreateOrUpdateAzAutoAccount.ps1 @Params
+   .\CreateOrUpdateAzAutoAccount.ps1 
    ```
 
    >**Note**: Wait for the script to complete. This might take about 10 minutes.
