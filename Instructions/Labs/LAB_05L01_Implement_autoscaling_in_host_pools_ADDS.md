@@ -82,7 +82,7 @@ After completing this lab, you will be able to:
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts, with the **Yes** entry appearing in the **Directory synced** column.
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -94,7 +94,7 @@ After completing this lab, you will be able to:
 26. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
 > **Note**: The script execution will take about 5 minutes. Once completed
 
-27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+27. Copy the contents of **p3script.ps1** from the desktop now from within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** and in the **Run Command Script** under **PowerShell Script** paste the content of **p3script.ps1** and click on **Run**. 
 
 
 29. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**.
@@ -176,6 +176,10 @@ The main tasks for this exercise are as follows:
 1. On the Automation Account blade, in the vertical menu on the left side, in the **Process Automation** section, select **Runbooks** and, in the list of runbooks, verify the presence of the **WVDAutoScaleRunbookARMBased** runbook.
 1. On the Automation Account blade, in the vertical menu on the left side, in the **Account Settings** section, select **Run as accounts** and, in the list of accounts on the right side, next to the **+ Azure Run As Account**, click **Create**.
 1. On the **Add Azure Run As Account** blade, click **Create** and verify that the new account was successfully created.
+
+   > **Note**: You can ignore the **Azure Run As account creation error**, the account will be created regardless of the error.
+
+   ![](./images/Azure-Run-As-account-creation-error.png)
 
 #### Task 2: Create an Azure Logic app
 
@@ -266,7 +270,7 @@ The main tasks for this exercise are as follows:
 1. On the **az140-21-hp1_Autoscale_Scheduler** blade, in the vertical menu on the left side, in the **Development Tools** section, select **Logic app designer**. 
 1. On the designer pane, click the rectangle labeled **Recurrence** and note that you can use it to control frequency in which the need for autoscaling is evaluated. 
 
-### Exercise 2: Verify and review autoscaling of Azure Virtual Desktop session hosts
+### Exercise 2: Verify and review autoscaling of Azure Virtual Desktop session hosts (Read-Only)
 
 The main tasks for this exercise are as follows:
 
