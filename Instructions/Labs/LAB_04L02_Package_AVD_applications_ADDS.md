@@ -471,31 +471,3 @@ The main tasks for this exercise are as follows:
 1. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser1** user principal name and the password you set when creating this user account. 
 1. If prompted, in the **Stay signed in to all your apps** window, clear the **Allow my organization to manage my device** checkbox and click **No, sign in to this app only**.
 1. In the **Remote Desktop** client window, within the **az140-21-ws1** section, double-click the **XML Notepad** icon, when prompted, provide the password, and verify that the XML Notepad launches successfully.
-
-
-### Exercise 4: Stop and deallocate Azure VMs provisioned and used in the lab
-
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned and used in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned and used in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned and used in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-11-RG'
-   Get-AzVM -ResourceGroup 'az140-42-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created and used in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-11-RG' | Stop-AzVM -NoWait -Force
-   Get-AzVM -ResourceGroup 'az140-42-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
