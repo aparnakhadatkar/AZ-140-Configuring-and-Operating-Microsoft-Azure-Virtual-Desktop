@@ -28,7 +28,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect
+### Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
@@ -153,7 +153,7 @@ After completing this lab, you will be able to:
 43. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
    
-### Exercise 1: Implement FSLogix based profiles for Azure Virtual Desktop
+### Exercise 2: Implement FSLogix based profiles for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
