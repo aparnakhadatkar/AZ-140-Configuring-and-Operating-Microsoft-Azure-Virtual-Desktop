@@ -101,12 +101,11 @@ After completing this lab, you will be able to:
 
 29. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
+    |Setting|Value|
+    |---|---|
+    |User Name|**Student**|
+    |Password|**Pa55w.rd1234**|
    
-
 30. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
 
 > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
