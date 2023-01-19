@@ -127,7 +127,7 @@ After completing this lab, you will be able to:
   |Setting|Value|
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**az140-21-RG**|
+   |Resource group|**az140-11-RG**|
    |Host pool|**az140-21-hp1**|
    |Application group type|**RemoteApp**|
    |Application group name|**az140-21-hp1-Utilities-RAG**|
@@ -151,7 +151,7 @@ After completing this lab, you will be able to:
 
 42. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
  
-43. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+43. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
  
 44. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
  
