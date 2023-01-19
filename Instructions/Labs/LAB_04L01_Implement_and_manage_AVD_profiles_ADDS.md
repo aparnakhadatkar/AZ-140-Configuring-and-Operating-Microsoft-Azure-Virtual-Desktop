@@ -266,8 +266,8 @@ The main tasks for this exercise are as follows:
 
 21. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
 
-     ```
-     $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
+    ```
+    $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
     $profilesChildKey = 'Profiles'
     $fileShareName = 'az140-22-profiles'
     foreach ($server in $servers) {
@@ -276,9 +276,9 @@ The main tasks for this exercise are as follows:
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'Enabled' -PropertyType DWord -Value 1
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$using:storageAccountName.file.core.windows.net\$using:fileShareName"
       }
-   }
+    }
         
-      ```
+    ```
    
     > **Note**: Before you test the FSLogix-based profile functionality, you need to remove the locally cached profile of the **ADATUM\\aduser1** account you will be using for testing from the Azure Virtual Desktop session hosts you used in the previous lab.
 
