@@ -266,13 +266,11 @@ The main tasks for this exercise are as follows:
 
 21. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
 
-    >**Note**   Update the DeploymentID from enviroment detail page.
-    
      ```
      $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
-   $profilesChildKey = 'Profiles'
-   $fileShareName = 'az140-22-profiles'
-   foreach ($server in $servers) {
+    $profilesChildKey = 'Profiles'
+    $fileShareName = 'az140-22-profiles'
+    foreach ($server in $servers) {
       Invoke-Command -ComputerName $server -ScriptBlock {
          New-Item -Path $using:profilesParentKey -Name $using:profilesChildKey –Force
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'Enabled' -PropertyType DWord -Value 1
