@@ -277,7 +277,7 @@ The main tasks for this exercise are as follows:
 1. Verify autoscaling of Azure Virtual Desktop session hosts
 1. Use Azure Log Analytics to track Azure Virtual Desktop events
 
-#### Task 1: Verify autoscaling of Azure Virtual Desktop session hosts
+#### Task 1: Verify autoscaling of Azure Virtual Desktop session hosts (Read-Only)
 
 1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-11-RG** resource group.
 
