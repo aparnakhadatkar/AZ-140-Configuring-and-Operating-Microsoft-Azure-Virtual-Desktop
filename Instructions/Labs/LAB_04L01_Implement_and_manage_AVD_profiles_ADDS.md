@@ -107,6 +107,7 @@ After completing this lab, you will be able to:
     |Password|**Pa55w.rd1234**|
    
 30. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
+    > **Note**: If they ask forExecution policy change give **Y** and for Nuget provider is required to continue provide **y**.
 
     > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
  
