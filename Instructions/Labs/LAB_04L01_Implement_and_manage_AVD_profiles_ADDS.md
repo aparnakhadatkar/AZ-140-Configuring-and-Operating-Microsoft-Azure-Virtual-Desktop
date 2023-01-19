@@ -144,7 +144,7 @@ After completing this lab, you will be able to:
 
 39. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
 40. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
-41. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+41. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
 42. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
 43. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
