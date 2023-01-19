@@ -65,7 +65,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 10 minutes. 
 
-#### Task 3: Prepare the Azure VM running Windows 10 for MSIX packaging
+#### Task 2: Prepare the Azure VM running Windows 10 for MSIX packaging
 
 1. From your lab computer, in the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, in the list of virtual machines, select the **az140-cl-vm42** entry. This will open the **az140-cl-vm42** blade.
 1. On the **az140-cl-vm42** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm42 \| Connect** blade, select **Use Bastion**.
@@ -83,7 +83,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The last of these registry changes disables User Access Control. This is technically not required but simplifies the process illustrated in this lab.
 
-#### Task 4: Generate a signing certificate
+#### Task 3: Generate a signing certificate
 
 > **Note**: In this lab, you will use a self-signed certificate. In a production environment, you should be using a certificate issued by either a public Certification Authority or an internal one, depending on the intended use.
 
@@ -127,19 +127,19 @@ The main tasks for this exercise are as follows:
    }
    ```
 
-#### Task 5: Download software to package
+#### Task 4: Download software to package
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, start **Microsoft Edge** and browse to **https://github.com/microsoft/XmlNotepad**.
 1. On the **microsoft/XmlNotepad** **readme.md** page, select the download link for Standalone downloadable installer and download the compressed installation files.
 1. Within the Remote Desktop session to **az140-cl-vm42**, start File Explorer, navigate to the **Downloads** folder, open the compressed file, copy the content from within the folder in the compressed file, and paste it to the **C:\\AllFiles\\Labs\\04\\** directory. 
 
-#### Task 6: Install the MSIX Packaging Tool
+#### Task 5: Install the MSIX Packaging Tool
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, start the **Microsoft Store** app.
 1. In the **Microsoft Store** app, search for and select **MSIX Packaging Tool**, on the **MSIX Packaging Tool** page, select **Get**.
 1. When prompted, skip signing in, wait for the installation to complete, select **Open** and, in the **Send diagnostic data** dialog box, select **Decline**, 
 
-#### Task 7: Create an MSIX package
+#### Task 6: Create an MSIX package
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to disable the Windows Search service:
 
