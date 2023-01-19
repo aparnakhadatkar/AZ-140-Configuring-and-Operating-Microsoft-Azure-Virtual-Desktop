@@ -270,7 +270,7 @@ The main tasks for this exercise are as follows:
 1. On the **az140-21-hp1_Autoscale_Scheduler** blade, in the vertical menu on the left side, in the **Development Tools** section, select **Logic app designer**. 
 1. On the designer pane, click the rectangle labeled **Recurrence** and note that you can use it to control frequency in which the need for autoscaling is evaluated. 
 
-### Exercise 2: Verify and review autoscaling of Azure Virtual Desktop session hosts (Read-Only)
+### Exercise 2: Verify and review autoscaling of Azure Virtual Desktop session hosts
 
 The main tasks for this exercise are as follows:
 
@@ -290,7 +290,7 @@ The main tasks for this exercise are as follows:
 1. On the **Automation Account** blade, in the vertical menu on the left side, in the **Process Automation** section, select **Jobs** and review the list of jobs corresponding to individual invocations of the **WVDAutoScaleRunbookARMBased** runbook.
 1. Select the most recent job and, on its blade, click **All Logs** tab header. This will display detailed listing of job execution steps.
 
-#### Task 2: Use Azure Log Analytics to track Azure Virtual Desktop events
+#### Task 2: Use Azure Log Analytics to track Azure Virtual Desktop events (Read-Only)
 
 >**Note**: To analyze autoscaling and any other Azure Virtual Desktop events, you can use Log Analytics.
 
@@ -338,4 +338,3 @@ The main tasks for this exercise are as follows:
    ```
 
 >**Note**: Ignore the error message regarding `TenantId`
-
