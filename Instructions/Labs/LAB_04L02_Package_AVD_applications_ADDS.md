@@ -336,7 +336,7 @@ The main tasks for this exercise are as follows:
    > **Note**: You might need to refresh the page for the group to be displayed.
 
 1. On the **az140-hosts-42-p1** blade, in the vertical menu bar on the left side, in the **Manage** section, click **Members**.
-1. On the **az140-hosts-42-p1 | Members** blade, verify that the list of **Direct members** include the three hosts of the Azure Virtual Desktop pool you added to the group earlier in this task.
+
 
 #### Task 2: Set up the Azure Files share for MSIX app attach
 
@@ -393,6 +393,8 @@ The main tasks for this exercise are as follows:
    ```cmd
    net use Z: \\<storage-account-name>.file.core.windows.net\az140-42-msixvhds
    ```
+   
+   > **Note**:<storage-account-name> name should be like **storagedeploymentID**
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, from the **Command Prompt** window, run the following to grant the required NTFS permissions to the computer accounts of session hosts:
 
