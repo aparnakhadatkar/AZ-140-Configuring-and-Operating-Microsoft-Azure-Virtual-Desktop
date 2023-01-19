@@ -303,7 +303,7 @@ The main tasks for this exercise are as follows:
 
 4. Within the Remote Desktop session to **az140-cl-vm11**, open edge and go to link  https://go.microsoft.com/fwlink/?linkid=2068602
 
-5. Select **Subscribe** and, when prompted, sign in with the **aduser1** credentials.
+5. Select **Subscribe** and, when prompted, sign in with the **aduser1** credentials use password **Pa55w.rd1234**.
 
     > **Note**  If you're not asked to subscribe, you might have to unsubscribe from a previous suscription.
  
