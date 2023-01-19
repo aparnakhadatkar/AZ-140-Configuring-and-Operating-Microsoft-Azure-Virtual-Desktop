@@ -231,10 +231,10 @@ The main tasks for this exercise are as follows:
 
 15. In the **Local Users and Groups** console, note the four groups which names start with the **FSLogix** string:
 
-   - FSLogix ODFC Exclude List
-   - FSLogix ODFC Include List
-   - FSLogix Profile Exclude List
-   - FSLogix Profile Include List
+     - FSLogix ODFC Exclude List
+     - FSLogix ODFC Include List
+     - FSLogix Profile Exclude List
+     - FSLogix Profile Include List
 
 16. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Include List** group, note that it includes the **\\Everyone** group, and select **OK** to close the group **Properties** window. 
 17. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Exclude List** group, note that it does not include any group members by default, and select **OK** to close the group **Properties** window. 
