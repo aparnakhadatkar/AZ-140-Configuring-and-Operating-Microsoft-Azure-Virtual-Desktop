@@ -193,41 +193,41 @@ The main tasks for this exercise are as follows:
 
 10. From the **Administrator: Windows PowerShell ISE** console, run the following to install the latest version of the Az PowerShell module (select **Yes to All** when prompted for confirmation):
 
-   ```powershell
-   Install-Module -Name Az -AllowClobber -SkipPublisherCheck
-   ```
+    ```powershell
+    Install-Module -Name Az -AllowClobber -SkipPublisherCheck
+    ```
 
 11. From the **Administrator: Windows PowerShell ISE** console, run the following to modify the execution policy:
 
-   ```powershell
-   Set-ExecutionPolicy RemoteSigned -Force
-   ```
+    ```powershell
+    Set-ExecutionPolicy RemoteSigned -Force
+    ```
 
  > **Note**: If you get the error Windows PowerShell updated your execution policy successfully, but the setting is overridden by a policy defined at a more specific scope. please ignore it.
 
 12. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab:
 
-   ```powershell
-   $resourceGroupName = 'az140-11-RG'
-   $storageAccountName = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName)[0].StorageAccountName   
-   ```
+    ```powershell
+    $resourceGroupName = 'az140-11-RG'
+    $storageAccountName = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName)[0].StorageAccountName   
+    ```
 
 13. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings:
 
-   ```powershell
-   $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
-   $profilesChildKey = 'Profiles'
-   $fileShareName = 'az140-22-profiles'
-   New-Item -Path $profilesParentKey -Name $profilesChildKey –Force
-   New-ItemProperty -Path $profilesParentKey\$profilesChildKey -Name 'Enabled' -PropertyType DWord -Value 1
-   New-ItemProperty -Path $profilesParentKey\$profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$storageAccountName.file.core.windows.net\$fileShareName"
-   ```
+    ```powershell
+    $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
+    $profilesChildKey = 'Profiles'
+    $fileShareName = 'az140-22-profiles'
+    New-Item -Path $profilesParentKey -Name $profilesChildKey –Force
+    New-ItemProperty -Path $profilesParentKey\$profilesChildKey -Name 'Enabled' -PropertyType DWord -Value 1
+    New-ItemProperty -Path $profilesParentKey\$profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$storageAccountName.file.core.windows.net\$fileShareName"
+    ```
 
 14. Within the Remote Desktop session to **az140-21-p1-0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** text box, type the following and select **OK** to launch the **Local Users and Groups** console:
 
-   ```cmd
-   lusrmgr.msc
-   ```
+    ```cmd
+    lusrmgr.msc
+    ```
 
 15. In the **Local Users and Groups** console, note the four groups which names start with the **FSLogix** string:
 
@@ -247,17 +247,17 @@ The main tasks for this exercise are as follows:
 
 20. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install FSLogix components on the **az140-21-p1-1** and **az140-21-p1-2** session hosts:
 
-   ```powershell
-   $servers = 'az140-21-p1-1', 'az140-21-p1-2'
-   foreach ($server in $servers) {
-      $localPath = 'C:\Allfiles\Labs\04\x64'
-      $remotePath = "\\$server\C$\Allfiles\Labs\04\x64\Release"
-      Copy-Item -Path $localPath\Release -Destination $remotePath -Filter '*.exe' -Force -Recurse
-      Invoke-Command -ComputerName $server -ScriptBlock {
+    ```powershell
+    $servers = 'az140-21-p1-1', 'az140-21-p1-2'
+    foreach ($server in $servers) {
+       $localPath = 'C:\Allfiles\Labs\04\x64'
+       $remotePath = "\\$server\C$\Allfiles\Labs\04\x64\Release"
+       Copy-Item -Path $localPath\Release -Destination $remotePath -Filter '*.exe' -Force -Recurse
+       Invoke-Command -ComputerName $server -ScriptBlock {
          Start-Process -FilePath $using:localPath\Release\FSLogixAppsSetup.exe -ArgumentList '/quiet' -Wait
-      } 
-   }
-   ```
+       } 
+    }
+    ```
 
    > **Note**: Wait for the script execution to complete. This might take about 2 minutes.
 
@@ -265,29 +265,29 @@ The main tasks for this exercise are as follows:
 
 >**Note**   Update the DeploymentID from enviroment detail page.
 
-   ```powershell
-   $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
-   $profilesChildKey = 'Profiles'
-   $storageAccountName = 'storageDeploymentID'
-   $fileShareName = 'az140-22-profiles'
-   foreach ($server in $servers) {
+    ```powershell
+    $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
+    $profilesChildKey = 'Profiles'
+    $storageAccountName = 'storageDeploymentID'
+    $fileShareName = 'az140-22-profiles'
+    foreach ($server in $servers) {
       Invoke-Command -ComputerName $server -ScriptBlock {
          New-Item -Path $using:profilesParentKey -Name $using:profilesChildKey –Force
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'Enabled' -PropertyType DWord -Value 1
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$using:storageAccountName.file.core.windows.net\$using:fileShareName"
-      }
-   }
-   ```
+       }
+    }
+    ```
 
    > **Note**: Before you test the FSLogix-based profile functionality, you need to remove the locally cached profile of the **ADATUM\\aduser1** account you will be using for testing from the Azure Virtual Desktop session hosts you used in the previous lab.
 
 22. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the locally cached profile of the **ADATUM\\aduser1** account on all Azure VMs serving as session hosts:
 
-   ```powershell
-   $userName = 'aduser1'
-   $servers = 'az140-21-p1-0','az140-21-p1-1', 'az140-21-p1-2'
-   Get-CimInstance -ComputerName $servers -Class Win32_UserProfile | Where-Object { $_.LocalPath.split('\')[-1] -eq $userName } | Remove-CimInstance
-   ```
+    ```powershell
+    $userName = 'aduser1'
+    $servers = 'az140-21-p1-0','az140-21-p1-1', 'az140-21-p1-2'
+    Get-CimInstance -ComputerName $servers -Class Win32_UserProfile | Where-Object { $_.LocalPath.split('\')[-1] -eq $userName } | Remove-CimInstance
+    ```
 
 #### Task 2: Test FSLogix-based profiles with Azure Virtual Desktop
 
