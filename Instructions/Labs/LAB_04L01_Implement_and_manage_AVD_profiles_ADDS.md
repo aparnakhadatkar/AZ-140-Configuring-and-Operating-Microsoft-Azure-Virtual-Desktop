@@ -247,25 +247,25 @@ The main tasks for this exercise are as follows:
 
 20. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install FSLogix components on the **az140-21-p1-1** and **az140-21-p1-2** session hosts:
 
-    ```powershell
-    $servers = 'az140-21-p1-1', 'az140-21-p1-2'
-    foreach ($server in $servers) {
-       $localPath = 'C:\Allfiles\Labs\04\x64'
-       $remotePath = "\\$server\C$\Allfiles\Labs\04\x64\Release"
-       Copy-Item -Path $localPath\Release -Destination $remotePath -Filter '*.exe' -Force -Recurse
-       Invoke-Command -ComputerName $server -ScriptBlock {
-         Start-Process -FilePath $using:localPath\Release\FSLogixAppsSetup.exe -ArgumentList '/quiet' -Wait
-       } 
-    }
-    ```
+      ```
+      $servers = 'az140-21-p1-1', 'az140-21-p1-2'
+      foreach ($server in $servers) {
+         $localPath = 'C:\Allfiles\Labs\04\x64'
+         $remotePath = "\\$server\C$\Allfiles\Labs\04\x64\Release"
+         Copy-Item -Path $localPath\Release -Destination $remotePath -Filter '*.exe' -Force -Recurse
+         Invoke-Command -ComputerName $server -ScriptBlock {
+           Start-Process -FilePath $using:localPath\Release\FSLogixAppsSetup.exe -ArgumentList '/quiet' -Wait
+         } 
+      }
+      ```
 
-   > **Note**: Wait for the script execution to complete. This might take about 2 minutes.
+     > **Note**: Wait for the script execution to complete. This might take about 2 minutes.
 
 21. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
 
->**Note**   Update the DeploymentID from enviroment detail page.
+    >**Note**   Update the DeploymentID from enviroment detail page.
 
-      ```powershell
+    ```
        $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
        $profilesChildKey = 'Profiles'
        $storageAccountName = 'storageDeploymentID'
@@ -277,7 +277,7 @@ The main tasks for this exercise are as follows:
          New-ItemProperty -Path $using:profilesParentKey\$using:profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$using:storageAccountName.file.core.windows.net\$using:fileShareName"
        }
     }
-      ```
+  ```
 
     > **Note**: Before you test the FSLogix-based profile functionality, you need to remove the locally cached profile of the **ADATUM\\aduser1** account you will be using for testing from the Azure Virtual Desktop session hosts you used in the previous lab.
 
