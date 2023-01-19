@@ -36,7 +36,6 @@ After completing this lab, you will be able to:
 
 The main tasks for this exercise are as follows:
 
-1. Prepare for configuration of Azure Virtual Desktop session hosts
 1. Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 1. Prepare the Azure VM running Windows 10 for MSIX packaging
 1. Generate a signing certificate
