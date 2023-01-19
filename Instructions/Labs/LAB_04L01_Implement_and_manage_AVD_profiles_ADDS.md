@@ -58,10 +58,10 @@ After completing this lab, you will be able to:
 11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**ADATUM\Student**|
-   |Password|**Pa55w.rd1234**|
+    |Setting|Value|
+    |---|---|
+    |User Name|**ADATUM\Student**|
+    |Password|**Pa55w.rd1234**|
 
 13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
 14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
@@ -117,27 +117,27 @@ After completing this lab, you will be able to:
 34. On the application groups blade, select + Create.
 35. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
-  |Setting|Value|
-   |---|---|
-   |Subscription|the name of the Azure subscription you are using in this lab|
-   |Resource group|**az140-21-RG**|
-   |Host pool|**az140-21-hp1**|
-   |Application group type|**RemoteApp**|
-   |Application group name|**az140-21-hp1-Utilities-RAG**|
-   
+    |Setting|Value|
+     |---|---|
+     |Subscription|the name of the Azure subscription you are using in this lab|
+     |Resource group|**az140-21-RG**|
+     |Host pool|**az140-21-hp1**|
+     |Application group type|**RemoteApp**|
+     |Application group name|**az140-21-hp1-Utilities-RAG**|
+     
 36. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
 37. On the **Add application** blade, specify the following settings and select **Save**:
 
-   |Setting|Value|
-   |---|---|
-   |Application source|**File path**|
-   |Application path|**C:\Windows\system32\cmd.exe**|
-   |Application name|**Command Prompt**|
-   |Display name|**Command Prompt**|
-   |Icon path|**C:\Windows\system32\cmd.exe**|
-   |Icon index|**0**|
-   |Description|**Windows Command Prompt**|
-   |Require command line|**No**|
+    |Setting|Value|
+     |---|---|
+     |Application source|**File path**|
+     |Application path|**C:\Windows\system32\cmd.exe**|
+     |Application name|**Command Prompt**|
+     |Display name|**Command Prompt**|
+     |Icon path|**C:\Windows\system32\cmd.exe**|
+     |Icon index|**0**|
+     |Description|**Windows Command Prompt**|
+     |Require command line|**No**|
 
 38. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
 39. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
@@ -145,9 +145,9 @@ After completing this lab, you will be able to:
 41. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
 42. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
-   |Setting|Value|
-   |---|---|
-   |Register application group|**yes**|
+    |Setting|Value|
+     |---|---|
+     |Register application group|**yes**|
 
 43. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
