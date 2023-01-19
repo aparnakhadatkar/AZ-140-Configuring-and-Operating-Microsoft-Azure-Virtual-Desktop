@@ -130,13 +130,13 @@ if ($AADTenantId -ne $AzContext.Tenant.Id -or $SubscriptionId -ne $AzContext.Sub
 		throw "Failed to set Azure context with subscription ID '$SubscriptionId' and tenant ID '$AADTenantId'. Current context: $($AzContext | Format-List -Force | Out-String)"
 	}
 }
-
+<#
 # Get the Role Assignment of the authenticated user
 $RoleAssignments = Get-AzRoleAssignment -SignInName $AzContext.Account -ExpandPrincipalGroups
 if (!($RoleAssignments | Where-Object { $_.RoleDefinitionName -in @('Owner', 'Contributor') })) {
 	throw 'Authenticated user should have the Owner/Contributor permissions to the subscription'
 }
-
+#>
 if ($UseRDSAPI) {
 	# Get the WVD context
 	$WVDContext = Get-RdsContext -DeploymentUrl $RDBrokerURL
