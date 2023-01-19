@@ -212,7 +212,7 @@ The main tasks for this exercise are as follows:
 
     ```powershell
     $resourceGroupName = 'az140-11-RG'
-    $storageAccountName = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName)[0].StorageAccountName   
+    $storageAccountName = 'storagedeploymentID'
     ```
 
 13. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings:
