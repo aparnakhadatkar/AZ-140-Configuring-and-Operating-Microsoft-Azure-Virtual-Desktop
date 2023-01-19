@@ -107,16 +107,18 @@ After completing this lab, you will be able to:
     |Password|**Pa55w.rd1234**|
    
 30. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
-    > **Note**: If they ask forExecution policy change give **Y** and for Nuget provider is required to continue provide **y**.
+    > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **y**.
+
+31. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 
     > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
  
-31. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on Assignments under Manage section.
+32. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on Assignments under Manage section.
 
-32. Click on + Add and search for aduser1 and then click on Select.
-33. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
-34. On the application groups blade, select + Create.
-35. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
+33. Click on + Add and search for aduser1 and then click on Select.
+34. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+35. On the application groups blade, select + Create.
+36. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
     |Setting|Value|
      |---|---|
@@ -126,8 +128,8 @@ After completing this lab, you will be able to:
      |Application group type|**RemoteApp**|
      |Application group name|**az140-21-hp1-Utilities-RAG**|
      
-36. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
-37. On the **Add application** blade, specify the following settings and select **Save**:
+37. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+38. On the **Add application** blade, specify the following settings and select **Save**:
 
     |Setting|Value|
      |---|---|
@@ -140,17 +142,17 @@ After completing this lab, you will be able to:
      |Description|**Windows Command Prompt**|
      |Require command line|**No**|
 
-38. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
-39. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
-40. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
-41. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
-42. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+39. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+40. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+41. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+42. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+43. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
     |Setting|Value|
      |---|---|
      |Register application group|**yes**|
 
-43. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+44. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
    
 ### Exercise 2: Implement FSLogix based profiles for Azure Virtual Desktop
