@@ -309,7 +309,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Verify autoscaling of Azure Virtual Desktop session hosts (Read-Only)
 
-1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-11-RG** resource group.
+1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-21-RG** resource group.
 
    >**Note**: As soon as you verify that autoscaling is working, you should disable the Azure Logic app to minimize the corresponding charges.
 
