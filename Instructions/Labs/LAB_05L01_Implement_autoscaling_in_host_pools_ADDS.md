@@ -86,40 +86,70 @@ After completing this lab, you will be able to:
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
-25. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
+24. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
+    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text Session-host Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
+
+25. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+
+26. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+
+27. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+
+
+28. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
+
+    |Setting|Value|
+    |---|---|
+    |User Name|**Student**|
+    |Password|**Pa55w.rd1234**|
    
-   > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
-  
-  
-26. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
-> **Note**: The script execution will take about 5 minutes. Once completed
+29. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
+    > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **y**.
 
-27. Copy the contents of **p3script.ps1** from the desktop now from within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** and in the **Run Command Script** under **PowerShell Script** paste the content of **p3script.ps1** and click on **Run**. 
+30. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 
+    > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
+ 
+31. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on Assignments under Manage section.
 
-29. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**.
-30. When prompted, sign in with the following credentials:
+32. Click on + Add and search for aduser1 and then click on Select.
+33. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+34. On the application groups blade, select + Create.
+35. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
+    |Setting|Value|
+     |---|---|
+     |Subscription|the name of the Azure subscription you are using in this lab|
+     |Resource group|**az140-11-RG**|
+     |Host pool|**az140-21-hp1**|
+     |Application group type|**RemoteApp**|
+     |Application group name|**az140-21-hp1-Utilities-RAG**|
+     
+36. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+37. On the **Add application** blade, specify the following settings and select **Save**:
 
-  > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
+    |Setting|Value|
+     |---|---|
+     |Application source|**File path**|
+     |Application path|**C:\Windows\system32\cmd.exe**|
+     |Application name|**Command Prompt**|
+     |Display name|**Command Prompt**|
+     |Icon path|**C:\Windows\system32\cmd.exe**|
+     |Icon index|**0**|
+     |Description|**Windows Command Prompt**|
+     |Require command line|**No**|
 
-31. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
+38. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+39. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+40. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
+41. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+42. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
-32. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
+    |Setting|Value|
+     |---|---|
+     |Register application group|**yes**|
 
-33. If you get the popup NutGet provider is requied to continue select yes.
-
-34. Provide the credentials from the environment details tab to authenticate the Azure account when the pop up comes.
-
-35. Wait until the script runs successfully.
-
-36. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
-
-37. Click on + Add and search for aduser5 and then click on Select.
+43. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
 
 ### Exercise 1: Configure autoscaling of Azure Virtual Desktop session hosts
@@ -210,7 +240,7 @@ The main tasks for this exercise are as follows:
    $AADTenantId = (Get-AzContext).Tenant.Id
    $AzSubscription = (Get-AzContext).Subscription.Id
    $ResourceGroup = Get-AzResourceGroup -Name 'az140-51-RG'
-   $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" -Name 'az140-24-hp3'
+   $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" -Name 'az140-21-hp1'
    $LogAnalyticsWorkspace = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup.ResourceGroupName)[0]
    $LogAnalyticsWorkspaceId = $LogAnalyticsWorkspace.CustomerId
    $LogAnalyticsWorkspaceKeys = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroup.ResourceGroupName -Name $LogAnalyticsWorkspace.Name)
@@ -302,7 +332,7 @@ The main tasks for this exercise are as follows:
 
    ```kql
    WVDTenantScale_CL
-   | where hostpoolName_s == "az140-24-hp3"
+   | where hostpoolName_s == "az140-21-hp1"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
@@ -316,7 +346,7 @@ The main tasks for this exercise are as follows:
    | where logmessage_s contains "Number of running session hosts:"
      or logmessage_s contains "Number of user sessions:"
      or logmessage_s contains "Number of user sessions per Core:"
-   | where hostpoolName_s == "az140-24-hp3"
+   | where hostpoolName_s == "az140-21-hp1"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
@@ -325,7 +355,7 @@ The main tasks for this exercise are as follows:
    ```kql
    WVDTenantScale_CL
    | where logmessage_s contains "Session host:"
-   | where hostpoolName_s == "az140-24-hp3"
+   | where hostpoolName_s == "az140-21-hp1"
    | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
    ```
 
