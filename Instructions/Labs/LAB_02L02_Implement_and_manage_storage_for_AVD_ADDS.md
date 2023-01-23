@@ -42,6 +42,8 @@ After completing this lab, you will be able to:
 
 
   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+
+  ![POP-UP](./images/AZ-140-1.jpg)
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
