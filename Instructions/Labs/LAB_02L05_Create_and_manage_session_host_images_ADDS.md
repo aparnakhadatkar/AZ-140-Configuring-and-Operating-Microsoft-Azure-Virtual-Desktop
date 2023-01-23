@@ -41,6 +41,8 @@ After completing this lab, you will be able to:
    |Password|**Pa55w.rd1234**|
 
   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+
+   ![](./images/AZ-140-1.png)
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
@@ -117,6 +119,8 @@ The main tasks for this exercise are as follows:
    ```
 
 1. In the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** in the **Open** window, and select the files **az140-25_azuredeployvm25.json** and **az140-25_azuredeployvm25.parameters.json** and select **Open**. This will upload the files into the Cloud Shell home directory.
+
+    ![](./images/AZ-140-5.png)
 
 1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that will serve as a Azure Virtual Desktop client into the newly created subnet:
 
