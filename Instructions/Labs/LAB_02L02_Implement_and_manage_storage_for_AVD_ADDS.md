@@ -286,4 +286,5 @@ The main tasks for this exercise are as follows:
    icacls Z: /remove 'Builtin\Users'
    ```
 
+  ![](./images/AZ-140-4.png)
    >**Note**: Alternatively, you could set permissions by using File Explorer.
