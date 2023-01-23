@@ -43,7 +43,7 @@ After completing this lab, you will be able to:
 
   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
 
-  ![](./images/AZ-140-1.png)
+   ![](./images/AZ-140-1.png)
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
@@ -161,19 +161,19 @@ The main tasks for this exercise are as follows:
    Get-ChildItem -Path C:\Allfiles\Labs\02 -File -Recurse | Unblock-File
    ```
 
-1. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
+2. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
 
    ```powershell
    Connect-AzAccount
    ```
 
-1. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+3. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
    > **Note**: If you get a **Microsoft Azure : Help us protect your account** popup, select **Skip for now (14 days until this is required)**.
 
    > **Note**: If you get a **Windows Security Warning** popup asking "When you send information to the Internet, it might be possible for others to see that information. Do you want to continue?", select the checkbox **Don't show this message again** and select **Yes**.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to set the variables necessary to run the subsequent script:
+4. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to set the variables necessary to run the subsequent script:
 
    ```powershell
    $subscriptionId = (Get-AzContext).Subscription.Id
@@ -181,7 +181,7 @@ The main tasks for this exercise are as follows:
    $storageAccountName = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName)[0].StorageAccountName
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an AD DS computer object that represents the Azure Storage account you created earlier in this task and is used to implement its AD DS authentication:
+5. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an AD DS computer object that represents the Azure Storage account you created earlier in this task and is used to implement its AD DS authentication:
 
    ```powershell
    cd C:\Allfiles\Labs\02
@@ -195,9 +195,9 @@ The main tasks for this exercise are as follows:
       -DomainAccountType 'ComputerAccount' `
       -OrganizationalUnitDistinguishedName 'OU=WVDInfra,DC=adatum,DC=com'
    ```
-  >**Note**: If you receive an error when running this script block, ensure that you are in the same directory as the CopyToPSPath.ps1 script. Depending on how the files were extracted earlier in this lab, they might be in a sub-folder named AzFilesHybrid. In the PowerShell context, change directories to the folder using **cd AzFilesHybrid**.
+    >**Note**: If you receive an error when running this script block, ensure that you are in the same directory as the CopyToPSPath.ps1 script. Depending on how the   files were extracted earlier in this lab, they might be in a sub-folder named AzFilesHybrid. In the PowerShell context, change directories to the folder using **cd  AzFilesHybrid**.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to verify that the AD DS authentication is enabled on the Azure Storage account:
+6. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to verify that the AD DS authentication is enabled on the Azure Storage account:
 
    ```powershell
    $storageaccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
@@ -205,7 +205,7 @@ The main tasks for this exercise are as follows:
    $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
    ```
 
-1. Verify that that the output of the command `$storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties` returns `AD`, representing the directory service of the storage account, and that the output of the `$storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions` command, representing the directory domain information, resembles the following format (the values of `DomainGuid`, `DomainSid`, and `AzureStorageSid` will differ):
+7. Verify that that the output of the command `$storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties` returns `AD`, representing the directory service of the storage account, and that the output of the `$storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions` command, representing the directory domain information, resembles the following format (the values of `DomainGuid`, `DomainSid`, and `AzureStorageSid` will differ):
 
    ```
    DomainName        : adatum.com
@@ -215,12 +215,12 @@ The main tasks for this exercise are as follows:
    DomainSid         : S-1-5-21-1102940778-2483248400-1820931179
    AzureStorageSid   : S-1-5-21-1102940778-2483248400-1820931179-2109
    ```
-  ![](./images/AZ-140-2.png)
+    ![](./images/AZ-140-2.png)
   
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the Microsoft Edge window displaying the Azure portal, on the blade displaying the storage account, select **File shares** and verify that the **Active Directory** setting is **Configured**.
+8. Within the Remote Desktop session to **az140-dc-vm11**, switch to the Microsoft Edge window displaying the Azure portal, on the blade displaying the storage account, select **File shares** and verify that the **Active Directory** setting is **Configured**.
 
-   ![](./images/AZ-140-3.png)
+    ![](./images/AZ-140-3.png)
 
    >**Note**: You might have to refresh the browser page for the change to be reflected within the Azure portal.
 
