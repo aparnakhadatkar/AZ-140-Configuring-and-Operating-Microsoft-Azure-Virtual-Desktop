@@ -1,9 +1,3 @@
----
-lab:
-    title: 'Lab: Create and manage session host images (AD DS)'
-    module: 'Module 2: Implement a WVD Infrastructure'
----
-
 # Lab - Create and manage session host images (AD DS)
 # Student lab manual
 
