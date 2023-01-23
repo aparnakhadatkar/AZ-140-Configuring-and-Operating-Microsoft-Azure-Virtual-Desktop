@@ -185,13 +185,13 @@ The main tasks for this exercise are as follows:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-  > **Note**: If you see the Networks window **Do you want your PC to be discoverable by other Pcs and devices on this network?**, close it by selecting **No**.
+    > **Note**: If you see the Networks window **Do you want your PC to be discoverable by other Pcs and devices on this network?**, close it by selecting **No**.
   
-  > **Note**: Close the **Server Manager** window/program. 
+    > **Note**: Close the **Server Manager** window/program. 
 
-  > **Note**: If you get **Microsoft Teams: Get Started** window, close it. 
+    > **Note**: If you get **Microsoft Teams: Get Started** window, close it. 
 
-  > **Note**: You will start by installing FSLogix binaries.
+    > **Note**: You will start by installing FSLogix binaries.
 
 4. Within the Remote Desktop session to **az140-25-vm0**, start **Windows PowerShell ISE** as administrator.
 5. Within the Remote Desktop session to **az140-25-vm0**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a folder you will use as a temporary location for configuration of the image:
