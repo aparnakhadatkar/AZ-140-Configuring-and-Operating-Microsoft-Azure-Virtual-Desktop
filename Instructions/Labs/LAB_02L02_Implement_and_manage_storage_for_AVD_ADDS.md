@@ -43,7 +43,7 @@ After completing this lab, you will be able to:
 
   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
 
-  ![POP-UP](./images/AZ-140-1.jpg)
+  ![](./images/AZ-140-1.png)
   
   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
@@ -53,7 +53,7 @@ After completing this lab, you will be able to:
 
 6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
-8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+8. On the **Install required components** page, leave all optional configuration options deselected and select **Install** and wait for 2 minutes to complete the installation.
 9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
 10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
@@ -183,8 +183,6 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an AD DS computer object that represents the Azure Storage account you created earlier in this task and is used to implement its AD DS authentication:
 
-   >**Note**: If you receive an error when running this script block, ensure that you are in the same directory as the CopyToPSPath.ps1 script. Depending on how the files were extracted earlier in this lab, they might be in a sub-folder named AzFilesHybrid. In the PowerShell context, change directories to the folder using **cd AzFilesHybrid**.
-
    ```powershell
    cd C:\Allfiles\Labs\02
    
@@ -197,6 +195,7 @@ The main tasks for this exercise are as follows:
       -DomainAccountType 'ComputerAccount' `
       -OrganizationalUnitDistinguishedName 'OU=WVDInfra,DC=adatum,DC=com'
    ```
+  >**Note**: If you receive an error when running this script block, ensure that you are in the same directory as the CopyToPSPath.ps1 script. Depending on how the files were extracted earlier in this lab, they might be in a sub-folder named AzFilesHybrid. In the PowerShell context, change directories to the folder using **cd AzFilesHybrid**.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to verify that the AD DS authentication is enabled on the Azure Storage account:
 
@@ -216,8 +215,12 @@ The main tasks for this exercise are as follows:
    DomainSid         : S-1-5-21-1102940778-2483248400-1820931179
    AzureStorageSid   : S-1-5-21-1102940778-2483248400-1820931179-2109
    ```
+  ![](./images/AZ-140-2.png)
+  
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the Microsoft Edge window displaying the Azure portal, on the blade displaying the storage account, select **File shares** and verify that the **Active Directory** setting is **Configured**.
+
+   ![](./images/AZ-140-3.png)
 
    >**Note**: You might have to refresh the browser page for the change to be reflected within the Azure portal.
 
