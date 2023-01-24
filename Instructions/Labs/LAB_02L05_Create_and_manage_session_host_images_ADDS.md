@@ -26,7 +26,7 @@
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
@@ -55,7 +55,7 @@
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -114,7 +114,7 @@ The main tasks for this exercise are as follows:
 
 1. In the browser window displaying the Azure portal, open another tab and, in the browser tab, navigate to the Azure portal.
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
-1. From the PowerShell session in the Cloud Shell pane, run the following to add a subnet named **AzureBastionSubnet** to the virtual network named **az140-25-vnet** you created earlier in this exercise:
+1. From the PowerShell session in the Cloud Shell pane, run the following to add a subnet named **AzureBastionSubnet** to the virtual network named **az140-25-vnet**:
 
    ```powershell
    $resourceGroupName = 'az140-25-RG'
@@ -135,7 +135,7 @@ The main tasks for this exercise are as follows:
    |Subscription|the name of the Azure subscription you are using in this lab|
    |Resource group|**az140-25-RG**|
    |Name|**az140-25-bastion**|
-   |Region|the same Azure region to which you deployed the resources in the previous tasks of this exercise|
+   |Region|the same Azure region to which you deployed the resources in the previous tasks of this exercise i.e. region same as your resource group|
    |Tier|**Basic**|
    |Virtual network|**az140-25-vnet**|
    |Subnet|**AzureBastionSubnet (10.25.254.0/24)**|
@@ -254,7 +254,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    rmdir C:\Allfiles /s /q
    ```
 
-20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed. In the **Disk Cleanup** popup window, select **Delete Files**.
+20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed. If prompted with **Disk Cleanup** popup window, select **Delete Files**.
 
    ```cmd
    cleanmgr /d C: /verylowdisk
