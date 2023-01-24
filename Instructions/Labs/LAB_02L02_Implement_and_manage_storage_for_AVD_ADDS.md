@@ -1,32 +1,5 @@
 
 # Lab - Implement and manage storage for AVD (AD DS)
-# Student lab manual
-
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-- The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
-
-## Estimated Time
-
-30 minutes
-
-## Lab scenario
-
-You need to implement and manage storage for a Azure Virtual Desktop deployment in an Azure Active Directory Domain Services (Azure AD DS) environment.
-
-## Objectives
-  
-After completing this lab, you will be able to:
-
-- Configure Azure Files to store profile containers for Azure Virtual Desktop
-
-## Lab files
-
-- None
-
-## Instructions
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 
