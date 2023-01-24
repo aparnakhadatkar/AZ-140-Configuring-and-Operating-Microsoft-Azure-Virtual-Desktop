@@ -46,7 +46,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
-1. From your lab computer, in the web browser window displaying the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, and upload the files **\\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.json** and **\\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.parameters.json** into the Cloud Shell home directory.
+1. From your lab computer, in the web browser window displaying the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, and upload the files **C:\\AllFiles\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.json** and **C:\\AllFiles\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.parameters.json** into the Cloud Shell home directory.
 1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that you will use for creating MSIX packages to and to join it to the Azure AD DS domain:
 
    ```powershell
