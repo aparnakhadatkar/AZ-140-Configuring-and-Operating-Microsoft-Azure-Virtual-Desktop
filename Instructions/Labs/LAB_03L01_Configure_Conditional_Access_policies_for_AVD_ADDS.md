@@ -30,7 +30,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect
+### Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
@@ -167,7 +167,7 @@ After completing this lab, you will be able to:
 
 47. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
-### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
+### Exercise 2: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
@@ -293,7 +293,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: You might have to wait a few minutes for the synchronization to take efect before the device appears in the Azure portal.
 
-### Exercise 2: Implement Azure AD-based Conditional Access for Azure Virtual Desktop
+### Exercise 3: Implement Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
@@ -348,7 +348,12 @@ The main tasks for this exercise are as follows:
 
 >**Note**: It might take a few minutes for the policy to take effect.
 
-#### Task 4: Test the modified Azure AD-based Conditional Access policy (Read only)
+#### Task 4: Test the modified Azure AD-based Conditional Access policy 
+
+On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
+
+
+Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
 
 1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
 1. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
