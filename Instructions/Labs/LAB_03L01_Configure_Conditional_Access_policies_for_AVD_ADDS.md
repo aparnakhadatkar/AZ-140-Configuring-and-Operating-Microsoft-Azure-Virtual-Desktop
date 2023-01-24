@@ -352,9 +352,9 @@ The main tasks for this exercise are as follows:
 
 1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select Run command and in the Run Command Script under PowerShell Script run the below command.
 
- ```powershell
+   ```powershell
     Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
-    ```
+   ```
 
 2. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
 
