@@ -113,18 +113,20 @@ After completing this lab, you will be able to:
 
 30. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
 
-31. If you get the popup NutGet provider is requied to continue select yes.
+31. If you get the popup exceution policy change to continue select yes.
 
-32. Provide the credentials from the environment details tab to authenticate the Azure account when the pop up comes.
+32. If you get the popup NutGet provider is requied to continue select yes.
 
-33. Wait until the script runs successfully.
+33. Provide the credentials from the environment details tab to authenticate the Azure account when the pop up comes.
 
-34. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
+34. Wait until the script runs successfully.
 
-35. Click on + Add and search for aduser5 and then click on Select.
-36. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
-37. On the application groups blade, select + Create.
-38. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
+35. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
+
+36. Click on + Add and search for aduser5 and then click on Select.
+37. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+38. On the application groups blade, select + Create.
+39. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
   |Setting|Value|
    |---|---|
@@ -134,9 +136,9 @@ After completing this lab, you will be able to:
    |Application group type|**RemoteApp**|
    |Application group name|**az140-21-hp1-Utilities-RAG**|
    
-39. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+40. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
 
-40. On the **Add application** blade, specify the following settings and select **Save**:
+41. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
    |---|---|
@@ -149,21 +151,21 @@ After completing this lab, you will be able to:
    |Description|**Windows Command Prompt**|
    |Require command line|**No**|
 
-41. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+42. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
 
-42. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+43. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
  
-43. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
+44. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
  
-44. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+45. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
  
-45. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+46. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
    |---|---|
    |Register application group|**yes**|
 
-46. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+47. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
 ### Exercise 1: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
