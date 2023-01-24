@@ -78,7 +78,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Prepare for configuration of a Azure Virtual Desktop host image
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
+1. From your lab Virtual machine, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell** and then select **Create storage**.
 1. On the lab computer, in the web browser displaying the Azure portal, from the PowerShell session in the Cloud Shell pane, run the following to create a resource group that will contain the Azure Virtual Desktop host image:
@@ -246,18 +246,6 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 
    ```cmd
    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
-   ```
-
-19. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to delete the temporary folder you created earlier in this task:
-
-   ```cmd
-   rmdir C:\Allfiles /s /q
-   ```
-
-20. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the Disk Cleanup utility and click **OK** once completed. If prompted with **Disk Cleanup** popup window, select **Delete Files**.
-
-   ```cmd
-   cleanmgr /d C: /verylowdisk
    ```
 
 #### Task 4: Create a Azure Virtual Desktop host image
