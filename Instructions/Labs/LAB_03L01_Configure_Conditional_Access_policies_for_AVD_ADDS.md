@@ -132,7 +132,7 @@ After completing this lab, you will be able to:
    |---|---|
    |Subscription|the name of the Azure subscription you are using in this lab|
    |Resource group|**az140-11-RG**|
-   |Host pool|**az140-21-hp1**|
+   |Host pool|**az140-24-hp3**|
    |Application group type|**RemoteApp**|
    |Application group name|**az140-21-hp1-Utilities-RAG**|
    
