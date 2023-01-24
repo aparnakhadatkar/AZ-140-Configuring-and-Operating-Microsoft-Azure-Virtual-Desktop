@@ -1,32 +1,4 @@
 # Lab - Create and manage session host images (AD DS)
-# Student lab manual
-
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-- The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
-
-## Estimated Time
-
-60 minutes
-
-## Lab scenario
-
-You need to create and manage Azure Virtual Desktop host images in an Active Directory Domain Services (AD DS) environment.
-
-## Objectives
-  
-After completing this lab, you will be able to:
-
-- Create and manage WVD session host images
-
-## Lab files
-
--  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-25_azuredeployvm25.json
--  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-25_azuredeployvm25.parameters.json
-
-## Instructions
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 
