@@ -468,7 +468,8 @@ The main tasks for this exercise are as follows:
 
 #### Task 5: Validate the functionality of MSIX App attach
 
-1. Within the Remote Desktop session to **az140-cl-vm42**, start Microsoft Edge, navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) and, once download completes, select **Open file** to start its installation. On the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. 
+1. Within the Remote Desktop session to **az140-cl-vm42**, start Microsoft Edge, navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) and, once download completes, select **Open file** to start its installation. Click in the checkbox under **End user Licence Agreement** window confirming **I accept the terms in the License agreement**.
+1. On the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. 
 1. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
 1. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser1** user principal name and the password you set when creating this user account. 
 1. If prompted, in the **Stay signed in to all your apps** window, clear the **Allow my organization to manage my device** checkbox and click **No, sign in to this app only**.
