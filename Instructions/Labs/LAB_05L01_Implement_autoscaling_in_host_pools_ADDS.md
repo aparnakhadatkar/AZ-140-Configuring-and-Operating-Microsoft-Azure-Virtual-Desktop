@@ -110,7 +110,7 @@ After completing this lab, you will be able to:
 
     > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
  
-31. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on Assignments under Manage section.
+31. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under Manage section.
 
 32. Click on + Add and search for aduser1 and then click on Select.
 33. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
