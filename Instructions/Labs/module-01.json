@@ -4,6 +4,11 @@
   "Language": "English",
   "Files": [
     {
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LabIntro.md",
+        "Order": 1
+     },
+    
+    {
         "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LAB_01L01_Prepare_for_deployment_of_AVD_ADDS.md",
         "Order": 1
      }
