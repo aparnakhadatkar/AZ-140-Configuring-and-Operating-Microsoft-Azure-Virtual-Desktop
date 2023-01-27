@@ -1,12 +1,6 @@
 # Lab - Deploy host pools and session hosts by using the Azure portal (AD DS)
 # Student lab manual
 
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-- The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
-
 ## Estimated Time
 
 60 minutes
@@ -28,7 +22,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect
+### Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -89,7 +83,7 @@ After completing this lab, you will be able to:
 
 
 
-### Exercise 1: Implement an Azure Virtual Desktop environment in an AD DS domain
+### Exercise 2: Implement an Azure Virtual Desktop environment in an AD DS domain
   
 The main tasks for this exercise are as follows:
 
@@ -365,7 +359,7 @@ The main tasks for this exercise are as follows:
 1. Back on the **Application groups** tab of the **Create a workspace** blade, select **Review + create**.
 1. On the **Review + create** tab of the **Create a workspace** blade, select **Create**.
 
-### Exercise 2: Validate Azure Virtual Desktop environment
+### Exercise 3: Validate Azure Virtual Desktop environment
   
 The main tasks for this exercise are as follows:
 
@@ -435,27 +429,3 @@ The main tasks for this exercise are as follows:
 1. Within the **Default Desktop** session, at the Command Prompt, type **hostname** and press the **Enter** key to display the name of the computer on which the Remote Desktop session is running.
 1. Verify that the displayed name is either **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**.
 
-### Exercise 3: Stop and deallocate Azure VMs provisioned in the lab
-
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane.
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-21-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
