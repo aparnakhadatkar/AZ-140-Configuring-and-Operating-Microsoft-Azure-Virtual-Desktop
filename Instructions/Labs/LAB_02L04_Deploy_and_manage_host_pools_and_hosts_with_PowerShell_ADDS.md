@@ -1,15 +1,6 @@
 # Lab - Deploy and manage host pools and hosts by using PowerShell
 # Student lab manual
 
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-- The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
-
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -29,7 +20,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 0: Prerequisite - Setup Azure AD Connect
+### Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
@@ -94,7 +85,7 @@ After completing this lab, you will be able to:
    
    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
-### Exercise 1: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
+### Exercise 2: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
   
 The main tasks for this exercise are as follows:
 
@@ -349,30 +340,3 @@ The main tasks for this exercise are as follows:
 1. On the **az140-24-hp3 \| Application groups** blade, in the list of application groups, select the **az140-24-hp3-Office365-RAG** entry.
 1. On the **az140-24-hp3-Office365-RAG** blade, verify the configuration of the application group, including the applications and assignments.
 
-### Exercise 2: Stop and deallocate Azure VMs provisioned in the lab
-
-The main tasks for this exercise are as follows:
-
-1. Stop and deallocate Azure VMs provisioned in the lab
-
->**Note**: In this exercise, you will deallocate the Azure VMs provisioned in this lab to minimize the corresponding compute charges
-
-#### Task 1: Deallocate Azure VMs provisioned in the lab
-
-1. Switch to the lab computer and, in the web browser window displaying the Azure portal, open Cloud Shell pane by selecting on the toolbar icon directly to the right of the search textbox.
-
-1. If prompted to select either Bash or PowerShell, select **PowerShell** and then select **Create storage**.
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to list all Azure VMs created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-24-RG'
-   ```
-
-1. From the PowerShell session in the Cloud Shell pane, run the following to stop and deallocate all Azure VMs you created in this lab:
-
-   ```powershell
-   Get-AzVM -ResourceGroup 'az140-24-RG' | Stop-AzVM -NoWait -Force
-   ```
-
-   >**Note**: The command executes asynchronously (as determined by the -NoWait parameter), so while you will be able to run another PowerShell command immediately afterwards within the same PowerShell session, it will take a few minutes before the Azure VMs are actually stopped and deallocated.
