@@ -1,16 +1,6 @@
 # Lab - Implement and manage Azure Virtual Desktop profiles (AD DS)
 # Student lab manual
 
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-- The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
-- The completed lab **Implement and manage storage for WVD (AD DS)**
-
-## Estimated Time
-
-30 minutes
 
 ## Lab scenario
 
