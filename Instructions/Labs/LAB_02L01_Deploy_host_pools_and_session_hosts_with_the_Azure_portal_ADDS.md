@@ -1,9 +1,6 @@
 # Lab - Deploy host pools and session hosts by using the Azure portal (AD DS)
 # Student lab manual
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
