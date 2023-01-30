@@ -47,7 +47,9 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
-   >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
+    ![](./images/clouldshell.png)
+
+>**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
 
 
 #### Task 2: Deploy an Azure VM running an AD DS domain controller by using an Azure Resource Manager QuickStart template
@@ -96,6 +98,8 @@ The main tasks for this exercise are as follows:
  
 
 1. In the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\01** and select the template file **az140-11_azuredeploycl11.json** and select **Open**. This will upload the file into the Cloud Shell home directory.
+
+    ![](./images/uploadicon.png)
 
 1. Once again, select the **Upload/Download files** icon in the Cloud Shell pane, in the drop-down menu select **Upload**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\01** and select the template file **az140-11_azuredeploycl11.parameters.json** and select **Open**.
 
