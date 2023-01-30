@@ -5,7 +5,7 @@
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11.
+3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11**.
 4. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
@@ -86,7 +86,7 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-22-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11.
+1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11**.
 1. When prompted, provde the following credentials and select **Connect**:
 
    |Setting|Value|
