@@ -31,11 +31,11 @@
 1. If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the  labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
 
 
-   ![Bastion open clipboard](./images/bastion-arrow-out.png)
+    ![Bastion open clipboard](./images/bastion-arrow-out.png)
 
 
 
-   ![Bastion close clipboard](./images/bastion-copy-paste.png)
+    ![Bastion close clipboard](./images/bastion-copy-paste.png)
    
  ### Task 2 Use the Clipboard
 
