@@ -24,8 +24,8 @@ After completing this lab, you will be able to:
 ### Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-4. When prompted, provide the following credentials and select **Connect**:
+3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**.
+4. On the **Bastion** tab of the **az140-dc-vm11** when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -282,7 +282,7 @@ The main tasks for this exercise are as follows:
 1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Devices**. 
 1. On the **Devices | All devices** blade, review the list of devices and verify that the **az140-cl-vm11** device is listed with the **Hybrid Azure AD joined** entry in the **Join Type** column.
 
-   > **Note**: You might have to wait a few minutes for the synchronization to take efect before the device appears in the Azure portal.
+   > **Note**: You might have to wait a few minutes for the synchronization to take effect before the device appears in the Azure portal.
 
 ### Exercise 3: Implement Azure AD-based Conditional Access for Azure Virtual Desktop
 
