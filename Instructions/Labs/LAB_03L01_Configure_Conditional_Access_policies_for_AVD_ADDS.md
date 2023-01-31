@@ -150,7 +150,7 @@ After completing this lab, you will be able to:
  
 45. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
  
-46. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+46. On the **Workspace** tab of the **Create an application group** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
    |---|---|
