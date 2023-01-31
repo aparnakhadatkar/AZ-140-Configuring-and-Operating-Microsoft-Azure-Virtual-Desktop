@@ -112,7 +112,7 @@ After completing this lab, you will be able to:
 
 34. Wait until the script runs successfully.
 
-35. In the Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
+35. On the lab computer, go to Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
 
 36. Click on + Add and search for aduser5 and then click on Select.
 37. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
