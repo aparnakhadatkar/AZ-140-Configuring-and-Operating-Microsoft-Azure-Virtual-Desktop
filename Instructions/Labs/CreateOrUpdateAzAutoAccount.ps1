@@ -109,10 +109,6 @@ if (!$ResourceGroup) {
 }
 
 [array]$RequiredModules = @(
-	'Az.Accounts'
-	'Az.Compute'
-	'Az.Resources'
-	'Az.Automation'
 	'OMSIngestionAPI'
 )
 if ($UseRDSAPI) {
@@ -255,9 +251,9 @@ if (!$WebhookURIAutoVar) {
 }
 
 # Required modules imported from Automation Account Modules gallery for Scale Script execution
-#foreach ($ModuleName in $RequiredModules) {
-#	Add-ModuleToAutoAccount -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -ModuleName $ModuleName
-#}
+foreach ($ModuleName in $RequiredModules) {
+	Add-ModuleToAutoAccount -ResourceGroupName $ResourceGroupName -AutomationAccountName $AutomationAccountName -ModuleName $ModuleName
+}
 
 if ($WorkspaceName) {
 
