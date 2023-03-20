@@ -5,20 +5,24 @@
     "BaseURL": "https://github.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_01L01_Prepare_for_deployment_of_AVD_AADDS.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/azure-pass/Instructions/Labs/lab-intro.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_02L01_Create_and_configure_host_pools_and_session_hosts_AADDS.md",
+        "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_01L01_Prepare_for_deployment_of_AVD_AADDS.md",
         "Order": 2
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_02L01_Create_and_configure_host_pools_and_session_hosts_AADDS.md",
+        "Order": 3
       },
 	  {
         "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_02L02_Implement_and_manage_storage_for_AVD_AADDS.md",
-        "Order": 3
+        "Order": 4
       },
       {
         "RawFilePath": "https://raw.githubusercontent.com/MicrosoftLearning/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/master/Instructions/Labs/LAB_04L01_Implement_and_manage_AVD_profiles_AADDS.md",
-        "Order": 4
+        "Order": 5
       }
     ]
   }
