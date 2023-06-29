@@ -1,5 +1,4 @@
-# Lab - Prepare for deployment of Azure Virtual Desktop (AD DS)
-# Student lab manual
+# Module 01 - Prepare for deployment of Azure Virtual Desktop (AD DS)
 
 ## Lab dependencies
 
