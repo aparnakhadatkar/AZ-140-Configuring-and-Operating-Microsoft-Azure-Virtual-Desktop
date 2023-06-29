@@ -1,4 +1,4 @@
-# Lab - Deploy host pools and session hosts by using the Azure portal (AD DS)
+# Module 02 - Deploy host pools and session hosts by using the Azure portal (AD DS)
 # Student lab manual
 
 
