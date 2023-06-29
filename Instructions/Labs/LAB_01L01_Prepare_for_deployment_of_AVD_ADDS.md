@@ -28,7 +28,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
+## Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
 
 The main tasks for this exercise are as follows:
 
@@ -37,7 +37,7 @@ The main tasks for this exercise are as follows:
 1. Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 1. Deploy Azure Bastion
 
-#### Task 1: Prepare for an Azure VM deployment
+### Task 1: Prepare for an Azure VM deployment
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the web browser displaying the Azure portal, navigate to the **Overview** blade of the Azure AD tenant and, in the vertical menu on the left side, in the **Manage** section, click **Properties**.
@@ -51,7 +51,7 @@ The main tasks for this exercise are as follows:
 >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
 
 
-#### Task 2: Deploy an Azure VM running an AD DS domain controller by using an Azure Resource Manager QuickStart template
+### Task 2: Deploy an Azure VM running an AD DS domain controller by using an Azure Resource Manager QuickStart template
 
 1. On the lab computer, in the web browser displaying the Azure portal, from the PowerShell session in the Cloud Shell pane, run the following to create a resource group (replace the `<Azure_region>` placeholder with the name of the Azure region that you intend to use for this lab, such as, for example, `eastus`):
 
@@ -81,7 +81,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take close to 20 minutes. 
 
-#### Task 3: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
+### Task 3: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
 1. On the lab computer, in the web browser displaying the Azure portal, open a PowerShell session in the Cloud Shell pane, and run the following to add a subnet named **cl-Subnet** to the virtual network named **az140-adds-vnet11** you created in the previous task:
 
@@ -116,7 +116,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Do not wait for the deployment to complete but instead proceed to the next task. The deployment might take about 10 minutes.
 
-#### Task 4: Deploy Azure Bastion 
+### Task 4: Deploy Azure Bastion 
 
 > **Note**: Azure Bastion allows for connection to the Azure VMs without public endpoints which you deployed in the previous task of this exercise, while providing protection against brute force exploits that target operating system level credentials.
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 12 minutes.
 
-### Exercise 2: Integrate an AD DS forest with an Azure AD tenant
+## Exercise 2: Integrate an AD DS forest with an Azure AD tenant
   
 The main tasks for this exercise are as follows:
 
@@ -166,7 +166,7 @@ The main tasks for this exercise are as follows:
 1. Install Azure AD Connect
 1. Configure hybrid Azure AD join
 
-#### Task 1: Create AD DS users and groups that will be synchronized to Azure AD
+### Task 1: Create AD DS users and groups that will be synchronized to Azure AD
 
 1. On the lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
@@ -264,7 +264,7 @@ The main tasks for this exercise are as follows:
    Get-ADGroup -Identity 'az140-wvd-admins' | Add-AdGroupMember -Members 'wvdadmin1'
    ```
 
-#### Task 2: Configure AD DS UPN suffix
+### Task 2: Configure AD DS UPN suffix
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
 
@@ -339,7 +339,7 @@ The main tasks for this exercise are as follows:
    $domainAdminUser | Set-ADUser -UserPrincipalName 'student@adatum.com'
    ```
 
-#### Task 3: Create an Azure AD user that will be used to configure directory synchronization
+### Task 3: Create an Azure AD user that will be used to configure directory synchronization
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a new Azure AD user (replace the `<password>` placeholder with the password **Pa55w.rd1234**):
 
@@ -372,7 +372,7 @@ The main tasks for this exercise are as follows:
    > **Note**: Record the user principal name. You will need it later in this exercise. 
 
 
-#### Task 4: Install Azure AD Connect
+### Task 4: Install Azure AD Connect
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to enable TLS 1.2:
 
