@@ -1,6 +1,4 @@
-
-# Lab - Implement autoscaling in host pools (AD DS)
-# Student lab manual
+# Module 09 - Implement autoscaling in host pools (AD DS)
 
 ## Lab scenario
 
@@ -12,10 +10,6 @@ After completing this lab, you will be able to:
 
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
-
-## Lab files
-
-- None
 
 ## Instructions
 
