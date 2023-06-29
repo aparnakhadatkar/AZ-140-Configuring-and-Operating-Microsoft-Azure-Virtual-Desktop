@@ -1,7 +1,6 @@
+# Module 03 - Implement and manage storage for AVD (AD DS)
 
-# Lab - Implement and manage storage for AVD (AD DS)
-
-### Exercise 1: Prerequisite - Setup Azure AD Connect
+## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -69,7 +68,7 @@
    ```
  
 
-### Exercise 2: Configure Azure Files to store profile containers for Azure Virtual Desktop
+## Exercise 2: Configure Azure Files to store profile containers for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
@@ -79,7 +78,7 @@ The main tasks for this exercise are as follows:
 1. Configure the Azure Files RBAC-based permissions
 1. Configure the Azure Files file system permissions
 
-#### Task 1: Create an Azure Storage account
+### Task 1: Create an Azure Storage account
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 
@@ -114,7 +113,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Wait for the Storage account to be created. This should take about 2 minutes.
 
-#### Task 2: Create an Azure Files share
+### Task 2: Create an Azure Files share
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, navigate back to the **Storage accounts** blade and select the entry representing the newly created storage account.
 1. On the storage account blade, in the **Data storage** section, select **File shares** and then select **+ File share**.
@@ -125,7 +124,7 @@ The main tasks for this exercise are as follows:
    |Name|**az140-22-profiles**|
    |Tiers|**Transaction optimized**|
 
-#### Task 3: Enable AD DS authentication for the Azure Storage account 
+### Task 3: Enable AD DS authentication for the Azure Storage account 
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, open another tab in the Microsoft Edge window, navigate to the [Azure Files samples GitHub repository](https://github.com/Azure-Samples/azure-files-samples/releases), download [the most recent version of the compressed **AzFilesHybrid.zip** PowerShell module, and extract its content into **C:\\Allfiles\\Labs\\02** folder (create the folders if needed).
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the **Zone.Identifier** alternate data stream, which has a value of **3**, indicating that it was downloaded from the Internet:
@@ -197,7 +196,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: You might have to refresh the browser page for the change to be reflected within the Azure portal.
 
-#### Task 4: Configure the Azure Files RBAC-based permissions
+### Task 4: Configure the Azure Files RBAC-based permissions
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, on the blade displaying properties of the storage account you created earlier in this exercise, in the vertical menu on the left side, in the **Data storage** section, select **File shares**.
 1. On the **File shares** blade, in the list of shares, select the **az140-22-profiles** entry.
@@ -220,7 +219,7 @@ The main tasks for this exercise are as follows:
    |Assign access to|**User, group, or service principal**|
    |Select|**az140-wvd-admins**|
 
-#### Task 5: Configure the Azure Files file system permissions
+### Task 5: Configure the Azure Files file system permissions
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a variable referencing the name and key of the storage account you created earlier in this exercise:
 
