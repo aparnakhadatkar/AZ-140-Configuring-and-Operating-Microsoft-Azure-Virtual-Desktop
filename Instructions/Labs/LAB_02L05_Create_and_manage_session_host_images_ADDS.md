@@ -1,6 +1,6 @@
-# Lab - Create and manage session host images (AD DS)
+# Module 06 - Create and manage session host images (AD DS)
 
-### Exercise 1: Prerequisite - Setup Azure AD Connect
+## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -66,7 +66,7 @@
    ```
 
 
-### Exercise 2: Create and manage session host images
+## Exercise 2: Create and manage session host images
   
 The main tasks for this exercise are as follows:
 
@@ -76,7 +76,7 @@ The main tasks for this exercise are as follows:
 1. Create a Azure Virtual Desktop host image
 1. Provision a Azure Virtual Desktop host pool by using the custom image
 
-#### Task 1: Prepare for configuration of a Azure Virtual Desktop host image
+### Task 1: Prepare for configuration of a Azure Virtual Desktop host image
 
 1. From your lab Virtual machine, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
@@ -106,7 +106,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 10 minutes.
 
-#### Task 2: Deploy Azure Bastion 
+### Task 2: Deploy Azure Bastion 
 
 > **Note**: Azure Bastion allows for connection to the Azure VMs without public endpoints which you deployed in the previous task of this exercise, while providing protection against brute force exploits that target operating system level credentials.
 
@@ -146,7 +146,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 15 minutes.
 
-#### Task 3: Configure a Azure Virtual Desktop host image
+### Task 3: Configure a Azure Virtual Desktop host image
 
 1. In the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select **az140-25-vm0**.
 2. On the **az140-25-vm0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-25-vm0 \| Connect** blade, select **Use Bastion**.
@@ -248,7 +248,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v AllowTelemetry /t REG_DWORD /d 0 /f
    ```
 
-#### Task 4: Create a Azure Virtual Desktop host image
+### Task 4: Create a Azure Virtual Desktop host image
 
 1. Within the Remote Desktop session to **az140-25-vm0**, in the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the sysprep utility in order to prepare the operating system for generating an image and automatically shut it down:
 
@@ -297,7 +297,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 
 1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Azure compute galleries** and, on the **Azure compute galleries** blade, select the **az14025imagegallery** entry, and on the **az14025imagegallery**'s **Overview** blade, scroll down to the **Definitions** tab and verify the presence of the **az140-25-host-image** entry representing the newly created image.
 
-#### Task 5: Provision a Azure Virtual Desktop host pool by using a custom image
+### Task 5: Provision a Azure Virtual Desktop host pool by using a custom image
 
 1. From the lab computer, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
 
@@ -369,4 +369,3 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    > **Note** If the deployment fails due to the quota limit being reached, perform the steps spelled out in the first lab to automatically request quota increase of the Standard D2sv3 limit to 30.
 
    > **Note**: Following deployment of hosts based on custom images, you should consider running the Virtual Desktop Optimization Tool, available from [its GitHub repository](https://github.com/The-Virtual-Desktop-Team/).
-
