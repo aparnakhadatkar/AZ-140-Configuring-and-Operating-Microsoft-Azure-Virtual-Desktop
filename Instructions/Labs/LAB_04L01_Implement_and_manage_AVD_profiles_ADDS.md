@@ -1,6 +1,4 @@
-# Lab - Implement and manage Azure Virtual Desktop profiles (AD DS)
-# Student lab manual
-
+# Module 08A - Implement and manage Azure Virtual Desktop profiles (AD DS)
 
 ## Lab scenario
 
@@ -12,13 +10,7 @@ After completing this lab, you will be able to:
 
 - Implement FSLogix based profiles for Azure Virtual Desktop
 
-## Lab files
-
-- None
-
-## Instructions
-
-### Exercise 1: Prerequisite - Setup Azure AD Connect
+## Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**.
@@ -145,7 +137,7 @@ After completing this lab, you will be able to:
 44. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
    
-### Exercise 2: Implement FSLogix based profiles for Azure Virtual Desktop
+## Exercise 2: Implement FSLogix based profiles for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
@@ -153,7 +145,7 @@ The main tasks for this exercise are as follows:
 2. Test FSLogix-based profiles with Azure Virtual Desktop
 3. Remove Azure resources deployed in the lab
 
-#### Task 1: Configure FSLogix-based profiles on Azure Virtual Desktop session host VMs
+### Task 1: Configure FSLogix-based profiles on Azure Virtual Desktop session host VMs
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-21-p1-0**.
@@ -280,7 +272,7 @@ The main tasks for this exercise are as follows:
     Get-CimInstance -ComputerName $servers -Class Win32_UserProfile | Where-Object { $_.LocalPath.split('\')[-1] -eq $userName } | Remove-CimInstance
     ```
 
-#### Task 2: Test FSLogix-based profiles with Azure Virtual Desktop
+### Task 2: Test FSLogix-based profiles with Azure Virtual Desktop
 
 1. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
 2. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
@@ -319,4 +311,3 @@ The main tasks for this exercise are as follows:
 23. On the storage account blade, in the **File services** section, select **File shares** and then, in the list of file shares, select **az140-22-profiles**. 
 24. On the **az140-22-profiles** blade, verify that its content includes a folder which name consists of a combination of the Security Identifier (SID) of the **ADATUM\\aduser1** account followed by the **_aduser1** suffix.
 25. Select the folder you identified in the previous step and note that it contains a single file named **Profile_aduser1.vhd**.
-
