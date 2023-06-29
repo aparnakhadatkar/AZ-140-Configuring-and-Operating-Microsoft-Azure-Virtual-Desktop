@@ -1,6 +1,4 @@
-# Lab - Deploy host pools and hosts by using Azure Resource Manager templates
-# Student lab manual
-
+# Module 04 - Deploy host pools and hosts by using Azure Resource Manager templates
 
 ## Lab scenario
 
@@ -19,7 +17,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 1: Prerequisite - Setup Azure AD Connect
+## Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**.
@@ -82,7 +80,7 @@ After completing this lab, you will be able to:
    New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
    ```
 
-### Exercise 2: Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
+## Exercise 2: Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
   
 The main tasks for this exercise are as follows:
 
@@ -94,7 +92,7 @@ The main tasks for this exercise are as follows:
 1. Verify changes to the Azure Virtual Desktop host pool
 1. Manage personal desktop assignments in the Azure Virtual Desktop host pool
 
-#### Task 1: Prepare for deployment of an Azure Virtual Desktop host pool by using an Azure Resource Manager template
+### Task 1: Prepare for deployment of an Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool hosts:
 
@@ -142,7 +140,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
-#### Task 2: Deploy an Azure Virtual Desktop host pool and hosts by using an Azure Resource Manager template
+### Task 2: Deploy an Azure Virtual Desktop host pool and hosts by using an Azure Resource Manager template
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 
@@ -178,7 +176,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 15 minutes. 
 
-#### Task 3: Verify deployment of the Azure Virtual Desktop host pool and hosts
+### Task 3: Verify deployment of the Azure Virtual Desktop host pool and hosts
 
 1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select the entry **az140-23-hp2** representing the newly deployed pool.
 1. On the **az140-23-hp2** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
@@ -186,7 +184,7 @@ The main tasks for this exercise are as follows:
 1. On the **az140-23-hp2 \| Session hosts** blade, in the vertical menu on the left side, in the **Manage** section, click **Application groups**.
 1. On the **az140-23-hp2 \| Application groups** blade, verify that the deployment includes the **Default Desktop** application group named **az140-23-hp2-DAG**.
 
-#### Task 4: Prepare for adding of hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
+### Task 4: Prepare for adding of hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. From your lab computer, switch to the Remote Desktop session to **az140-dc-vm11**. 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to generate the token necessary to join new hosts to the pool you provisioned earlier in this exercise:
@@ -205,7 +203,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: A registration token is required to authorize a host to join the pool. The value of token's expiration date must be between one hour and one month from the current date and time.
 
-#### Task 5: Add hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
+### Task 5: Add hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/AddVirtualMachinesToHostPool). 
 1. On the **ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
@@ -233,7 +231,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: If the deployment fails with the error **Conflict** or the deployment continues without any failure for more than 15 minutes, then, in the deployment blade, delete the deployment by selecting **Delete** and when prompted select **Delete deployment**, and also, delete the associated resources deployed(If any). Then restart again from **Task 5: Step 1**.
 
-#### Task 6: Verify changes to the Azure Virtual Desktop host pool
+### Task 6: Verify changes to the Azure Virtual Desktop host pool
 
 1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, note that the list includes an additional virtual machine named **az140-23-p2-2**.
 1. From your lab computer, switch to the Remote Desktop session to **az140-dc-vm11**. 
@@ -249,7 +247,7 @@ The main tasks for this exercise are as follows:
 
    > **Note:** The third session host might take upto 15-60 minutes to get reflected so no need to wait for that. Please continue on to the next task and you can verify it later.
 
-#### Task 7: Manage personal desktop assignments in the Azure Virtual Desktop host pool
+### Task 7: Manage personal desktop assignments in the Azure Virtual Desktop host pool
 
 1. On your lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**. On the **az140-23-hp2** blade, in the vertical menu on the left side, in the **Manage** section, select **Host Pools**. Then, select the host pool entry **az140-23-hp2**, and select **Application groups** in the vertical menu on the left side, under the **Manage** section. 
 1. On the **az140-23-hp2 \| Application groups** blade, select the application group **az140-23-hp2-DAG**.
