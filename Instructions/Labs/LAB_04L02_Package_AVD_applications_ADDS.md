@@ -1,6 +1,4 @@
-# Lab - Package Azure Virtual Desktop applications (AD DS)
-# Student lab manual
-
+# Module 08B - Package Azure Virtual Desktop applications (AD DS)
 
 ## Lab scenario
 
@@ -21,7 +19,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 1: Prepare for and create MSIX app packages
+## Exercise 1: Prepare for and create MSIX app packages
 
 The main tasks for this exercise are as follows:
 
