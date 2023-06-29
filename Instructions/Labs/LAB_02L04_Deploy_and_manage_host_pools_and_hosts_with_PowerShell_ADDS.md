@@ -1,6 +1,4 @@
-# Lab - Deploy and manage host pools and hosts by using PowerShell
-# Student lab manual
-
+# Module 05 - Deploy and manage host pools and hosts by using PowerShell
 
 ## Lab scenario
 
@@ -20,7 +18,7 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 1: Prerequisite - Setup Azure AD Connect
+## Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**. 
@@ -85,7 +83,7 @@ After completing this lab, you will be able to:
    
    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
-### Exercise 2: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
+## Exercise 2: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
   
 The main tasks for this exercise are as follows:
 
@@ -95,7 +93,7 @@ The main tasks for this exercise are as follows:
 1. Add an Azure VM running Windows 10 Enterprise as a session host to the Azure Virtual Desktop host pool by using PowerShell
 1. Verify the deployment of the Azure Virtual Desktop session host
 
-#### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
+### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool session hosts:
 
@@ -132,7 +130,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
-#### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
+### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
@@ -178,7 +176,7 @@ The main tasks for this exercise are as follows:
    New-AzRoleAssignment -ObjectId $aadGroupObjectId -RoleDefinitionName $roleDefinitionName -ResourceName $dagAppGroupName -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
 
-#### Task 3: Perform a template-based deployment of an Azure VM running Windows 10 Enterprise by using PowerShell
+### Task 3: Perform a template-based deployment of an Azure VM running Windows 10 Enterprise by using PowerShell
 
 1. From your lab computer, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Storage accounts**, and select the storage account **storage<inject key="DeploymentID" enableCopy="false" />**. On the storage account blade, in the **Data storage** section, select **File shares** and then select the **az140-22-profiles** file share.
 
@@ -209,7 +207,7 @@ The main tasks for this exercise are as follows:
    Get-ADComputer -Filter "sAMAccountName -eq 'az140-24-p3-0$'"
    ```
 
-#### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
+### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
 2. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
@@ -290,7 +288,7 @@ The main tasks for this exercise are as follows:
    Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
    ```
 
-#### Task 5: Verify the deployment of the Azure Virtual Desktop host
+### Task 5: Verify the deployment of the Azure Virtual Desktop host
 
 1. Switch to the lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select the entry **az140-24-hp3** representing the newly modified pool.
 1. On the **az140-24-hp3** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
@@ -299,7 +297,7 @@ The main tasks for this exercise are as follows:
   > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
 
 
-#### Task 6: Manage app groups using PowerShell
+### Task 6: Manage app groups using PowerShell
 
 1. From the lab computer, switch to the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a Remote App group:
 
