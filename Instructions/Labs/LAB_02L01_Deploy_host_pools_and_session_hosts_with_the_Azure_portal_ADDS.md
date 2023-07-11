@@ -137,7 +137,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Destop session to Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-21-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Mange** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**.
+1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**.
   
 1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Networking >** (leave other settings with their default values):
 
