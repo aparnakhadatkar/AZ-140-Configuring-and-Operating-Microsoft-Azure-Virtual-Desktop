@@ -224,7 +224,7 @@ The main tasks for this exercise are as follows:
    |Specify domain or unit|**Yes**|
    |Domain to join|**adatum.com**|
    |Organizational Unit path|**OU=WVDInfra,DC=adatum,DC=com**|   
-   |Virtual Machine Administrator account username|**student**|
+   |Virtual Machine Administrator account username|**Student**|
    |Virtual Machine Administrator account pasword|**Pa55w.rd1234**|
 
    >**Note**: As you likely noticed, it's possible to change the image and prefix of the VMs as you add session hosts to the existing pool. In general, this is not recommended unless you plan to replace all VMs in the pool. 
