@@ -1,14 +1,5 @@
 # Module 01 - Prepare for deployment of Azure Virtual Desktop (AD DS)
 
-## Lab dependencies
-
-- An Azure subscription you will be using in this lab.
-- A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
-
-## Estimated Time
-
-60 minutes
-
 ## Lab scenario
 
 You need to prepare for deployment of an Active Directory Domain Services (AD DS) environment
@@ -20,15 +11,9 @@ After completing this lab, you will be able to:
 - Deploy an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
 - Integrate an AD DS forest with an Azure Active Directory (Azure AD) tenant
 
-## Lab files
-
--  \\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploydc11.parameters.json
--  \\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploycl11.json
--  \\\\AZ-140\\AllFiles\\Labs\\01\\az140-11_azuredeploycl11.parameters.json
-
 ## Instructions
 
-## Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
+### Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
 
 The main tasks for this exercise are as follows:
 
@@ -37,21 +22,19 @@ The main tasks for this exercise are as follows:
 1. Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 1. Deploy Azure Bastion
 
-### Task 1: Prepare for an Azure VM deployment
+#### Task 1: Prepare for an Azure VM deployment
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. In the web browser displaying the Azure portal, navigate to the **Overview** blade of the Azure AD tenant and, in the vertical menu on the left side, in the **Manage** section, click **Properties**.
 1. On the **Properties** blade of your Azure AD tenant, at the very bottom of the blade, select the **Manage Security defaults** link.
-1. On the **Enable Security defaults** blade, if it is enabled, disable it by toggling it to **No**. In the feedback section below, select **My organization is using Conditional Access** checkbox, and select **Save**.
+1. On the **Enable Security defaults** blade, if it is enabled, disable it by toggling it to **No**. 
 1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
 1. If prompted to select either **Bash** or **PowerShell**, select **PowerShell**. 
 
     ![](./images/clouldshell.png)
 
->**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
+    >**Note**: If this is the first time you are starting **Cloud Shell** and you are presented with the **You have no storage mounted** message, select the subscription you are using in this lab, and select **Create storage**. 
 
-
-### Task 2: Deploy an Azure VM running an AD DS domain controller by using an Azure Resource Manager QuickStart template
+#### Task 2: Deploy an Azure VM running an AD DS domain controller by using an Azure Resource Manager QuickStart template
 
 1. On the lab computer, in the web browser displaying the Azure portal, from the PowerShell session in the Cloud Shell pane, run the following to create a resource group (replace the `<Azure_region>` placeholder with the name of the Azure region that you intend to use for this lab, such as, for example, `eastus`):
 
@@ -64,10 +47,10 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, close the **Cloud Shell** pane.
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate a customized version of QuickStart template named [Create a new Windows VM and create a new AD Forest, Domain and DC](https://github.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/blob/stage/Allfiles/Labs/01/README.md). 
 
-  >**Note**: If you get **Microsoft Azure: Help us protect your account** page, then select **Skip for now(14 days until this is required)**.
+   >**Note**: If you get **Microsoft Azure: Help us protect your account** page, then select **Skip for now(14 days until this is required)**.
 
-1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Create an Azure VM with a new AD Forest** blade in the Azure portal.
-1. On the **Create an Azure VM with a new AD Forest** blade, select **Edit parameters**.
+1. On the **Create a new Windows VM and create a new AD Forest, Domain and DC** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom Depolyment** blade in the Azure portal.
+1. On the **Custom Deployment** blade, select **Edit parameters**.
 1. On the **Edit parameters** blade, select **Load file**, in the **Open** dialog box, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\01** and select the file **az140-11_azuredeploydc11.parameters.json**, select **Open**, and then select **Save**. 
 1. On the **Create an Azure VM with a new AD Forest** blade, specify the following settings (leave others with their existing values):
 
@@ -81,7 +64,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take close to 20 minutes. 
 
-### Task 3: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
+#### Task 3: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
 1. On the lab computer, in the web browser displaying the Azure portal, open a PowerShell session in the Cloud Shell pane, and run the following to add a subnet named **cl-Subnet** to the virtual network named **az140-adds-vnet11** you created in the previous task:
 
@@ -156,7 +139,13 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 12 minutes.
 
-## Exercise 2: Integrate an AD DS forest with an Azure AD tenant
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help
+
+### Exercise 2: Integrate an AD DS forest with an Azure AD tenant
   
 The main tasks for this exercise are as follows:
 
@@ -166,7 +155,7 @@ The main tasks for this exercise are as follows:
 1. Install Azure AD Connect
 1. Configure hybrid Azure AD join
 
-### Task 1: Create AD DS users and groups that will be synchronized to Azure AD
+#### Task 1: Create AD DS users and groups that will be synchronized to Azure AD
 
 1. On the lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
@@ -178,16 +167,16 @@ The main tasks for this exercise are as follows:
    |Password|**Pa55w.rd1234**|
 
 
-  > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
    
    ![](./images/AZ-140-1.png)
    
-  > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
-  > **Note**: If you see the Networks window **Do you want your PC to be discoverable by other Pcs and devices on this network?**, close it by selecting **No**.
+   > **Note**: If you see the Networks window **Do you want your PC to be discoverable by other PCs and devices on this network?** close it by selecting **No**.
   
-  > **Note**: Close the **Server Manager** window/program. 
+   > **Note**: Close the **Server Manager** window/program. 
   
 4. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
 5. From the **Administrator: Windows PowerShell ISE** script pane, run the following to disable Internet Explorer Enhanced Security for Administrators:
@@ -197,7 +186,7 @@ The main tasks for this exercise are as follows:
    Set-ItemProperty -Path $AdminRegEntry -Name 'IsInstalled' -Value 0
    Stop-Process -Name Explorer
    ```
-  >**Note**: If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the following labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
+   >**Note**: If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the following labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
 
    ![Bastion open clipboard](./images/bastion-arrow-out.png)
 
@@ -256,15 +245,15 @@ The main tasks for this exercise are as follows:
 
 10. From the **Administrator: Windows PowerShell ISE** console, run the following to add members to the groups you created in the previous step:
 
-   ```powershell
-   Get-ADGroup -Identity 'az140-wvd-pooled' | Add-AdGroupMember -Members 'aduser1','aduser2','aduser3','aduser4'
-   Get-ADGroup -Identity 'az140-wvd-remote-app' | Add-AdGroupMember -Members 'aduser1','aduser5','aduser6'
-   Get-ADGroup -Identity 'az140-wvd-personal' | Add-AdGroupMember -Members 'aduser7','aduser8','aduser9'
-   Get-ADGroup -Identity 'az140-wvd-users' | Add-AdGroupMember -Members 'aduser1','aduser2','aduser3','aduser4','aduser5','aduser6','aduser7','aduser8','aduser9'
-   Get-ADGroup -Identity 'az140-wvd-admins' | Add-AdGroupMember -Members 'wvdadmin1'
-   ```
+    ```powershell
+    Get-ADGroup -Identity 'az140-wvd-pooled' | Add-AdGroupMember -Members 'aduser1','aduser2','aduser3','aduser4'
+    Get-ADGroup -Identity 'az140-wvd-remote-app' | Add-AdGroupMember -Members 'aduser1','aduser5','aduser6'
+    Get-ADGroup -Identity 'az140-wvd-personal' | Add-AdGroupMember -Members 'aduser7','aduser8','aduser9'
+    Get-ADGroup -Identity 'az140-wvd-users' | Add-AdGroupMember -Members 'aduser1','aduser2','aduser3','aduser4','aduser5','aduser6','aduser7','aduser8','aduser9'
+    Get-ADGroup -Identity 'az140-wvd-admins' | Add-AdGroupMember -Members 'wvdadmin1'
+    ```
 
-### Task 2: Configure AD DS UPN suffix
+#### Task 2: Configure AD DS UPN suffix
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
 
@@ -339,7 +328,7 @@ The main tasks for this exercise are as follows:
    $domainAdminUser | Set-ADUser -UserPrincipalName 'student@adatum.com'
    ```
 
-### Task 3: Create an Azure AD user that will be used to configure directory synchronization
+#### Task 3: Create an Azure AD user that will be used to configure directory synchronization
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a new Azure AD user (replace the `<password>` placeholder with the password **Pa55w.rd1234**):
 
@@ -372,7 +361,7 @@ The main tasks for this exercise are as follows:
    > **Note**: Record the user principal name. You will need it later in this exercise. 
 
 
-### Task 4: Install Azure AD Connect
+#### Task 4: Install Azure AD Connect
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to enable TLS 1.2:
 
@@ -404,7 +393,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: If you are unable to view the checkbox/buttons, expand the Azure AD Connect wizard to full screen by dragging the window to the top.
 
-![Azure AD Connect Wizard](./images/welcome-aad-connect-v2.jpg)
+   ![Azure AD Connect Wizard](./images/welcome-aad-connect-v2.jpg)
 
 
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
@@ -412,20 +401,20 @@ The main tasks for this exercise are as follows:
 9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
 10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
-   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this exercise and specify the password you set earlier in this lab as its password.
+    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this exercise and specify the password you set earlier in this lab as its password.
 
 11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**ADATUM\Student**|
-   |Password|**Pa55w.rd1234**|
+    |Setting|Value|
+    |---|---|
+    |User Name|**ADATUM\Student**|
+    |Password|**Pa55w.rd1234**|
 
 13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
 14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
-   > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+    > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
 16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
@@ -433,11 +422,17 @@ The main tasks for this exercise are as follows:
 18. On the **Optional features** page, accept the default settings, and select **Next**.
 19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
-   > **Note**: Installation should take about 2 minutes.
+    > **Note**: Installation should take about 2 minutes.
 
 20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 21. In Microsoft Edge browser, navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
 22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
 
-   > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
+    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help
