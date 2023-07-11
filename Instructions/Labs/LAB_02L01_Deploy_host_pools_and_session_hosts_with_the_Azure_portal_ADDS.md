@@ -235,7 +235,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Configure Azure Virtual Desktop application groups
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, select **Application groups**.
+1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
 1. On the **Azure Virtual Desktop \| Application groups** blade, note the existing, auto-generated **az140-21-hp1-DAG** desktop application group, and select it. 
 1. On the **az140-21-hp1-DAG** blade, under **Manage** section, select **Assignments**.
 1. On the **az140-21-hp1-DAG \| Assignments** blade, select **+ Add**.
