@@ -26,60 +26,72 @@ After completing this lab, you will be able to:
     * Email/Username: <inject key="AzureAdUserEmail"></inject>
     * Password: <inject key="AzureAdUserPassword"></inject>
     
-2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-3. On the **az140-dc-vm11** blade, select **Connect**, and click on **Bastion** tab then select **Use Bastion**.
-4. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
+1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
+   
+1. On the **az140-dc-vm11** blade, select **Connect**, and  select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
+   
+1. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-
-
    >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
    >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
-5. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
+1. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
 
    >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 
-6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
-7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
-8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
-9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+1. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+   
+1. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+   
+1. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+ 
+1. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
+ 
+1. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
     >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
-11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
-12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
+1. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
+   
+1. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
     |Setting|Value|
     |---|---|
     |User Name|**ADATUM\Student**|
     |Password|**Pa55w.rd1234**|
 
-13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
-14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+1. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**.
+   
+1. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
     >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
-15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
-16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
-17. On the **Filter users and devices** page, accept the default settings, and select **Next**.
-18. On the **Optional features** page, accept the default settings, and select **Next**.
-19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+1. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
+   
+1. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
+   
+1. On the **Filter users and devices** page, accept the default settings, and select **Next**.
+   
+1. On the **Optional features** page, accept the default settings, and select **Next**.
+   
+1. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
     >**Note**: Installation should take about 2 minutes.
 
-20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+1. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+1. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+   
+1. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+   
+1. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
 
     >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next exercise only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -96,6 +108,7 @@ The main tasks for this exercise are as follows:
 ### Task 1: Prepare AD DS domain and the Azure subscription for deployment of an Azure Virtual Desktop host pool
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
+   
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
    ```powershell
@@ -110,6 +123,7 @@ The main tasks for this exercise are as follows:
    >**Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
+   
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to identify the user principal name of the **aduser1** account:
 
    ```powershell
@@ -125,7 +139,9 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
+   
+1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**.
+   
 1. On the **az140-adds-vnet11** blade, under **Settings** section, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
 
    |Setting|Value|
@@ -197,10 +213,15 @@ The main tasks for this exercise are as follows:
 ### Task 3: Manage the Azure Virtual Desktop host pool session hosts
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, in the vertical menu bar, in the **Manage section**, select **Host pools**.
+   
 1. On the **Azure Virtual Desktop \| Host pools** blade, in the list of host pools, select **az140-21-hp1**.
-1. On the **az140-21-hp1** blade, in the in the vertical menu bar, in the **Manage section**, select **Session hosts** and verify that the pool consists of two hosts. 
+   
+1. On the **az140-21-hp1** blade, in the in the vertical menu bar, in the **Manage section**, select **Session hosts** and verify that the pool consists of two hosts.
+   
 1. On the **az140-21-hp1 \| Session hosts** blade, select **+ Add**.
+   
 1. On the **Basics** tab of the **Add virtual machines to a host pool** blade, review the preconfigured settings and select **Next: Virtual Machines**.
+   
 1. On the **Virtual Machines** tab of the **Add virtual machines to a host pool** blade, specify the following settings and select **Review + create** (leave others with their default settings):
 
    |Setting|Value|
@@ -236,11 +257,17 @@ The main tasks for this exercise are as follows:
 ### Task 4: Configure Azure Virtual Desktop application groups
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
-1. On the **Azure Virtual Desktop \| Application groups** blade, note the existing, auto-generated **az140-21-hp1-DAG** desktop application group, and select it. 
+   
+1. On the **Azure Virtual Desktop \| Application groups** blade, note the existing, auto-generated **az140-21-hp1-DAG** desktop application group, and select it.
+   
 1. On the **az140-21-hp1-DAG** blade, under **Manage** section, select **Assignments**.
+   
 1. On the **az140-21-hp1-DAG \| Assignments** blade, select **+ Add**.
+   
 1. On the **Select Azure AD users or user groups** blade, select **az140-wvd-pooled** and click **Select**.
-1. Navigate back to the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**. 
+   
+1. Navigate back to the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
+   
 1. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
 
    |Setting|Value|
@@ -252,6 +279,7 @@ The main tasks for this exercise are as follows:
    |Application group name|**az140-21-hp1-Office365-RAG**|
 
 1. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+   
 1. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
@@ -262,6 +290,7 @@ The main tasks for this exercise are as follows:
    |Require command line|**No**|
 
 1. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+   
 1. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
@@ -272,6 +301,7 @@ The main tasks for this exercise are as follows:
    |Require command line|**No**|
 
 1. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+   
 1. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
@@ -282,9 +312,13 @@ The main tasks for this exercise are as follows:
    |Require command line|**No**|
 
 1. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+   
 1. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+   
 1. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and click **Select**.
+   
 1. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+   
 1. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
@@ -298,7 +332,9 @@ The main tasks for this exercise are as follows:
    >**Note**: Next you will create an application group based on file path as the application source.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
-1. On the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**. 
+   
+1. On the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
+   
 1. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
 
    |Setting|Value|
@@ -310,6 +346,7 @@ The main tasks for this exercise are as follows:
    |Application group name|**az140-21-hp1-Utilities-RAG**|
 
 1. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+   
 1. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
@@ -324,9 +361,13 @@ The main tasks for this exercise are as follows:
    |Require command line|**No**|
 
 1. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+   
 1. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+   
 1. On the **Select Azure AD users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+   
 1. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+   
 1. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
@@ -338,7 +379,9 @@ The main tasks for this exercise are as follows:
 ### Task 5: Configure Azure Virtual Desktop workspaces
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Workspaces**.
-1. On the **Azure Virtual Desktop \| Workspaces** blade, select **+ Create**. 
+   
+1. On the **Azure Virtual Desktop \| Workspaces** blade, select **+ Create**.
+   
 1. On the **Basics** tab of the **Create a workspace** blade, specify the following settings and select **Next: Application groups >**:
 
    |Setting|Value|
@@ -356,8 +399,11 @@ The main tasks for this exercise are as follows:
    |Register application groups|**Yes**|
 
 1. On the **Workspace** tab of the **Create a workspace** blade, select **+ Register application groups**.
-1. On the **Add application groups** blade, select the plus sign next to the **az140-21-hp1-DAG**, **az140-21-hp1-Office365-RAG**, and **az140-21-hp1-Utilities-RAG** entries and click **Select**. 
+   
+1. On the **Add application groups** blade, select the plus sign next to the **az140-21-hp1-DAG**, **az140-21-hp1-Office365-RAG**, and **az140-21-hp1-Utilities-RAG** entries and click **Select**.
+   
 1. Back on the **Application groups** tab of the **Create a workspace** blade, select **Review + create**.
+   
 1. On the **Review + create** tab of the **Create a workspace** blade, select **Create**.
 
 ## Exercise 3: Validate Azure Virtual Desktop environment
@@ -371,7 +417,9 @@ The main tasks for this exercise are as follows:
 ### Task 1: Install Microsoft Remote Desktop client (MSRDC) on a Windows 10 computer
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
-1. On the **az140-cl-vm11** blade, scroll down to the **Operations** section and select **Run Command**. 
+   
+1. On the **az140-cl-vm11** blade, scroll down to the **Operations** section and select **Run Command**.
+   
 1. On the **az140-cl-vm11 \| Run command** blade, select **EnableRemotePS** and select **Run**. 
 
    >**Note**: Wait for the command to complete before you proceed to the next step. This might take about 1 minute. You may get red text errors addressing the Public profile being used and not the Domain profile, if so, you can ignore and go to the next step.
@@ -384,7 +432,9 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
-1. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
+  
+1. On the **az140-cl-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
+   
 1. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
@@ -408,7 +458,8 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Alternatively, in the **Remote Desktop** client window, select **Subscribe with URL**, in the **Subscribe to a Workspace** pane, in the **Email or Workspace URL**, type **https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery**, select **Next**, and, once prompted, sign in with the **aduser1** credentials (using its userPrincipalName attribute as the user name and the password **Pa55w.rd1234**). 
 
-1. If you get the **Stay signed in to all your apps** window, clear the checkbox for **Allow my organization to manage my device** and select **No, sign in to this app only**. 
+1. If you get the **Stay signed in to all your apps** window, clear the checkbox for **Allow my organization to manage my device** and select **No, sign in to this app only**.
+   
 1. Ensure that the **Remote Desktop** page displays the listing of applications that are included in the application groups published to the workspace and associated with the user account **aduser1** via its group membership. 
 
 ### Task 3: Test Azure Virtual Desktop apps
@@ -422,10 +473,21 @@ The main tasks for this exercise are as follows:
    >**Note**: Verify that the displayed name is **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**, rather than **az140-cl-vm11**.
 
 1. At the Command Prompt, type **logoff** and press the **Enter** key to log off from the current Remote App session.
+   
 1. Within the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** client window, in the list of applications, double-click **SessionDesktop** and verify that it launches a Remote Desktop session. 
 
    >**Note**: If you get a display message **The Group Policy Client service failed the sign-in - Access is denied**, search and select **Virtual Machines** in the Azure portal. In the **Virtual Machines** page, select the checkbox next to the VMs **az140-21-p1-0**, **az140-21-p1-1** and **az140-21-p1-2**, and select **Restart** in the above toolbar. Monitor the notification for VM restart. When restarted, in the **az140-cl-vm11**, in the **Remote Desktop** client window, double-click **SessionDesktop** again and verify that it launches a Remote Desktop session.
 
-1. Within the **Default Desktop** session, right-click **Start**, select **Run**, in the **Open** text box of the **Run** dialog box, type **cmd** and select **OK**. 
+1. Within the **Default Desktop** session, right-click **Start**, select **Run**, in the **Open** text box of the **Run** dialog box, type **cmd** and select **OK**.
+   
 1. Within the **Default Desktop** session, at the Command Prompt, type **hostname** and press the **Enter** key to display the name of the computer on which the Remote Desktop session is running.
+   
 1. Verify that the displayed name is either **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**.
+
+   **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+   > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+   > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
+
+   **You have successfully completed the lab**
