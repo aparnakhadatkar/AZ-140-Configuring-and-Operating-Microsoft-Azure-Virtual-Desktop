@@ -248,7 +248,7 @@ The main tasks for this exercise are as follows:
    |Subscription|the name of the Azure subscription you are using in this lab|
    |Resource group|**az140-21-RG**|
    |Host pool|**az140-21-hp1**|
-   |Application group type|**RemoteApp**|
+   |Application group type|**Remote App (RAIL)**|
    |Application group name|**az140-21-hp1-Office365-RAG**|
 
 1. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
