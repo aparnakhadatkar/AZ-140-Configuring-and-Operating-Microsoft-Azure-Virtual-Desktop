@@ -179,12 +179,10 @@ The main tasks for this exercise are as follows:
    > **Note**: Close the **Server Manager** window/program. 
   
 4. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
-5. From the **Administrator: Windows PowerShell ISE** script pane, run the following to disable Internet Explorer Enhanced Security for Administrators:
+5. From the **Administrator: Windows PowerShell ISE** script pane, run the following script to install AD DS powershell module:
 
    ```powershell
-   $adminRegEntry = 'HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}'
-   Set-ItemProperty -Path $AdminRegEntry -Name 'IsInstalled' -Value 0
-   Stop-Process -Name Explorer
+   Add-WindowsCapability –online –Name Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0
    ```
    >**Note**: If you are unable to copy and paste content within the bastion session to **az140-dc-vm11** or any other VMs in the following labs, then click the arrows **>>** in the left part, and in the **Clipboard** paste the content in the blank area ***(1)*** and copy it and paste in the bastion session to the respected VM. Then, close the **Clipboard** by selecting the back arrows **<<** ***(2)***.
 
@@ -206,7 +204,7 @@ The main tasks for this exercise are as follows:
    New-ADOrganizationalUnit 'WVDClients' -path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
    ```
 
-8. From the **Administrator: Windows PowerShell ISE** script pane, run the following to create AD DS user accounts that will be synchronized to the Azure AD tenant used in this lab (replace the `<password>` placeholder with the password **Pa55w.rd1234** in line 9 and 15):
+8. From the **Administrator: Windows PowerShell ISE** script pane, run the following to create AD DS user accounts that will be synchronized to the Azure AD tenant used in this lab (replace the `<password>` placeholder with the password **Pa55w.rd1234** in line 9 and 16):
 
    > **Note**: You can provide the password of your choice in DevTest/Producion scenarious. But for the purpose of this lab, we are going to use the above password. Ensure that you remember the password you used. You will need it later in this and subsequent labs.
 
@@ -381,53 +379,47 @@ The main tasks for this exercise are as follows:
    Write-Host 'TLS 1.2 has been enabled.'
    ```
    
-2. Within the Remote Desktop session to **az140-dc-vm11**, start Internet Explorer and navigate to the [Microsoft Edge for Business download page](https://www.microsoft.com/en-us/edge/business/download).
-
-   > **Note**: If you get a popup **Setup Internet Explorer 11**, select **Don't use recommended settings** and select **Ok**.
-
-3. From the [Download Microsoft Edge](https://www.microsoft.com/en-us/edge/server/download) page, scroll down and select **Accept and download**. If prompted whether to run or save the **MicrosoftEdgeSetup.exe** installer, select **Run**. Once installed, configure it with the default settings.
-
-4. Within the Remote Desktop session to **az140-dc-vm11**, use Microsoft Edge to navigate to the [Download Microsoft Azure Active Directory Connect page](https://www.microsoft.com/en-us/download/details.aspx?id=47594), scroll down and download the **Microsoft Azure Active Directory Connect** by selecting red **Download** button.
-5. If prompted whether to run or save the **AzureADConnect.msi** installer, select **Run**. Otherwise, open the file after it downloads to start the **Microsoft Azure Active Directory Connect** wizard.
-6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+2. Within the Remote Desktop session to **az140-dc-vm11**, use Microsoft Edge to navigate to the [Download Microsoft Azure Active Directory Connect page](https://www.microsoft.com/en-us/download/details.aspx?id=47594), scroll down and download the **Microsoft Azure Active Directory Connect** by selecting red **Download** button.
+3. If prompted whether to run or save the **AzureADConnect.msi** installer, select **Run**. Otherwise, open the file after it downloads to start the **Microsoft Azure Active Directory Connect** wizard.
+4. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 
    > **Note**: If you are unable to view the checkbox/buttons, expand the Azure AD Connect wizard to full screen by dragging the window to the top.
 
    ![Azure AD Connect Wizard](./images/welcome-aad-connect-v2.jpg)
 
 
-7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
-8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
-9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+5. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+6. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+7. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+8. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
     > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this exercise and specify the password you set earlier in this lab as its password.
 
-11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
-12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
+9. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
+10. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
     |Setting|Value|
     |---|---|
     |User Name|**ADATUM\Student**|
     |Password|**Pa55w.rd1234**|
 
-13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
-14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+11. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
+12. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
     > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
-15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
-16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
-17. On the **Filter users and devices** page, accept the default settings, and select **Next**.
-18. On the **Optional features** page, accept the default settings, and select **Next**.
-19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+13. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
+14. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
+15. On the **Filter users and devices** page, accept the default settings, and select **Next**.
+16. On the **Optional features** page, accept the default settings, and select **Next**.
+17. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
     > **Note**: Installation should take about 2 minutes.
 
-20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
-21. In Microsoft Edge browser, navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+18. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+19. In Microsoft Edge browser, navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+20. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+21. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
 
     > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
 
