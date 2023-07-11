@@ -151,7 +151,7 @@ The main tasks for this exercise are as follows:
    |Preferred app group type|**Desktop**|
    |Host pool type|**Pooled**|
    |Load balancing algorithm|**Breadth-first**|
-   |Max session limit|**50**|
+   |Max session limit|**12**|
 
 1. On the **Networking** tab review settings and select **Next: Virtual Machines>**
   
