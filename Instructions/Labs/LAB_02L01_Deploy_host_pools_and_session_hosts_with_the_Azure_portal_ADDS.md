@@ -126,7 +126,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
-1. On the **az140-adds-vnet11** blade, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
+1. On the **az140-adds-vnet11** blade, under **settings**, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
 
    |Setting|Value|
    |---|---|
@@ -137,8 +137,9 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Destop session to Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-21-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**. 
-1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Virtual Machines >** (leave other settings with their default values):
+1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Mange** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**.
+  
+1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Networking >** (leave other settings with their default values):
 
    |Setting|Value|
    |---|---|
@@ -151,6 +152,8 @@ The main tasks for this exercise are as follows:
    |Host pool type|**Pooled**|
    |Load balancing algorithm|**Breadth-first**|
    |Max session limit|**50**|
+
+1. On the **Networking** tab review settings and select **Next: Virtual Machines>**
   
 1. On the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings and select **Next: Workspace >** (leave other settings with their default values):
 
