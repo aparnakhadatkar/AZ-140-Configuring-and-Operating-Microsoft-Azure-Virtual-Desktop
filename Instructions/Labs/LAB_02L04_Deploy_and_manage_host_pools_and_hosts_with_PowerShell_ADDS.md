@@ -225,9 +225,9 @@ The main tasks for this exercise are as follows:
      -TemplateParameterFile C:\AllFiles\Labs\02\az140-24_azuredeployhp3.parameters.json
    ```
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes. 
+   >**Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes. 
 
-   > **Note**: The deployment uses an Azure Resource Manager template to provision an Azure VM and applies a VM extension that automatically joins the operating system to the **adatum.com** AD DS domain.
+   >**Note**: The deployment uses an Azure Resource Manager template to provision an Azure VM and applies a VM extension that automatically joins the operating system to the **adatum.com** AD DS domain.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to verify that the session host was successfully joined to the **adatum.com** AD DS domain:
 
@@ -237,16 +237,18 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
-2. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
-3. When prompted, sign in with the following credentials:
+1. Within the Bastion session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
+   
+3. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
+   
+5. When prompted, sign in with the following credentials:
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-  > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
+   >**Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
 
 4. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
 5. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a folder that will host files required to add the newly deployed Azure VM as a session host to the host pool you provisioned earlier in this lab:
@@ -256,7 +258,7 @@ The main tasks for this exercise are as follows:
    New-Item -ItemType Directory -Path $labFilesFolder
    ```
 
->**Note:** Take care using the [T] construct to copy over the PowerShell cmdlets. In some instances, the text copied over can be incorrect, such as the $ sign showing as a 4 number character. You will need to correct these before issuing the cmdlet. Copy over to the PowerShell ISE **Script** pane, make the corrections there, and then highlight the corrected text and press **F8** (**Run Selection**).
+   >**Note:** Take care using the [T] construct to copy over the PowerShell cmdlets. In some instances, the text copied over can be incorrect, such as the $ sign showing as a 4 number character. You will need to correct these before issuing the cmdlet. Copy over to the PowerShell ISE **Script** pane, make the corrections there, and then highlight the corrected text and press **F8** (**Run Selection**).
 
 6. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to download the Azure Virtual Desktop Agent and Boot Loader installers, required to add the session host to the host pool:
 
@@ -301,7 +303,7 @@ The main tasks for this exercise are as follows:
    $registrationInfo
    $registrationInfo.Token
    ```
-   > **Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+   >**Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
 
 12. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Agent:
 
@@ -322,7 +324,7 @@ The main tasks for this exercise are as follows:
 1. On the **az140-24-hp3** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
 1. On the **az140-24-hp3 \| Session hosts** blade, verify that the deployment includes a single host.
 
-  > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
+   >**Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
 
 
 ### Task 6: Manage app groups using PowerShell
@@ -344,7 +346,7 @@ The main tasks for this exercise are as follows:
    Get-AzWvdStartMenuItem -ApplicationGroupName $appGroupName -ResourceGroupName $resourceGroupName | Format-List | more
    ```
 
-   > **Note**: For any application you want to publish, you should record the information included in the output, including such parameters as **FilePath**, **IconPath**, and **IconIndex**.
+   >**Note**: For any application you want to publish, you should record the information included in the output, including such parameters as **FilePath**, **IconPath**, and **IconIndex**.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to publish Microsoft Word:
 
@@ -363,6 +365,15 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Switch to the lab computer, in the web browser displaying the Azure portal, on the **az140-24-hp3 \| Session hosts** blade, in the vertical menu on the left side, in the **Manage** section, select **Application groups**.
+   
 1. On the **az140-24-hp3 \| Application groups** blade, in the list of application groups, select the **az140-24-hp3-Office365-RAG** entry.
+   
 1. On the **az140-24-hp3-Office365-RAG** blade, verify the configuration of the application group, including the applications and assignments.
 
+    **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+     > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+     > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
+
+    **You have successfully completed the lab**
