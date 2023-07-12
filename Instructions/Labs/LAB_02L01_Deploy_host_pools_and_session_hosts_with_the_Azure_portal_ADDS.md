@@ -414,24 +414,24 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
    
-1. On the **az140-cl-vm11** blade, scroll down to the **Operations** section and select **Run Command**.
+2. On the **az140-cl-vm11** blade, scroll down to the **Operations** section and select **Run Command**.
    
-1. On the **az140-cl-vm11 \| Run command** blade, select **EnableRemotePS** and select **Run**. 
+3. On the **az140-cl-vm11 \| Run command** blade, select **EnableRemotePS** and select **Run**. 
 
    >**Note**: Wait for the command to complete before you proceed to the next step. This might take about 1 minute. You may get red text errors addressing the Public profile being used and not the Domain profile, if so, you can ignore and go to the next step.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to add all members of the **ADATUM\\az140-wvd-users** to the local **Remote Desktop Users** group on the Azure VM **az140-cl-vm11** running Windows 10 which you deployed in the lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**.
+4. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to add all members of the **ADATUM\\az140-wvd-users** to the local **Remote Desktop Users** group on the Azure VM **az140-cl-vm11** running Windows 10 which you deployed in the lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**.
 
    ```powershell
    $computerName = 'az140-cl-vm11'
    Invoke-Command -ComputerName $computerName -ScriptBlock {Add-LocalGroupMember -Group 'Remote Desktop Users' -Member 'ADATUM\az140-wvd-users'}
    ```
 
-1. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
+5. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
   
-1. On the **az140-cl-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
+6. On the **az140-cl-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
    
-1. When prompted, provide the following credentials and select **Connect**:
+7. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -444,7 +444,6 @@ The main tasks for this exercise are as follows:
 
 
 1. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) which will download the Remote Desktop client program. Once downloaded, open the file to start its installation. In the **Welcome** page select **Next**. If prompted, accept the agreement and select **Next**, and on the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. If prompted by User Account Control for administrative credentials, authenticate by using the **ADATUM\\Student** username with **Pa55w.rd1234** as its password.
-
 
 1. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
 
