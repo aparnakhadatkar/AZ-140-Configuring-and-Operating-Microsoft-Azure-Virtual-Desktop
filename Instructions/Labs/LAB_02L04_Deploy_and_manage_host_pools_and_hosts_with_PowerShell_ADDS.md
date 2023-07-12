@@ -21,8 +21,10 @@ After completing this lab, you will be able to:
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**. 
-4. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
+   
+4. On the **az140-dc-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
+   
+5. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
