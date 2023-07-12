@@ -239,9 +239,9 @@ The main tasks for this exercise are as follows:
 
 1. Within the Bastion session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
    
-3. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
+3. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**, open the downloded file and click on **Connect**.
    
-5. When prompted, sign in with the following credentials:
+5. When prompted, sign in with the following credentials and click on **OK**.
 
    |Setting|Value|
    |---|---|
