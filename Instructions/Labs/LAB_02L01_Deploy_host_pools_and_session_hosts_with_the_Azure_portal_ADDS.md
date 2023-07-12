@@ -49,7 +49,7 @@ After completing this lab, you will be able to:
  
 8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
  
-9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
     >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
