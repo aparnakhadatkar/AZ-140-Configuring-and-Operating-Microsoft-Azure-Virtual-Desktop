@@ -20,11 +20,6 @@ After completing this lab, you will be able to:
 ## Instructions
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
-
-1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing following credentials.
-
-    * Email/Username: <inject key="AzureAdUserEmail"></inject>
-    * Password: <inject key="AzureAdUserPassword"></inject>
     
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
@@ -486,7 +481,7 @@ The main tasks for this exercise are as follows:
 1. Verify that the displayed name is either **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**.
 
    **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-   > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+   > - Navigate to the Lab Validation tab, from the upper right corner in the lab guide section.
    > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
