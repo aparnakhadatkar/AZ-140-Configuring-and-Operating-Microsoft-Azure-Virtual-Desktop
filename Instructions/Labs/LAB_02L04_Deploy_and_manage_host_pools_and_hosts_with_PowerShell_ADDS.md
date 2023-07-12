@@ -229,7 +229,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: The deployment uses an Azure Resource Manager template to provision an Azure VM and applies a VM extension that automatically joins the operating system to the **adatum.com** AD DS domain.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to verify that the session host was successfully joined to the **adatum.com** AD DS domain:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to verify that the session host was successfully joined to the **adatum.com** AD DS domain:
 
    ```powershell
    Get-ADComputer -Filter "sAMAccountName -eq 'az140-24-p3-0$'"
