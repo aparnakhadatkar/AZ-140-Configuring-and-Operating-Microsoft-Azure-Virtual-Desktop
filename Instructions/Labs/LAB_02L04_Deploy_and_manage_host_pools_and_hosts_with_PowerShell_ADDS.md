@@ -208,7 +208,7 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Storage accounts**, and select the storage account **storage<inject key="DeploymentID" enableCopy="false" />**. On the storage account blade, in the **Data storage** section, select **File shares** and then select the **az140-22-profiles** file share.
 
-1. Select **Upload** and navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
+1. Select **Upload** and **browse for files**, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
 
 1. Within the Bastion session to **az140-dc-vm11**, open File Explorer and navigate to the previously configured **Z** drive:, or the drive letter assigned to the connection to the File Share. Copy the uploaded deployment files to **C:\AllFiles\Labs\02**.
 
