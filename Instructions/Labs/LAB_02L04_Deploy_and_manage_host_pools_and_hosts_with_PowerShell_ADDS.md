@@ -80,7 +80,7 @@ After completing this lab, you will be able to:
 
 21. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-22. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+22. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
     
 23. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
     
@@ -88,7 +88,7 @@ After completing this lab, you will be able to:
 
     >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
-25. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
+25. Within the Bastion session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
     ```powershell
     New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
@@ -142,34 +142,41 @@ The main tasks for this exercise are as follows:
    |Subnet address range|**10.0.3.0/24**|
 
 1. Within the Bastion session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Network security groups** and, on the **Network security groups** blade, select the security group in the **az140-11-RG** resource group.
+   
 1. On the network security group blade, in the vertical menu on the left, in the **Settings** section, click **Properties**.
+   
 1. On the **Properties** blade, click the **Copy to clipboard** icon on the right side of the **Resource ID** textbox. 
 
    > **Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
 ### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
    ```powershell
    Connect-AzAccount
    ```
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the Azure region hosting the Azure virtual network **az140-adds-vnet11**:
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
+   
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the Azure region hosting the Azure virtual network **az140-adds-vnet11**:
 
    ```powershell
    $location = (Get-AzVirtualNetwork -ResourceGroupName 'az140-11-RG' -Name 'az140-adds-vnet11').Location
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a resource group that will host the host pool and its resources:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a resource group that will host the host pool and its resources:
 
    ```powershell
    $resourceGroupName = 'az140-24-RG'
    New-AzResourceGroup -Location $location -Name $resourceGroupName
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an empty host pool:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an empty host pool:
 
    ```powershell
    $hostPoolName = 'az140-24-hp3'
@@ -180,13 +187,13 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The **New-AzWvdHostPool** cmdlet allows you to create a host pool, workspace, and the desktop app group, as well as to register the desktop app group with the workspace. You have the option of creating a new workspace or using an existing one.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the objectID attribute of the Azure AD group named **az140-wvd-pooled**:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the objectID attribute of the Azure AD group named **az140-wvd-pooled**:
 
    ```powershell
    $aadGroupObjectId = (Get-AzADGroup -DisplayName 'az140-wvd-pooled').Id
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to assign the Azure AD group named **az140-wvd-pooled** to the default desktop app group of the newly created host pool:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to assign the Azure AD group named **az140-wvd-pooled** to the default desktop app group of the newly created host pool:
 
    ```powershell
    $roleDefinitionName = 'Desktop Virtualization User'
