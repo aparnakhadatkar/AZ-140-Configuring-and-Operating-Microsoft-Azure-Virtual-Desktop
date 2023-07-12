@@ -20,11 +20,6 @@ After completing this lab, you will be able to:
 ## Instructions
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
-
-1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing following credentials.
-
-    * Email/Username: <inject key="AzureAdUserEmail"></inject>
-    * Password: <inject key="AzureAdUserPassword"></inject>
     
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
