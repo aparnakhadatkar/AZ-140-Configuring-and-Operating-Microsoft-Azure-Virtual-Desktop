@@ -130,7 +130,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the **Zone.Identifier** alternate data stream, which has a value of **3**, indicating that it was downloaded from the Internet:
 
    ```powershell
-   Get-ChildItem -Path C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02 -File -Recurse | Unblock-File
+   Get-ChildItem -Path C:\AllFiles\Labs\02 -File -Recurse | Unblock-File
    ```
 
 2. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
@@ -156,9 +156,9 @@ The main tasks for this exercise are as follows:
 5. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an AD DS computer object that represents the Azure Storage account you created earlier in this task and is used to implement its AD DS authentication:
 
    ```powershell
-   cd C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02
+   cd C:\AllFiles\Labs\02
    
-   Set-Location -Path 'C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02'
+   Set-Location -Path 'C:\AllFiles\Labs\02'
    .\CopyToPSPath.ps1 
    Import-Module -Name AzFilesHybrid
    Join-AzStorageAccountForAuth `
