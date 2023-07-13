@@ -12,14 +12,9 @@ After completing this lab, you will be able to:
 - Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
 - Implement the MSIX app attach on Azure Virtual Desktop in AD DS environment
 
-## Lab files
-
--  \\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.json
--  \\\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.parameters.json
-
 ## Instructions
 
-## Exercise 1: Prepare for and create MSIX app packages
+### Exercise 1: Prepare for and create MSIX app packages
 
 The main tasks for this exercise are as follows:
 
@@ -309,7 +304,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, expand the **Azure AD Connect** folder and select **Azure AD Connect**.
 1. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** window, select **Configure**.
 1. On the **Additional tasks** page in the **Microsoft Azure Active Directory Connect** window, select **Customize synchronization options** and select **Next**.
-1. On the **Connect to Azure AD** page in the **Microsoft Azure Active Directory Connect** window, authenticate by using the user principal name of the **aadsyncuser** user account you identified earlier in this task with the password you set when creating this user account.
+1. On the **Connect to Azure AD** page in the **Microsoft Azure Active Directory Connect** window, authenticate by using the user principal name of the **aadsyncuser** user account you identified earlier in this task with the password you set when creating this user account:**Pa55w.rd1234**
 1. On the **Connect your directories** page in the **Microsoft Azure Active Directory Connect** window, select **Next**.
 1. On the **Domain and OU filtering** page in the **Microsoft Azure Active Directory Connect** window, ensure that the option **Sync selected domains and OUs** is selected, expand the **adatum.com** node, select the checkbox next to the **WVDInfra** OU (leave any other selected checkboxes unchanged), and select **Next**.
 1. On the **Optional features** page in the **Microsoft Azure Active Directory Connect** window, accept the default settings, and select **Next**.
@@ -461,3 +456,11 @@ The main tasks for this exercise are as follows:
 1. In the **Remote Desktop** client window, select **Subscribe** and, when prompted, sign in with the **aduser1** user principal name and the password you set when creating this user account. 
 1. If prompted, in the **Stay signed in to all your apps** window, clear the **Allow my organization to manage my device** checkbox and click **No, sign in to this app only**.
 1. In the **Remote Desktop** client window, within the **az140-21-ws1** section, double-click the **XML Notepad** icon, when prompted, provide the password, and verify that the XML Notepad launches successfully.
+
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+
+**You have successfully completed the lab**
