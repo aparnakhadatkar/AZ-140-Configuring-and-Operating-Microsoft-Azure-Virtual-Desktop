@@ -11,14 +11,9 @@ After completing this lab, you will be able to:
 - Deploy Azure Virtual Desktop host pools and hosts by using PowerShell
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
 
-## Lab files
-
--  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-24_azuredeployhp3.json
--  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-24_azuredeployhp3.parameters.json
-
 ## Instructions
 
-## Exercise 1: Prerequisite - Setup Azure AD Connect
+### Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**. 
@@ -29,21 +24,19 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-  > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
-  > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
 5. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
    > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
-
-
 6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
 10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
-   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
 11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
@@ -56,7 +49,7 @@ After completing this lab, you will be able to:
 13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
 14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
-   > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+    > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
 16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
@@ -64,7 +57,7 @@ After completing this lab, you will be able to:
 18. On the **Optional features** page, accept the default settings, and select **Next**.
 19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
-   > **Note**: Installation should take about 2 minutes.
+    > **Note**: Installation should take about 2 minutes.
 
 20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
@@ -72,16 +65,16 @@ After completing this lab, you will be able to:
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
 23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
-   > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
+    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
 24. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
-   ```powershell
-   New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
-   ```
+    ```powershell
+    New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
+    ```
 25. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
    
-   > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
+    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
 ## Exercise 2: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
   
@@ -93,7 +86,7 @@ The main tasks for this exercise are as follows:
 1. Add an Azure VM running Windows 10 Enterprise as a session host to the Azure Virtual Desktop host pool by using PowerShell
 1. Verify the deployment of the Azure Virtual Desktop session host
 
-### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
+#### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool session hosts:
 
@@ -130,7 +123,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
-### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
+#### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
@@ -176,7 +169,7 @@ The main tasks for this exercise are as follows:
    New-AzRoleAssignment -ObjectId $aadGroupObjectId -RoleDefinitionName $roleDefinitionName -ResourceName $dagAppGroupName -ResourceGroupName $resourceGroupName -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
    ```
 
-### Task 3: Perform a template-based deployment of an Azure VM running Windows 10 Enterprise by using PowerShell
+#### Task 3: Perform a template-based deployment of an Azure VM running Windows 10 Enterprise by using PowerShell
 
 1. From your lab computer, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Storage accounts**, and select the storage account **storage<inject key="DeploymentID" enableCopy="false" />**. On the storage account blade, in the **Data storage** section, select **File shares** and then select the **az140-22-profiles** file share.
 
@@ -207,7 +200,7 @@ The main tasks for this exercise are as follows:
    Get-ADComputer -Filter "sAMAccountName -eq 'az140-24-p3-0$'"
    ```
 
-### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
+#### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
 2. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
@@ -218,7 +211,7 @@ The main tasks for this exercise are as follows:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-  > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
+   > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
 
 4. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
 5. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a folder that will host files required to add the newly deployed Azure VM as a session host to the host pool you provisioned earlier in this lab:
@@ -228,7 +221,7 @@ The main tasks for this exercise are as follows:
    New-Item -ItemType Directory -Path $labFilesFolder
    ```
 
->**Note:** Take care using the [T] construct to copy over the PowerShell cmdlets. In some instances, the text copied over can be incorrect, such as the $ sign showing as a 4 number character. You will need to correct these before issuing the cmdlet. Copy over to the PowerShell ISE **Script** pane, make the corrections there, and then highlight the corrected text and press **F8** (**Run Selection**).
+   >**Note:** Take care using the [T] construct to copy over the PowerShell cmdlets. In some instances, the text copied over can be incorrect, such as the $ sign showing as a 4 number character. You will need to correct these before issuing the cmdlet. Copy over to the PowerShell ISE **Script** pane, make the corrections there, and then highlight the corrected text and press **F8** (**Run Selection**).
 
 6. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to download the Azure Virtual Desktop Agent and Boot Loader installers, required to add the session host to the host pool:
 
@@ -266,38 +259,38 @@ The main tasks for this exercise are as follows:
 10. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 11. Within the Remote Desktopliveid session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to generate the token necessary to join new session hosts to the pool you provisioned earlier in this exercise:
 
-   ```powershell
-   $resourceGroupName = 'az140-24-RG'
-   $hostPoolName = 'az140-24-hp3'
-   $registrationInfo = New-AzWvdRegistrationInfo -ResourceGroupName $resourceGroupName -HostPoolName $hostPoolName -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
-   $registrationInfo
-   $registrationInfo.Token
-   ```
-   > **Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+    ```powershell
+    $resourceGroupName = 'az140-24-RG'
+    $hostPoolName = 'az140-24-hp3'
+    $registrationInfo = New-AzWvdRegistrationInfo -ResourceGroupName $resourceGroupName -HostPoolName $hostPoolName -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
+    $registrationInfo
+    $registrationInfo.Token
+    ```
+    > **Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
 
 12. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Agent:
 
-   ```powershell
-   Set-Location -Path $labFilesFolder
-   Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WVDAgentInstallerName", "/quiet", "/qn", "/norestart", "/passive", "REGISTRATIONTOKEN=$($registrationInfo.Token)", "/l* $labFilesFolder\AgentInstall.log" | Wait-Process
-   ```
+    ```powershell
+    Set-Location -Path $labFilesFolder
+    Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WVDAgentInstallerName", "/quiet", "/qn", "/norestart", "/passive", "REGISTRATIONTOKEN=$($registrationInfo.Token)", "/l* $labFilesFolder\AgentInstall.log" | Wait-Process
+    ```
 
 13. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Boot Loader:
 
-   ```powershell
-   Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
-   ```
+    ```powershell
+    Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
+    ```
 
-### Task 5: Verify the deployment of the Azure Virtual Desktop host
+#### Task 5: Verify the deployment of the Azure Virtual Desktop host
 
 1. Switch to the lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select the entry **az140-24-hp3** representing the newly modified pool.
 1. On the **az140-24-hp3** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
 1. On the **az140-24-hp3 \| Session hosts** blade, verify that the deployment includes a single host.
 
-  > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
+   > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
 
 
-### Task 6: Manage app groups using PowerShell
+#### Task 6: Manage app groups using PowerShell
 
 1. From the lab computer, switch to the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a Remote App group:
 
@@ -338,3 +331,10 @@ The main tasks for this exercise are as follows:
 1. On the **az140-24-hp3 \| Application groups** blade, in the list of application groups, select the **az140-24-hp3-Office365-RAG** entry.
 1. On the **az140-24-hp3-Office365-RAG** blade, verify the configuration of the application group, including the applications and assignments.
 
+> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help
+
+**You have successfully completed the lab**
