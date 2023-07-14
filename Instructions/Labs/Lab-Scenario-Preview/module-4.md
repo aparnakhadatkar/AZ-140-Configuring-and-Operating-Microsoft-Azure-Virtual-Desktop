@@ -13,6 +13,11 @@ After completing this lab, you will be able to:
 
 - Implement FSLogix based profiles for Azure Virtual Desktop
 
+## Architecture Diagram
+
+   ![](media/az-140-mod8a.png)
+
+
 ## Lab 08B - Package Azure Virtual Desktop applications (AD DS)
 
 ### Lab overview
@@ -27,3 +32,6 @@ After completing this lab, you will be able to:
 - Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
 - Implement the MSIX app attach on Azure Virtual Desktop in AD DS environment
 
+## Architecture Diagram
+
+   ![](media/az-140-mod8b.png)
