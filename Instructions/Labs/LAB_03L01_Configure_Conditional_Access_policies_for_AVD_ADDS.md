@@ -28,6 +28,7 @@ After completing this lab, you will be able to:
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
+   |Authentication Type|**Password**|
    |Password|**Pa55w.rd1234**|
 
    > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
@@ -98,52 +99,58 @@ After completing this lab, you will be able to:
       
       > **Note**: The script execution will take about 5 minutes. 
 
-26. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+26. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** then select **RunPowerShellScript** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
+27. On the **az140-24-p3-0** overview page, select **Connect**, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.4)** entry, and then select **Download RDP File**.
 
-27. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**.
-28. When prompted, sign in with the following credentials:
+28. If pop-up comes stating that it will harm your device, select **Keep**, then open the file, select **Connect**. 
+
+29. When prompted, sign in with the following credentials, after entering the sign-in credentials, select **Yes**:
 
       |Setting|Value|
       |---|---|
       |User Name|**Student**|
       |Password|**Pa55w.rd1234**|
 
+      > **Note**: If on the sign-in page you are getting some other credentials then select **More choices**, select **use a different account**, then use the above credentials to log-in.
+      
       > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
 
-29. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
+30. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
 
-30. Within the Remote Desktop session to **az140-24-p3-0**, click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
+      > **Note**: if **Teams** tab opened, close the tab.
 
-31. If you get the popup do you want to change the execution policy? select yes.
+31. Within the Remote Desktop session to **az140-24-p3-0**, right-click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will connect session host to host pool.
 
-32. If you get the popup NutGet provider is requied to continue select yes.
+32. If you get the popup do you want to change the execution policy? Type **Y**.
 
-33. Provide the credentials from the environment details tab to authenticate the Azure account when the pop up comes.
+33. If you get the popup NutGet provider is requied to continue Type **Y**.
 
-34. Wait until the script runs successfully.
+34. Provide the credentials from the environment details tab to authenticate the Azure account when the pop up comes, click on **Use a different account**.
 
-35. On the lab computer, go to Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
+35. Wait until the script runs successfully.
 
-36. Click on + Add and search for aduser5 and then click on Select.
+36. On the lab computer, go to Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
 
-37. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+37. Click on + Add and search for aduser5 and then click on Select.
 
-38. On the application groups blade, select + Create.
+38. On the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
 
-39. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
+39. On the application groups blade, select + Create.
+
+40. On the Basics tab of the Create an application group blade, specify the following settings and select **Next: Applications >**:
 
       |Setting|Value|
       |---|---|
       |Subscription|the name of the Azure subscription you are using in this lab|
       |Resource group|**az140-11-RG**|
       |Host pool|**az140-24-hp3**|
-      |Application group type|**RemoteApp**|
+      |Application group type|**RemoteApp (RAIL)**|
       |Application group name|**az140-21-hp1-Utilities-RAG**|
    
-40. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+41. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
 
-41. On the **Add application** blade, specify the following settings and select **Save**:
+42. On the **Add application** blade, specify the following settings and select **Save**:
 
       |Setting|Value|
       |---|---|
@@ -156,21 +163,21 @@ After completing this lab, you will be able to:
       |Description|**Windows Command Prompt**|
       |Require command line|**No**|
 
-42. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+43. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
 
-43. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+44. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
  
-44. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
+45. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
  
-45. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+46. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
  
-46. On the **Workspace** tab of the **Create an application group** blade, specify the following setting and select **Review + create**:
+47. On the **Workspace** tab of the **Create an application group** blade, specify the following setting and select **Review + create**:
 
       |Setting|Value|
       |---|---|
       |Register application group|**yes**|
 
-47. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+48. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
 ## Exercise 2: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
@@ -190,15 +197,15 @@ The main tasks for this exercise are as follows:
 
 1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Users**. 
 
-1. On the **Users | All users (Preview)** blade, select **aduser5**.
+1. On the **Users | All users (preview)** blade, select **aduser5**.
 
-1. On the **aduser5 | Profile** blade, in the toolbar, click **Edit properties**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
+1. On the **aduser5** blade, in the toolbar, click **Edit properties**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
 
-1. On the **aduser5 | Profile** blade, in the **Identity** section, identify the user principal name of the **aduser5** account.
+1. On the **aduser5** blade, in the **Identity** section, identify the user principal name of the **aduser5** account.
 
     >**Note**: Record this value. You will need it later in this lab.
 
-1. On the **Users | All users (Preview)** blade, select the user account you used to sign at the beginning of this task and repeat the previous step in case your account does not have the **Usage location** assigned. 
+1. On the **Users | All users (Preview)** blade, select the user account you used to sign-in at the beginning of this task and repeat the previous step in case your account does not have the **Usage location** assigned. 
 
     >**Note**: The **Usage location** property must be set in order to assign an Azure AD Premium P2 licenses to user accounts.
 
@@ -207,27 +214,43 @@ The main tasks for this exercise are as follows:
     >**Note**: Record this value. You will need it later in this lab.
 
 1. In the Azure portal, navigate back to the **Overview** blade of the Azure AD tenant and, in the vertical menu bar on the left side, in the **Manage** section, click **Licenses**.
-1. On the **Licenses \| Overview** blade, in the vertical menu bar on the left side, in the **Manage** section, click **All products**.
-1. On the **Licenses \| All products** blade, in the toolbar, click **+ Try/Buy**.
+
+1. On the **Licenses | Overview** blade, in the vertical menu bar on the left side, in the **Manage** section, click **All products**.
+
+1. On the **Licenses | All products** blade, in the toolbar, click **+ Try/Buy**.
+
 1. On the **Activate** blade, click **Free trial** in the **ENTERPRISE MOBILITY + SECURITY E5** section and then click **Activate**. 
-1. While on the **Licenses \| Overview** blade, refresh the browser window to verify that the activation was successful. 
+
+1. While on the **Licenses | Overview** blade, refresh the browser window to verify that the activation was successful. 
+
 1. On the **Licenses - All products** blade, select the **Enterprise Mobility + Security E5** entry. 
+
 1. On the **Enterprise Mobility + Security E5** blade, in the toolbar, click **+ Assign**.
-1. On the **Assign license** blade, click **Add users and groups**, on the **Add users and groups** blade, select **aduser5** and your user account, and click **Select**.
+
+1. On the **Assign license** blade, click **+ Add users and groups**, on the **Add users and groups** blade, select **aduser5** and your user account, and click **Select**.
+
 1. Back on the **Assign license** blade, click **Assignment options**, on the **Assignment options** blade, verify that all options are enabled, click **Review + assign**, click **Assign**.
 
 ### Task 2: Configure Azure AD Multi-Factor Authentication (MFA)
 
 1. On your lab computer, in the web browser displaying the Azure portal, navigate back to the **Overview** blade of the Azure AD tenant and, in the vertical menu on the left side, in the **Manage** section, click **Security**.
+
 1. On the **Security | Getting started** blade, in the vertical menu on the left side, in the **Protect** section, click **Identity Protection**.
-1. On the **Identity Protection | Overview** blade, in the vertical menu on the left side, in the **Protect** section, click **MFA registration policy** (if necessary, refresh the web browser page).
-1. On the **Identity Protection | MFA registration policy** blade, in the **Assignments** section of the **Multi-factor authentication registration policy**, click **All users**, on the **Include** tab, click the **Select individuals and groups** option, on the **Select users**, click **aduser5**, click **Select**, at the bottom of the blade, set the **Enforce policy** switch to **On**, and click **Save**.
+
+1. On the **Identity Protection | Overview** blade, in the vertical menu on the left side, in the **Protect** section, click **Multifactor authentication registration policy** (if necessary, refresh the web browser page).
+
+1. On the **Identity Protection | Multifactor authentication registration policy** blade, in the **Assignments** section of the **Multi-factor authentication registration policy**, click **All users**, on the **Include** tab, click the **Select individuals and groups** option, on the **Select users**, click **aduser5**, click **Select**, at the bottom of the blade, set the **Policy enforcement** switch to **Enabled**, and click **Save**.
 
 ### Task 3: Register a user for Azure AD MFA
 
-1. On your lab computer, open an **InPrivate** web browser session, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing the **aduser5** user principal name you identified earlier in this exercise and the password(Pa55w.rd1234) you set when creating this user account.
+1. On your lab computer, open an **InPrivate** web browser session, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing the **aduser5** user principal name you identified earlier in this exercise, and the password **Pa55w.rd1234** you set when creating this user account.
+
 1. When presented with the message **More information required**, click **Next**. This will automatically redirect your browser to the **Microsoft Authenticator** page.
-2. On the **Additional security verification** page, in the **Step 1: How should we contact you?** section, select your preferred authentication method and follow instructions to complete the registration process. 
+
+2. On the **Keep your account secure** page, select your preferred authentication method and follow instructions to complete the registration process. 
+
+   > **Note**: if Stay signed in page prompted, select **Yes**.
+
 3. On the Azure portal page, in the upper right corner, click the icon representing the user avatar, click **Sign out**, and close the **In private** browser window. 
 
 ### Task 4: Configure hybrid Azure AD join
@@ -235,58 +258,80 @@ The main tasks for this exercise are as follows:
 > **Note**: This functionality can be leveraged to implement additional security when setting up Conditional Access for devices based on their Azure AD join status.
 
 1. On the lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-3. When prompted, provde the following credentials and select **Connect**:
+
+2. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, Select **Use Bastion**.
+
+3. Provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
+   |Authentication Type|**Password**|
    |Password|**Pa55w.rd1234**|
 
-4. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, expand the **Azure AD Connect** folder and select **Azure AD Connect**.
-> **Note** If you receive a failure error window that the Sync Service is not running, go to PowerShell command window and enter **Start-Service "ADSync"**, and then try the step 4 again.
+4. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, in the Start menu, expand the **Azure AD Connect** folder, and select **Azure AD Connect**.
+
+   > **Note** If you receive a failure error window that the Sync Service is not running, go to PowerShell command window and enter **Start-Service "ADSync"**, and then try the step 4 again.
+
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** window, select **Configure**.
+
 6. On the **Additional tasks** page in the **Microsoft Azure Active Directory Connect** window, select **Configure device options** and select **Next**.
+
 7. On the **Overview** page in the **Microsoft Azure Active Directory Connect** window, review the information regarding **Hybrid Azure AD join** and **Device writeback** and select **Next**.
+
 8. On the **Connect to Azure AD** page in the **Microsoft Azure Active Directory Connect** window, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**.  
 
-   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this lab and specify the password you set when creating this user account. 
+   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this lab and use this password **Pa55w.rd1234**.
 
 9. On the **Device options** page in the **Microsoft Azure Active Directory Connect** window, ensure that the **Configure Hybrid Azure AD join** option is selected and select **Next**. 
+
 10. On the **Device operating systems** page in the **Microsoft Azure Active Directory Connect** window, select the **Windows 10 or later domain-joined devices** checkbox and select **Next**. 
+
 11. On the **SCP configuration** page in the **Microsoft Azure Active Directory Connect** window, select the checkbox next to the **adatum.com** entry, in the **Authentication Service** drop-down list, select **Azure Active Directory** entry, and select **Add**. 
+
 12. When prompted, in the **Enterprise Admin Credentials** dialog box, specify the following credentials, and select **OK**:
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**ADATUM\Student**|
-   |Password|**Pa55w.rd1234**|
+      |Setting|Value|
+      |---|---|
+      |User Name|**ADATUM\Student**|
+      |Password|**Pa55w.rd1234**|
 
 13. Back on the **SCP configuration** page in the **Microsoft Azure Active Directory Connect** window, select **Next**.
+
 14. On the **Ready to configure** page in the **Microsoft Azure Active Directory Connect** window, select **Configure** and, once the configuration completes, select **Exit**.
+
 15. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
+
 16. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to move the **az140-cl-vm11** computer account to the **WVDClients** organizational unit (OU):
 
-   ```powershell
-   Move-ADObject -Identity "CN=az140-cl-vm11,CN=Computers,DC=adatum,DC=com" -TargetPath "OU=WVDClients,DC=adatum,DC=com"
-   ```
+      ```powershell
+      Move-ADObject -Identity "CN=az140-cl-vm11,CN=Computers,DC=adatum,DC=com" -TargetPath "OU=WVDClients,DC=adatum,DC=com"
+      ```
 
 17. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, expand the **Azure AD Connect** folder and select **Azure AD Connect**.
+
 18. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** window, select **Configure**.
+
 19. On the **Additional tasks** page in the **Microsoft Azure Active Directory Connect** window, select **Customize synchronization options** and select **Next**.
+
 20. On the **Connect to Azure AD** page in the **Microsoft Azure Active Directory Connect** window, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
-   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this lab and specify the password you set when creating this user account. 
+      > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account you recorded earlier in this lab and use this password **Pa55w.rd1234** for creating the user account. 
 
 21. On the **Connect your directories** page in the **Microsoft Azure Active Directory Connect** window, select **Next**.
+
 22. On the **Domain and OU filtering** page in the **Microsoft Azure Active Directory Connect** window, ensure that the option **Sync selected domains and OUs** is selected, expand the **adatum.com** node, ensure that the checkbox next to the **ToSync** OU is selected, select the checkbox next to the **WVDClients** OU, and select **Next**.
+
 23. On the **Optional features** page in the **Microsoft Azure Active Directory Connect** window, accept the default settings, and select **Next**.
+
 24. On the **Ready to configure** page in the **Microsoft Azure Active Directory Connect** window, ensure that the checkbox **Start the synchronization process when configuration completes** is selected and select **Configure**.
+
 25. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
 ### Task 5: Trigger Azure AD Connect delta synchronization
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the **Administrator: Windows PowerShell ISE** window.
+
 1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console pane, run the following to trigger Azure AD Connect delta synchronization:
 
    ```powershell
@@ -294,20 +339,26 @@ The main tasks for this exercise are as follows:
    Start-ADSyncSyncCycle -PolicyType Initial
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). When prompted, sign in by using the Azure AD credentials of the user account with the Global Administrator role in the Azure AD tenant associated with the Azure subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Active Directory** to navigate to the Azure AD tenant associated with the Azure subscription you are using for this lab.
-1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Devices**. 
-1. On the **Devices | All devices** blade, review the list of devices and verify that the **az140-cl-vm11** device is listed with the **Hybrid Azure AD joined** entry in the **Join Type** column.
+1. Within the Remote Desktop session to **az140-dc-vm11**, navigate to the **Azure Portal** shortcut. When prompted, sign in by using the Azure AD credentials of the user account with the Global Administrator role in the Azure AD tenant associated with the Azure subscription you are using in this lab.
 
-   > **Note**: You might have to wait a few minutes for the synchronization to take effect before the device appears in the Azure portal.
+1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Active Directory** to navigate to the Azure AD tenant associated with the Azure subscription you are using for this lab.
+
+1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Devices**. 
+
+1. On the **Devices**, select **All devices**, review the list of devices and verify that the **az140-cl-vm11** device is listed with the **Hybrid Azure AD joined** entry in the **Join Type** column.
+
+   > **Note**: You have to wait for the synchronization to take effect before the device appears in the Azure portal.
 
 ## Exercise 3: Implement Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
 
 1. Create an Azure AD-based Conditional Access policy for all Azure Virtual Desktop connections
+
 1. Test the Azure AD-based Conditional Access policy for all Azure Virtual Desktop connections
+
 1. Modify the Azure AD-based Conditional Access policy to exclude hybrid Azure AD joined computers from the MFA requirement
+
 1. Test the modified Azure AD-based Conditional Access policy
 
 ### Task 1: Create an Azure AD-based Conditional Access policy for all Azure Virtual Desktop connections
@@ -315,16 +366,25 @@ The main tasks for this exercise are as follows:
 >**Note**: In this task, you will configure an Azure AD-based Conditional Access policy that requires MFA to sign in to a Azure Virtual Desktop session. The policy will also enforce reauthentication after the first 4 hours following a successful authentication.
 
 1. On your lab computer, in the web browser displaying the Azure portal, navigate back to the **Overview** blade of the Azure AD tenant and, in the vertical menu on the left side, in the **Manage** section, click **Security**.
+
 1. On the **Security \| Getting started** blade, in the vertical menu on the left side, in the **Protect** section, click **Conditional Access**.
-1. On the **Conditional Access \| Policies** blade, in the toolbar, click **+ New policy**, and in the context menu, select **Create New Policy**.
+
+1. On the **Conditional Access**, select **Policies**, in the toolbar, click **+ New policy**, and in the context menu, select **Create New Policy**.
+
 1. On the **New** blade, configure the following settings:
 
    - In the **Name** text box, type **az140-31-wvdpolicy1**
-   - In the **Assignments** section, select the **user and group selected** option, in the **What does this policy apply to?** drop-down list, ensure that **Users and groups** is selected, in the **Select Users and groups** section, select the **Users and groups** checkbox, on the **Select** blade, click **aduser5**, and then click **Select**.
-   - In the **Assignments** section, click **Cloud apps or actions**, ensure that in the **Select what this policy applies to** switch, the **Cloud apps** option is selected, click the **Select apps** option, on the **Select** blade, in the **Search** textbox, enter **9cdead84-a844-4324-93f2-b2e6bb768d07**, in the listing of results, select the checkbox next to the **Azure Virtual Desktop** entry, in the **Search** textbox, enter **a4a365df-50f1-4397-bc59-1a1564b8bb9c**, select the checkbox next to the **Microsoft Remote Desktop** entry, and click **Select**.
-   - In the **Assignments** section, click **Conditions**, click **Client apps**, on the **Client apps** blade, set the **Configure** switch to **Yes**, ensure that both the **Browser** and **Mobile apps and desktop clients** checkboxes are selected, and click **Done**.
-   - In the **Access controls** section, click **Grant**, on the **Grant** blade, ensure that the **Grant access** option is selected, select the **Require multi-factor authentication** checkbox and click **Select**.
-   - In the **Access controls** section, click **Session**, on the **Session** blade, select the **Sign-in frequency** checkbox, in the first textbox, type **4**, in the **Select units** dropdown list, select **Hours**, leave the **Persistent browser session** checkbox cleared, and click **Select**.
+   
+   - In the **Assignments** section, select the **0 user and group selected** option, Select **Select Users and groups**, select the **Users and groups** checkbox, on the **Select** blade, click **aduser5**, and then click **Select**.
+   
+   - In the **Assignments** section, click **No target resources selected**, ensure that in the **Select what this policy applies to** switch, the **Cloud apps** option is selected, click the **Select apps** option, on the **Select** blade, select **None**, in the **Search** textbox, enter **9cdead84-a844-4324-93f2-b2e6bb768d07**, in the listing of results, select the checkbox next to the **Azure Virtual Desktop** entry, in the **Search** textbox, enter **a4a365df-50f1-4397-bc59-1a1564b8bb9c**, select the checkbox next to the **Microsoft Remote Desktop** entry, and click **Select**.
+   
+   - In the **Assignments** section, Under **Condition** section, click **0 conditions selected**, under **Client apps**, select **Not configured**, set the **Configure** switch to **Yes**, ensure that both the **Browser** and **Mobile apps and desktop clients** checkboxes are selected, and click **Done**.
+   
+   - In the **Access controls** section, Under **Grant** section, select **0 controls selected**, on the **Grant** blade, ensure that the **Grant access** option is selected, select the **Require multi-factor authentication** checkbox and click **Select**.
+   
+   - In the **Access controls** section, under **Session**, select **0 controls selected** on the **Session** blade, select the **Sign-in frequency** checkbox, in the first textbox, type **4**, in the **Select units** dropdown list, select **Hours**, leave the **Persistent browser session** checkbox cleared, and click **Select**.
+   
    - Set the **Enable policy** switch to **On**.
 
 1. On the **New** blade, click **Create**. 
@@ -340,10 +400,15 @@ The main tasks for this exercise are as follows:
    > **Note**: Verify that this will automatically trigger authentication via MFA.
 
 1. In the **Enter code** pane, type the code from the text message or authenticator app that you registered and select **Verify**.
+
 1. On the **All Resources** page, click **Command Prompt**, on the **Access local resources** pane, clear the **Printer** checkbox, and click **Allow**.
-1. When prompted, in the **Enter your credentials**, in the **User name** textbox type the user principal name of **aduser5** and, in the **Password** textbox, type the password you set when creating this user account and click **Submit**.
+
+1. When prompted, in the **Enter your credentials**, in the **User name** textbox type the user principal name of **aduser5** and, in the **Password** textbox, and use this password **Pa55w.rd1234** and click **Submit**.
+
 1. Verify that the **Command Prompt** Remote App was launched successfully.
+
 1. In the **Command Prompt** Remote App window, at the command prompt, type **logoff** and press the **Enter** key.
+
 1. Back on the **All Resources** page, in the upper right corner, click **aduser5**, in the dropdown menu, click **Sign Out**, and close the **InPrivate** web browser window.
 
 ### Task 3: Modify the Azure AD-based Conditional Access policy to exclude hybrid Azure AD joined computers from the MFA requirement
@@ -351,33 +416,41 @@ The main tasks for this exercise are as follows:
 >**Note**: In this task, you will modify the Azure AD-based Conditional Access policy that requires MFA to sign in to a Azure Virtual Desktop session such that connections originating from Azure AD joined computers will not require MFA.
 
 1. On your lab computer, in the browser window displaying the Azure portal, on the **Conditional Access | Policies** blade, click the entry representing the **az140-31-wvdpolicy1** policy.
-1. On the **az140-31-wvdpolicy1** blade, in the **Access controls** section, click **Grant**, on the **Grant** blade, select the **Require multi-factor authentication** and **Require Hybrid Azure AD joined device** checkboxes, ensure that the **Require one of the selected controls** option is enabled, and click **Select**.
+
+1. On the **az140-31-wvdpolicy1** blade, in the **Access controls** section, under **Grant**, select **1 control selected**, on the **Grant** blade, select the **Require multi-factor authentication** and **Require Hybrid Azure AD joined device** checkboxes, ensure that the **Require one of the selected controls** option is enabled, and click **Select**.
+
 1. On the **az140-31-wvdpolicy1** blade, click **Save**.
 
->**Note**: It might take a few minutes for the policy to take effect.
+   >**Note**: It might take a few minutes for the policy to take effect.
 
 ### Task 4: Test the modified Azure AD-based Conditional Access policy 
 
-1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select Run command and in the Run Command Script under PowerShell Script run the below command.
+1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select **Run command**, select **RunPowerShellScript** and in the Run Command Script under PowerShell Script run the below command, you'll see the message **Script execution complete**, close the powershell.
 
    ```powershell
     Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
    ```
 
-2. On the **az140-cl-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
+2. On the **az140-cl-vm11** blade, select **Connect**, select **Bastion**, than select **Use Bastion**.
 
 3. When prompted, provide the credentials of **aduser5** and and, in the **Password** textbox give **Pa55w.rd1234** and select **Connect** 
 
-   
+   > **Note:** if the error prompted **A popup blocker is preventing new window from opening. Please allow popups and retry.**, then select **Allow**.
+
 4. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to navigate to the Azure Virtual Desktop HTML5 web client page at [https://rdweb.wvd.microsoft.com/arm/webclient](https://rdweb.wvd.microsoft.com/arm/webclient).
 
    > **Note**: Verify that this time you will not be prompted to authenticate via MFA. This is because **az140-cl-vm11** is Hybrid Azure AD-joined.
 
 5. On the **All Resources** page, double-click **Command Prompt**, on the **Access local resources** pane, clear the **Printer** checkbox, and click **Allow**.
+
 6. When prompted, in the **Enter your credentials**, in the **User name** textbox type the user principal name of **aduser5** and, in the **Password** textbox, type the password **Pa55w.rd1234** and click on **Submit**.
+
 7. Verify that the **Command Prompt** Remote App was launched successfully.
+
 8. In the **Command Prompt** Remote App window, at the command prompt, type **logoff** and press the **Enter** key.
+
 9. Back on the **All Resources** page, in the upper right corner, click **aduser5**, in the dropdown menu, click **Sign Out**.
+
 10. Within the Remote Desktop session to **az140-cl-vm11**, click **Start**, in the vertical bar directly above the **Start** button, click the icon representing the signed in user account, and, in the pop-up menu, click **Sign out**.
 
- ![](./images/module3.png)
+      ![](./images/module3.png)
