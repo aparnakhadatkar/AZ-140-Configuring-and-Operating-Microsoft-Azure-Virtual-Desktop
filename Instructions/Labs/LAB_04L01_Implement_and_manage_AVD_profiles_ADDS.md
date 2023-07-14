@@ -60,13 +60,15 @@ After completing this lab, you will be able to:
 
 20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab, given as follows:
+    - E-mail address: <inject key="AzureAdUserEmail"></inject>
+    - Password: <inject key="AzureAdUserPassword"></inject>
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
+23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
      > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
-24. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
+24. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention **storage<inject key="DeploymentID" enableCopy="false"/>** and file share with the name **az140-22-profiles**.
    
     > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
   
@@ -74,12 +76,11 @@ After completing this lab, you will be able to:
 25. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
     > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text Session-host Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
-26. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+26. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select **az140-21-p1-0**  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
-27. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+27. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select **az140-21-p1-1**  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
-28. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **operations** secction select **Run command** and  in the **Run Command Script** under **PowerShell Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
-
+28. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select **az140-21-p1-2**  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
 29. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
 
@@ -89,18 +90,20 @@ After completing this lab, you will be able to:
     |Password|**Pa55w.rd1234**|
    
 30. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
-    > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **y**.
+    > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **Y**.
 
-31. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
+31. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab:
+    - E-mail address: <inject key="AzureAdUserEmail"></inject>
+    - Password: <inject key="AzureAdUserPassword"></inject>
 
-    > **Note**: Please follow previous 2 step(step 29 and 30) for virtual machine **az140-21-p1-1** and **az140-21-p1-2** .
+    > **Note**: Please follow previous two steps (step 29 and 30) for Virtual Machines **az140-21-p1-1** and **az140-21-p1-2** .
  
-32. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under Manage section.
+33. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under Manage section.
 
-33. Click on + Add and search for aduser1 and then click on Select.
-34. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
-35. On the application groups blade, select + Create.
-36. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
+34. Click on + Add and search for aduser1 and then click on Select.
+35. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+36. On the application groups blade, select + Create.
+37. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
     |Setting|Value|
      |---|---|
@@ -110,8 +113,8 @@ After completing this lab, you will be able to:
      |Application group type|**RemoteApp**|
      |Application group name|**az140-21-hp1-Utilities-RAG**|
      
-37. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
-38. On the **Add application** blade, specify the following settings and select **Save**:
+38. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+39. On the **Add application** blade, specify the following settings and select **Save**:
 
     |Setting|Value|
      |---|---|
@@ -124,17 +127,17 @@ After completing this lab, you will be able to:
      |Description|**Windows Command Prompt**|
      |Require command line|**No**|
 
-39. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
-40. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
-41. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
-42. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
-43. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+40. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+41. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+42. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
+43. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+44. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
     |Setting|Value|
      |---|---|
      |Register application group|**yes**|
 
-44. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+45. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
    
 ## Exercise 2: Implement FSLogix based profiles for Azure Virtual Desktop
@@ -147,42 +150,40 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Configure FSLogix-based profiles on Azure Virtual Desktop session host VMs
 
-1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-21-p1-0**.
-3. On the **az140-21-p1-0** blade, select **Start** and wait until the status of the virtual machine changes to **Running**.
-4. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
-5. When prompted, sign in with the following credentials:
+1. Back in your lab Virtual Machine, in the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-21-p1-0**.
+2. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
+3. When prompted, sign in with the following credentials:
 
    |Setting|Value|
    |---|---|
    |User Name|**student@adatum.com**|
    |Password|**Pa55w.rd1234**|
    
-6. Within the Remote Desktop session to **az140-21-p1-0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries, extract them into the **C:\\Allfiles\\Labs\\04** folder (create the folder if needed), navigate to the **x64\\Release** subfolder, double-click the **FSLogixAppsSetup.exe** file to launch the **Microsoft FSLogix Apps Setup** wizard, and step through the installation of Microsoft FSLogix Apps with the default settings.
+4. Within the Remote Desktop session to **az140-21-p1-0**, start Microsoft Edge, browse to [FSLogix download page](https://aka.ms/fslogix_download), download FSLogix compressed installation binaries, extract them into the **C:\\Allfiles\\Labs\\04** folder (create the folder if needed), navigate to the **x64\\Release** subfolder, double-click the **FSLogixAppsSetup.exe** file to launch the **Microsoft FSLogix Apps Setup** wizard, and step through the installation of Microsoft FSLogix Apps with the default settings.
 
-    > **Note**: Installation of FXLogic is not necessary if the image already includes it.
-
-7. Within the Remote Desktop session to **az140-21-p1-0**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
+5. Within the Remote Desktop session to **az140-21-p1-0**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the latest version of the PowerShellGet module (select **Yes** when prompted for confirmation):
 
    ```powershell
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
    Install-Module -Name PowerShellGet -Force -SkipPublisherCheck
    ```
-8. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
+6. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
 
    ```powershell
    Connect-AzAccount
    ```
 
-9. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+7. When prompted, sign in with the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab:
+   - E-mail address: <inject key="AzureAdUserEmail"></inject>
+   - Password: <inject key="AzureAdUserPassword"></inject>
 
-10. From the **Administrator: Windows PowerShell ISE** console, run the following to install the latest version of the Az PowerShell module (select **Yes to All** when prompted for confirmation):
+8. From the **Administrator: Windows PowerShell ISE** console, run the following to install the latest version of the Az PowerShell module (select **Yes to All** when prompted for confirmation):
 
     ```powershell
     Install-Module -Name Az -AllowClobber -SkipPublisherCheck
     ```
 
-11. From the **Administrator: Windows PowerShell ISE** console, run the following to modify the execution policy:
+9. From the **Administrator: Windows PowerShell ISE** console, run the following to modify the execution policy:
 
     ```powershell
     Set-ExecutionPolicy RemoteSigned -Force
@@ -190,14 +191,14 @@ The main tasks for this exercise are as follows:
 
      > **Note**: If you get the error Windows PowerShell updated your execution policy successfully, but the setting is overridden by a policy defined at a more specific scope. please ignore it.
 
-12. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab (change the **deploymentID** with your lab deployment ID It is under Envirmental detail page):
+10. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to retrieve the name of the Azure Storage account you configured earlier in this lab (change the **deploymentID** with your lab deployment ID It is under Envirmental detail page):
 
     ```powershell
     $resourceGroupName = 'az140-11-RG'
     $storageAccountName = 'storagedeploymentID'
     ```
 
-13. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings:
+11. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings:
 
     ```powershell
     $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
@@ -208,29 +209,29 @@ The main tasks for this exercise are as follows:
     New-ItemProperty -Path $profilesParentKey\$profilesChildKey -Name 'VHDLocations' -PropertyType MultiString -Value "\\$storageAccountName.file.core.windows.net\$fileShareName"
     ```
 
-14. Within the Remote Desktop session to **az140-21-p1-0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** text box, type the following and select **OK** to launch the **Local Users and Groups** console:
+12. Within the Remote Desktop session to **az140-21-p1-0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** text box, type the following and select **OK** to launch the **Local Users and Groups** console:
 
     ```cmd
     lusrmgr.msc
     ```
 
-15. In the **Local Users and Groups** console, note the four groups which names start with the **FSLogix** string:
+13. In the **Local Users and Groups** console, note the four groups which names start with the **FSLogix** string:
 
      - FSLogix ODFC Exclude List
      - FSLogix ODFC Include List
      - FSLogix Profile Exclude List
      - FSLogix Profile Include List
 
-16. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Include List** group, note that it includes the **\\Everyone** group, and select **OK** to close the group **Properties** window. 
-17. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Exclude List** group, note that it does not include any group members by default, and select **OK** to close the group **Properties** window. 
+14. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Include List** group, note that it includes the **\\Everyone** group, and select **OK** to close the group **Properties** window. 
+15. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Exclude List** group, note that it does not include any group members by default, and select **OK** to close the group **Properties** window. 
 
-     > **Note**: To provide consistent user experience, you need to install and configure FSLogix components on all Azure Virtual Desktop session hosts. You will perform this task in the unattended manner on the other session hosts in our lab environment. 
+     > **Note**: To provide consistent user experience, you need to install and configure FSLogix components on all Azure Virtual Desktop session hosts. Please repeat all previous steps (step 1 and 15) for Virtual Machines **az140-21-p1-1** and **az140-21-p1-2** .
 
-18. Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az140-21-p1-2**, open command prompt and type **WinRM quickconfig**.
+16. Within the Remote Desktop session to **az140-21-p1-0**, **az140-21-p1-1**, **az140-21-p1-2**, open command prompt and type **WinRM quickconfig**.
 
-19. If they ask for make these changes [y/n]? give y
+17. When it asks **Make these changes [y/n]?**, give **Y**
 
-20. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install FSLogix components on the **az140-21-p1-1** and **az140-21-p1-2** session hosts:
+18. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install FSLogix components on the **az140-21-p1-1** and **az140-21-p1-2** session hosts:
 
       ```
       $servers = 'az140-21-p1-1', 'az140-21-p1-2'
@@ -246,7 +247,7 @@ The main tasks for this exercise are as follows:
 
      > **Note**: Wait for the script execution to complete. This might take about 2 minutes.
 
-21. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
+19. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to configure profile registry settings on the **az140-21-p1-1** and **az140-21-p1-1** session hosts:
 
     ```
     $profilesParentKey = 'HKLM:\SOFTWARE\FSLogix'
@@ -264,7 +265,7 @@ The main tasks for this exercise are as follows:
    
     > **Note**: Before you test the FSLogix-based profile functionality, you need to remove the locally cached profile of the **ADATUM\\aduser1** account you will be using for testing from the Azure Virtual Desktop session hosts you used in the previous lab.
 
-22. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the locally cached profile of the **ADATUM\\aduser1** account on all Azure VMs serving as session hosts:
+20. Within the Remote Desktop session to **az140-21-p1-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the locally cached profile of the **ADATUM\\aduser1** account on all Azure VMs serving as session hosts:
 
     ```powershell
     $userName = 'aduser1'
@@ -289,9 +290,11 @@ The main tasks for this exercise are as follows:
 
 6. Once the installation completes, ensure that the **Launch Remote Desktop when setup exits** checkbox is selected and click **Finish** to start the Remote Desktop client.
 
-7. Select **Subscribe** and, when prompted, sign in with the **aduser1** credentials use password **Pa55w.rd1234**.
+7. Select **Subscribe** and, when prompted, sign in with the **aduser1** credentials:
+   - Email: **aduser1@azurehol1390.onmicrosoft.com**
+   - Password: **Pa55w.rd1234**
 
-    > **Note**  If you're not asked to subscribe, you might have to unsubscribe from a previous suscription.
+   > **Note**  If you're not asked to subscribe, you might have to unsubscribe from a previous suscription.
  
 8. In the list of applications, double-click **Command Prompt**, when prompted, provide the password of the **aduser1** account, and verify a **Command Prompt** window opens successfully.
 9. In the upper left corner of the **Command Prompt** window, right-click the **Command Prompt** icon and, in the drop-down menu, select **Properties**.
@@ -311,3 +314,5 @@ The main tasks for this exercise are as follows:
 23. On the storage account blade, in the **File services** section, select **File shares** and then, in the list of file shares, select **az140-22-profiles**. 
 24. On the **az140-22-profiles** blade, verify that its content includes a folder which name consists of a combination of the Security Identifier (SID) of the **ADATUM\\aduser1** account followed by the **_aduser1** suffix.
 25. Select the folder you identified in the previous step and note that it contains a single file named **Profile_aduser1.vhd**.
+
+**Please continue to the next exercise.**
