@@ -109,7 +109,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Make sure that the length of the storage account name does not exceed 15 characters. The name will be used to create a computer account in the Active Directory Domain Services (AD DS) domain that is integrated with the Azure AD tenant associated with the Azure subscription containing the storage account. This will allow for AD DS-based authentication when accessing file shares hosted in this storage account.
 
-1. On the **Basics** tab of the **Create storage account** blade, select **Review + Create**, wait for the validation process to complete, and then select **Create**.
+1. On the **Basics** tab of the **Create storage account** blade, select **Review**, wait for the validation process to complete, and then select **Create**.
 
    >**Note**: Wait for the Storage account to be created. This should take about 2 minutes.
 
@@ -117,7 +117,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, navigate back to the **Storage accounts** blade and select the entry representing the newly created storage account.
 1. On the storage account blade, in the **Data storage** section, select **File shares** and then select **+ File share**.
-1. On the **New file share** blade, specify the following settings and select **Create** (leave other settings with their default values):
+1. On the **New file share** blade, specify the following settings and select **Review + Create** (leave other settings with their default values) wait for the validation process to complete, and then select **Create**.
 
    |Setting|Value|
    |---|---|
@@ -130,7 +130,7 @@ The main tasks for this exercise are as follows:
 1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to remove the **Zone.Identifier** alternate data stream, which has a value of **3**, indicating that it was downloaded from the Internet:
 
    ```powershell
-   Get-ChildItem -Path C:\Allfiles\Labs\02 -File -Recurse | Unblock-File
+   Get-ChildItem -Path C:\AllFiles\Labs\02 -File -Recurse | Unblock-File
    ```
 
 2. From the **Administrator: Windows PowerShell ISE** console, run the following to sign in to your Azure subscription:
@@ -156,9 +156,9 @@ The main tasks for this exercise are as follows:
 5. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an AD DS computer object that represents the Azure Storage account you created earlier in this task and is used to implement its AD DS authentication:
 
    ```powershell
-   cd C:\Allfiles\Labs\02
+   cd C:\AllFiles\Labs\02
    
-   Set-Location -Path 'C:\Allfiles\Labs\02'
+   Set-Location -Path 'C:\AllFiles\Labs\02'
    .\CopyToPSPath.ps1 
    Import-Module -Name AzFilesHybrid
    Join-AzStorageAccountForAuth `
