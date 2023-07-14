@@ -24,7 +24,7 @@ After completing this lab, you will be able to:
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
 2. On the **az140-dc-vm11** blade, select **Connect**, and  select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-   
+
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
@@ -86,7 +86,7 @@ After completing this lab, you will be able to:
 
      * Email/Username: <inject key="AzureAdUserEmail"></inject>
 
-    * Password: <inject key="AzureAdUserPassword"></inject>
+     * Password: <inject key="AzureAdUserPassword"></inject>
    
 21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
    
