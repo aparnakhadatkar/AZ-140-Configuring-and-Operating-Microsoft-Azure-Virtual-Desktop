@@ -13,68 +13,111 @@ After completing this lab, you will be able to:
 
 ## Instructions
 
-### Exercise 1: Prerequisite - Setup Azure AD Connect
-1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
-2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-3. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**. 
-4. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
+## Exercise 1: Prerequisite - Setup Azure AD Connect
+
+1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
+   
+2. On the **az140-dc-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
+   
+3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
+
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
-   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
-5. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
-   > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
-6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
-7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
-8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
-9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
+4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
+   
+   >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
-    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+ 
+6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+ 
+7. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+ 
+8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
+ 
+9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
-11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
-12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
+    >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
-   |Setting|Value|
-   |---|---|
-   |User Name|**ADATUM\Student**|
-   |Password|**Pa55w.rd1234**|
+10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
-13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
-14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+    > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+  
+    > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
-    > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+11. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
 
-15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
-16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
-17. On the **Filter users and devices** page, accept the default settings, and select **Next**.
-18. On the **Optional features** page, accept the default settings, and select **Next**.
-19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+    >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
-    > **Note**: Installation should take about 2 minutes.
+12. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 
-20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+13. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
-21. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
+14. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 
-    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
+15. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
 
-24. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
+16. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
+
+    >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+
+17. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
+
+     |Setting|Value|
+     |---|---|
+     |User Name|**ADATUM\Student**|
+     |Password|**Pa55w.rd1234**|
+
+18. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
+  
+19. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+
+    >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+
+20. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
+ 
+21. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
+   
+22. On the **Filter users and devices** page, accept the default settings, and select **Next**.
+    
+23. On the **Optional features** page, accept the default settings, and select **Next**.
+    
+24. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+
+    >**Note**: Installation should take about 2 minutes.
+
+25. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+
+26. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+    
+27. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+    
+28. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
+
+    >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
+
+29. Within the Bastion session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
     ```powershell
     New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
     ```
+
+30. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
+   
+    >**Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
+
 25. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
    
-    > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
+    >**Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
 ## Exercise 2: Implement Azure Virtual Desktop host pools and session hosts by using PowerShell
   
@@ -88,64 +131,77 @@ The main tasks for this exercise are as follows:
 
 #### Task 1: Prepare for deployment of Azure Virtual Desktop host pool by using PowerShell
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool session hosts:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to identify the distinguished name of the organizational unit named **WVDInfra** that will host the computer objects of the Azure Virtual Desktop pool session hosts:
 
    ```powershell
    (Get-ADOrganizationalUnit -Filter "Name -eq 'WVDInfra'").distinguishedName
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the UPN suffix of the **ADATUM\\Student** account that you will use to join the Azure Virtual Desktop hosts to the AD DS domain (**student@adatum.com**):
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the UPN suffix of the **ADATUM\\Student** account that you will use to join the Azure Virtual Desktop hosts to the AD DS domain (**student@adatum.com**):
 
    ```powershell
    (Get-ADUser -Filter {sAMAccountName -eq 'student'} -Properties userPrincipalName).userPrincipalName
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the DesktopVirtualization PowerShell module (when prompted, click **Yes to All**):
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to install the DesktopVirtualization PowerShell module (when prompted, click **Yes to All**):
 
    ```powershell
    Install-Module -Name Az.DesktopVirtualization -Force
    ```
 
-   > **Note**: Ignore any warnings regarding existing PowerShell modules in use.
+   >**Note**: Ignore any warnings regarding existing PowerShell modules in use.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
-1. On the **az140-adds-vnet11** blade, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
+1. Within the Bastion session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
+   
+1. Within the Bastion session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**.
+    
+1. On the **az140-adds-vnet11** blade, under **Settings** section, select **Subnets**, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
 
    |Setting|Value|
    |---|---|
    |Name|**hp3-Subnet**|
    |Subnet address range|**10.0.3.0/24**|
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Network security groups** and, on the **Network security groups** blade, select the security group in the **az140-11-RG** resource group.
+1. Within the Bastion session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Network security groups** and, on the **Network security groups** blade, select the security group in the **az140-11-RG** resource group.
+   
 1. On the network security group blade, in the vertical menu on the left, in the **Settings** section, click **Properties**.
+   
 1. On the **Properties** blade, click the **Copy to clipboard** icon on the right side of the **Resource ID** textbox. 
 
-   > **Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
+   >**Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
 #### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
    ```powershell
    Connect-AzAccount
    ```
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the Azure region hosting the Azure virtual network **az140-adds-vnet11**:
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
+   
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to identify the Azure region hosting the Azure virtual network **az140-adds-vnet11**:
 
    ```powershell
    $location = (Get-AzVirtualNetwork -ResourceGroupName 'az140-11-RG' -Name 'az140-adds-vnet11').Location
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a resource group that will host the host pool and its resources:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a resource group that will host the host pool and its resources:
 
    ```powershell
    $resourceGroupName = 'az140-24-RG'
    New-AzResourceGroup -Location $location -Name $resourceGroupName
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an empty host pool:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create an empty host pool:
 
    ```powershell
    $hostPoolName = 'az140-24-hp3'
@@ -154,15 +210,15 @@ The main tasks for this exercise are as follows:
    New-AzWvdHostPool -ResourceGroupName $resourceGroupName -Name $hostPoolName -WorkspaceName $workspaceName -HostPoolType Pooled -LoadBalancerType BreadthFirst -Location $location -DesktopAppGroupName $dagAppGroupName -PreferredAppGroupType Desktop 
    ```
 
-   > **Note**: The **New-AzWvdHostPool** cmdlet allows you to create a host pool, workspace, and the desktop app group, as well as to register the desktop app group with the workspace. You have the option of creating a new workspace or using an existing one.
+   >**Note**: The **New-AzWvdHostPool** cmdlet allows you to create a host pool, workspace, and the desktop app group, as well as to register the desktop app group with the workspace. You have the option of creating a new workspace or using an existing one.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the objectID attribute of the Azure AD group named **az140-wvd-pooled**:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to retrieve the objectID attribute of the Azure AD group named **az140-wvd-pooled**:
 
    ```powershell
    $aadGroupObjectId = (Get-AzADGroup -DisplayName 'az140-wvd-pooled').Id
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to assign the Azure AD group named **az140-wvd-pooled** to the default desktop app group of the newly created host pool:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to assign the Azure AD group named **az140-wvd-pooled** to the default desktop app group of the newly created host pool:
 
    ```powershell
    $roleDefinitionName = 'Desktop Virtualization User'
@@ -173,7 +229,7 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Storage accounts**, and select the storage account **storage<inject key="DeploymentID" enableCopy="false" />**. On the storage account blade, in the **Data storage** section, select **File shares** and then select the **az140-22-profiles** file share.
 
-1. Select **Upload** and navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
+1. Select **Upload** and **browse for files**, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
 
 1. Within the Bastion session to **az140-dc-vm11**, open File Explorer and navigate to the previously configured **Z** drive:, or the drive letter assigned to the connection to the File Share. Copy the uploaded deployment files to **C:\AllFiles\Labs\02**.
 
@@ -190,11 +246,11 @@ The main tasks for this exercise are as follows:
      -TemplateParameterFile C:\AllFiles\Labs\02\az140-24_azuredeployhp3.parameters.json
    ```
 
-   > **Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes. 
+   >**Note**: Wait for the deployment to complete before you proceed to the next task. This might take about 5 minutes. 
 
-   > **Note**: The deployment uses an Azure Resource Manager template to provision an Azure VM and applies a VM extension that automatically joins the operating system to the **adatum.com** AD DS domain.
+   >**Note**: The deployment uses an Azure Resource Manager template to provision an Azure VM and applies a VM extension that automatically joins the operating system to the **adatum.com** AD DS domain.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to verify that the session host was successfully joined to the **adatum.com** AD DS domain:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to verify that the session host was successfully joined to the **adatum.com** AD DS domain:
 
    ```powershell
    Get-ADComputer -Filter "sAMAccountName -eq 'az140-24-p3-0$'"
@@ -202,18 +258,21 @@ The main tasks for this exercise are as follows:
 
 #### Task 4: Add an Azure VM running Windows 10 Enterprise as a host to the Azure Virtual Desktop host pool by using PowerShell
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
-2. On the **az140-24-p3-0** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File** and click on **Connect**.
-3. When prompted, sign in with the following credentials:
+1. Within the Bastion session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
+   
+2. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**, open the downloded file and click on **Connect**.
+   
+3. When prompted, sign in with the following credentials and click on **OK**.
 
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-   > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
+   >**Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
 
 4. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
+
 5. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create a folder that will host files required to add the newly deployed Azure VM as a session host to the host pool you provisioned earlier in this lab:
 
    ```powershell
@@ -257,8 +316,35 @@ The main tasks for this exercise are as follows:
    ```
 
 10. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
+     
 11. Within the Remote Desktopliveid session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to generate the token necessary to join new session hosts to the pool you provisioned earlier in this exercise:
 
+     ```powershell
+     $resourceGroupName = 'az140-24-RG'
+     $hostPoolName = 'az140-24-hp3'
+     $registrationInfo = New-AzWvdRegistrationInfo -ResourceGroupName $resourceGroupName -HostPoolName $hostPoolName -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
+     $registrationInfo
+     $registrationInfo.Token
+     ```
+     >**Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+
+12. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Agent:
+
+     ```powershell
+     Set-Location -Path $labFilesFolder
+     Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WVDAgentInstallerName", "/quiet", "/qn", "/norestart", "/passive", "REGISTRATIONTOKEN=$($registrationInfo.Token)", "/l* $labFilesFolder\AgentInstall.log" | Wait-Process
+     ```
+
+13. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Boot Loader:
+
+     ```powershell
+     Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
+     ```
+     
     ```powershell
     $resourceGroupName = 'az140-24-RG'
     $hostPoolName = 'az140-24-hp3'
@@ -266,7 +352,7 @@ The main tasks for this exercise are as follows:
     $registrationInfo
     $registrationInfo.Token
     ```
-    > **Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+    >**Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
 
 12. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Agent:
 
@@ -281,18 +367,19 @@ The main tasks for this exercise are as follows:
     Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
     ```
 
+
 #### Task 5: Verify the deployment of the Azure Virtual Desktop host
 
-1. Switch to the lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select the entry **az140-24-hp3** representing the newly modified pool.
+1. Switch to the lab computer, in the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select the entry **az140-24-hp3** representing the newly modified pool.
+   
 1. On the **az140-24-hp3** blade, in the vertical menu on the left side, in the **Manage** section, click **Session hosts**. 
 1. On the **az140-24-hp3 \| Session hosts** blade, verify that the deployment includes a single host.
 
-   > **Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
-
+   >**Note**: If the host is in unavailable state, wait for a few seconds and click on **refresh** in the above tool bar.
 
 #### Task 6: Manage app groups using PowerShell
 
-1. From the lab computer, switch to the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a Remote App group:
+1. From the lab computer, switch to the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create a Remote App group:
 
    ```powershell
    $subscriptionId = (Get-AzContext).Subscription.Id
@@ -303,15 +390,15 @@ The main tasks for this exercise are as follows:
    New-AzWvdApplicationGroup -Name $appGroupName -ResourceGroupName $resourceGroupName -ApplicationGroupType 'RemoteApp' -HostPoolArmPath "/subscriptions/$subscriptionId/resourcegroups/$resourceGroupName/providers/Microsoft.DesktopVirtualization/hostPools/$hostPoolName"-Location $location
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to list the **Start** menu apps on the pool's hosts and review the output:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to list the **Start** menu apps on the pool's hosts and review the output:
 
    ```powershell
    Get-AzWvdStartMenuItem -ApplicationGroupName $appGroupName -ResourceGroupName $resourceGroupName | Format-List | more
    ```
 
-   > **Note**: For any application you want to publish, you should record the information included in the output, including such parameters as **FilePath**, **IconPath**, and **IconIndex**.
+   >**Note**: For any application you want to publish, you should record the information included in the output, including such parameters as **FilePath**, **IconPath**, and **IconIndex**.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to publish Microsoft Word:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to publish Microsoft Word:
 
    ```powershell
    $name = 'Microsoft Word'
@@ -320,7 +407,7 @@ The main tasks for this exercise are as follows:
    New-AzWvdApplication -GroupName $appGroupName -Name $name -ResourceGroupName $resourceGroupName -FriendlyName $name -Filepath $filePath -IconPath $iconPath -IconIndex 0 -CommandLineSetting 'DoNotAllow' -ShowInPortal:$true
    ```
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to publish Microsoft Word:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to publish Microsoft Word:
 
    ```powershell
    $aadGroupObjectId = (Get-AzADGroup -DisplayName 'az140-wvd-remote-app').Id
@@ -328,13 +415,15 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Switch to the lab computer, in the web browser displaying the Azure portal, on the **az140-24-hp3 \| Session hosts** blade, in the vertical menu on the left side, in the **Manage** section, select **Application groups**.
+   
 1. On the **az140-24-hp3 \| Application groups** blade, in the list of application groups, select the **az140-24-hp3-Office365-RAG** entry.
+   
 1. On the **az140-24-hp3-Office365-RAG** blade, verify the configuration of the application group, including the applications and assignments.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help
+    **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+     > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+     > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+     > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+     > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
 
-**You have successfully completed the lab**
+    **You have successfully completed the lab**

@@ -49,7 +49,7 @@ After completing this lab, you will be able to:
  
 8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
  
-9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
     >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
@@ -82,7 +82,11 @@ After completing this lab, you will be able to:
 
 19. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-20. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+20. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using following Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+    * Password: <inject key="AzureAdUserPassword"></inject>
    
 21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
    
@@ -102,9 +106,9 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Prepare AD DS domain and the Azure subscription for deployment of an Azure Virtual Desktop host pool
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
+1. Within the Bastion session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
    
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
+1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
    ```powershell
    New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
@@ -118,6 +122,10 @@ The main tasks for this exercise are as follows:
    >**Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+    * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
    
 1. From the **Administrator: Windows PowerShell ISE** console, run the following to identify the user principal name of the **aduser1** account:
 
@@ -134,6 +142,10 @@ The main tasks for this exercise are as follows:
    ```
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
+
+     * Password: <inject key="AzureAdUserPassword"></inject>
    
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**.
    
