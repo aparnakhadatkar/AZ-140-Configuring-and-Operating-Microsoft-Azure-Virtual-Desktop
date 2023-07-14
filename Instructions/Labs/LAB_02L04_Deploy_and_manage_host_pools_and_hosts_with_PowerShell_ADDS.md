@@ -21,7 +21,6 @@ After completing this lab, you will be able to:
    
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
-
    |Setting|Value|
    |---|---|
    |User Name|**Student**|
