@@ -12,3 +12,6 @@ After completing this lab, you will be able to:
 
 - Prepare for Azure Active Directory (Azure AD)-based Conditional Access for Azure Virtual Desktop
 - Implement Azure AD-based Conditional Access for Azure Virtual Desktop
+
+## Architecture Diagram
+
