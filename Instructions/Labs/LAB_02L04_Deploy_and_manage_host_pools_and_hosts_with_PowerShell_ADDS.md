@@ -343,30 +343,7 @@ The main tasks for this exercise are as follows:
 
      ```powershell
      Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
-     ```
-     
-    ```powershell
-    $resourceGroupName = 'az140-24-RG'
-    $hostPoolName = 'az140-24-hp3'
-    $registrationInfo = New-AzWvdRegistrationInfo -ResourceGroupName $resourceGroupName -HostPoolName $hostPoolName -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))
-    $registrationInfo
-    $registrationInfo.Token
-    ```
-    >**Note**: A registration token is required to authorize a session host to join the host pool. The value of token's expiration date must be between one hour and one month from the current date and time.
-
-12. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Agent:
-
-    ```powershell
-    Set-Location -Path $labFilesFolder
-    Start-Process -FilePath 'msiexec.exe' -ArgumentList "/i $WVDAgentInstallerName", "/quiet", "/qn", "/norestart", "/passive", "REGISTRATIONTOKEN=$($registrationInfo.Token)", "/l* $labFilesFolder\AgentInstall.log" | Wait-Process
-    ```
-
-13. Within the Remote Desktop session to **az140-24-p3-0**, from the **Administrator: Windows PowerShell ISE** console, run the following to install the Azure Virtual Desktop Boot Loader:
-
-    ```powershell
-    Start-Process -FilePath "msiexec.exe" -ArgumentList "/i $wvdBootLoaderInstallerName", "/quiet", "/qn", "/norestart", "/passive", "/l* $labFilesFolder\BootLoaderInstall.log" | Wait-process
-    ```
-
+     ``` 
 
 #### Task 5: Verify the deployment of the Azure Virtual Desktop host
 
