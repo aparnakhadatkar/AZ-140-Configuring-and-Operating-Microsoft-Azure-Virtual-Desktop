@@ -15,4 +15,4 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
 
-   ![](media/az-140-mod9.png)
+   ![](media/az-140-mod9.1.JPG)
