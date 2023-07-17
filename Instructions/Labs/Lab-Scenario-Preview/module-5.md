@@ -12,3 +12,7 @@ After completing this lab, you will be able to:
 
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
+
+## Architecture Diagram
+
+   ![](media/az-140-mod9.png)

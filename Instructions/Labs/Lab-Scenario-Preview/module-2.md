@@ -13,12 +13,15 @@ After completing this lab, you will be able to:
 - Implement an Azure Virtual Desktop environment in an AD DS domain
 - Validate an Azure Virtual Desktop environment in an AD DS domain
 
+## Architecture Diagram
+
+   ![](media/az-140-mod2.png)
+
 ## Lab 03: Implement and manage storage for AVD (AD DS)
 
 ### Lab overview
 
 In this lab, you will learn how to choose and configure appropriate storage for FSLogix components and Azure Files.
-
 
 ## Objectives
   
@@ -30,7 +33,9 @@ After completing this lab, you will be able to:
 - Configure the Azure Files RBAC-based permissions
 - Configure the Azure Files file system permissions
 
+## Architecture Diagram
 
+   ![](media/az-140-mod3.png)
 
 ## Lab 04: Deploy host pools and hosts by using Azure Resource Manager templates
 
@@ -44,7 +49,10 @@ After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
 
+## Architecture Diagram
 
+   ![](media/az-140-mod4.png)
+ 
 ## Lab 05: Deploy and manage host pools and hosts by using PowerShell
 
 ### Lab overview
@@ -58,6 +66,9 @@ After completing this lab, you will be able to:
 - Deploy Azure Virtual Desktop host pools and hosts by using PowerShell
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
 
+## Architecture Diagram
+
+   ![](media/az-140-mod5.png)
 
 ## Lab 06: Create and manage session host images (AD DS)
 
@@ -74,3 +85,10 @@ After completing this lab, you will be able to:
 - Configure a Azure Virtual Desktop host image
 - Create a Azure Virtual Desktop host image
 - Provision a Azure Virtual Desktop host pool by using the custom image
+  
+## Architecture Diagram
+
+   ![](media/az-140-mod6.png)
+
+
+  
