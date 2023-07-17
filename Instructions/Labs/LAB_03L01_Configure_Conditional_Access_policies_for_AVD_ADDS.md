@@ -101,7 +101,7 @@ After completing this lab, you will be able to:
 
 26. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** then select **RunPowerShellScript** paste the content of p3script.ps1 available on desktop and click on **Run**. 
 
-27. On the **az140-24-p3-0** overview page, select **Connect**, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.4)** entry, and then select **Download RDP File**.
+27. On the **az140-24-p3-0** overview page, select **Connect**, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, in the **IP address** drop-down list, select the **Private IP address** entry, and then select **Download RDP File**.
 
 28. If pop-up comes stating that it will harm your device, select **Keep**, then open the file, select **Connect**. 
 
