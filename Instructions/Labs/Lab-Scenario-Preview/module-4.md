@@ -5,7 +5,7 @@
 
 ### Lab overview
 
-In this lab, you will learn how to automate deployment of Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates.
+In this lab, you will learn how to automate the deployment of Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates.
 
 ## Objectives
   
