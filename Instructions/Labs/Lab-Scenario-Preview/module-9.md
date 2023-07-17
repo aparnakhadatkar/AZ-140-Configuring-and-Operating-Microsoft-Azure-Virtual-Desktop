@@ -1,6 +1,6 @@
 # Lab Scenario Preview: AZ-140: Monitor and maintain an Azure Virtual Desktop infrastructure
 
-## Lab 02: Deploy host pools and session hosts by using the Azure portal (AD DS)
+## Lab 09: Implement autoscaling in host pools (AD DS)
 
 ### Lab overview
 
