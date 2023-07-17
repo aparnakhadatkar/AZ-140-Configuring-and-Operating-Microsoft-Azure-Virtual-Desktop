@@ -132,221 +132,219 @@ After completing this lab, you will be able to:
 
 42. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
-
 ### Exercise 1: Configure autoscaling of Azure Virtual Desktop session hosts
 
 The main tasks for this exercise are as follows:
 
-1. Prepare for autoscaling of Azure Virtual Desktop session hosts
-1. Create and configure an Azure Automation account
-1. Create an Azure Logic app
+1. Prepare for scaling Azure Virtual Desktop session hosts
+2. Create a scaling plan for Azure Virtual Desktop session hosts
 
+#### Task 1: Prepare for scaling Azure Virtual Desktop session hosts
 
-#### Task 1: Create and configure an Azure Automation account
+1. On your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
+1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
 
-1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-1. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-1. When prompted, provide the following credentials and select **Connect**:
+   >**Note**: Host pools you plan to use with autoscale should be configured with a non-default value of the **MaxSessionLimit** parameter. You can set this value in the host pool settings in the Azure portal or by running the **Update-AzWvdHostPool** Azure PowerShell cmdlets, as in this example. You can also set it explicitly when creating a pool in the Azure portal or when running the **New-AzWvdHostPool** Azure PowerShell cmdlet.
+
+1. From the PowerShell session in the Cloud Shell pane, run the following command to set the value of the **MaxSessionLimit** parameter of the **az140-21-hp1** host pool to **2**: 
+
+   ```powershell
+   Update-AzWvdHostPool -ResourceGroupName 'az140-21-RG' `
+   -Name az140-21-hp1 `
+   -MaxSessionLimit 2
+   ```
+
+   >**Note**: In this lab, the value of the **MaxSessionLimit** parameter is set artificially low in order to facilitate triggering the autoscaling behavior.
+
+   >**Note**: Before creating your first scaling plan, you'll need to assign the **Desktop Virtualization Power On Off Contributor** RBAC role to Azure Virtual Desktop with your Azure subscription as the target scope. 
+
+1. In the browser window displaying the Azure portal, close the Cloud Shell pane.
+1. In the Azure portal, search for and select **Subscriptions** and, from the list of subscriptions, select the one that contains the Azure Virtual Desktop resources. 
+1. On the subscription page, select **Access control (IAM)**.
+1. On the **Access control (IAM)** page, in the toolbar, select the **+ Add button**, then select **Add role assignment** from the drop-down menu.
+1. On the **Role** tab of the **Add role assignment** wizard, search for and select the **Desktop Virtualization Power On Off Contributor** role and click **Next**.
+1. On the **Members** tab of the **Add role assignment** wizard, select **+ Select members**, search for and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**, click **Select** and click **Next**.
+
+   >**Note**: The value depends on when the **Microsoft.DesktopVirtualization** resource provider was first registered in your Azure tenant.
+
+1. On the **Review + assign** tab, select **Review + assign**.
+
+#### Task 2: Create a scaling plan for Azure Virtual Desktop session hosts
+
+1. On your lab computer, in the browser displaying the Azure portal, search for and select **Azure Virtual Desktop**. 
+1. On the **Azure Virtual Desktop** page, select **Scaling Plans** and then select **+ Create**.
+1. On the **Basics** tab of the **Create a scaling plan** wizard, specify the following information and select **Next Schedules >** (leave others with their default values):
 
    |Setting|Value|
    |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
+   |Resource group|the name **az140-51-RG** of a new resource group|
+   |Name|**az140-51-scaling-plan**|
+   |Location|the same Azure region to which you deployed the session hosts in the previous labs|
+   |Friendly name|**az140-51 scaling plan**|
+   |Time zone|your local time zone|
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator.
+   >**Note**: Exclusion tags allow you to designate a tag name for session hosts which you want to exclude from scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". 
 
-1. Run the following to download the PowerShell script you will use to create the Azure Automation account that is part of the autoscaling solution:
+1. On the **Schedules** tab of the **Create a scaling plan** wizard, select **+ Add schedule**.
+1. On the **General** tab of the **Add schedule** wizard, specify the following information and click **Next**.
 
-   ```powershell
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   $labFilesfolder = 'C:\Allfiles\Labs\05'
-   New-Item -ItemType Directory -Path $labFilesfolder -Force
-   Set-Location -Path $labFilesfolder
-   $uri = 'https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/CreateOrUpdateAzAutoAccount.ps1'
-   Invoke-WebRequest -Uri $Uri -OutFile '.\CreateOrUpdateAzAutoAccount.ps1'
-   ```
+   |Setting|Value|
+   |---|---|
+   |Schedule name|**az140-51-schedule**|
+   |Repeat on|**7 selected** (select all days of the week)|
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, on the **Administrator: Windows PowerShell ISE** script pane, paste the following script, and run it to create the Azure Automation account that is part of the autoscaling solution:
+1. On the **Ramp-up** tab of the **Add schedule** wizard, specify the following information and click **Next**.
 
-   ```powershell
-   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-   .\CreateOrUpdateAzAutoAccount.ps1 
-   ```
+   |Setting|Value|
+   |---|---|
+   |Start time (24 hour system)|your current time minus 9 hours|
+   |Load balancing algorithm|**Breadth first**|
+   |Minimum percentage of hosts (%)|**20**|
+   |Capacity threshold (%)|**60**|
 
-   >**Note**: Wait for the script to complete. This might take about 10 minutes.
+   >**Note**: The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the **Administrator: Windows PowerShell ISE** script pane, review the output of the script. 
+   >**Note**: The minimum percentage of hosts designates the percentage of session hosts you want to always remain on. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. 
 
-   >**Note**: The output includes a webhook URI, the Log Analytics Workspace ID and the corresponding primary key values that you need to provide when provisioning the Azure Logic App that is part of the autoscaling solution. 
-   
-   >**Note**: Record the value of the webhook URI. You will need it later in this lab.
+   >**Note**: The capacity threshold represents the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if two session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to 75% and the session hosts have more than 30 user sessions, autoscale will turn on a third session host. This will then change the available host pool capacity from 40 to 60.
 
-1. To verify the configuration of the Azure Automation account, within the Remote Desktop session to **az140-dc-vm11**, start Microsoft Edge and navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Automation accounts** and, on the **Automation accounts** blade, select the entry representing the newly provisioned Azure Automation account (with the name starting with the **az140-automation-51** prefix).
-1. On the Automation Account blade, in the vertical menu on the left side, in the **Process Automation** section, select **Runbooks** and, in the list of runbooks, verify the presence of the **WVDAutoScaleRunbookARMBased** runbook.
-1. On the Automation Account blade, in the vertical menu on the left side, in the **Account Settings** section, select **Run as accounts** and, in the list of accounts on the right side, next to the **+ Azure Run As Account**, click **Create**.
-1. On the **Add Azure Run As Account** blade, click **Create** and verify that the new account was successfully created.
+1. On the **Peak hours** tab of the **Add schedule** wizard, specify the following information and click **Next**.
 
-   > **Note**: You can ignore the **Azure Run As account creation error**, the account will be created regardless of the error.
+   |Setting|Value|
+   |---|---|
+   |Start time (24 hour system)|your current time minus 8 hours|
+   |Load balancing algorithm|**Depth-first**|
 
-   ![](./images/Azure-Run-As-account-creation-error.png)
+   >**Note**: The start time designates the end time for the ramp-up phase.
 
-#### Task 2: Create an Azure Logic app
+   >**Note**: The capacity threshold value in this phase is determined by the ramp-up capacity threshold value.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, switch to the **Administrator: Windows PowerShell ISE** window and, from the **Administrator: Windows PowerShell ISE** script pane, run the following to run the following to download the PowerShell script you will use to create the Azure Logic app that is part of the autoscaling solution:
+1. On the **Ramp-down** tab of the **Add schedule** wizard, specify the following information and click **Next**.
 
-   ```powershell
-   $labFilesfolder = 'C:\Allfiles\Labs\05'
-   Set-Location -Path $labFilesfolder
-   $uri = "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/CreateOrUpdateAzLogicApp.ps1"
-   Invoke-WebRequest -Uri $uri -OutFile ".\CreateOrUpdateAzLogicApp.ps1"
-   ```
+   |Setting|Value|
+   |---|---|
+   |Start time (24 hour system)|your current time minus 2 hours|
+   |Load balancing algorithm|**Depth-first**|
+   |Minimum percentage of hosts (%)|**10**|
+   |Capacity threshold (%)|**90**|
+   |Force logoff users|**Yes**|
+   |Delay time before logging out users and shutting down VMs (min)|**30**|
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE**, Select the **File** from the top menu and open the **C:\\Allfiles\\Labs\\05\\CreateOrUpdateAzLogicApp.ps1** script, enclose the code between lines **134** an **138** into the multiline comment and save, such that they look as follows:
+   >**Note**: If the **Force logoff users** is enabled, autoscale will put the session host with the lowest number of user sessions in drain mode, send all active user sessions a notification about impending shutdown, and forcefully sign them out after the specified delay time passes. After autoscale signs out all user sessions, it then deallocates the VM. 
 
-   ```powershell
-   <#
-   # Get the Role Assignment of the authenticated user
-   $RoleAssignments = Get-AzRoleAssignment -SignInName $AzContext.Account -ExpandPrincipalGroups
-   if (!($RoleAssignments | Where-Object { $_.RoleDefinitionName -in @('Owner', 'Contributor') })) {
-	throw 'Authenticated user should have the Owner/Contributor permissions to the subscription'
-   }
-   #>
-   ```
+   >**Note**: If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to set the values of variables that you will assign to script parameters (replace the `<webhook_URI>` placeholder with the value of the webhook URI you recorded earlier in this lab):
+1. On the **Off-peak hours** tab of the **Add schedule** wizard, specify the following information and click **Add**.
 
-   ```powershell
-   $AADTenantId = (Get-AzContext).Tenant.Id
-   $AzSubscription = (Get-AzContext).Subscription.Id
-   $ResourceGroup = Get-AzResourceGroup -Name 'az140-51-RG'
-   $WVDHostPool = Get-AzResource -ResourceType "Microsoft.DesktopVirtualization/hostpools" -Name 'az140-21-hp1'
-   $LogAnalyticsWorkspace = (Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup.ResourceGroupName)[0]
-   $LogAnalyticsWorkspaceId = $LogAnalyticsWorkspace.CustomerId
-   $LogAnalyticsWorkspaceKeys = (Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $ResourceGroup.ResourceGroupName -Name $LogAnalyticsWorkspace.Name)
-   $LogAnalyticsPrimaryKey = $LogAnalyticsWorkspaceKeys.PrimarySharedKey
-   $RecurrenceInterval = 2
-   $BeginPeakTime = '1:00'
-   $EndPeakTime = '1:01'
-   $TimeDifference = '0:00'
-   $SessionThresholdPerCPU = 1
-   $MinimumNumberOfRDSH = 1
-   $MaintenanceTagName = 'CustomMaintenance'
-   $LimitSecondsToForceLogOffUser = 5
-   $LogOffMessageTitle = 'Autoscaling'
-   $LogOffMessageBody = 'Forcing logoff due to autoscaling'
+   |Setting|Value|
+   |---|---|
+   |Start time (24 hour system)|your current time minus 1 hour|
+   |Load balancing algorithm|**Depth-first**|
 
-   $AutoAccount = (Get-AzAutomationAccount -ResourceGroupName $ResourceGroup.ResourceGroupName)[0]
-   $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName
+   >**Note**: The capacity threshold value in this phase is determined by the ramp-down capacity threshold value.
 
-   $WebhookURIAutoVar = '<webhook_URI>'
-   ```
+1. Back on the **Schedules** tab of the **Create a scaling plan** wizard, select **Next: Host pool assignments >**:
+1. On the **Host pool assignments** page, in the **Select host pool** drop-down list, select **az140-21-hp1**, ensure that the **Enable autoscale** checkbox is enabled, select **Review + create**, and then select **Create**.
 
-   >**Note**: The values of parameters are geared towards accelerating the autoscaling behavior. In your production environment, you should adjust them to match your own specific requirements.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to create the Azure Logic app that is part of the autoscaling solution:
-
-   ```powershell
-   $Params = @{
-     "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context
-     "SubscriptionID"                = $AzSubscription.Id                       # Optional. If not specified, it will use the current Azure context
-     "ResourceGroupName"             = $ResourceGroup.ResourceGroupName         # Optional. Default: "WVDAutoScaleResourceGroup"
-     "Location"                      = $ResourceGroup.Location                  # Optional. Default: "West US2"
-     "UseARMAPI"                     = $true
-     "HostPoolName"                  = $WVDHostPool.Name
-     "HostPoolResourceGroupName"     = $WVDHostPool.ResourceGroupName           # Optional. Default: same as ResourceGroupName param value
-     "LogAnalyticsWorkspaceId"       = $LogAnalyticsWorkspaceId                 # Optional. If not specified, script will not log to the Log Analytics
-     "LogAnalyticsPrimaryKey"        = $LogAnalyticsPrimaryKey                  # Optional. If not specified, script will not log to the Log Analytics
-     "ConnectionAssetName"           = $AutoAccountConnection.Name              # Optional. Default: "AzureRunAsConnection"
-     "RecurrenceInterval"            = $RecurrenceInterval                      # Optional. Default: 15
-     "BeginPeakTime"                 = $BeginPeakTime                           # Optional. Default: "09:00"
-     "EndPeakTime"                   = $EndPeakTime                             # Optional. Default: "17:00"
-     "TimeDifference"                = $TimeDifference                          # Optional. Default: "-7:00"
-     "SessionThresholdPerCPU"        = $SessionThresholdPerCPU                  # Optional. Default: 1
-     "MinimumNumberOfRDSH"           = $MinimumNumberOfRDSH                     # Optional. Default: 1
-     "MaintenanceTagName"            = $MaintenanceTagName                      # Optional.
-     "LimitSecondsToForceLogOffUser" = $LimitSecondsToForceLogOffUser           # Optional. Default: 1
-     "LogOffMessageTitle"            = $LogOffMessageTitle                      # Optional. Default: "Machine is about to shut down."
-     "LogOffMessageBody"             = $LogOffMessageBody                       # Optional. Default: "Your session will be logged off. Please save and close everything."
-     "WebhookURI"                    = $WebhookURIAutoVar
-   }
-
-   .\CreateOrUpdateAzLogicApp.ps1 @Params
-   ```
-
-   >**Note**: Wait for the script to complete. This might take about 2 minutes.
-
-1. To verify the configuration of the Azure Logic app, within the Remote Desktop session to **az140-dc-vm11**, switch to the Microsoft Edge window displaying the Azure portal, search for and select **Logic Apps** and, on the **Logic apps** blade, select the entry representing the newly provisioned Azure Logic app named **az140-21-hp1_Autoscale_Scheduler**.
-1. On the **az140-21-hp1_Autoscale_Scheduler** blade, in the vertical menu on the left side, in the **Development Tools** section, select **Logic app designer**. 
-1. On the designer pane, click the rectangle labeled **Recurrence** and note that you can use it to control frequency in which the need for autoscaling is evaluated. 
-
-### Exercise 2: Verify and review autoscaling of Azure Virtual Desktop session hosts
+### Exercise 2: Verify autoscaling of Azure Virtual Desktop session hosts
 
 The main tasks for this exercise are as follows:
 
+1. Set up diagnostics to track Azure Virtual Desktop autoscaling
 1. Verify autoscaling of Azure Virtual Desktop session hosts
-1. Use Azure Log Analytics to track Azure Virtual Desktop events
 
-#### Task 1: Verify autoscaling of Azure Virtual Desktop session hosts 
+#### Task 1: Set up diagnostics to track Azure Virtual Desktop autoscaling
 
-1. To verify the autoscaling of the Azure Virtual Desktop session hosts, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, review the status of the three Azure VMs in the **az140-21-RG** resource group.
+1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
 
-   >**Note**: As soon as you verify that autoscaling is working, you should disable the Azure Logic app to minimize the corresponding charges.
+   >**Note**: You will use an Azure Storage account to store autoscaling events. You can create it directly from the Azure portal or use Azure PowerShell as illustrated in this task.
 
-1. To disable the Azure Logic app, within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Logic Apps** and, on the **Logic apps** blade, select the entry representing the newly provisioned Azure Logic app named **az140-21-hp1_Autoscale_Scheduler**.
-1. On the **az140-21-hp1_Autoscale_Scheduler** blade, in the toolbar, click **Disable**. 
-1. On the **az140-21-hp1_Autoscale_Scheduler** blade, in the **Essentials** section, review the information including the number of successful runs in the last 24 hours and the **Summary** section providing the frequency of recurrence. 
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Automation accounts** and, on the **Automation accounts** blade, select the entry representing the newly provisioned Azure Automation account (with the name starting with the **az140-automation-51** prefix).
-1. On the **Automation Account** blade, in the vertical menu on the left side, in the **Process Automation** section, select **Jobs** and review the list of jobs corresponding to individual invocations of the **WVDAutoScaleRunbookARMBased** runbook.
-1. Select the most recent job and, on its blade, click **All Logs** tab header. This will display detailed listing of job execution steps.
+1. From the PowerShell session in the Cloud Shell pane, run the following commands to create an Azure Storage account:
 
-#### Task 2: Use Azure Log Analytics to track Azure Virtual Desktop events (Read-Only)
-
->**Note**: To analyze autoscaling and any other Azure Virtual Desktop events, you can use Log Analytics.
-
-1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Log Analytics workspaces** and, on the **Log Analytics workspaces** blade, select the entry representing the Azure Log Analytics workspace used in this lab (which name starts with the **az140-workspace-51** prefix.
-1. On the Log Analytics workspace blade, in the vertical menu on the left side, in the **General** section, click **Logs**, if needed, close the **Welcome to Log Analytics** window, and proceed to the **Query** pane.
-1. On the **Queries** pane, in the **All Queries** vertical menu on the left side, select **Azure Virtual Desktop** and review the predefined queries.
-1. Close the **Queries** pane. This will automatically display the **New Query 1** tab.
-1. In the query window, paste the following query, click **Run** to display all events for the host pool used in this lab:
-
-   ```kql
-   WVDTenantScale_CL
-   | where hostpoolName_s == "az140-21-hp1"
-   | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+   ```powershell
+   $resourceGroupName = 'az140-51-RG'
+   $location = (Get-AzResourceGroup -ResourceGroupName $resourceGroupName).Location
+   $suffix = Get-Random
+   $storageAccountName = "az140st51$suffix"
+   New-AzStorageAccount -Location $location -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName Standard_LRS
    ```
 
-   >**Note**: If there was an extra pipe character (|) in second line when using the cut an paste contrsuct, remove it to avoid a failure. This could apply to each query.
-   >**Note**: If you don't see any results, wait a few minutes and try again.
+   >**Note**: Wait until the storage account is provisioned.
 
-1. In the query window, paste the following query, click **Run** to display the total number of currently running session hosts and active user sessions in the target host pool:
+1. In the browser window displaying the Azure portal, close the Cloud Shell pane.
+1. On your lab computer, in the browser displaying the Azure portal, navigate to the page of the scaling plan you created in the previous exercise.
+1. On the **az140-51-scaling-plan** page, select **Diagnostic settings** and then select **+ Add diagnostic setting**.
+1. On the **Diagnostic setting** page, in the **Diagnostic setting name** textbox, enter **az140-51-scaling-plan-diagnostics** and, in the **Category groups** section, select **allLogs**. 
+1. On the same page, in the **Destination details** section, select **Archive to a storage account** and, in the **Storage account** drop-down list, select the strorage account name starting with the **az140st51** prefix.
+1. Select **Save**.
 
-   ```kql
-   WVDTenantScale_CL
-   | where logmessage_s contains "Number of running session hosts:"
-     or logmessage_s contains "Number of user sessions:"
-     or logmessage_s contains "Number of user sessions per Core:"
-   | where hostpoolName_s == "az140-21-hp1"
-   | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+#### Task 2: Verify autoscaling of Azure Virtual Desktop session hosts
+
+1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
+1. From the PowerShell session in the Cloud Shell pane, run the following command to start the Azure Virtual Desktop session host Azure VMs you will be using in this lab:
+
+   ```powershell
+   Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM
    ```
 
-1. In the query window, paste the following query, click **Run** to display the status of all session host VMs in a host pool:
+   >**Note**: Wait until the session host Azure VMs are running.
 
-   ```kql
-   WVDTenantScale_CL
-   | where logmessage_s contains "Session host:"
-   | where hostpoolName_s == "az140-21-hp1"
-   | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+1. On the lab computer, in the web browser window displaying the Azure portal, navigate to the page of the **az140-21-hp1** host pool.
+1. On the **az140-21-hp1** page, select **Session hosts**.
+1. Wait until at least one session host is listed with the **Shutdown** status.
+
+   >**Note**: You might need to refresh the page to update the status of the session hosts.
+
+   >**Note**: If all session hosts remain available, navigate back to the **az140-51-scaling-plan** page and reduce the value of the **Minimum percentage of hosts (%)** **Ramp down** setting.
+
+   >**Note**: Once the status of one or more session hosts changes, the autoscaling logs should be available in the Azure Storage account. 
+
+1. In the Azure portal, search and select **Storage accounts** and, on the **Storage accounts** page, select the entry representing the storage account created earlier in this exercise (which name starts with the **az140st51** prefix).
+1. On the storage account page, select **Containers**.
+1. In the list of containers, select **insights-logs-autoscale**.
+1. On the **insights-logs-autoscale** page, navigate through the folder hierarchy until you reach the entry representing a JSON-formatted blob stored in the container.
+1. Select the blob entry, select the ellipsis icon on the far right of the page, and, in the drop-down menu, select **Download**.
+1. On your lab computer, open the downloaded blob in a text editor of your choice and examine its content. You should be able to find there references to autoscaling events. 
+
+   >**Note**: Here is a sample blob content that includes references to autoscaling events:
+
    ```
-
-1. In the query window, paste the following query, click **Run** to display any scaling related errors and warnings:
-
-   ```kql
-   WVDTenantScale_CL
-   | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
-   | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
+   host_Ring	"R0"
+   Level	4
+   ActivityId	"00000000-0000-0000-0000-000000000000"
+   time	"2023-03-26T19:35:46.0074598Z"
+   resourceId	"/SUBSCRIPTIONS/AAAAAAAE-0000-1111-2222-333333333333/RESOURCEGROUPS/AZ140-51-RG/PROVIDERS/MICROSOFT.DESKTOPVIRTUALIZATION/SCALINGPLANS/AZ140-51-SCALING-PLAN"
+   operationName	"ScalingEvaluationSummary"
+   category	"Autoscale"
+   resultType	"Succeeded"
+   level	"Informational"
+   correlationId	"ddd3333d-90c2-478c-ac98-b026d29e24d5"
+   properties	
+   Message	"Active session hosts are at 0.00% capacity (0 sessions across 3 active session hosts). This is below the minimum capacity threshold of 90%. 2 session hosts can be drained and deallocated."
+   HostPoolArmPath	"/subscriptions/aaaaaaaa-0000-1111-2222-333333333333/resourcegroups/az140-21-rg/providers/microsoft.desktopvirtualization/hostpools/az140-21-hp1"
+   ScalingEvaluationStartTime	"2023-03-26T19:35:43.3593413Z"
+   TotalSessionHostCount	"3"
+   UnhealthySessionHostCount	"0"
+   ExcludedSessionHostCount	"0"
+   ActiveSessionHostCount	"3"
+   SessionCount	"0"
+   CurrentSessionOccupancyPercent	"0"
+   CurrentActiveSessionHostsPercent	"100"
+   Config.ScheduleName	"az140-51-schedule"
+   Config.SchedulePhase	"OffPeak"
+   Config.MaxSessionLimitPerSessionHost	"2"
+   Config.CapacityThresholdPercent	"90"
+   Config.MinActiveSessionHostsPercent	"5"
+   DesiredToScaleSessionHostCount	"-2"
+   EligibleToScaleSessionHostCount	"1"
+   ScalingReasonType	"DeallocateVMs_BelowMinSessionThreshold"
+   BeganForceLogoffOnSessionHostCount	"0"
+   BeganDeallocateVmCount	"1"
+   BeganStartVmCount	"0"
+   TurnedOffDrainModeCount	"0"
+   TurnedOnDrainModeCount	"1"
    ```
-   >**Note**: Ignore the error message regarding `TenantId`
 
 > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
 > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
