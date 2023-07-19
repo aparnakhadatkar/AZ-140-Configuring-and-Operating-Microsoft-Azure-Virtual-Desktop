@@ -427,6 +427,8 @@ The main tasks for this exercise are as follows:
 
 1. On the **az140-31-wvdpolicy1** blade, click **Save**.
 
+   >**Note:** It might take a few minutes for the policy to take effect.
+
 ### Task 4: Test the modified Azure AD-based Conditional Access policy 
 
 1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select **Run command**, select **RunPowerShellScript** and in the Run Command Script under PowerShell Script run the below command, you'll see the message **Script execution complete**, close the powershell.
