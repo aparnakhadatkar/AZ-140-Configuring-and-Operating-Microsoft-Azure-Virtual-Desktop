@@ -183,6 +183,8 @@ After completing this lab, you will be able to:
 
 48. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
+49. In Azure Portal, search for and select workspaces, and select **az140-24-ws1**, than in the **Manage** section, select **Application groups** and ensure that this **az140-21-hp1-Utilities-RAG** application group is there, if not than select **+ Add**, add the application group with the name **az140-21-hp1-Utilities-RAG** and click on **Select**.
+
 ## Exercise 2: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
