@@ -455,6 +455,8 @@ The main tasks for this exercise are as follows:
 
 7. Verify that the **Command Prompt** Remote App was launched successfully.
 
+   >**Note:** if you are not able to launch the command prompt, check inside the azure portal, in application group **aduser5** are added, if not than if you to add and perform from the step-5 again.
+
 8. In the **Command Prompt** Remote App window, at the command prompt, type **logoff** and press the **Enter** key.
 
 9. Back on the **All Resources** page, in the upper right corner, click **aduser5**, in the dropdown menu, click **Sign Out**.
