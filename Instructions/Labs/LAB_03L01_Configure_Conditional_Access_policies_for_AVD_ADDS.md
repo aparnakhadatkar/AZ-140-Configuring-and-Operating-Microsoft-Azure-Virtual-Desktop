@@ -21,7 +21,7 @@ After completing this lab, you will be able to:
 
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
-3. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, select **Use Bastion**.
+3. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, and select **Use Bastion**.
 
 4. On the **Bastion** tab of the **az140-dc-vm11** when prompted, provide the following credentials and select **Connect**:
 
@@ -84,7 +84,7 @@ After completing this lab, you will be able to:
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut which is present on the desktop. Sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
-22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Overview** section, select **Users**.
+22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section, select **Users**.
 
 23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created in the previous lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
@@ -94,18 +94,24 @@ After completing this lab, you will be able to:
    
       > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
   
-  
-25. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
+25. Open the Azure Portal, in Search resources, services, and docs text box at the top of the Azure portal page, search for and navigate to the **Virtual networks** page, select **az140-adds-vnet11**, in the settings section, select **Subnets**, on **az140-adds-vnet11 | Subnets** blade, select **+ Subnet**, then add the following credentials on the **Add Subnet** page to create the subnet, after adding all the credentials select **save** :
+
+       |Setting|Value|
+       |---|---|
+       |Name|**hp3-subnet**|
+       |Subnet address range|**keep this as default**|
+
+26. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
       
       > **Note**: The script execution will take about 5 minutes. 
 
-26. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** then select **RunPowerShellScript** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+27. Within the Remote Desktop session to az140-dc-vm11, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-24-p3-0  under **operations** section select **Run command** then select **RunPowerShellScript** paste the content of p3script.ps1 available on desktop and click on **Run**, then close the script. 
 
-27. On the **az140-24-p3-0** overview page, select **Connect**, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.1.4)** entry, and then select **Download RDP File**.
+28. On the **az140-24-p3-0** overview page, select **Connect**, select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, in the **IP address** drop-down list, select the **Private IP address** entry, and then select **Download RDP File**.
 
-28. If pop-up comes stating that it will harm your device, select **Keep**, then open the file, select **Connect**. 
+29. If pop-up comes stating that it will harm your device, select **Keep**, then open the file, select **Connect**. 
 
-29. When prompted, sign in with the following credentials, after entering the sign-in credentials, select **Yes**:
+30. When prompted, sign in with the following credentials, after entering the sign-in credentials, select **Yes**:
 
       |Setting|Value|
       |---|---|
@@ -115,8 +121,6 @@ After completing this lab, you will be able to:
       > **Note**: If on the sign-in page you are getting some other credentials then select **More choices**, select **use a different account**, then use the above credentials to log-in.
       
       > **Note**: If you get **Welcome to Microsoft Teams: Get started** page, then close the application.
-
-30. Within the Remote Desktop session to **az140-24-p3-0**, start **Windows PowerShell ISE** as administrator.
 
       > **Note**: if **Teams** tab opened, close the tab.
 
@@ -130,13 +134,13 @@ After completing this lab, you will be able to:
 
 35. Wait until the script runs successfully.
 
-36. On the lab computer, go to Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
+36. On the **az140-dc-vm11** lab computer, go to Azure portal, search for Application group and select az140-24-hp3-DAG, then click on **Assignments** under **Manage** section.
 
-37. Click on + Add and search for aduser5 and then click on Select.
+37. Click on **+ Add** and search for aduser5 and then click on **Select**.
 
 38. On the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
 
-39. On the application groups blade, select + Create.
+39. On the application groups blade, select **+ Create**.
 
 40. On the Basics tab of the Create an application group blade, specify the following settings and select **Next: Applications >**:
 
@@ -179,6 +183,8 @@ After completing this lab, you will be able to:
 
 48. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
+49. In Azure Portal, search for and select workspaces, and select **az140-24-ws1**, than in the **Manage** section, select **Application groups** and ensure that this **az140-21-hp1-Utilities-RAG** application group is there, if not than select **+ Add**, add the application group with the name **az140-21-hp1-Utilities-RAG** and click on **Select**.
+
 ## Exercise 2: Prepare for Azure AD-based Conditional Access for Azure Virtual Desktop
 
 The main tasks for this exercise are as follows:
@@ -201,7 +207,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **aduser5** blade, in the toolbar, click **Edit properties**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
 
-1. On the **aduser5** blade, in the **Identity** section, identify the user principal name of the **aduser5** account.
+1. On the **aduser5** blade, in the **Overview** section, identify the user principal name of the **aduser5** account.
 
     >**Note**: Record this value. You will need it later in this lab.
 
@@ -229,7 +235,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Assign license** blade, click **+ Add users and groups**, on the **Add users and groups** blade, select **aduser5** and your user account, and click **Select**.
 
-1. Back on the **Assign license** blade, click **Assignment options**, on the **Assignment options** blade, verify that all options are enabled, click **Review + assign**, click **Assign**.
+1. Back on the **Assign license** blade, click **Assignment options**, select **Next: Assignment options >**, on the **Assignment options** blade, verify that all options are enabled, click **Review + assign**, and click **Assign**.
 
 ### Task 2: Configure Azure AD Multi-Factor Authentication (MFA)
 
@@ -269,7 +275,7 @@ The main tasks for this exercise are as follows:
    |Authentication Type|**Password**|
    |Password|**Pa55w.rd1234**|
 
-4. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, in the Start menu, expand the **Azure AD Connect** folder, and select **Azure AD Connect**.
+4. Within the Remote Desktop session to **az140-dc-vm11**, in the **Start** menu, expand the **Azure AD Connect** folder, and select **Azure AD Connect**.
 
    > **Note** If you receive a failure error window that the Sync Service is not running, go to PowerShell command window and enter **Start-Service "ADSync"**, and then try the step 4 again.
 
@@ -347,7 +353,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Devices**, select **All devices**, review the list of devices and verify that the **az140-cl-vm11** device is listed with the **Hybrid Azure AD joined** entry in the **Join Type** column.
 
-   > **Note**: You have to wait for the synchronization to take effect before the device appears in the Azure portal.
+   > **Note**: You have to wait sometime for the synchronization to take effect before the device appears in the Azure portal.
 
 ## Exercise 3: Implement Azure AD-based Conditional Access for Azure Virtual Desktop
 
@@ -375,9 +381,9 @@ The main tasks for this exercise are as follows:
 
    - In the **Name** text box, type **az140-31-wvdpolicy1**
    
-   - In the **Assignments** section, select the **0 user and group selected** option, Select **Select Users and groups**, select the **Users and groups** checkbox, on the **Select** blade, click **aduser5**, and then click **Select**.
+   - In the **Assignments** section, select the **0 user and group selected** option, Select **Select Users and groups**, select the **Users and groups** checkbox, on the **Select users and groups** blade, click **aduser5**, and then click **Select**.
    
-   - In the **Assignments** section, click **No target resources selected**, ensure that in the **Select what this policy applies to** switch, the **Cloud apps** option is selected, click the **Select apps** option, on the **Select** blade, select **None**, in the **Search** textbox, enter **9cdead84-a844-4324-93f2-b2e6bb768d07**, in the listing of results, select the checkbox next to the **Azure Virtual Desktop** entry, in the **Search** textbox, enter **a4a365df-50f1-4397-bc59-1a1564b8bb9c**, select the checkbox next to the **Microsoft Remote Desktop** entry, and click **Select**.
+   - In the **Assignments** section, click **No target resources selected**, ensure that in the **Select what this policy applies to** the **Cloud apps** option is selected, click the **Select apps** option, on the **Select** blade, select **None**, in the **Search** textbox, enter **9cdead84-a844-4324-93f2-b2e6bb768d07**, in the listing of results, select the checkbox next to the **Azure Virtual Desktop** entry, in the **Search** textbox, enter **a4a365df-50f1-4397-bc59-1a1564b8bb9c**, select the checkbox next to the **Microsoft Remote Desktop** entry, and click **Select**.
    
    - In the **Assignments** section, Under **Condition** section, click **0 conditions selected**, under **Client apps**, select **Not configured**, set the **Configure** switch to **Yes**, ensure that both the **Browser** and **Mobile apps and desktop clients** checkboxes are selected, and click **Done**.
    
@@ -421,17 +427,19 @@ The main tasks for this exercise are as follows:
 
 1. On the **az140-31-wvdpolicy1** blade, click **Save**.
 
-   >**Note**: It might take a few minutes for the policy to take effect.
+   >**Note:** It might take a few minutes for the policy to take effect.
 
 ### Task 4: Test the modified Azure AD-based Conditional Access policy 
 
 1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select **Run command**, select **RunPowerShellScript** and in the Run Command Script under PowerShell Script run the below command, you'll see the message **Script execution complete**, close the powershell.
 
    ```powershell
-    Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
+   Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
    ```
 
 2. On the **az140-cl-vm11** blade, select **Connect**, select **Bastion**, than select **Use Bastion**.
+
+   > **Note:** if it is taking time to connect than refresh the page.
 
 3. When prompted, provide the credentials of **aduser5** and and, in the **Password** textbox give **Pa55w.rd1234** and select **Connect** 
 
