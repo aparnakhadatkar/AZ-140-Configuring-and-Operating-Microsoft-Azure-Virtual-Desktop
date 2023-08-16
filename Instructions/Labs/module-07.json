@@ -3,11 +3,11 @@
   "Language": "English",
   "Files": [
     {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LabIntro.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/prod/Instructions/Labs/LabIntro.md",
         "Order": 1
      },
     {
-        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/stage/Instructions/Labs/LAB_03L01_Configure_Conditional_Access_policies_for_AVD_ADDS.md",
+        "RawFilePath": "https://raw.githubusercontent.com/CloudLabs-MOC/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/prod/Instructions/Labs/LAB_03L01_Configure_Conditional_Access_policies_for_AVD_ADDS.md",
         "Order": 2
      }
   ]
