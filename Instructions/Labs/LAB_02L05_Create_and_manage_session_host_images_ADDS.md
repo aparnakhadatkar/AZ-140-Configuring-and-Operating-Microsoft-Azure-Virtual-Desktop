@@ -13,9 +13,6 @@ lab:
 - A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -26,6 +23,8 @@ You need to create and manage Azure Virtual Desktop host images in an Active Dir
 After completing this lab, you will be able to:
 
 - Create and manage WVD session host images
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 
