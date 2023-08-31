@@ -2,16 +2,20 @@
 
 ## Lab scenario
 
-You need to automate deployment of Azure Virtual Desktop host pools and hosts by using PowerShell in an Active Directory Domain Services (AD DS) environment.
+You need to automate the deployment of Azure Virtual Desktop host pools and hosts by using PowerShell in an Active Directory Domain Services (AD DS) environment.
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using PowerShell
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
 
-## Instructions
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod5.png)
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
@@ -382,4 +386,10 @@ The main tasks for this exercise are as follows:
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
 
-    **You have successfully completed the lab**
+### Review
+In this lab, you have completed the following:
+- Deployment of  Azure Virtual Desktop host pools and hosts by using PowerShell
+- Adding hosts to the Azure Virtual Desktop host pool by using PowerShell
+
+## You have successfully completed the lab
+
