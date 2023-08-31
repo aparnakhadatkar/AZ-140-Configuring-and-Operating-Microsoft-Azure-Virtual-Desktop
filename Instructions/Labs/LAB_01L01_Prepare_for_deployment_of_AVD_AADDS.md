@@ -12,9 +12,6 @@ lab:
 - An Azure subscription
 - A Microsoft account or an Azure AD account with the Global Administrator role in the Azure AD tenant associated with the Azure subscription and with the Owner or Contributor role in the Azure subscription
 
-## Estimated Time
-
-150 minutes
 
 >**Note**: Provisioning of an Azure AD DS involves about 90-minute wait time.
 
@@ -28,6 +25,8 @@ After completing this lab, you will be able to:
 
 - Implement an Azure AD DS domain
 - Configure the Azure AD DS domain environment
+
+## Estimated timing: 150 minutes
 
 ## Lab files
 
