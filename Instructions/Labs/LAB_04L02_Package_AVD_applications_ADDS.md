@@ -4,15 +4,19 @@
 
 You need to package and deploy Azure Virtual Desktop applications in an Active Directory Domain Services (AD DS) environment.
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Prepare for and create MSIX app packages
 - Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
-- Implement the MSIX app attach on Azure Virtual Desktop in AD DS environment
+- Implement the MSIX app attached on Azure Virtual Desktop in AD DS environment
 
-## Instructions
+## Estimated Time: 120 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod8b.png)
 
 ### Exercise 1: Prepare for and create MSIX app packages
 
@@ -29,7 +33,7 @@ The main tasks for this exercise are as follows:
 #### Task 1: Deploy an Azure VM running Windows 10 by using an Azure Resource Manager QuickStart template
 
 1. From your lab computer, in the web browser window displaying the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, and upload the files **C:\\AllFiles\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.json** and **C:\\AllFiles\\AZ-140\\AllFiles\\Labs\\04\\az140-42_azuredeploycl42.parameters.json** into the Cloud Shell home directory.
-1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that you will use for creating MSIX packages to and to join it to the Azure AD DS domain:
+1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that you will use for creating MSIX packages and to join it to the Azure AD DS domain:
 
    ```powershell
    $vNetResourceGroupName = 'az140-11-RG'
@@ -166,14 +170,14 @@ The main tasks for this exercise are as follows:
 1. Copy the **XmlNotepad.msix** file to the **C:\\Allfiles\\Labs\\04** folder.
 
 
-### Exercise 2: Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
+### Exercise 2: Implement an MSIX app attach an image for Azure Virtual Desktop in Azure AD DS environment
 
 The main tasks for this exercise are as follows:
 
-1. Enable Hyper-V on the Azure VMs running Window 10 Enterprise Edition
-1. Create an MSIX app attach image
+1. Enable Hyper-V on the Azure VMs running Windows 10 Enterprise Edition
+1. Create an MSIX app and attach an image
 
-#### Task 1: Enable Hyper-V on the Azure VMs running Window 10 Enterprise Edition
+#### Task 1: Enable Hyper-V on the Azure VMs running Windows 10 Enterprise Edition
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, from the **Administrator: Windows PowerShell ISE** console, run the following to prepare the target Azure Virtual Desktop hosts for MSIX app attach: 
 
@@ -203,7 +207,7 @@ The main tasks for this exercise are as follows:
    }
    ```
 
-1. When prompted to restrart the target operating system, select **Yes**.
+1. When prompted to restart the target operating system, select **Yes**.
 1. Within the Remote Desktop session to **az140-cl-vm42**, from the **Administrator: Windows PowerShell ISE** console, run the following to install Hyper-V and its management tools, including the Hyper-V PowerShell module on the local computer:
 
    ```powershell
@@ -457,10 +461,16 @@ The main tasks for this exercise are as follows:
 1. If prompted, in the **Stay signed in to all your apps** window, clear the **Allow my organization to manage my device** checkbox and click **No, sign in to this app only**.
 1. In the **Remote Desktop** client window, within the **az140-21-ws1** section, double-click the **XML Notepad** icon, when prompted, provide the password, and verify that the XML Notepad launches successfully.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+  > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+  > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+  > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+  > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+  > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
 
-**You have successfully completed the lab**
+### Review
+In this lab, you have completed the following:
+- Prepare for and create MSIX app packages
+- Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
+- Implement the MSIX app attached on Azure Virtual Desktop in AD DS environment
+
+## You have successfully completed the lab
