@@ -10,6 +10,8 @@ After completing this lab, you will be able to:
 
 - Implement FSLogix based profiles for Azure Virtual Desktop
 
+## Estimated timing: 30 minutes
+
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 2. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
