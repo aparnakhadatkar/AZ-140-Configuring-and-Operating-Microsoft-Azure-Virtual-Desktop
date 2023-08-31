@@ -1,17 +1,21 @@
-# Module 01 - Prepare for deployment of Azure Virtual Desktop (AD DS)
+# Module 01 - Prepare for deployment of Azure Virtual Desktop(AD DS)
 
 ## Lab scenario
 
 You need to prepare for deployment of an Active Directory Domain Services (AD DS) environment
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Deploy an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
 - Integrate an AD DS forest with an Azure Active Directory (Azure AD) tenant
 
-## Instructions
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod1.1.png)
 
 ### Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain
 
@@ -432,10 +436,15 @@ The main tasks for this exercise are as follows:
 
     > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear.
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+    > **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
 
-**You have successfully completed the lab**
+### Review
+In this lab, you have completed the following:
+- Deployed  an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
+- Integrated an AD DS forest with an Azure Active Directory (Azure AD) tenant
+
+## You have successfully completed the lab
