@@ -15,9 +15,6 @@ lab:
 - The completed lab **Azure Virtual Desktop profile management (AD DS)**
 - The completed lab **Configure Conditional Access policies for WVD (AD DS)**
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -30,6 +27,8 @@ After completing this lab, you will be able to:
 - Prepare for and create MSIX app packages
 - Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
 - Implement the MSIX app attach on Azure Virtual Desktop in AD DS environment
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 

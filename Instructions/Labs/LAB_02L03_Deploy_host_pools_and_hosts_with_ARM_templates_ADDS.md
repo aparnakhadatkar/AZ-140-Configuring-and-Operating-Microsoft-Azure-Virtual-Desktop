@@ -14,9 +14,6 @@ lab:
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
 - The completed lab **Deploy host pools and session hosts by using the Azure portal (AD DS)**
 
-## Estimated Time
-
-45 minutes
 
 ## Lab scenario
 
@@ -27,6 +24,8 @@ You need to automate deployment of Azure Virtual Desktop host pools and hosts by
 After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
+
+## Estimated timing: 45 minutes
 
 ## Lab files
 

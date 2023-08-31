@@ -13,9 +13,6 @@ lab:
 - A Microsoft account or an Azure AD account with the Global Administrator role in the Azure AD tenant associated with the Azure subscription and with the Owner or Contributor role in the Azure subscription
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (Azure AD DS)**
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -27,6 +24,8 @@ After completing this lab, you will be able to:
 
 - Configure an Azure Virtual Desktop environment in an Azure AD DS domain. 
 - Validate Azure Virtual Desktop environment in an Azure AD DS domain. 
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 
