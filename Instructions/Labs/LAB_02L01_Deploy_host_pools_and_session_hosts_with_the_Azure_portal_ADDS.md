@@ -13,6 +13,8 @@ After completing this lab, you will be able to:
 - Implement an Azure Virtual Desktop environment in an AD DS domain
 - Validate an Azure Virtual Desktop environment in an AD DS domain
 
+## Estimated timing: 60 minutes
+
 ## Lab files
 
 - None
