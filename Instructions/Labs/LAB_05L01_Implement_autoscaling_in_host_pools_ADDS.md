@@ -11,6 +11,8 @@ After completing this lab, you will be able to:
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
 
+## Estimated timing: 60 minutes
+
 ## Instructions
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
