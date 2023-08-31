@@ -1,5 +1,7 @@
 # Module 03 - Implement and manage storage for AVD (AD DS)
 
+## Estimated timing: 60 minutes
+
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.

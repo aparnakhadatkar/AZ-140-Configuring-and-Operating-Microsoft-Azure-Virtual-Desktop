@@ -10,6 +10,8 @@ After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
 
+## Estimated timing: 45 minutes
+
 ## Lab files
 
 -  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuredeployhp23.parameters.json
