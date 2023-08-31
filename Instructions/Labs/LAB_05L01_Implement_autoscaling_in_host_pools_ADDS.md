@@ -14,9 +14,6 @@ lab:
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
 - The completed lab **Deploy host pools and session hosts by using the Azure portal (AD DS)**
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -28,6 +25,8 @@ After completing this lab, you will be able to:
 
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 
