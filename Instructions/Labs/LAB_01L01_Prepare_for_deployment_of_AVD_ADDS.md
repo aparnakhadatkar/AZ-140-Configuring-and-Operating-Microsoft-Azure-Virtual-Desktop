@@ -12,9 +12,6 @@ lab:
 - An Azure subscription you will be using in this lab.
 - A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
 
-## Estimated Time
-
-60 minutes
 
 ## Lab scenario
 
@@ -26,6 +23,8 @@ After completing this lab, you will be able to:
 
 - Deploy an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
 - Integrate an AD DS forest with an Azure Active Directory (Azure AD) tenant
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 
