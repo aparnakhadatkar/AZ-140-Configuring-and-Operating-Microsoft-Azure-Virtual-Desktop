@@ -11,7 +11,7 @@ After completing this lab, you will be able to:
 - Deploy an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
 - Integrate an AD DS forest with an Azure Active Directory (Azure AD) tenant
 
-## Estimated timing: 150 minutes
+## Estimated timing: 60 minutes
 
 ## Instructions
 
