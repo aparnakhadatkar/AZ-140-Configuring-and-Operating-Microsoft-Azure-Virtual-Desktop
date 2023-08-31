@@ -157,7 +157,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
-#### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
+#### Task 2: Create an Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
