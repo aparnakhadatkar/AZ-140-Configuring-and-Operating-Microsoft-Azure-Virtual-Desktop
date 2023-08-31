@@ -1,5 +1,7 @@
 # Module 06 - Create and manage session host images (AD DS)
 
+## Estimated timing: 60 minutes
+
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
