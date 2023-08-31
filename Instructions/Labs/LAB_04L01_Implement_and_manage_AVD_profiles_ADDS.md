@@ -14,9 +14,6 @@ lab:
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
 - The completed lab **Implement and manage storage for WVD (AD DS)**
 
-## Estimated Time
-
-30 minutes
 
 ## Lab scenario
 
@@ -27,6 +24,8 @@ You need to implement Azure Virtual Desktop profile management in an Active Dire
 After completing this lab, you will be able to:
 
 - Implement FSLogix based profiles for Azure Virtual Desktop
+
+## Estimated timing: 30 minutes
 
 ## Lab files
 
