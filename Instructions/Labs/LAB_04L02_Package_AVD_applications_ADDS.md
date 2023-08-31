@@ -12,6 +12,8 @@ After completing this lab, you will be able to:
 - Implement an MSIX app attach image for Azure Virtual Desktop in Azure AD DS environment
 - Implement the MSIX app attach on Azure Virtual Desktop in AD DS environment
 
+## Estimated timing: 60 minutes
+
 ## Instructions
 
 ### Exercise 1: Prepare for and create MSIX app packages
