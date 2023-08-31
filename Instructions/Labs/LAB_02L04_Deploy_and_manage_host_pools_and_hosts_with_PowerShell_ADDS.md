@@ -13,10 +13,6 @@ lab:
 - A Microsoft account or an Azure AD account with the Owner or Contributor role in the Azure subscription you will be using in this lab and with the Global Administrator role in the Azure AD tenant associated with that Azure subscription.
 - The completed lab **Prepare for deployment of Azure Virtual Desktop (AD DS)**
 
-## Estimated Time
-
-60 minutes
-
 ## Lab scenario
 
 You need to automate deployment of Azure Virtual Desktop host pools and hosts by using PowerShell in an Active Directory Domain Services (AD DS) environment.
@@ -27,6 +23,8 @@ After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using PowerShell
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
+
+## Estimated timing: 60 minutes
 
 ## Lab files
 
