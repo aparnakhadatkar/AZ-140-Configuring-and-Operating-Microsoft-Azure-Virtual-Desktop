@@ -2,18 +2,21 @@
 
 ## Lab scenario
 
-You need to automate deployment of Azure Virtual Desktop host pools and hosts by using PowerShell in an Active Directory Domain Services (AD DS) environment.
+You need to automate the deployment of Azure Virtual Desktop host pools and hosts by using PowerShell in an Active Directory Domain Services (AD DS) environment.
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Deploy Azure Virtual Desktop host pools and hosts by using PowerShell
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
 
-## Estimated timing: 60 minutes
 
-## Instructions
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod5.png)
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
@@ -155,7 +158,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: The value should resemble the format `/subscriptions/de8279a3-0675-40e6-91e2-5c3728792cb5/resourceGroups/az140-11-RG/providers/Microsoft.Network/networkSecurityGroups/az140-cl-vm11-nsg`, although the subscription ID will differ. Record it since you will need it in the next task.
 
-#### Task 2: Create a Azure Virtual Desktop host pool by using PowerShell
+#### Task 2: Create an Azure Virtual Desktop host pool by using PowerShell
 
 1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** script pane, run the following to sign in to your Azure subscription:
 
@@ -384,4 +387,10 @@ The main tasks for this exercise are as follows:
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
 
-    **You have successfully completed the lab**
+### Review
+In this lab, you have completed the following:
+- Deployment of  Azure Virtual Desktop host pools and hosts by using PowerShell
+- Adding hosts to the Azure Virtual Desktop host pool by using PowerShell
+
+## You have successfully completed the lab
+

@@ -4,16 +4,19 @@
 
 You need to configure autoscaling of Azure Virtual Desktop session hosts in an Active Directory Domain Services (AD DS) environment.
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
 
-## Estimated timing: 60 minutes
 
-## Instructions
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod9.1.png)
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
@@ -25,12 +28,12 @@ After completing this lab, you will be able to:
    |User Name|**Student**|
    |Password|**Pa55w.rd1234**|
 
-   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** click on **Done**, and try connecting to the VM again.
   
-   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   > **Note**: If you are prompted **See text and images copied the to the clipboard**, select **Allow**. 
 
 4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
-   > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
+   > **Note**: Wait for thdouble-clicking complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
@@ -49,7 +52,7 @@ After completing this lab, you will be able to:
     |Password|**Pa55w.rd1234**|
 
 12. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
-13. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+13. On the **Azure AD sign-in configuration** page, note the warning statig **Users will not be able to sign in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
     > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
@@ -57,7 +60,7 @@ After completing this lab, you will be able to:
 15. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
 16. On the **Filter users and devices** page, accept the default settings, and select **Next**.
 17. On the **Optional features** page, accept the default settings, and select **Next**.
-18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**the .
 
     > **Note**: Installation should take about 2 minutes.
 
@@ -67,16 +70,16 @@ After completing this lab, you will be able to:
 21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
 22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts, with the **Yes** entry appearing in the **Directory synced** column.
 
-    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
+    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to the next step only if you are able to see the listing of AD DS user accounts you created. 
 
-23. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
+23. Now right-click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
     > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text Session-host Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
-24. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+24. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-0  under **Operations** section and select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 is available on desktop and click on **Run**. 
 
-25. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+25. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-1  under **Operations** section and select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 is available on desktop and click on **Run**. 
 
-26. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **Operations** section select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 available on desktop and click on **Run**. 
+26. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **Operations** section and select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 is available on desktop and click on **Run**. 
 
 
 27. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
@@ -86,14 +89,14 @@ After completing this lab, you will be able to:
     |User Name|**Student**|
     |Password|**Pa55w.rd1234**|
    
-28. Now right click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
+28. Now right-click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
     > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **Y**.
 
 29. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 
-    > **Note**: Please follow previous two steps (step 29 and 30) for Virtual Machines **az140-21-p1-1** and **az140-21-p1-2** .
+    > **Note**: Please follow the previous two steps (steps 29 and 30) for Virtual Machines **az140-21-p1-1** and **az140-21-p1-2** .
  
-30. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under Manage section.
+30. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under the Manage section.
 
 31. Click on + Add and search for aduser1 and then click on Select.
 32. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
@@ -185,7 +188,7 @@ The main tasks for this exercise are as follows:
    |Friendly name|**az140-51 scaling plan**|
    |Time zone|your local time zone|
 
-   >**Note**: Exclusion tags allow you to designate a tag name for session hosts which you want to exclude from scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". 
+   >**Note**: Exclusion tags allow you to designate a tag name for session hosts that you want to exclude from scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". 
 
 1. On the **Schedules** tab of the **Create a scaling plan** wizard, select **+ Add schedule**.
 1. On the **General** tab of the **Add schedule** wizard, specify the following information and click **Next**.
@@ -348,10 +351,15 @@ The main tasks for this exercise are as follows:
    TurnedOnDrainModeCount	"1"
    ```
 
-> **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
-> - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
-> - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
-> - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-> - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+      > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+      > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+      > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+      > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+    
+### Review
+In this lab, you have completed the following:
+- Configured autoscaling of Azure Virtual Desktop session hosts
+- Verified autoscaling of Azure Virtual Desktop session hosts
 
-**You have successfully completed the lab.**
+## You have successfully completed the lab

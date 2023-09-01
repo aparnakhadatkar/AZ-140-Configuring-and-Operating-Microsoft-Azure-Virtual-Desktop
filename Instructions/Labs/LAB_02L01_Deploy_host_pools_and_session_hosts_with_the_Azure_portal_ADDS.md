@@ -1,25 +1,22 @@
-# Module 02 - Deploy host pools and session hosts by using the Azure portal (AD DS)
-# Student lab manual
-
+# Module 02 - Deploy host pools and session hosts by using the Azure portal(AD DS)
 
 ## Lab scenario
 
 You need to create and configure host pools and session hosts in an Active Directory Domain Services (AD DS) environment.
 
-## Objectives
+## Lab Objectives
   
 After completing this lab, you will be able to:
 
 - Implement an Azure Virtual Desktop environment in an AD DS domain
 - Validate an Azure Virtual Desktop environment in an AD DS domain
 
-## Estimated timing: 60 minutes
 
-## Lab files
+## Estimated Time: 180 minutes
 
-- None
-
-## Instructions
+## Architecture Diagram
+  
+  ![](./images/az-140-mod2.png)
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
     
@@ -40,7 +37,7 @@ After completing this lab, you will be able to:
 
 4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
 
-   >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
+   >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double-clicking the **Azure AD Connect** icon on the desktop.
 
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
@@ -66,9 +63,9 @@ After completing this lab, you will be able to:
 
 12. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**.
    
-13. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+13. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
-    >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+    >**Note**: This is expected since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
    
@@ -84,7 +81,7 @@ After completing this lab, you will be able to:
 
 19. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-20. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using following Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+20. Within the Bastion session to **az140-dc-vm11**, open the Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the following Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
      * Email/Username: <inject key="AzureAdUserEmail"></inject>
 
@@ -94,13 +91,13 @@ After completing this lab, you will be able to:
    
 22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **Directory synced** column.
 
-    >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next exercise only if you are able to see the listing of AD DS user accounts you created. 
+    >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to the next exercise only if you are able to see the listing of AD DS user accounts you created. 
 
 ## Exercise 2: Implement an Azure Virtual Desktop environment in an AD DS domain
   
 The main tasks for this exercise are as follows:
 
-1. Prepare AD DS domain and the Azure subscription for deployment of an Azure Virtual Desktop host pool
+1. Prepare AD DS domain and the Azure subscription for the deployment of an Azure Virtual Desktop host pool
 1. Deploy an Azure Virtual Desktop host pool
 1. Manage the Azure Virtual Desktop host pool session hosts
 1. Configure Azure Virtual Desktop application groups
@@ -121,7 +118,7 @@ The main tasks for this exercise are as follows:
    ```powershell
    Connect-AzAccount
    ```
-   >**Note**: If you face an issue while connect to the az account then run: `Connect-AzAccount -devicecode`
+   >**Note**: If you face an issue while connecting to the az account then run: `Connect-AzAccount -devicecode`
 
 1. When prompted, provide the credentials of the user account with the Owner role in the subscription you are using in this lab.
 
@@ -160,7 +157,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Deploy an Azure Virtual Desktop host pool
 
-1. Within the Remote Destop session to Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-21-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+1. Within the Remote Desktop session to Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-21-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**.
   
@@ -421,7 +418,7 @@ The main tasks for this exercise are as follows:
 The main tasks for this exercise are as follows:
 
 1. Install Microsoft Remote Desktop client (MSRDC) on a Windows 10 computer
-1. Subscribe to a Azure Virtual Desktop workspace
+1. Subscribe to an Azure Virtual Desktop workspace
 1. Test Azure Virtual Desktop apps
 
 ### Task 1: Install Microsoft Remote Desktop client (MSRDC) on a Windows 10 computer
@@ -454,7 +451,7 @@ The main tasks for this exercise are as follows:
 
     >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
   
-    >**Note**: If the VM stays in the loading state in the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentails.
+    >**Note**: If the VM stays in the loading state in the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentials.
 
 
 8. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) which will download the Remote Desktop client program. Once downloaded, open the file to start its installation. In the **Welcome** page select **Next**. If prompted, accept the agreement and select **Next**, and on the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. If prompted by User Account Control for administrative credentials, authenticate by using the **ADATUM\\Student** username with **Pa55w.rd1234** as its password.
@@ -493,10 +490,16 @@ The main tasks for this exercise are as follows:
    
 1. Verify that the displayed name is either **az140-21-p1-0**, **az140-21-p1-1** or **az140-21-p1-2**.
 
-   **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
+   >**Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
    > - Navigate to the Lab Validation tab, from the upper right corner in the lab guide section.
    > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
-   > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
+   > - If you need any assistance, please contact us at labs-support@spektrasystems.com.
 
-   **You have successfully completed the lab**
+### Review
+In this lab, you have completed the following:
+- Implementation of an Azure Virtual Desktop environment in an AD DS domain
+- Validation of an Azure Virtual Desktop environment in an AD DS domain
+
+ 
+## You have successfully completed the lab

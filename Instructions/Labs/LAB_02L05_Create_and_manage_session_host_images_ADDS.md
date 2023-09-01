@@ -1,6 +1,21 @@
 # Module 06 - Create and manage session host images (AD DS)
 
-## Estimated timing: 60 minutes
+## Lab scenario
+
+In this lab, you will learn how a Shared Image Gallery simplifies custom image sharing across your organization.
+
+## Lab Objectives
+  
+After completing this lab, you will be able to:
+
+- Setup Azure AD Connect
+- Create and manage session host images
+
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod6.png)
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
@@ -132,9 +147,9 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Deploy Azure Bastion 
 
->**Note**: Azure Bastion allows for connection to the Azure VMs without public endpoints which you deployed in the previous task of this exercise, while providing protection against brute force exploits that target operating system level credentials.
-
->**Note**: Ensure that your browser has the pop-up functionality enabled.
+   >**Note**: Azure Bastion allows for connection to the Azure VMs without public endpoints which you deployed in the previous task of this exercise, while providing protection against brute force exploits that target operating system level credentials.
+   
+   >**Note**: Ensure that your browser has the pop-up functionality enabled.
 
 1. In the browser window displaying the Azure portal, open another tab and, in the browser tab, navigate to the Azure portal.
    
@@ -174,7 +189,7 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 15 minutes.
 
-### Task 3: Configure a Azure Virtual Desktop host image
+### Task 3: Configure an Azure Virtual Desktop host image
 
 1. In the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select **az140-25-vm0**.
    
@@ -213,11 +228,11 @@ The main tasks for this exercise are as follows:
 
       >**Note**: Wait for the installation to complete. This might take about 1 minute. If the installation triggers a reboot, re-connect to **az140-25-vm0**.
 
-      >**Note**: Next, you will step through installation and configuration of Microsoft Teams (for learning purposes, since Teams are already present on the image used for this lab).
+      >**Note**: Next, you will step through the installation and configuration of Microsoft Teams (for learning purposes, since Teams are already present on the image used for this lab).
 
 11. Within the Bastion session to **az140-25-vm0**, right-click **Start**, in the right-click menu, select **Run**, in the **Run** dialog box, in the **Open** textbox, type **cmd** and press the **Enter** key to start **Command Prompt**.
     
-13. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to prepare for per-machine installation of Microsoft Teams:
+13. In the **Administrator: C:\windows\system32\cmd.exe** window, from the command prompt, run the following to prepare for the per-machine installation of Microsoft Teams:
 
       ```cmd
       reg add "HKLM\Software\Microsoft\Teams" /v IsWVDEnvironment /t REG_DWORD /d 1 /f
@@ -242,7 +257,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 
       >**Note**: The installer supports the ALLUSER=1 and ALLUSERS=1 parameters. The ALLUSER=1 parameter is intended for per-machine installation in VDI environments. The ALLUSERS=1 parameter can be used in non-VDI and VDI environments.
       
-      >**Note** if you encounter an error stating **Another version of the product is already installed**, then complete the following steps: Go to **Control Panel > Programs > Programs and Features** Right-click on the **Teams Machine-Wide Installer** program and select **Uninstall**. Proceed with removal of the program, and rerun step 13 above. 
+      >**Note** if you encounter an error stating **Another version of the product is already installed**, then complete the following steps: Go to **Control Panel > Programs > Programs and Features** Right-click on the **Teams Machine-Wide Installer** program and select **Uninstall**. Proceed with the removal of the program, and rerun step 13 above. 
 
 14. Within the Bastion session to **az140-25-vm0**, start the **Windows PowerShell ISE** as Administrator and, from the **Administrator: Windows PowerShell ISE** console, run the following to install Microsoft Edge Chromium (for learning purposes, since Edge is already present on the image used for this lab).:
 
@@ -409,7 +424,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    
    >**Note** If the deployment fails due to the quota limit being reached, perform the steps spelled out in the first lab to automatically request quota increase of the Standard D2sv3 limit to 30.
 
-   >**Note**: Following deployment of hosts based on custom images, you should consider running the Virtual Desktop Optimization Tool, available from [its GitHub repository](https://github.com/The-Virtual-Desktop-Team/).
+   >**Note**: Following the deployment of hosts based on custom images, you should consider running the Virtual Desktop Optimization Tool, available from [its GitHub repository](https://github.com/The-Virtual-Desktop-Team/).
 
    **Congratulations** on completing the task! Now, it's time to validate it. Here are the steps:
      > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
@@ -417,5 +432,10 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
      > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
      > - If you need any assistance, please contact us at labs-support@spektrasystems.com. 
 
-    **You have successfully completed the lab**
+    ### Review
+   In this lab, you have completed the following:
+   - Setup Azure AD Connect
+   - Created and managed session host images
+
+   ## You have successfully completed the lab.
 

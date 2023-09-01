@@ -2,13 +2,17 @@
 
 ## Lab scenario
 
-You need to automate deployment of Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates.
+You need to automate the deployment of Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates.
 
-## Objectives
+## Lab Objectives
   
-After completing this lab, you will be able to:
+After completing this lab, you will be able to deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
 
-- Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
+## Estimated Time: 180 minutes
+
+## Architecture Diagram
+  
+  ![](./images/az-140-mod4.png)
 
 ## Estimated timing: 45 minutes
 
@@ -17,15 +21,13 @@ After completing this lab, you will be able to:
 -  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuredeployhp23.parameters.json
 -  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuremodifyhp23.parameters.json
 
-## Instructions
-
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
 2. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, then select **Use Bastion**.
 
-   > **Note**: If the page displays Create Bastion then select **Deploy Bastion**, and wait for a minutes to get the bastion deployed.
+   > **Note**: If the page displays Create Bastion then select **Deploy Bastion**, and wait for a few minutes to get the bastion deployed.
 
 4. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials and select **Connect**:
 
@@ -40,7 +42,7 @@ After completing this lab, you will be able to:
 
 5. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
    
-      > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
+      > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double-clicking the **Azure AD Connect** icon on the desktop.
 
 
 6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
@@ -55,7 +57,7 @@ After completing this lab, you will be able to:
 
       > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
-      > **Note**: if the sign-in pop up comes, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+      > **Note**: If the sign-in pop-up comes, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
 11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
@@ -68,9 +70,9 @@ After completing this lab, you will be able to:
 
 13. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
 
-14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
+14. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
-      > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+      > **Note**: This is expected since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
 
@@ -86,20 +88,20 @@ After completing this lab, you will be able to:
 
 20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
-21. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+21. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut, and sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
 22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Overview** section of the hub menu, select **Users**.
 
 23. On the **Users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **No** entry appearing in the **On-premises sync enabled** column.
 
-      > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
+      > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to the next step only if you are able to see the listing of AD DS user accounts you created. 
 
 
 24. Within the Remote Desktop session to **az140-dc-vm11**, start **Windows PowerShell ISE** as administrator, and run the following to create an organizational unit that will host the computer objects of the Azure Virtual Desktop hosts:
 
-   ```powershell
-   New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
-   ```
+     ```powershell
+     New-ADOrganizationalUnit 'WVDInfra' –path 'DC=adatum,DC=com' -ProtectedFromAccidentalDeletion $false
+     ```
 
 ## Exercise 2: Deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
   
@@ -111,7 +113,7 @@ The main tasks for this exercise are as follows:
 
 1. Verify deployment of the Azure Virtual Desktop host pool and hosts
 
-1. Prepare for adding of hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
+1. Prepare for adding hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. Add hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
@@ -150,7 +152,7 @@ The main tasks for this exercise are as follows:
 
    > **Note**: The value should resemble the format `2022-03-27T00:51:28.3008055Z`. Record it since you will need it in the next task.
 
-   > **Note**: A registration token is required to authorize a host to join the pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+   > **Note**: A registration token is required to authorize a host to join the pool. The value of the token's expiration date must be between one hour and one month from the current date and time.
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, navigate back to the **Azure Portal**.
 
@@ -173,12 +175,12 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 
-1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of resource group as **az140-23-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of the resource group as **az140-23-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
 
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Create and provision new Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/CreateAndProvisionHostPool). 
 
 
-   > **Note**: Scroll little-bit down then you'll be able to see the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page.
+   > **Note**: Scroll little bit down then you'll be able to see the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page.
 
 1. On the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 
@@ -222,7 +224,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az140-23-hp2 \| Application groups** blade, verify that the deployment includes the **Default Desktop** application group named **az140-23-hp2-DAG**.
 
-### Task 4: Prepare for adding of hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
+### Task 4: Prepare for adding hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. From your lab computer, switch to the Remote Desktop session to **az140-dc-vm11**. 
 
@@ -240,13 +242,13 @@ The main tasks for this exercise are as follows:
 
    > **Note**: Record the value copied into Clipboard (for example, by launching Notepad and pressing the Ctrl+V key combination to paste the content of the Clipboard into Notepad) since you will need it in the next task. Make sure to that the value you are using includes a single line of text, without any line breaks. 
 
-   > **Note**: A registration token is required to authorize a host to join the pool. The value of token's expiration date must be between one hour and one month from the current date and time.
+   > **Note**: A registration token is required to authorize a host to join the pool. The value of the token's expiration date must be between one hour and one month from the current date and time.
 
 ### Task 5: Add hosts to the existing Azure Virtual Desktop host pool by using an Azure Resource Manager template
 
 1. From your lab computer, in the same web browser window, open another web browser tab and navigate to the GitHub Azure RDS templates repository page [ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates/AddVirtualMachinesToHostPool). 
 
-   > **Note**: Scroll little-bit down then you'll be able to see the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page.
+   > **Note**: Scroll a little bit down then you'll be able to see the **ARM Template to Create and provision new Windows Virtual Desktop hostpool** page.
 
 1. On the **ARM Template to Add sessionhosts to an existing Windows Virtual Desktop hostpool** page, select **Deploy to Azure**. This will automatically redirect the browser to the **Custom deployment** blade in the Azure portal.
 
@@ -315,7 +317,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **az140-cl-vm11** blade, select **Connect**, select **Bastion**, click on **Use Bastion**.
 
-1. When prompted, provde the following credentials and select **Connect**:
+1. When prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -323,11 +325,11 @@ The main tasks for this exercise are as follows:
    |Password|**Pa55w.rd1234**|
 
 
-   > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** click on **Done**, and try connecting to the VM again.
   
    > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
   
-   > **Note**: If the VM stays in the loading state in the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentails.
+   > **Note**: If the VM stays in the loading state on the Welcome page for more than 2 minutes, then close the VM bastion tab, restart the VM by navigating to the **Overview** blade in the Virtual Machine vertical menu on the left side, and try logging in again by providing the credentials.
 
 9. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to [Windows Desktop client download page](https://go.microsoft.com/fwlink/?linkid=2068602) which will download the Remote Desktop client program. Once downloaded, open the file to start its installation. In the **Welcome** page select **Next**. If prompted, accept the agreement and select **Next**, and on the **Installation Scope** page of the **Remote Desktop Setup** wizard, select the option **Install for all users of this machine** and click **Install**. If prompted by User Account Control for administrative credentials, authenticate by using the **ADATUM\\Student** username with **Pa55w.rd1234** as its password.
 
@@ -345,7 +347,7 @@ The main tasks for this exercise are as follows:
 
 14. Verify that **aduser7** successfully signed in via Remote Desktop to a host.
 
-15. Within the Remote Desktop session to one of the hosts as **aduser7**, right-click **Start**, in the right-click menu, select **Shut down or sign out** and, in the cascading menu, click **Sign out**.
+15. Within the Remote Desktop session to one of the hosts as **aduser7**, right-click **Start**, in the right-click menu, select **Shut down or sign out**, and, in the cascading menu, click **Sign out**.
 
       > **Note**: Now let's switch the personal desktop assignment from the direct mode to automatic. 
 
@@ -377,13 +379,25 @@ The main tasks for this exercise are as follows:
 
       > **Note**: If you get the **Stay signed in to all your apps** window, clear the checkbox **Allow my organization to manage my device** checkbox and select **No, sign in to this app only**. 
 
-24. On the **Remote Desktop** page, double-click the **SessionDesktop** icon, verify that you receive an error message stating **We couldn't connect because there are currently no available resources. Try again later or contact tech support for help if this keeps happening**, and click **OK**.
+24. On the **Remote Desktop** page, double-click the **SessionDesktop** icon, and verify that you receive an error message stating **We couldn't connect because there are currently no available resources. Try again later or contact tech support for help if this keeps happening**, and click **OK**.
 
       > **Note**: This is expected since the host pool is configured for direct assignment and **aduser8** has not been assigned a host.
 
-25. Switch to your lab computer, to the web browser displaying the Azure portal and, on the **az140-23-hp2** blade, select **Session hosts** in the veritcal menu in the left side, and select the **(Assign)** link in the **Assigned User** column next to one of the two remaining unassigned hosts.
+25. Switch to your lab computer, to the web browser displaying the Azure portal and, on the **az140-23-hp2** blade, select **Session hosts** in the vertical menu in the left side, and select the **(Assign)** link in the **Assigned User** column next to one of the two remaining unassigned hosts.
 
 26. On the **Assign a user**, select **aduser8**, click **Assign** and, when prompted for confirmation, click **OK**.
 
 27. Switch back to the Remote Desktop session to **az140-cl-vm11**, in the **Remote Desktop** window, double-click the **SessionDesktop** icon, when prompted for the password, type the password **Pa55w.rd1234**, click **OK**, and verify that you can successfully sign in to the assigned host.
 
+    > **Congratulations** on completing the lab! Now, it's time to validate it. Here are the steps:
+    > - Navigate to the Lab Validation Page, from the upper right corner in the lab guide section.
+    > - Hit the Validate button for the corresponding task. If you receive a success message, you can proceed to the next task. 
+    > - If not, carefully read the error message and retry the step, following the instructions in the lab guide.
+    > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
+
+### Review
+In this lab, you have completed the following:
+- Deployed  an Active Directory Domain Services (AD DS) single-domain forest by using Azure VMs
+- Integrated an AD DS forest with an Azure Active Directory (Azure AD) tenant
+
+## You have successfully completed the lab
