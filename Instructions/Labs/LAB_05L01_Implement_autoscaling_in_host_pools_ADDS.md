@@ -11,6 +11,7 @@ After completing this lab, you will be able to:
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
 
+
 ## Estimated Time: 180 minutes
 
 ## Architecture Diagram

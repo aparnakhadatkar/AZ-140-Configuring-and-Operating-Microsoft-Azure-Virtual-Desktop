@@ -14,6 +14,8 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
   
   ![](./images/az-140-mod4.png)
 
+## Estimated timing: 45 minutes
+
 ## Lab files
 
 -  \\\\AZ-140\\AllFiles\\Labs\\02\\az140-23_azuredeployhp23.parameters.json
