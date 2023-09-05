@@ -14,7 +14,7 @@ After completing this lab, you will be able to:
 - Configure the Azure Files RBAC-based permissions
 - Configure the Azure Files file system permissions
 
-## Estimated Time: 180 minutes
+## Estimated Timing:  30 minutes
 
 ## Architecture Diagram
   
