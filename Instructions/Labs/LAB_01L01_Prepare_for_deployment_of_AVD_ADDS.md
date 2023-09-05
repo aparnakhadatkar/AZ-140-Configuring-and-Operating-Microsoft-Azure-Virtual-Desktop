@@ -12,7 +12,7 @@ After completing this lab, you will be able to:
 - Integrate an AD DS forest with an Azure Active Directory (Azure AD) tenant
 
 
-## Estimated Time: 180 minutes
+## Estimated Timing: 60 minutes
 
 ## Architecture Diagram
   
