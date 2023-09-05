@@ -8,13 +8,13 @@ You need to implement Azure Virtual Desktop profile management in an Active Dire
   
 After completing this lab, you will be able to implement FSLogix based profiles for Azure Virtual Desktop
 
-## Estimated Time: 180 minutes
+## Estimated timing: 30 minutes
 
 ## Architecture Diagram
   
   ![](./images/az-140-mod8a.png)
 
-## Estimated timing: 30 minutes
+
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 1. From your lab computer, start a web browser, navigate to the [Azure portal]( ), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
