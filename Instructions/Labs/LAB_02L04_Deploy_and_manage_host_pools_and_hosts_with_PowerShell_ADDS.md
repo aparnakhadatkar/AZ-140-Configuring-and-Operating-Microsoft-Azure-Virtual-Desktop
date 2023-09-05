@@ -12,7 +12,7 @@ After completing this lab, you will be able to:
 - Add hosts to the Azure Virtual Desktop host pool by using PowerShell
 
 
-## Estimated Time: 180 minutes
+## Estimated Timing: 60 minutes
 
 ## Architecture Diagram
   
