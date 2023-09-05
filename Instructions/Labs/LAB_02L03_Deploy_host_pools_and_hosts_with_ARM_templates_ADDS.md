@@ -8,13 +8,13 @@ You need to automate the deployment of Azure Virtual Desktop host pools and host
   
 After completing this lab, you will be able to deploy Azure Virtual Desktop host pools and hosts by using Azure Resource Manager templates
 
-## Estimated Time: 180 minutes
+## Estimated Timing: 45 minutes
 
 ## Architecture Diagram
   
   ![](./images/az-140-mod4.png)
 
-## Estimated timing: 45 minutes
+
 
 ## Lab files
 
