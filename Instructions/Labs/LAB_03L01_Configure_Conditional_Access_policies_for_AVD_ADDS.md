@@ -12,7 +12,7 @@ After completing this lab, you will be able to:
 - Implement Azure AD-based Conditional Access for Azure Virtual Desktop
 
 
-## Estimated Time: 180 minutes
+## Estimated Timing: 60 minutes
 
 ## Architecture Diagram
   
