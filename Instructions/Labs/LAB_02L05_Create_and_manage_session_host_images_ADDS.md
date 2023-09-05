@@ -11,7 +11,7 @@ After completing this lab, you will be able to:
 - Setup Azure AD Connect
 - Create and manage session host images
 
-## Estimated Time: 180 minutes
+## Estimated Timing: 60 minutes
 
 ## Architecture Diagram
   
