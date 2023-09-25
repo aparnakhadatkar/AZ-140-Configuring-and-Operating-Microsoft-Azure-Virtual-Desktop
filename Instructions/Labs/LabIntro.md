@@ -18,9 +18,9 @@
 1. Now enter the following password and click on **Sign in**.
    * Password: <inject key="AzureAdUserPassword"></inject>
    
-1. In the pop-up for *Help us protect your account*, select **Skip for now (14 days until this is required)**.
+1. If you see the pop-up Action Required, click **Ask Later**.
 
-1. If you see the pop-up **Stay Signed in?**, click Yes
+1. If you see the pop-up **Stay Signed in?**, click **Yes**.
 
 1. If you see the pop-up **You have free Azure Advisor recommendations!**, close the window to continue the lab.
 
