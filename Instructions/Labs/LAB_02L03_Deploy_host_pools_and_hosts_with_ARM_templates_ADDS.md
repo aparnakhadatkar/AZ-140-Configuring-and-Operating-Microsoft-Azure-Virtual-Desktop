@@ -25,18 +25,27 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
-2. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, then select **Use Bastion**.
+1. On the **az140-dc-vm11** blade, select **Connect**.
 
-   > **Note**: If the page displays Create Bastion then select **Deploy Bastion**, and wait for a few minutes to get the bastion deployed.
+1. On the **az140-dc-vm11| Connect** blade,, select **Go to Bastion**.
 
-4. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials and select **Connect**:
+   ![](./images/11.png)
+
+1. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
 
    |Setting|Value|
    |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
+   |Username|**Student (1)**|
+   |Authentication Type|**VM Password (2)**|    
+   |Password|**Pa55w.rd1234 (3)**|
+
+    ![](./images/10.png)
+
 
    > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+
+    ![](./images/16.png)
+
   
    > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
@@ -60,6 +69,8 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
       > **Note**: If the sign-in pop-up comes, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
 11. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
+
+    ![](./images/17.png)
 
 12. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
@@ -90,7 +101,7 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut, and sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
-22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Overview** section of the hub menu, select **Users**.
+22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Microsoft Entra ID** blade and, on your Azure AD tenant blade, in the **Overview** section of the hub menu, select **Users**.
 
 23. On the **Users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **No** entry appearing in the **On-premises sync enabled** column.
 
@@ -311,6 +322,9 @@ The main tasks for this exercise are as follows:
 
 1. On the **Select Azure AD users or user groups** blade, select **az140-wvd-personal** and click **Select**.
 
+   ![](./images/15.png)
+
+
    > **Note**: Now let's review the experience of a user connecting to the Azure Virtual Desktop host pool.
 
 1. From your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
@@ -353,11 +367,16 @@ The main tasks for this exercise are as follows:
 
 16. Switch to your lab computer, to the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Application groups**, and select the application group entry **az140-23-hp2-DAG**. On the **az140-23-hp2-DAG** blade, in the vertical menu in the left side, select the **Assignments**. In the informational bar directly above the list of assignments, click the **Assign VM** link. This will redirect you to the **az140-23-hp2 \| Session hosts** blade. 
 
+
+    ![](./images/13.png)
+
 17. On the **az140-23-hp2 \| Session hosts** blade, verify that one of the hosts has **aduser7** listed in the **Assigned User** column.
 
       > **Note**: This is expected since the host pool is configured for automatic assignment.
 
 18. On your lab computer, in the web browser window displaying the Azure portal, open the **PowerShell** shell session within the **Cloud Shell** pane. Then, select **Create storage** and wait for a few seconds for the Cloud Shell to provision.
+
+    ![](./images/12.png)
 
 19. From the PowerShell session in the Cloud Shell pane, run the following to switch to the direct assignment mode:
 

@@ -22,7 +22,7 @@ After completing this lab, you will be able to:
     
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
-2. On the **az140-dc-vm11** blade, select **Connect**, and  select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
+2. On the **az140-dc-vm11** blade, select **Connect**, and  select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 | Connect** blade, select **Use Bastion**.
 
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
@@ -38,7 +38,6 @@ After completing this lab, you will be able to:
 4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
 
    >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double-clicking the **Azure AD Connect** icon on the desktop.
-
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
    
@@ -440,7 +439,7 @@ The main tasks for this exercise are as follows:
 
 5. Switch to your lab computer, from the lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** entry.
   
-6. On the **az140-cl-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 \| Connect** blade, select **Use Bastion**.
+6. On the **az140-cl-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-cl-vm11 | Connect** blade, select **Use Bastion**.
    
 7. When prompted, provide the following credentials and select **Connect**:
 

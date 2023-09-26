@@ -33,7 +33,7 @@ After completing this lab, you will be able to:
 
    ![](./images/11.png)
 
-5. On the **Bastion** tab of the **az140-dc-vm11**,, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
+5. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
 
    |Setting|Value|
    |---|---|
@@ -131,13 +131,13 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 
-1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of the resource group as **az140-22-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of the resource group as **az140-22-RG** and select the **Region** in which the **lab was deployed**, then select **Review + Create** and select **Create**.
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
 1. On the **az140-dc-vm11| Connect** blade,, select **Go to Bastion**.
 
-1. On the **Bastion** tab of the **az140-dc-vm11**,, provide the following credentials for the **Connection Settings** and select **Connect**:
+1. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -165,7 +165,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Basics** tab of the **Create storage account** blade, select **Review**, wait for the validation process to complete, and then select **Create**.
 
-1. Monitor the deployment status on the deployment page. In a minute or so, you should see a confirmation of the successful deployment. Select Go to resource (2). This action will redirect you to the page.
+1. Monitor the deployment status on the deployment page. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to resource**. This action will redirect you to the page.
 
    ![](./images/05.png)
 
