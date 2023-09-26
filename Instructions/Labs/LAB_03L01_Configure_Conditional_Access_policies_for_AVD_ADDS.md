@@ -178,7 +178,7 @@ After completing this lab, you will be able to:
       |Subscription|the name of the Azure subscription you are using in this lab|
       |Resource group|**az140-11-RG**|
       |Host pool|**az140-24-hp3**|
-      |Application group type|**RemoteApp (RAIL)**|
+      |Application group type|**RemoteApp**|
       |Application group name|**az140-21-hp1-Utilities-RAG**|
    
 40. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
@@ -198,7 +198,7 @@ After completing this lab, you will be able to:
 
 42. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
 
-43. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+43. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Microsoft Entra users or user groups**.
  
 44. On the **Select Azure AD users or user groups** blade, select **aduser5** and click **Select**.
  
@@ -224,21 +224,21 @@ After completing this lab, you will be able to:
 
 The main tasks for this exercise are as follows:
 
-1. Configure Azure AD Premium P2 licensing
+1. Configure Microsoft Entra ID Premium P2 licensing
 1. Configure Azure AD Multi-Factor Authentication (MFA)
 1. Register a user for Azure AD MFA
 1. Configure hybrid Azure AD join
-1. Trigger Azure AD Connect delta synchronization
+1. Trigger Microsoft Entra ID Connect delta synchronization
 
-### Task 1: Configure Azure AD Premium P2 licensing
+### Task 1: Configure Microsoft Entra ID Premium P2 licensing
 
-   > **Note**: Premium P1 or P2 licensing of Azure AD is required in order to implement Azure AD Conditional Access. You will use a 30-day trial for this lab.
+   > **Note**: Premium P1 or P2 licensing of Azure AD is required in order to implement Microsoft Entra ID Conditional Access. You will use a 30-day trial for this lab.
 
-1. In the Azure portal, search for and select **Azure Active Directory** to navigate to the Azure AD tenant associated with the Azure subscription you are using for this lab.
+1. In the Azure portal, search for and select **Microsoft Entra ID** to navigate to the Azure AD tenant associated with the Azure subscription you are using for this lab.
 
 1. On the Azure Active Directory blade, in the vertical menu bar on the left side, in the **Manage** section, click **Users**. 
 
-1. On the **Users | All users (preview)** blade, select **aduser5**.
+1. On the **Users | All users** blade, select **aduser5**.
 
 1. On the **aduser5** blade, in the toolbar, click **Edit properties**, in the **Settings** section, in the **Usage location** dropdown list, select country where the lab environment is located and, in the toolbar, click **Save**.
 
@@ -246,15 +246,15 @@ The main tasks for this exercise are as follows:
 
     >**Note**: Record this value. You will need it later in this lab.
 
-1. On the **Users | All users (Preview)** blade, select the user account you used to sign-in at the beginning of this task and repeat the previous step in case your account does not have the **Usage location** assigned. 
+1. On the **Users | All users** blade, select the user account you used to sign-in at the beginning of this task and repeat the previous step in case your account does not have the **Usage location** assigned. 
 
     >**Note**: The **Usage location** property must be set in order to assign an Azure AD Premium P2 licenses to user accounts.
 
-1. On the **Users | All users (Preview)** blade, select the **aadsyncuser** user account and identify its user principal name.
+1. On the **Users | All users** blade, select the **aadsyncuser** user account and identify its user principal name.
 
     >**Note**: Record this value. You will need it later in this lab.
 
-1. In the Azure portal, navigate back to the **Overview** blade of the Azure AD tenant and, in the vertical menu bar on the left side, in the **Manage** section, click **Licenses**.
+1. In the Azure portal, navigate back to the **Overview** blade of the Microsoft Entra ID tenant and, in the vertical menu bar on the left side, in the **Manage** section, click **Licenses**.
 
 1. On the **Licenses | Overview** blade, in the vertical menu bar on the left side, in the **Manage** section, click **All products**.
 
@@ -272,9 +272,9 @@ The main tasks for this exercise are as follows:
 
 1. Back on the **Assign license** blade, click **Assignment options**, select **Next: Assignment options >**, on the **Assignment options** blade, verify that all options are enabled, click **Review + assign**, and click **Assign**.
 
-### Task 2: Configure Azure AD Multi-Factor Authentication (MFA)
+### Task 2: Configure Microsoft Entra ID Multi-Factor Authentication (MFA)
 
-1. On your lab computer, in the web browser displaying the Azure portal, navigate back to the **Overview** blade of the Azure AD tenant and, in the vertical menu on the left side, in the **Manage** section, click **Security**.
+1. On your lab computer, in the web browser displaying the Azure portal, navigate back to the **Overview** blade of the Microsoft Entra ID tenant and, in the vertical menu on the left side, in the **Manage** section, click **Security**.
 
 1. On the **Security | Getting started** blade, in the vertical menu on the left side, in the **Protect** section, click **Identity Protection**.
 
@@ -294,7 +294,7 @@ The main tasks for this exercise are as follows:
 
 3. On the Azure portal page, in the upper right corner, click the icon representing the user avatar, click **Sign out**, and close the **In private** browser window. 
 
-### Task 4: Configure hybrid Azure AD join
+### Task 4: Configure hybrid Microsoft Entra ID join
 
 > **Note**: This functionality can be leveraged to implement additional security when setting up Conditional Access for devices based on their Azure AD join status.
 
