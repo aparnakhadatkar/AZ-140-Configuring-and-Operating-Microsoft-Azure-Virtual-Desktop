@@ -58,13 +58,23 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
+   ![](./images/18.png)
+
 8. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 
-9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+   ![](./images/28.png)
 
-10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
+9. On the **User sign-in** page, ensure that only the **Password Hash Synchronization (1)** is enabled and select **Next(2)**.
+
+   ![](./images/20.png)
+
+10. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**.
+
+    ![](./images/08.png)
 
       > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+      ![](./images/19.png)
 
       > **Note**: If the sign-in pop-up comes, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
@@ -87,6 +97,8 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 15. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
 
+    ![](./images/07.png)
+
 16. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
 
 17. On the **Filter users and devices** page, accept the default settings, and select **Next**.
@@ -94,10 +106,14 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 18. On the **Optional features** page, accept the default settings, and select **Next**.
 
 19. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+    
+    ![](./images/25.png)
 
       > **Note**: Installation should take about 2 minutes.
 
 20. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+
+    ![](./images/06.png)
 
 21. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut, and sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 

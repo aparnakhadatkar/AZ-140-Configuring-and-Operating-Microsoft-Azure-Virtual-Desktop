@@ -22,14 +22,21 @@ After completing this lab, you will be able to:
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
-2. On the **az140-dc-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
-   
-3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
+3. On the **az140-dc-vm11** blade, select **Connect**.
+
+4. On the **az140-dc-vm11| Connect** blade, select **Go to Bastion**.
+
+   ![](./images/11.png)
+
+5. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
 
    |Setting|Value|
    |---|---|
-   |User Name|**Student**|
-   |Password|**Pa55w.rd1234**|
+   |Username|**Student (1)**|
+   |Authentication Type|**VM Password (2)**|    
+   |Password|**Pa55w.rd1234 (3)**|
+
+    ![](./images/10.png)
 
    >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
@@ -42,14 +49,24 @@ After completing this lab, you will be able to:
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
  
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+
+   ![](./images/18.png)
  
 7. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+
+    ![](./images/28.png)
  
-8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click on **Next**.
+8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization(1)** is selected and click on **Next(2)**.
+
+    ![](./images/20.png)
  
 9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
+   ![](./images/08.png)
+
     >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+    ![](./images/19.png)
 
 10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
@@ -67,6 +84,8 @@ After completing this lab, you will be able to:
     >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
+
+    ![](./images/07.png)
  
 15. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
    
@@ -76,9 +95,13 @@ After completing this lab, you will be able to:
     
 18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
+    ![](./images/25.png)
+
     >**Note**: Installation should take about 2 minutes.
 
 19. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+ 
+    ![](./images/06.png)
 
 20. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using following Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
@@ -86,9 +109,9 @@ After completing this lab, you will be able to:
 
      * Password: <inject key="AzureAdUserPassword"></inject>
      
-21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Microsoft Entra ID** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
     
-22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
+22. On the **All users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
     >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -100,6 +123,8 @@ After completing this lab, you will be able to:
 
 24. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<DeploymentID>` and file share with the name `az140-22-profiles`.
    
+    ![](./images/22.png)
+
     >**Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
 
 
@@ -216,6 +241,8 @@ The main tasks for this exercise are as follows:
 1. Select **Upload** and **browse for files**, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** and upload the lab files **az140-24_azuredeployhp3.json** and **az140-24_azuredeployhp3.parameters.json** to the file share.
 
 1. Within the Bastion session to **az140-dc-vm11**, open File Explorer and navigate to the previously configured **Z** drive:, or the drive letter assigned to the connection to the File Share. Copy the uploaded deployment files to **C:\AllFiles\Labs\02**.
+
+    ![](./images/21.png)
 
 1. Within the Bastion session to **az140-dc-vm11**, from the **Administrator: Windows PowerShell ISE** console, run the following to deploy an Azure VM running Windows 10 Enterprise (multi-session) that will serve as a Azure Virtual Desktop session host in the host pool you created in the previous task:
 

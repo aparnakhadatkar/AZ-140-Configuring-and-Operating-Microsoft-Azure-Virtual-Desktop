@@ -29,7 +29,7 @@ After completing this lab, you will be able to:
 
 3. On the **az140-dc-vm11** blade, select **Connect**.
 
-4. On the **az140-dc-vm11| Connect** blade,, select **Go to Bastion**.
+4. On the **az140-dc-vm11| Connect** blade, select **Go to Bastion**.
 
    ![](./images/11.png)
 
@@ -58,17 +58,23 @@ After completing this lab, you will be able to:
 
 8. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
+   ![](./images/18.png)
+
 9. On the **Install required components** page, leave all optional configuration options deselected and select **Install**, and wait for 2 minutes to complete the installation.
 
-   ![](./images/09.png)
+   ![](./images/28.png)
 
-10. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+10. On the **User sign-in** page, ensure that only the **Password Hash Synchronization(1)** is enabled and select **Next(2)**.
+
+    ![](./images/20.png)
 
 11. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**.
 
     ![](./images/08.png)
 
       > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+      ![](./images/19.png)
 
 12. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
@@ -96,6 +102,8 @@ After completing this lab, you will be able to:
 19. On the **Optional features** page, accept the default settings, and select **Next**.
 
 20. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+    
+    ![](./images/25.png)
 
     > **Note**: Installation should take about 2 minutes.
 
