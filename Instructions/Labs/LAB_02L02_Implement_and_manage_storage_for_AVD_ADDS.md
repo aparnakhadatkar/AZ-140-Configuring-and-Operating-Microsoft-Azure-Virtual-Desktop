@@ -29,11 +29,11 @@ After completing this lab, you will be able to:
 
 3. On the **az140-dc-vm11** blade, select **Connect**.
 
-4. On the **az140-dc-vm11| Connect** blade,, select **Go to Bastion**.
+4. On the **az140-dc-vm11| Connect** blade, select **Go to Bastion**.
 
    ![](./images/11.png)
 
-5. On the **Bastion** tab of the **az140-dc-vm11**,, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
+5. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
 
    |Setting|Value|
    |---|---|
@@ -44,11 +44,11 @@ After completing this lab, you will be able to:
     ![](./images/10.png)
 
 
-     >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
 
-     ![](./images/AZ-140-1.png)
+    ![](./images/AZ-140-1.png)
   
-     >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
 6. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
 
@@ -58,17 +58,23 @@ After completing this lab, you will be able to:
 
 8. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
+   ![](./images/18.png)
+
 9. On the **Install required components** page, leave all optional configuration options deselected and select **Install**, and wait for 2 minutes to complete the installation.
 
-   ![](./images/09.png)
+   ![](./images/28.png)
 
-10. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+10. On the **User sign-in** page, ensure that only the **Password Hash Synchronization(1)** is enabled and select **Next(2)**.
+
+    ![](./images/20.png)
 
 11. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**.
 
     ![](./images/08.png)
 
       > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+      ![](./images/19.png)
 
 12. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
@@ -96,6 +102,8 @@ After completing this lab, you will be able to:
 19. On the **Optional features** page, accept the default settings, and select **Next**.
 
 20. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
+    
+    ![](./images/25.png)
 
     > **Note**: Installation should take about 2 minutes.
 
@@ -131,13 +139,13 @@ The main tasks for this exercise are as follows:
 
 1. From your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 
-1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of the resource group as **az140-22-RG** and select the **Region** in which the lab was deployed, then select **Review + Create** and select **Create**.
+1. In the Azure portal, search for and select **Resource group**, Click on **+ Create** and enter the name of the resource group as **az140-22-RG** and select the **Region** in which the **lab was deployed**, then select **Review + Create** and select **Create**.
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
 1. On the **az140-dc-vm11| Connect** blade,, select **Go to Bastion**.
 
-1. On the **Bastion** tab of the **az140-dc-vm11**,, provide the following credentials for the **Connection Settings** and select **Connect**:
+1. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect**:
 
    |Setting|Value|
    |---|---|
@@ -165,7 +173,7 @@ The main tasks for this exercise are as follows:
 
 1. On the **Basics** tab of the **Create storage account** blade, select **Review**, wait for the validation process to complete, and then select **Create**.
 
-1. Monitor the deployment status on the deployment page. In a minute or so, you should see a confirmation of the successful deployment. Select Go to resource (2). This action will redirect you to the page.
+1. Monitor the deployment status on the deployment page. In a minute or so, you should see a confirmation of the successful deployment. Select **Go to resource**. This action will redirect you to the page.
 
    ![](./images/05.png)
 
