@@ -22,76 +22,102 @@ After completing this lab, you will be able to:
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
-2. On the **az140-dc-vm11** blade, select **Connect**, select **Bastion**, and select **Use Bastion**.
+23. On the **az140-dc-vm11** blade, select **Connect**.
 
-3. On the **Bastion** tab of the **az140-dc-vm11** when prompted, provide the following credentials and select **Connect**:
+4. On the **az140-dc-vm11| Connect** blade, select **Go to Bastion**.
+
+   ![](./images/11.png)
+
+5. On the **Bastion** tab of the **az140-dc-vm11**, provide the following credentials for the **Connection Settings** and select **Connect (4)**:
 
    |Setting|Value|
    |---|---|
-   |User Name|**Student**|
-   |Authentication Type|**Password**|
-   |Password|**Pa55w.rd1234**|
+   |Username|**Student (1)**|
+   |Authentication Type|**VM Password (2)**|    
+   |Password|**Pa55w.rd1234 (3)**|
 
-   > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+    ![](./images/10.png)
+
+   >**Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
   
-   ![](./images/AZ-140-1.png)
-  
-   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
 4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
-   > **Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
-
+   
+   >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
-
+ 
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
+   ![](./images/18.png)
+ 
 7. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
 
-8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+    ![](./images/28.png)
+ 
+8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization(1)** is selected and click on **Next(2)**.
 
-9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
+    ![](./images/20.png)
+ 
+9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
-      > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+   ![](./images/08.png)
+
+    >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+    ![](./images/19.png)
 
 10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 
 11. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
-      |Setting|Value|
-      |---|---|
-      |User Name|**ADATUM\Student**|
-      |Password|**Pa55w.rd1234**|
+     |Setting|Value|
+     |---|---|
+     |User Name|**ADATUM\Student**|
+     |Password|**Pa55w.rd1234**|
 
 12. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
-
+  
 13. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
-      > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
+    >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
 14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
 
+    ![](./images/07.png)
+ 
 15. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
-
+   
 16. On the **Filter users and devices** page, accept the default settings, and select **Next**.
-
+    
 17. On the **Optional features** page, accept the default settings, and select **Next**.
-
+    
 18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
-      > **Note**: Installation should take about 2 minutes.
+    ![](./images/25.png)
+
+    >**Note**: Installation should take about 2 minutes.
 
 19. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
+ 
+    ![](./images/06.png)
 
-20. Within the Remote Desktop session to **az140-dc-vm11**, open **Azure portal** shortcut which is present on the desktop. Sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
+20. Within the Bastion session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using following Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
 
-21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section, select **Users**.
+     * Email/Username: <inject key="AzureAdUserEmail"></inject>
 
-22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created in the previous lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
+     * Password: <inject key="AzureAdUserPassword"></inject>
+     
+21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Microsoft Entra ID** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+    
+22. On the **All users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
       > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
 23. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<inject key="DeploymentID" enableCopy="false"/>` and file share with the name `az140-22-profiles`.
+
+    ![](./images/22.png)
    
       > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text `Lab Pre-requisite Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
   
@@ -103,6 +129,8 @@ After completing this lab, you will be able to:
        |Subnet address range|**keep this as default**|
 
 25. Now right click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
+
+    ![](./images/29.png)
       
       > **Note**: The script execution will take about 5 minutes. 
 
@@ -438,7 +466,11 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Test the modified Azure AD-based Conditional Access policy 
 
-1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations secction select **Run command**, select **RunPowerShellScript** and in the Run Command Script under PowerShell Script run the below command, you'll see the message **Script execution complete**, close the powershell.
+1. On your lab computer, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select the **az140-cl-vm11** virtual machines, under operations section select **Run command (1)**, select **RunPowerShellScript (2)**.
+
+   ![](./images/30.png)
+
+1. In the Run Command Script under PowerShell Script run the below command, you'll see the message **Script execution complete**, close the powershell.
 
    ```powershell
    Add-LocalGroupMember -Group "Remote desktop Users" -Member adatum\aduser5
@@ -446,11 +478,11 @@ The main tasks for this exercise are as follows:
 
 2. On the **az140-cl-vm11** blade, select **Connect**, select **Bastion**, than select **Use Bastion**.
 
-   > **Note:** if it is taking time to connect than refresh the page.
+   > **Note:** If it is taking time to connect than refresh the page.
 
 3. When prompted, provide the credentials of **aduser5** and and, in the **Password** textbox give **Pa55w.rd1234** and select **Connect** 
 
-   > **Note:** if the error prompted **A popup blocker is preventing new window from opening. Please allow popups and retry.**, then select **Allow**.
+   > **Note:** If the error prompted **A popup blocker is preventing new window from opening. Please allow popups and retry.**, then select **Allow**.
 
 4. Within the Remote Desktop session to **az140-cl-vm11**, start Microsoft Edge and navigate to navigate to the Azure Virtual Desktop HTML5 web client page at [https://rdweb.wvd.microsoft.com/arm/webclient](https://rdweb.wvd.microsoft.com/arm/webclient).
 
@@ -462,7 +494,7 @@ The main tasks for this exercise are as follows:
 
 7. Verify that the **Command Prompt** Remote App was launched successfully.
 
-   >**Note:** if you are not able to launch the command prompt, check inside the azure portal, in application group **aduser5** are added, if not than if you to add and perform from the step-5 again.
+   >**Note:** If you are not able to launch the command prompt, check inside the azure portal, in application group **aduser5** are added, if not than if you to add and perform from the step-5 again.
 
 8. In the **Command Prompt** Remote App window, at the command prompt, type **logoff** and press the **Enter** key.
 
