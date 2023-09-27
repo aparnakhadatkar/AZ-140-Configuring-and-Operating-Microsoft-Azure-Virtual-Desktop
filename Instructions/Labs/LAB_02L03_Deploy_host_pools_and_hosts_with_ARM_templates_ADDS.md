@@ -55,6 +55,8 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
 
+    ![](./images/31.png)
+
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
    ![](./images/18.png)

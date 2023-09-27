@@ -47,6 +47,8 @@ After completing this lab, you will be able to:
    >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+
+    ![](./images/31.png)
  
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
@@ -271,7 +273,7 @@ The main tasks for this exercise are as follows:
 
 1. Within the Bastion session to **az140-dc-vm11**, in the browser window displaying the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, in the list of virtual machines, select **az140-24-p3-0**.
    
-2. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 \| Connect** blade, in the **IP address** drop-down list, select the **Private IP address (10.0.3.4)** entry, and then select **Download RDP File**, open the downloded file and click on **Connect**.
+2. On the **az140-24-p3-0** blade, select **Connect**, and select **RDP**, on the **RDP** tab of the **az140-24-p3-0 | Connect** blade, Copy the **Private IP address (10.0.3.4)** under **Connecting using private IP address**, and then select **Native RDP** then under step 3 select **Download RDP File**, open the downloded file and click on **Connect**.
    
 3. When prompted, sign in with the following credentials and click on **OK**.
 
