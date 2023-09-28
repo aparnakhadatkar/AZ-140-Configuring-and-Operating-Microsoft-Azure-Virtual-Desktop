@@ -21,8 +21,10 @@ After completing this lab, you will be able to:
 
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
    
-2. On the **az140-dc-vm11** blade, select **Connect**, and select **Bastion**, on the **Bastion** tab of the **az140-dc-vm11 \| Connect** blade, select **Use Bastion**.
+2. On the **az140-dc-vm11** blade, select **Connect**, and then select **Go to Bastion**.
    
+![](./images/e1s2.jpg)
+
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
@@ -34,21 +36,33 @@ After completing this lab, you will be able to:
   
    >**Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
 
+![](./images/e1s3.jpg)
+
 4. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
    
    >**Note**: Wait for the logon task to complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+
+![](./images/e1s5.1.jpg)
    
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+
+![](./images/e1s6.jpg)
     
 7. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+
+![](./images/e1s7.jpg)
     
 8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is selected and click **Next**.
-    
+  
+![](./images/e1s8.jpg)
+  
 9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account and select **Next**. 
 
     >**Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+
+![](./images/e1s9.jpg)
 
 10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
     
@@ -59,14 +73,20 @@ After completing this lab, you will be able to:
       |User Name|**ADATUM\Student**|
       |Password|**Pa55w.rd1234**|
 
+![](./images/e1s10.jpg)
+
 12. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**.
     
 13. On the **Azure AD sign-in configuration** page, note the warning stating **Users will not be able to sign-in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
     >**Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
+![](./images/adconnect.png)
+
 14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
-    
+  
+![](./images/adconnect1.png)
+  
 15. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
     
 16. On the **Filter users and devices** page, accept the default settings, and select **Next**.
@@ -85,9 +105,9 @@ After completing this lab, you will be able to:
 
       * Password: <inject key="AzureAdUserPassword"></inject>
     
-22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+22. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Microsoft Entra ID** blade and, on your Microsoft Entra ID tenant blade, in the **Manage** section of the hub menu, select **Users**.
     
-23. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
+23. On the **All users** blade, note that the list of user objects includes the listing of AD DS user accounts you created earlier in this lab, with the **Yes** entry appearing in the **On-premises sync enabled** column.
 
     >**Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
@@ -131,7 +151,6 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, in the toolbar of the Cloud Shell pane, select the **Upload/Download files** icon, in the drop-down menu select **Upload**, navigate to the path **C:\AllFiles\AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop\Allfiles\Labs\02** in the **Open** window, and select the files one after the another **az140-25_azuredeployvm25.json** and **az140-25_azuredeployvm25.parameters.json** and select **Open**. This will upload the files into the Cloud Shell home directory.
 
-    ![](./images/az-140-1.png)
 
 1. From the PowerShell session in the Cloud Shell pane, run the following to deploy an Azure VM running Windows 10 that will serve as a Azure Virtual Desktop client into the newly created subnet:
 
@@ -184,6 +203,8 @@ The main tasks for this exercise are as follows:
    |Subnet|**AzureBastionSubnet (10.25.254.0/24)**|
    |Public IP address|**Create new**|
    |Public IP name|**az140-25-vnet-ip**|
+
+  ![](./images/e2t2s6.jpg)
 
 1. On the **Review + create** tab of the **Create a Bastion** blade, select **Create**:
 
@@ -306,24 +327,26 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
 
       >**Note**: Wait for the sysprep process to complete. This might take about 2 minutes. This will automatically shut down the operating system. 
 
-1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-25-vm0**.
+2. From your lab computer, in the web browser displaying the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-25-vm0**.
    
-1. On the **az140-25-vm0** blade, in the toolbar above the **Essentials** section, click **Refresh**, verify that the **Status** of the Azure VM changed to **Stopped**, click **Stop**, and, when prompted for confirmation, click **OK** to transition the Azure VM into the **Stopped (deallocated)** state.
+3. On the **az140-25-vm0** blade, in the toolbar above the **Essentials** section, click **Refresh**, verify that the **Status** of the Azure VM changed to **Stopped**, click **Stop**, and, when prompted for confirmation, click **OK** to transition the Azure VM into the **Stopped (deallocated)** state.
    
-1. On the **az140-25-vm0** blade, verify that the **Status** of the Azure VM changed to the **Stopped (deallocated)** state and, in the toolbar, click **Capture**. This will automatically display the **Create an image** blade.
+4. On the **az140-25-vm0** blade, verify that the **Status** of the Azure VM changed to the **Stopped (deallocated)** state and, in the toolbar, click **Capture**. This will automatically display the **Create an image** blade.
    
-1. On the **Basics** tab of the **Create an image** blade, specify the following settings:
+5. On the **Basics** tab of the **Create an image** blade, specify the following settings:
 
    |Setting|Value|
    |---|---|
-   |Share image to Azure compute gallery|**Yes, share it to a gallery as an image version**|
+   |Share image to Azure compute gallery|**Yes, share it to a gallery as a VM image version**|
    |Automatically delete this virtual machine after creating the image|checkbox cleared|
    |Target Azure compute gallery|**Create new** gallery with name **az14025imagegallery**|
    |Operating system state|**Generalized**|
 
-1. On the **Basics** tab of the **Create an image** blade, below the **Target VM image definition** textbox, click **Create new**.
+ ![](./images/e2t4s5-1.jpg)
+
+6. On the **Basics** tab of the **Create an image** blade, below the **Target VM image definition** textbox, click **Create new**.
    
-1. On the **Create a VM image definition**, specify the following settings and click **OK**:
+7. On the **Create a VM image definition**, specify the following settings and click **OK**:
 
    |Setting|Value|
    |---|---|
@@ -332,7 +355,7 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Offer|**office-365**|
    |SKU|**20h1-evd-o365pp**|
 
-1. Back on the **Basics** tab of the **Create an image** blade, specify the following settings and click **Review + create**:
+8. Back on the **Basics** tab of the **Create an image** blade, specify the following settings and click **Review + create**:
 
    |Setting|Value|
    |---|---|
@@ -343,26 +366,30 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Target region replica count|**1**|
    |Storage account type|**Premium SSD LRS**|
 
-1. On the **Review + create** tab of the **Create an image** blade, click **Create**.
+ ![](./images/e2t4s5-2.jpg)
+
+9. On the **Review + create** tab of the **Create an image** blade, click **Create**.
 
    >**Note**: Wait for the deployment to complete. This might take about 20 minutes.
 
-1. From your lab computer, in the web browser displaying the Azure portal, search for and select **Azure compute galleries** and, on the **Azure compute galleries** blade, select the **az14025imagegallery** entry, and on the **az14025imagegallery**'s **Overview** blade, scroll down to the **Definitions** tab and verify the presence of the **az140-25-host-image** entry representing the newly created image.
+10. From your lab computer, in the web browser displaying the Azure portal, search for and select **Azure compute galleries** and, on the **Azure compute galleries** blade, select the **az14025imagegallery** entry, and on the **az14025imagegallery**'s **Overview** blade, scroll down to the **Definitions** tab and verify the presence of the **az140-25-host-image** entry representing the newly created image.
 
 ### Task 5: Provision a Azure Virtual Desktop host pool by using a custom image
 
 1. From the lab computer, in the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page to search for and navigate to **Virtual networks** and, on the **Virtual networks** blade, select **az140-adds-vnet11**. 
 
-1. On the **az140-adds-vnet11** blade, select **Subnets** from the vertical menu in the left side, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
+2. On the **az140-adds-vnet11** blade, select **Subnets** from the vertical menu in the left side, on the **Subnets** blade, select **+ Subnet**, on the **Add subnet** blade, specify the following settings (leave all other settings with their default values) and click **Save**:
 
    |Setting|Value|
    |---|---|
    |Name|**hp4-Subnet**|
    |Subnet address range|**10.0.4.0/24**|
 
-1. From the lab computer, in the Azure portal, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**. 
+![](./images/e2t5s2.jpg)
 
-1. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Virtual Machines >**:
+3. From the lab computer, in the Azure portal, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Host pools** and, on the **Azure Virtual Desktop \| Host pools** blade, select **+ Create**. 
+
+4. On the **Basics** tab of the **Create a host pool** blade, specify the following settings and select **Next: Virtual Machines >**:
 
    |Setting|Value|
    |---|---|
@@ -371,11 +398,14 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Host pool name|**az140-25-hp4**|
    |Location|the name of the Azure region into which you deployed resources in the first exercise of this lab|
    |Validation environment|**No**|
+   |Preferred app group type|**Desktop**|
    |Host pool type|**Pooled**|
    |Load balancing algorithm|**Breadth-first**|
    |Max session limit|**50**|
 
-1. On the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings:
+![](./images/e2t5s4.jpg)
+
+5. On the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings:
 
    |Setting|Value|
    |---|---|
@@ -385,24 +415,27 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Virtual machine location|the name of the Azure region into which you deployed resources in the first exercise of this lab|
    |Availability options|No infrastructure redundancy required|
    |Security Type|Standard|
-   
+ 
+![](./images/e2t5s5-1-1.jpg)  
 
-1. On the **Virtual machines** tab of the **Create a host pool** blade, directly below the **Image** dropdown list, click the **See all images** link.
+6. On the **Virtual machines** tab of the **Create a host pool** blade, directly below the **Image** dropdown list, click the **See all images** link.
    
-1. On the Select an image blade, under Other Items, click Shared Images, and, in the list of shared images, select **az140-25-host-image**.
+7. On the Select an image blade, under Other Items, click Shared Images, and, in the list of shared images, select **az140-25-host-image**.
    
-1. Back on the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings and select **Next: Workspace >**
+8. Back on the **Virtual machines** tab of the **Create a host pool** blade, specify the following settings and select **Next: Workspace >**
 
    |Setting|Value|
    |---|---|
    |Virtual machine size|**Standard D2s v3**|
    |Number of VMs|**1**|
    |OS disk type|**Standard SSD**|
+   |Boot Diagnostics|**Enable with managed storage account (recommended)**|
    |Virtual network|**az140-adds-vnet11**|
    |Subnet|**hp4-Subnet (10.0.4.0/24)**|
    |Network security group|**Basic**|
    |Public inbound ports|**Yes**|
    |Inbound ports to allow|**RDP**|
+   |Select which directory you would like to join|**Active Directory**|
    |AD domain join UPN|**student@adatum.com**|
    |Password|**Pa55w.rd1234**|
    |Specify domain or unit|**Yes**|
@@ -412,13 +445,17 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    |Password|Pa55w.rd1234|
    |Confirm password|Pa55w.rd1234|
 
-1. On the **Workspace** tab of the **Create a host pool** blade, specify the following settings and select **Review + create**:
+![](./images/e2t5s5-2.jpg)
+
+![](./images/e2t5s5-3.jpg)
+
+9. On the **Workspace** tab of the **Create a host pool** blade, specify the following settings and select **Review + create**:
 
    |Setting|Value|
    |---|---|
    |Register desktop app group|**No**|
 
-1. On the **Review + create** tab of the **Create a host pool** blade, select **Create**.
+10. On the **Review + create** tab of the **Create a host pool** blade, select **Create**.
 
    >**Note**: Wait for the deployment to complete. This might take about 10 minutes.
    
@@ -438,4 +475,3 @@ Deploy the Teams desktop app to the VM](https://docs.microsoft.com/en-us/microso
    - Created and managed session host images
 
    ## You have successfully completed the lab.
-
