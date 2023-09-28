@@ -250,17 +250,17 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, in the vertical menu bar, in the **Manage section**, select **Host pools**.
    
-1. On the **Azure Virtual Desktop \| Host pools** blade, in the list of host pools, select **az140-21-hp1**.
+2. On the **Azure Virtual Desktop \| Host pools** blade, in the list of host pools, select **az140-21-hp1**.
    
-1. On the **az140-21-hp1** blade, in the in the vertical menu bar, in the **Manage section**, select **Session hosts** and verify that the pool consists of two hosts.
+3. On the **az140-21-hp1** blade, in the in the vertical menu bar, in the **Manage section**, select **Session hosts** and verify that the pool consists of two hosts.
    
-1. On the **az140-21-hp1 \| Session hosts** blade, select **+ Add**.
+4. On the **az140-21-hp1 \| Session hosts** blade, select **+ Add**.
    
-1. On the **Basics** tab of the **Add virtual machines to a host pool** blade, review the preconfigured settings and select **Next: Virtual Machines**.
+5. On the **Basics** tab of the **Add virtual machines to a host pool** blade, review the preconfigured settings and select **Next: Virtual Machines**.
   
 ![](./images/e2t3s5.jpg)
  
-1. On the **Virtual Machines** tab of the **Add virtual machines to a host pool** blade, specify the following settings and select **Review + create** (leave others with their default settings):
+6. On the **Virtual Machines** tab of the **Add virtual machines to a host pool** blade, specify the following settings and select **Review + create** (leave others with their default settings):
 
    |Setting|Value|
    |---|---|
@@ -295,7 +295,7 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t3s6-3.jpg)
 
-1. On the **Review + create** tab of the **Add virtual machines to a host pool** blade, select **Create**
+7. On the **Review + create** tab of the **Add virtual machines to a host pool** blade, select **Create**
 
    >**Note**: Wait for the deployment to complete before you proceed to the next task. The deployment might take about 10 minutes. 
 
@@ -303,19 +303,19 @@ The main tasks for this exercise are as follows:
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the web browser window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
    
-1. On the **Azure Virtual Desktop \| Application groups** blade, note the existing, auto-generated **az140-21-hp1-DAG** desktop application group, and select it.
+2. On the **Azure Virtual Desktop \| Application groups** blade, note the existing, auto-generated **az140-21-hp1-DAG** desktop application group, and select it.
    
-1. On the **az140-21-hp1-DAG** blade, under **Manage** section, select **Assignments**.
+3. On the **az140-21-hp1-DAG** blade, under **Manage** section, select **Assignments**.
    
-1. On the **az140-21-hp1-DAG \| Assignments** blade, select **+ Add**.
+4. On the **az140-21-hp1-DAG \| Assignments** blade, select **+ Add**.
    
-1. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-pooled** and click **Select**.
+5. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-pooled** and click **Select**.
 
 ![](./images/e2t4s5.jpg)
    
-1. Navigate back to the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
+6. Navigate back to the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
    
-1. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
+7. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
 
    |Setting|Value|
    |---|---|
@@ -327,9 +327,9 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s7.jpg)
 
-1. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+8. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
    
-1. On the **Add application** blade, specify the following settings and select **Save**:
+9. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
    |---|---|
@@ -340,9 +340,9 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s9.jpg)
 
-1. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+10. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
    
-1. On the **Add application** blade, specify the following settings and select **Save**:
+11. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
    |---|---|
@@ -353,9 +353,9 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s11.jpg)
 
-1. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+12. Back on the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
    
-1. On the **Add application** blade, specify the following settings and select **Save**:
+13. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
    |---|---|
@@ -366,33 +366,33 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s13.jpg)
 
-1. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+14. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
    
-1. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Microsoft Entra users or user groups**.
+15. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Microsoft Entra users or user groups**.
    
-1. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-remote-app** and click **Select**.
+16. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-remote-app** and click **Select**.
   
 ![](./images/e2t4s16.jpg)
  
-1. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+17. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
    
-1. On the **Workspace** tab of the **Create an application group** blade, specify the following setting and select **Review + create**:
+18. On the **Workspace** tab of the **Create an application group** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
    |---|---|
    |Register application group|**No**|
 
-1. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+19. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
    >**Note**: Wait for the Application Group to be created. This should take less than 1 minute. 
 
    >**Note**: Next you will create an application group based on file path as the application source.
 
-1. Within the Remote Desktop session to **az140-dc-vm11**, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
+20. Within the Remote Desktop session to **az140-dc-vm11**, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Application groups**.
    
-1. On the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
+21. On the **Azure Virtual Desktop \| Application groups** blade, select **+ Create**.
    
-1. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
+22. On the **Basics** tab of the **Create an application group** blade, specify the following settings and select **Next: Applications >**:
 
    |Setting|Value|
    |---|---|
@@ -404,9 +404,9 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s22.jpg)
 
-1. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+23. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
    
-1. On the **Add application** blade, specify the following settings and select **Save**:
+24. On the **Add application** blade, specify the following settings and select **Save**:
 
    |Setting|Value|
    |---|---|
@@ -421,29 +421,29 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t4s24.jpg)
 
-1. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+25. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
    
-1. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Microsoft Entra users or user groups**.
+26. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Microsoft Entra users or user groups**.
    
-1. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
+27. On the **Select Microsoft Entra users or user groups** blade, select **az140-wvd-remote-app** and **az140-wvd-admins** and click **Select**.
    
-1. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+28. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
    
-1. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+29. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
 
    |Setting|Value|
    |---|---|
    |Register application group|**No**|
 
-1. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
+30. On the **Review + create** tab of the **Create an application group** blade, select **Create**.
 
 ### Task 5: Configure Azure Virtual Desktop workspaces
 
 1. Within the Remote Desktop session to **az140-dc-vm11**, in the Microsoft Edge window displaying the Azure portal, search for and select **Azure Virtual Desktop** and, on the **Azure Virtual Desktop** blade, under **Manage** section, select **Workspaces**.
    
-1. On the **Azure Virtual Desktop \| Workspaces** blade, select **+ Create**.
+2. On the **Azure Virtual Desktop \| Workspaces** blade, select **+ Create**.
    
-1. On the **Basics** tab of the **Create a workspace** blade, specify the following settings and select **Next: Application groups>**:
+3. On the **Basics** tab of the **Create a workspace** blade, specify the following settings and select **Next: Application groups>**:
 
    |Setting|Value|
    |---|---|
@@ -455,21 +455,21 @@ The main tasks for this exercise are as follows:
 
 ![](./images/e2t5s3.jpg)
 
-1. On the **Application groups** tab of the **Create a workspace** blade, specify the following settings:
+4. On the **Application groups** tab of the **Create a workspace** blade, specify the following settings:
 
    |Setting|Value|
    |---|---|
    |Register application groups|**Yes**|
 
-1. On the **Application groups** tab of the **Create a workspace** blade, select **+ Register application groups**.
+5. On the **Application groups** tab of the **Create a workspace** blade, select **+ Register application groups**.
    
-1. On the **Add application groups** blade, select the plus sign next to the **az140-21-hp1-DAG**, **az140-21-hp1-Office365-RAG**, and **az140-21-hp1-Utilities-RAG** entries and click **Select**.
+6. On the **Add application groups** blade, select the plus sign next to the **az140-21-hp1-DAG**, **az140-21-hp1-Office365-RAG**, and **az140-21-hp1-Utilities-RAG** entries and click **Select**.
    
-1. Back on the **Application groups** tab of the **Create a workspace** blade, select **Review + create**.
+7. Back on the **Application groups** tab of the **Create a workspace** blade, select **Review + create**.
   
 ![](./images/e2t5s7.jpg)
  
-1. On the **Review + create** tab of the **Create a workspace** blade, select **Create**.
+8. On the **Review + create** tab of the **Create a workspace** blade, select **Create**.
 
 ## Exercise 3: Validate Azure Virtual Desktop environment
   
