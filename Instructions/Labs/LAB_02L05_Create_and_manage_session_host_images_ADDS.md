@@ -172,9 +172,9 @@ The main tasks for this exercise are as follows:
 
 1. In the browser window displaying the Azure portal, open another tab and, in the browser tab, navigate to the Azure portal.
    
-1. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
+2. In the Azure portal, open **Cloud Shell** pane by selecting on the toolbar icon directly to the right of the search textbox.
    
-1. From the PowerShell session in the Cloud Shell pane, run the following to add a subnet named **AzureBastionSubnet** to the virtual network named **az140-25-vnet**:
+3. From the PowerShell session in the Cloud Shell pane, run the following to add a subnet named **AzureBastionSubnet** to the virtual network named **az140-25-vnet**:
 
    ```powershell
    $resourceGroupName = 'az140-25-RG'
@@ -186,11 +186,11 @@ The main tasks for this exercise are as follows:
    $vnet | Set-AzVirtualNetwork
    ```
 
-1. Close the Cloud Shell pane.
+4. Close the Cloud Shell pane.
    
-1. In the Azure portal, search for and select **Bastions** and, from the **Bastions** blade, select **+ Create**.
+5. In the Azure portal, search for and select **Bastions** and, from the **Bastions** blade, select **+ Create**.
    
-1. On the **Basic** tab of the **Create a Bastion** blade, specify the following settings and select **Review + create**:
+6. On the **Basic** tab of the **Create a Bastion** blade, specify the following settings and select **Review + create**:
 
    |Setting|Value|
    |---|---|
@@ -206,7 +206,7 @@ The main tasks for this exercise are as follows:
 
   ![](./images/e2t2s6.jpg)
 
-1. On the **Review + create** tab of the **Create a Bastion** blade, select **Create**:
+7. On the **Review + create** tab of the **Create a Bastion** blade, select **Create**:
 
    >**Note**: Wait for the deployment to complete before you proceed to the next exercise. The deployment might take about 15 minutes.
 
