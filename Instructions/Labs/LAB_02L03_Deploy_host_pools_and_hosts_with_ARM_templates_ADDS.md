@@ -42,12 +42,11 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
     ![](./images/10.png)
 
 
-   > **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
+   **Note**: On clicking **Connect**, if you encounter an error: **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** and click on **Done**, and try connecting to the VM again.
 
-    ![](./images/16.png)
+     ![](./images/16.png) 
 
-  
-   > **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**. 
+   **Note**: If you are prompted **See text and images copied to the clipboard**, select **Allow**.
 
 5. Once logged in, a logon task will start executing. When prompted **Do you want PowerShell to install and import the Nuget provider now?** enter **Y** and hit enter.
    
@@ -55,6 +54,8 @@ After completing this lab, you will be able to deploy Azure Virtual Desktop host
 
 
 6. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+
+    ![](./images/31.png)
 
 7. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
 
@@ -382,7 +383,6 @@ The main tasks for this exercise are as follows:
       > **Note**: Now let's switch the personal desktop assignment from the direct mode to automatic. 
 
 16. Switch to your lab computer, to the web browser displaying the Azure portal, search for and select **Azure Virtual Desktop**, on the **Azure Virtual Desktop** blade, select **Application groups**, and select the application group entry **az140-23-hp2-DAG**. On the **az140-23-hp2-DAG** blade, in the vertical menu in the left side, select the **Assignments**. In the informational bar directly above the list of assignments, click the **Assign VM** link. This will redirect you to the **az140-23-hp2 \| Session hosts** blade. 
-
 
     ![](./images/13.png)
 
