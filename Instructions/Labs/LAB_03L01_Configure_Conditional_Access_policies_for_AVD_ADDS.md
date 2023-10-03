@@ -16,7 +16,7 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod7.png)
+  ![](./images/az-140-mod07.png)
 
 ## Exercise 1: Prerequisite - Setup  Microsoft Entra ID Connect
 
