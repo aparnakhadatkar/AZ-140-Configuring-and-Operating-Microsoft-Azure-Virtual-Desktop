@@ -12,7 +12,7 @@ After completing this lab, you will be able to implement FSLogix based profiles 
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod8a.png)
+  ![](./images/az-140-mod08a.png)
 
 
 
