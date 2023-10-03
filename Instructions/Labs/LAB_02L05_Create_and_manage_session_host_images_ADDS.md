@@ -15,7 +15,7 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod6.png)
+  ![](./images/az-140-mod06.png)
 
 ## Exercise 1: Prerequisite - Setup Azure AD Connect
 
