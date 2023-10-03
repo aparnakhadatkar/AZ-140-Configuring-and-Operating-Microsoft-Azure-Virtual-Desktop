@@ -17,7 +17,7 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod8b.png)
+  ![](./images/az-140-mod08b.png)
 
 ### Exercise 1: Prepare for and create MSIX app packages
 

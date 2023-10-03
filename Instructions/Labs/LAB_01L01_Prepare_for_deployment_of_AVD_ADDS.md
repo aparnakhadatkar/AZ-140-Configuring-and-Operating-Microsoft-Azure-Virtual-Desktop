@@ -16,7 +16,7 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod1.1.png)
+  ![](./images/az-140-mod01.png)
 
 
 ### Exercise 1: Deploy an Active Directory Domain Services (AD DS) domain

@@ -16,7 +16,7 @@ After completing this lab, you will be able to:
 
 ## Architecture Diagram
   
-  ![](./images/az-140-mod9.1.png)
+  ![](./images/az-140-mod09.1.png)
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
