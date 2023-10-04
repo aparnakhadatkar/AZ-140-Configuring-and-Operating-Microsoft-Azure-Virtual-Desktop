@@ -224,7 +224,7 @@ The main tasks for this exercise are as follows:
 
 1. Back in your lab Virtual Machine, in the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-21-p1-0**.
 
-  ![](./images/60.png)
+    ![](./images/60.png)
 
 1. On the **az140-21-p1-0** blade, select **Connect**.
 
@@ -301,7 +301,7 @@ The main tasks for this exercise are as follows:
      - FSLogix Profile Exclude List
      - FSLogix Profile Include List
 
-     ![](./images/56.png)
+       ![](./images/56.png)
 
 14. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Include List** group, note that it includes the **\\Everyone** group, and select **OK** to close the group **Properties** window. 
 15. In the **Local Users and Groups** console, in the list of groups, double-click the **FSLogix Profile Exclude List** group, note that it does not include any group members by default, and select **OK** to close the group **Properties** window. 
@@ -380,7 +380,7 @@ The main tasks for this exercise are as follows:
    - Email: copy and paste **aduser1** email.
    - Password: **Pa55w.rd1234**
 
-    ![](./images/55.png)
+     ![](./images/55.png)
 
 
    > **Note**  If you're not asked to subscribe, you might have to unsubscribe from a previous subscription.
