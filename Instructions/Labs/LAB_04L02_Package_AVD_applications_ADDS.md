@@ -81,7 +81,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 3: Generate a signing certificate
 
-> **Note**: In this lab, you will use a self-signed certificate. In a production environment, you should be using a certificate issued by either a public Certification Authority or an internal one, depending on the intended use.
+   > **Note**: In this lab, you will use a self-signed certificate. In a production environment, you should be using a certificate issued by either a public Certification Authority or an internal one, depending on the intended use.
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, from the **Administrator: Windows PowerShell ISE** console, run the following to generate a self-signed certificate with the Common Name attribute set to **Adatum**, and store the certificate in the **Personal** folder of the **Local Machine** certificate store:
 
@@ -256,6 +256,7 @@ The main tasks for this exercise are as follows:
 #### Task 2: Create an MSIX app attach image
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, start **Microsoft Edge**, browse to **https://aka.ms/msixmgr**. This will automatically download the **msixmgr.zip** file (the MSIX mgr tool archive) into the **Downloads** folder.
+
 1. In File Explorer, navigate to the **Downloads** folder, open the compressed file and copy the content of the **x64** folder (including the folder) to the **C:\\AllFiles\\Labs\\04** folder. 
 
 1. Within the Remote Desktop session to **az140-cl-vm42**, start **Windows PowerShell ISE** as administrator and, from the **Administrator: Windows PowerShell ISE**  script pane, run the following to create the VHD file that will serve as the MSIX app attach image:
@@ -397,7 +398,9 @@ The main tasks for this exercise are as follows:
    > **Note**: In production scenarios, you should consider using a separate storage account. This would require configuring that storage account for Azure AD DS authentication, which you already implemented for the storage account hosting user profiles. You are using the same storage account to minimize duplicate steps across individual labs.
 
 1. On the storage account blade, in the vertical menu on the left side, select **Access Control (IAM)**.
-1. On the **Access Control (IAM)** blade of the storage account, select **+ Add** and, in the drop-down menu, select **Add role assignment**, 
+
+1. On the **Access Control (IAM)** blade of the storage account, select **+ Add** and, in the drop-down menu, select **Add role assignment**.
+
 1. On the **Add role assignment** blade, specify the following settings and select **Review + Assign**:
 
    |Setting|Value|
@@ -416,6 +419,8 @@ The main tasks for this exercise are as follows:
    |Assign access to|**User, group, or service principal**|
    |Select|**az140-hosts-42-p1**|
 
+1. Repeat the previous two steps to configure the following role assignments:
+
    |Setting|Value|
    |---|---|
    |Role|**Storage File Data SMB Share Reader**|
@@ -425,6 +430,7 @@ The main tasks for this exercise are as follows:
    > **Note**: Azure Virtual Desktop users and hosts need at least read access to the file share.
 
 1. On the storage account blade, in the vertical menu on the left side, in the **Data storage** section, select **File shares** and then select **+ File share**.
+
 1. On the **New file share** blade, specify the following settings and select **Create** (leave other settings with their default values):
 
    |Setting|Value|
@@ -448,6 +454,9 @@ The main tasks for this exercise are as follows:
    icacls Z:\ /grant ADATUM\az140-wvd-users:(OI)(CI)(RX) /T
    icacls Z:\ /grant ADATUM\az140-wvd-admins:(OI)(CI)(F) /T
    ```
+   
+    ![](./images/71.png)
+    
 
    >**Note**: You could also set these permissions by using File Explorer while signed in as **ADATUM\\wvdadmin1**. 
 
