@@ -117,7 +117,7 @@ After completing this lab, you will be able to:
 
       > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to next step only if you are able to see the listing of AD DS user accounts you created. 
 
-23. Once the users are reflecting in the Azure AD, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<inject key="DeploymentID" enableCopy="false"/>` and file share with the name `az140-22-profiles`.
+23. Once the users are reflecting in the Microsoft Entra ID, right click on the **lab-prerequisite** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will configure the storage account with the naming convention `storage<inject key="DeploymentID" enableCopy="false"/>` and file share with the name `az140-22-profiles`.
 
     ![](./images/22.png)
 
