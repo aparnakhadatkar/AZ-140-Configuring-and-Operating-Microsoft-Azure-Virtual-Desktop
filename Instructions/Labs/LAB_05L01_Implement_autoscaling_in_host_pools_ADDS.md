@@ -20,7 +20,11 @@ After completing this lab, you will be able to:
 
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
-2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **Bastion**.
+
+2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **go-to Bastion** Then **Deploy bastion**.
+
+   >**Note**: The deployment can take few minutes.
+
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
    |Setting|Value|
@@ -41,7 +45,7 @@ After completing this lab, you will be able to:
 8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
 9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
-   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
+   > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser@mochol<inject key="DeploymentID" />.onmicrosoft.com** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
 10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
 11. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
@@ -56,21 +60,27 @@ After completing this lab, you will be able to:
 
     > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
 
-14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync** OU, and select **Next**.
+14. On the **Domain and OU filtering** page, select the option **Sync selected domains and OUs**, expand the adatum.com node, clear all checkboxes, select only the checkbox next to the **ToSync**, and select **Next**.
+
 15. On the **Uniquely identifying your users** page, accept the default settings, and select **Next**.
+
 16. On the **Filter users and devices** page, accept the default settings, and select **Next**.
+
 17. On the **Optional features** page, accept the default settings, and select **Next**.
-18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**the .
+
+18. On the **Ready to configure** page, ensure that the **Start the synchronization process when configuration completes** checkbox is selected and select **Install**.
 
     > **Note**: Installation should take about 2 minutes.
 
 19. Review the information on the **Configuration complete** page and select **Exit** to close the **Microsoft Azure Active Directory Connect** window.
 
 20. Within the Remote Desktop session to **az140-dc-vm11**, open Microsoft Edge browser shortcut for Azure or navigate to the [Azure portal](https://portal.azure.com). If prompted, sign in by using the Azure AD credentials of the user account with the Owner role in the subscription you are using in this lab.
-21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Azure Active Directory** blade and, on your Azure AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
-22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts, with the **Yes** entry appearing in the **Directory synced** column.
 
-    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to the next step only if you are able to see the listing of AD DS user accounts you created. 
+21. In the Azure portal, use the **Search resources, services, and docs** text box at the top of the Azure portal page, search for and navigate to the **Microsoft Entra ID** blade and, on your Entra AD tenant blade, in the **Manage** section of the hub menu, select **Users**.
+
+22. On the **All users (Preview)** blade, note that the list of user objects includes the listing of AD DS user accounts, with the **Yes** entry appearing in the **On premise sync** column.
+
+    > **Note**: You might have to wait a few minutes and refresh the browser page for the AD DS user accounts to appear. Proceed to the next step only if you are able to see the listing of AD user accounts you created. 
 
 23. Now right-click on the **Session-host** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will create the Session host.
     > **Note**: The script execution will take about 5 minutes. Once completed, the PowerShell window will display the text Session-host Task Completed Successfully` in green color and the Powershell window will automatically close after a few seconds.
