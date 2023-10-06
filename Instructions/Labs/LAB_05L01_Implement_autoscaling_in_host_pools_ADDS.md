@@ -21,9 +21,7 @@ After completing this lab, you will be able to:
 ### Exercise 0: Prerequisite - Setup Azure AD Connect
 1. In the Azure portal, search for and select **Virtual machines** and, from the **Virtual machines** blade, select **az140-dc-vm11**.
 
-2. On the **az140-dc-vm11** blade, select **Connect**, in the drop-down menu, select **go-to Bastion** Then **Deploy bastion**.
-
-   >**Note**: The deployment can take few minutes.
+2. On the **az140-dc-vm11** blade, On the left menu scroll down select **Basition**.
 
 3. On the **Bastion** tab of the **az140-dc-vm11**, when prompted, provide the following credentials and select **Connect**:
 
@@ -92,13 +90,15 @@ After completing this lab, you will be able to:
 26. From your lab computer, in the browser window displaying the Azure portal, search for and select Virtual machines and, on the Virtual machines blade, in the list of virtual machines, select az140-21-p1-2  under **Operations** section and select **Run command**, select **RunPowerShellScript** and under **Run Command Script** paste the content of p3script.ps1 is available on desktop and click on **Run**. 
 
 
-27. On the **az140-21-p1-0** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0 \| Connect** blade, select **Use Bastion**.
+27. On the **az140-21-p1-0** blade, On the left menu select **Bastion**, on the **Bastion** tab of the **az140-21-p1-0** Enter the below credentials and click on connect.
 
     |Setting|Value|
     |---|---|
     |User Name|**Student**|
     |Password|**Pa55w.rd1234**|
    
+    > **Note**: On clicking **Connect**, if you encounter an error **A popup blocker is preventing new window from opening. Please allow popups and retry**, then select the popup blocker icon at the top, select **Always allow pop-ups and redirects from https://portal.azure.com** click on **Done**, and try connecting to the VM again.
+
 28. Now right-click on the **connect** PowerShell file present on the desktop and select **Run with PowerShell** in the popup options. This will join the Session host to host pool.
     > **Note**: If they ask for Execution policy change give **Y** and for Nuget provider is required to continue provide **Y**.
 
@@ -107,6 +107,8 @@ After completing this lab, you will be able to:
     > **Note**: Please follow the previous two steps (steps 29 and 30) for Virtual Machines **az140-21-p1-1** and **az140-21-p1-2** .
  
 30. In the Azure portal, search for Application group and select az140-21-hp1-DAG, then click on Assignments under the Manage section.
+
+    >**Note**: If any warning pops-up stating to sign in again. Click on sign in And provide the credentials. It might ask you for authentication method. Click on **I want to setup different authentication method** and select **Phone** give your country **Pin Code** and your **Phone number** and the verification mode is set to **Text** once entered the phone number you will recieve verification code via Text enter the code and press enter.
 
 31. Click on + Add and search for aduser1 and then click on Select.
 32. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
@@ -139,7 +141,7 @@ After completing this lab, you will be able to:
 38. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
 39. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
 40. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
-41. On the **Workspace** tab of the **Create a workspace** blade, specify the following setting and select **Review + create**:
+41. On the **Workspace** tab, specify the following setting and select **Review + create**:
 
     |Setting|Value|
     |---|---|
@@ -154,7 +156,7 @@ The main tasks for this exercise are as follows:
 1. Prepare for scaling Azure Virtual Desktop session hosts
 2. Create a scaling plan for Azure Virtual Desktop session hosts
 
-#### Task 1: Prepare for scaling Azure Virtual Desktop session hosts
+### Task 1: Prepare for scaling Azure Virtual Desktop session hosts
 
 1. On your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
 1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
