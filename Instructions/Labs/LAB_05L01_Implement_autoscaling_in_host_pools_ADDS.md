@@ -6,7 +6,7 @@ You need to configure autoscaling of Azure Virtual Desktop session hosts in an A
 
 ## Lab Objectives
   
-After completing this lab, you will be able to:
+In this lab you will perform:
 
 - Configure autoscaling of Azure Virtual Desktop session hosts
 - Verify autoscaling of Azure Virtual Desktop session hosts
@@ -38,14 +38,19 @@ After completing this lab, you will be able to:
    > **Note**: Wait for thdouble-clicking complete and present you with **Microsoft Azure Active Directory Connect** wizard. This should take about 10 minutes. If the **Microsoft Azure Active Directory Connect** wizard is not presented to you after the logon task completes, then launch it manually by double clicking the **Azure AD Connect** icon on the desktop.
 
 5. On the **Welcome to Azure AD Connect** page of the **Microsoft Azure Active Directory Connect** wizard, select the checkbox **I agree to the license terms and privacy notice** and select **Continue**.
+
 6. On the **Express Settings** page of the **Microsoft Azure Active Directory Connect** wizard, select the **Customize** option.
+
 7. On the **Install required components** page, leave all optional configuration options deselected and select **Install**.
+
 8. On the **User sign-in** page, ensure that only the **Password Hash Synchronization** is enabled and select **Next**.
+
 9. On the **Connect to Azure AD** page, authenticate by using the credentials of the **aadsyncuser** user account you created in the previous exercise and select **Next**. 
 
    > **Note**: Provide the userPrincipalName attribute of the **aadsyncuser@mochol<inject key="DeploymentID" />.onmicrosoft.com** account available in the **LabValues** text file present on desktop and specify the password **Pa55w.rd1234**.
 
 10. On the **Connect your directories** page, select the **Add Directory** button to the right of the **adatum.com** forest entry.
+
 11. In the **AD forest account** window, ensure that the option to **Create new AD account** is selected, specify the following credentials, and select **OK**:
 
     |Setting|Value|
@@ -54,6 +59,7 @@ After completing this lab, you will be able to:
     |Password|**Pa55w.rd1234**|
 
 12. Back on the **Connect your directories** page, ensure that the **adatum.com** entry appears as a configured directory and select **Next**
+
 13. On the **Azure AD sign-in configuration** page, note the warning statig **Users will not be able to sign in to Azure AD with on-premises credentials if the UPN suffix does not match a verified domain name**, enable the checkbox **Continue without matching all UPN suffixes to verified domain**, and select **Next**.
 
     > **Note**: This is expected, since the Azure AD tenant does not have a verified custom DNS domain matching one of the UPN suffixes of the **adatum.com** AD DS.
@@ -111,8 +117,11 @@ After completing this lab, you will be able to:
     >**Note**: If any warning pops-up stating to sign in again. Click on sign in And provide the credentials. It might ask you for authentication method. Click on **I want to setup different authentication method** and select **Phone** give your country **Pin Code** and your **Phone number** and the verification mode is set to **Text** once entered the phone number you will recieve verification code via Text enter the code and press enter.
 
 31. Click on + Add and search for aduser1 and then click on Select.
+
 32. Within the Remote Desktop session to az140-dc-vm11, in the web browser window displaying the Azure portal, search for and select Azure Virtual Desktop and, on the Azure Virtual Desktop blade, select Application groups.
+
 33. On the application groups blade, select + Create.
+
 34. On the Basics tab of the Create an application group blade, specify the following settings and select Next: Applications >:
 
     |Setting|Value|
@@ -124,6 +133,7 @@ After completing this lab, you will be able to:
     |Application group name|**az140-21-hp1-Utilities-RAG**|
      
 35. On the **Applications** tab of the **Create an application group** blade, select **+ Add applications**.
+
 36. On the **Add application** blade, specify the following settings and select **Save**:
 
     |Setting|Value|
@@ -138,9 +148,13 @@ After completing this lab, you will be able to:
     |Require command line|**No**|
 
 37. Back on the **Applications** tab of the **Create an application group** blade, select **Next: Assignments >**.
+
 38. On the **Assignments** tab of the **Create an application group** blade, select **+ Add Azure AD users or user groups**.
+
 39. On the **Select Azure AD users or user groups** blade, select **aduser1** and click on **Select**.
+
 40. Back on the **Assignments** tab of the **Create an application group** blade, select **Next: Workspace >**.
+
 41. On the **Workspace** tab, specify the following setting and select **Review + create**:
 
     |Setting|Value|
@@ -159,6 +173,7 @@ The main tasks for this exercise are as follows:
 ### Task 1: Prepare for scaling Azure Virtual Desktop session hosts
 
 1. On your lab computer, start a web browser, navigate to the [Azure portal](https://portal.azure.com), and sign in by providing credentials of a user account with the Owner role in the subscription you will be using in this lab.
+
 1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
 
    >**Note**: Host pools you plan to use with autoscale should be configured with a non-default value of the **MaxSessionLimit** parameter. You can set this value in the host pool settings in the Azure portal or by running the **Update-AzWvdHostPool** Azure PowerShell cmdlets, as in this example. You can also set it explicitly when creating a pool in the Azure portal or when running the **New-AzWvdHostPool** Azure PowerShell cmdlet.
@@ -176,29 +191,36 @@ The main tasks for this exercise are as follows:
    >**Note**: Before creating your first scaling plan, you'll need to assign the **Desktop Virtualization Power On Off Contributor** RBAC role to Azure Virtual Desktop with your Azure subscription as the target scope. 
 
 1. In the browser window displaying the Azure portal, close the Cloud Shell pane.
+
 1. In the Azure portal, search for and select **Subscriptions** and, from the list of subscriptions, select the one that contains the Azure Virtual Desktop resources. 
+
 1. On the subscription page, select **Access control (IAM)**.
+
 1. On the **Access control (IAM)** page, in the toolbar, select the **+ Add button**, then select **Add role assignment** from the drop-down menu.
+
 1. On the **Role** tab of the **Add role assignment** wizard, search for and select the **Desktop Virtualization Power On Off Contributor** role and click **Next**.
-1. On the **Members** tab of the **Add role assignment** wizard, select **+ Select members**, search for and select either **Azure Virtual Desktop** or **Windows Virtual Desktop**, click **Select** and click **Next**.
+
+1. On the **Members** tab of the **Add role assignment** wizard, select **+ Select members**, search for and select either **Azure Virtual Desktop** or **Windows Virtual Desktop** depending on what is available , click **Select** and click **Next**.
 
    >**Note**: The value depends on when the **Microsoft.DesktopVirtualization** resource provider was first registered in your Azure tenant.
 
 1. On the **Review + assign** tab, select **Review + assign**.
 
-#### Task 2: Create a scaling plan for Azure Virtual Desktop session hosts
+### Task 2: Create a scaling plan for Azure Virtual Desktop session hosts
 
 1. On your lab computer, in the browser displaying the Azure portal, search for and select **Azure Virtual Desktop**. 
-1. On the **Azure Virtual Desktop** page, select **Scaling Plans** and then select **+ Create**.
+
+1. On the **Azure Virtual Desktop** page, On the left menu select **Scaling Plans** and then select **+ Create**.
+
 1. On the **Basics** tab of the **Create a scaling plan** wizard, specify the following information and select **Next Schedules >** (leave others with their default values):
 
    |Setting|Value|
    |---|---|
-   |Resource group|the name **az140-51-RG** of a new resource group|
+   |Resource group| **Create new** give the name **az140-51-RG** for the new resource group|
    |Name|**az140-51-scaling-plan**|
    |Location|the same Azure region to which you deployed the session hosts in the previous labs|
    |Friendly name|**az140-51 scaling plan**|
-   |Time zone|your local time zone|
+   |Time zone|your UTC local time zone|
 
    >**Note**: Exclusion tags allow you to designate a tag name for session hosts that you want to exclude from scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance using the exclusion tag "excludeFromScaling". 
 
@@ -214,7 +236,7 @@ The main tasks for this exercise are as follows:
 
    |Setting|Value|
    |---|---|
-   |Start time (24 hour system)|your current time minus 9 hours|
+   |Start time (24 hour system)|your current time On clock Substracted by 9 hours|
    |Load balancing algorithm|**Breadth first**|
    |Minimum percentage of hosts (%)|**20**|
    |Capacity threshold (%)|**60**|
@@ -229,7 +251,7 @@ The main tasks for this exercise are as follows:
 
    |Setting|Value|
    |---|---|
-   |Start time (24 hour system)|your current time minus 8 hours|
+   |Start time (24 hour system)|your current time on Clock Substracted by 8 hours|
    |Load balancing algorithm|**Depth-first**|
 
    >**Note**: The start time designates the end time for the ramp-up phase.
@@ -240,7 +262,7 @@ The main tasks for this exercise are as follows:
 
    |Setting|Value|
    |---|---|
-   |Start time (24 hour system)|your current time minus 2 hours|
+   |Start time (24 hour system)|your current time on Clock Substracted by 2 hours|
    |Load balancing algorithm|**Depth-first**|
    |Minimum percentage of hosts (%)|**10**|
    |Capacity threshold (%)|**90**|
@@ -255,7 +277,7 @@ The main tasks for this exercise are as follows:
 
    |Setting|Value|
    |---|---|
-   |Start time (24 hour system)|your current time minus 1 hour|
+   |Start time (24 hour system)|your current time on cloc Substracted 1 hour|
    |Load balancing algorithm|**Depth-first**|
 
    >**Note**: The capacity threshold value in this phase is determined by the ramp-down capacity threshold value.
@@ -271,7 +293,7 @@ The main tasks for this exercise are as follows:
 1. Set up diagnostics to track Azure Virtual Desktop autoscaling
 1. Verify autoscaling of Azure Virtual Desktop session hosts
 
-#### Task 1: Set up diagnostics to track Azure Virtual Desktop autoscaling
+### Task 1: Set up diagnostics to track Azure Virtual Desktop autoscaling
 
 1. On the lab computer, in the web browser window displaying the Azure portal, open a **PowerShell** session in the **Cloud Shell** pane.
 
@@ -307,13 +329,13 @@ The main tasks for this exercise are as follows:
 
    >**Note**: Wait until the session host Azure VMs are running.
 
-1. On the lab computer, in the web browser window displaying the Azure portal, navigate to the page of the **az140-21-hp1** host pool.
+1. On the lab computer, in the web browser window displaying the Azure portal, Search and select **host pools** navigate to the page of the **az140-21-hp1** host pool.
 1. On the **az140-21-hp1** page, select **Session hosts**.
 1. Wait until at least one session host is listed with the **Shutdown** status.
 
    >**Note**: You might need to refresh the page to update the status of the session hosts.
 
-   >**Note**: If all session hosts remain available, navigate back to the **az140-51-scaling-plan** page and reduce the value of the **Minimum percentage of hosts (%)** **Ramp down** setting.
+   >**Note**: If all session hosts remain available, navigate back to the **az140-51-scaling-plan** and on the left menu click on **Schedules** page and select the created Schedule and reduce the value of the **Minimum percentage of hosts (%)** **Ramp down** setting.
 
    >**Note**: Once the status of one or more session hosts changes, the autoscaling logs should be available in the Azure Storage account. 
 
@@ -370,7 +392,8 @@ The main tasks for this exercise are as follows:
       > - If you need any assistance, please contact us at labs-support@spektrasystems.com. We are available 24/7 to help.
     
 ### Review
-In this lab, you have completed the following:
+In this lab, you have Performed:
+
 - Configured autoscaling of Azure Virtual Desktop session hosts
 - Verified autoscaling of Azure Virtual Desktop session hosts
 
