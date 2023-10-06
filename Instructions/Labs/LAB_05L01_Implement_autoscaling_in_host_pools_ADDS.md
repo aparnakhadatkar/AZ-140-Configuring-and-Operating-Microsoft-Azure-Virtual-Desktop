@@ -342,6 +342,9 @@ The main tasks for this exercise are as follows:
 1. In the Azure portal, search and select **Storage accounts** and, on the **Storage accounts** page, select the entry representing the storage account created earlier in this exercise (which name starts with the **az140st51** prefix).
 1. On the storage account page, select **Containers**.
 1. In the list of containers, select **insights-logs-autoscale**.
+
+   >**Note**: If the container is not seen wait for few minutes. Even then if the container is not displayed Re-Run the above powershell command **Get-AzVM -ResourceGroup 'az140-21-RG' | Start-AzVM** and refresh the container page.
+
 1. On the **insights-logs-autoscale** page, navigate through the folder hierarchy until you reach the entry representing a JSON-formatted blob stored in the container.
 1. Select the blob entry, select the ellipsis icon on the far right of the page, and, in the drop-down menu, select **Download**.
 1. On your lab computer, open the downloaded blob in a text editor of your choice and examine its content. You should be able to find there references to autoscaling events. 
